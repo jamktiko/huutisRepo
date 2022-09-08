@@ -40,12 +40,14 @@ Tekijät: Severi Natunen, Jyri Lahtinen, Timo Saarela, Antti Raita
 
 ### Termit ja lyhenteet
 
-| Termi    | Kuvaus                                                    |
-| -------- | --------------------------------------------------------- |
-| Git      | Versionhallintajärjestelmä                                |
-| GitHub   | Palvelu joka on rakennettu GIT versionhallinnan ympärille |
-| Markdown | Merkkauskieli                                             |
-| TCHOPS   | Henkilökohtainen oppimisuunnitelma TIcorporateen          |
+| Termi     | Kuvaus                                                      |
+| --------- | ----------------------------------------------------------- |
+| Git       | Versionhallintajärjestelmä                                  |
+| GitHub    | Palvelu joka on rakennettu GIT versionhallinnan ympärille   |
+| Markdown  | Merkkauskieli                                               |
+| TCHOPS    | Henkilökohtainen oppimisuunnitelma TIcorporateen            |
+| Scrum     | Ketterä sovelluskehityksen viitekehitys projektinhallintaan |
+| Artifakti | Scrumissa toteuttava asiakirja, joka säilytetään.           |
 
 ### Viitteet
 
@@ -157,21 +159,25 @@ Projektin viikkopalaveri pidetöön perjantaisin tiimin huoneessa 208 DGC:llä. 
 
 _Kuvaa mitä eri tapoja projektilla ja asiakkaalla on käytössään kommunikointiin projektin aikana. Mikäli yrityksellä tai asiakkaalla on jokin järjestelmä esim. konferenssipuhelujen käyttämiseen, se tulee mainita tässä (mielellään myös käyttöohjeet)_
 
-Ryhmä kommunikoi sisäisesti Microsoft Teamsin kautta. Ryhmän yhteystiedot löytyvät teamsista, jota voi tarvittaessa käyttää.
+Ryhmä kommunikoi sisäisesti Microsoft Teamsin kautta. Ryhmän muut yhteystiedot löytyvät teamsista, jotta niitä voi tarvittaessa käyttää.
 
 ## Dokumentointi
 
 _Kirjaa tähän miten projekti on ajatellut työnsä dokumentoida. Vai dokumentoiko lainkaan?_
 
-Sovelluksen lähdekoodi dokumentoidaan kommentoimalla sitä koodatessa. Projektia dokumentoidaan scrumin omilla ja sen ulkopuolisilla asiakirjoilla.
+Sovelluksen lähdekoodi dokumentoidaan kommentoimalla sitä koodatessa. Lisäksi tehdään readme.md tiedostoja eri versioiden julkaisun ohella. Projektia dokumentoidaan scrumin määräämillä artifakteilla, sekä viikottaisen palaverin tuottamalla raportilla. Projektiin käytetyt tunnit merkataan erilliseen excel taulukkoon.
 
 ### Dokumenttipohjat
 
 _Kuvaa mitä pohjia dokumentoinnissa käytetään. Onko kyseessä projektin omat vai JAMKin pohjat vai jotain muuta_
 
+Scrum artifaktien dokumentaatiossa käytetään projektin omia pohjia. Projektisuunnitelman ja esitutkimuksen dokumentointiin käytetään valmiita markdown templaatteja. Jälkituotannon dokumentointi toteutetaan JAMK:in tarjoamilla pohjilla. Tiimi on luonut oman pohjansa tuntien seuranalle.
+
 ### Dokumenttien hallinta
 
 _Kuvaa dokumenttien säilytys, kenellä on oikeudet dokumenttien hallintaan, miten backupit on hoidettu, kuinka dokumentteja versioidaan (esim. 1.0 on vasta kun asiakas on hyväksynyt dokumentin) ja nimetään (onko esim. dokumentin nimessä versionumero)_
+
+Product owner vastaa backlogien säilytyksestä ja niitten varmuuskopioimisesta. Scrummaster vastaa retrospektiivin, sprint reviewin ja sprint planningin säilytyksestä ja varmuuskopioimisesta. Tämän lisäksi scrummaster vastaa viikottaisten palaverien raporteista. Henkilökohtaisia dokumentteja, joita säilytetään on tuntilista ja TCHOPS. Sovellus versioidaan alkaen versiosta 0.1 aina versioon 1.0 asti, joka on valmis sovellus. Kaikki dokumentit ovat tiimiläisten hallittavissa paitsi tuntilistat ja TCHOPS, jotka ovat henkilökohtaisia.
 
 ## Riskien hallinta
 
@@ -179,10 +185,9 @@ _Kuvaa tässä kuinka projekti aikoo hallinnoida ja seurata projektiriskejä_
 
 Esimerkiksi näin.
 
-| Riskit                                                       | Todennäköisyys | Impakti | Minimointi                             |
-| ------------------------------------------------------------ | -------------- | ------- | -------------------------------------- |
-| Työntekijät eivät ole motivoituneita ja eivät saavu paikalle | Pieni          | Suuri   | Pidetään työpaikalla kahvia ja pullaa. |
-
-## Avoimet asiat
-
-_Kuvaa tässä luvussa mitä asioita projektista on vielä avoinna. Mihin asiakkaan tulisi ottaa kantaa_
+| Riskit                                                       | Todennäköisyys    | Impakti | Minimointi                                                         |
+| ------------------------------------------------------------ | ----------------- | ------- | ------------------------------------------------------------------ |
+| Työntekijät eivät ole motivoituneita ja eivät saavu paikalle | Pieni             | Suuri   | Pidetään työpaikka viihtyisänä.                                    |
+| Työntekijä sairastuu                                         | Pieni             | Suuri   | Pidetään huoli yleisestä terveydestä.                              |
+| Työntekijä ylikuormittuu                                     | Pieni/Kohtalainen | Valtava | Pidetään huoli, että kaikilla on siedettävä määrä tehtävää.        |
+| Sovelluksesta tulee monimutkainen ja vaikea käyttää          | Pieni             | Suuri   | Pidetään sovelluksen visio mielessä ja testataan loppukäyttäjillä. |
