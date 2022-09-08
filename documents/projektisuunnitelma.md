@@ -34,9 +34,9 @@
 
 ## Projektin tiedot
 
-\<Projektin nimi>
+\<Huutoäänestysäppi>
 
-Tekijät:
+Tekijät: Severi Natunen, Jyri Lahtinen, Timo Saarela, Antti Raita
 
 ### Termit ja lyhenteet
 
@@ -44,6 +44,7 @@ Tekijät:
 | -------- | --------------------------------------------------------- |
 | Git      | Versionhallintajärjestelmä                                |
 | GitHub   | Palvelu joka on rakennettu GIT versionhallinnan ympärille |
+| Markdown | Merkkauskieli                                             |
 | Markdown | Merkkauskieli                                             |
 
 ### Viitteet
