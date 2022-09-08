@@ -45,7 +45,7 @@ Tekijät: Severi Natunen, Jyri Lahtinen, Timo Saarela, Antti Raita
 | Git      | Versionhallintajärjestelmä                                |
 | GitHub   | Palvelu joka on rakennettu GIT versionhallinnan ympärille |
 | Markdown | Merkkauskieli                                             |
-| Markdown | Merkkauskieli                                             |
+| TCHOPS   | Henkilökohtainen oppimisuunnitelma TIcorporateen          |
 
 ### Viitteet
 
@@ -58,29 +58,36 @@ Tekijät: Severi Natunen, Jyri Lahtinen, Timo Saarela, Antti Raita
 
 ### Johdanto
 
-_Lyhyt kuvaus projektista ja dokumentista_
+Kehittämme sovelluksen, joka auttaa ryhmiä muodostamaan yhteisiä päätöksiä äänestämällä. Tarkoituksemme on kehittää sovellus, joka keskittyy käytettävyyteen ja suorituskykyyn. Tämä dokumentti toimii projektisuunnitelmana.
 
 ### Projektin tausta ja tavoitteet
 
-_Mitä tehdään ja kelle? Mitkä ovat projektin tavoitteet?_
+Kehitetään sovellus, joka helpottaa ongelmanratkaisua ryhmissä. Sovellus on suunnattu kenelle tahansa, joka omistaa älypuhelimen, mutta erityisesti nuorille aikuislle esim. opiskelija - ja kaveriporukoille. Tavoitteena on luoda on helppokäyttöinen ja nopea sovellus päätösten tekemiseen.
 
 ### Tuotokset
 
-_Kirjoita tähän mitä projekti tuottaa elinkaarensa aikana. Esim._
+Projekti tuottaa
 
 - Projektisuunnitelma
 - Esitutkimus
-- Spring backlog
+- Sprint backlog
+- Product backlog
+- Sovellus
+- Loppuraportti
+- Retrospektiivi
+- Sprint review
 
 ### Projektin hyväskyminen
 
-_Kirjoita tähän lukuun minkä toimintojen jälkeen projekti on hyväksyttävissä. Yleensä hyväksyminen voidaan todeta kun projektin tavoitteet ovat toteutuneet._
+Projekti on hyväksyttävässä kunnossa, kun sovellus on teknisesti julkaistavissa ja sitä on testattu loppukäyttäjien kanssa ja on todettu, että sovellus on saavuttanut halutun helppokäyttöisyyden ja suorituskyvyn.
 
 ## Toimintasuunnitelma
 
-_Tässä luvussa kuvataan tapa, jolla projekti viedään läpi. Esim. Scrum, OMT++, Protoilu jne. Ota huomioon myös kestävä kehitys!_
+Tässä luvussa esitellään eri tavat, millä viemme projektimme läpi.
 
 ### Projektin aloittamisesta
+
+Projekti alkaa esituotannolla, joka tuottaa projektisuunnitelman ja esitutkimuksen. Ryhmänä vedetään Googlen design sprintiä, kunnes sovellus on sen mukaan hyväksyttävä. Projektin aikana jokainnen ryhmän jäsen kirjoittaa henkilökohtaisen TCHOPsin.
 
 ### Projektin toteuttamisesta
 
