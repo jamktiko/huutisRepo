@@ -83,17 +83,21 @@ Projekti on hyväksyttävässä kunnossa, kun sovellus on teknisesti julkaistavi
 
 ## Toimintasuunnitelma
 
-Tässä luvussa esitellään eri tavat, millä viemme projektimme läpi.
-
 ### Projektin aloittamisesta
 
-Projekti alkaa esituotannolla, joka tuottaa projektisuunnitelman ja esitutkimuksen. Ryhmänä vedetään Googlen design sprintiä, kunnes sovellus on sen mukaan hyväksyttävä. Projektin aikana jokainnen ryhmän jäsen kirjoittaa henkilökohtaisen TCHOPsin.
+Ryhmä käy läpi konspetin ja tekee roolin jaon. Projekti jatkuu esituotannolla, joka tuottaa projektisuunnitelman ja esitutkimuksen. Ryhmänä vedetään Googlen design sprintiä, kunnes sovellus on sen mukaan hyväksyttävä. Projektin aikana jokainnen ryhmän jäsen kirjoittaa henkilökohtaisen TCHOPsin.
 
 ### Projektin toteuttamisesta
 
+Sovelluskehityksessä tulemme käyttämään scrum viitekehystä projektinhallintaan. Jokainen ryhmän jäsen toteuttaa määrätyn roolin tehtäviänsä, mutta projekti tehdään ryhmätyönä yhteisesti.
+
 ### Projektin testaamisesta
 
+Sovellusta testataan koko projektin ajan toimivuuden varmistamiseksi. Toimivan version valmistuessa sovellusta aletaan testaamaan loppukäyttäjillä runsaasti. Suoritamme erilaisia käytettävyyden testejä teknisellä puolella. Suorituskykyä testataan parhaan tehokkuuden saamiseksi.
+
 ### Projektin lopettamisesta
+
+Projektin lopuksi sovellusta demotaan ja teemme loppuseityksen, jossa kerrotaan tuotannosta. Tuotetaan myös projektin loppuraportti. Projekti varmuuskopioidaan sekä poistetaan versionhallinasta. Dokumentaatio palautetaan vastuuopettajalle. Projekti julkaistaan avoimena lähdekoodina. Jokainen ryhmän jäsen tekee henkilökohtaisen näyteportfolion projektin lopuksi.
 
 ## Projektin resurssit
 
@@ -110,10 +114,12 @@ _Ketä projektiin kuuluu ja mitkä ovat henkilöiden päävastuut. Kuinka projek
 
 ### Ohjausryhmä
 
-| Nimi           | Rooli(t) | Yhteystiedot          |
-| -------------- | -------- | --------------------- |
-| Martti Vainaa  | Ohjaaja  | A1234@jamk.fi         |
-| Kalevi Kuollut | Lehtori  | B1234@student.jamk.fi |
+| Nimi           | Rooli(t) | Yhteystiedot           |
+| -------------- | -------- | ---------------------- |
+| Teemu Pölkki   | Ohjaaja  | teemu.polkki@jamk.fi   |
+| Jukka Riikonen | Ohjaaja  | jukka.riikonen@jamk.fi |
+| Jere Lamberg   | Ohjaaja  | jere.lamberg@jamk.fi   |
+| Antony Smal    | Ohjaaja  | antony.smal@jamk.fi    |
 
 ### Työryhmät
 
@@ -124,12 +130,6 @@ _jos on_
 | Martti Vainaa  | Scrum Master            | A1234@student.jamk.fi |
 | Kalevi Kuollut | Developer, testing lead | B1234@student.jamk.fi |
 
-### Asiakkaan vastuut
-
-**Jos on asiakas!**
-
-_Tässä luvussa kuvataan mitä vastuita asiakkaalla on projektia kohtaan. Listaa tähän kaikki resurssit joita asiakas projektille antaa eri vaiheissa. Näitä voidaan pitää asiakkaan vastuina, jotta projektia voidaan viedä eteenpäin. Muistakaa painottaa asiakkaalle, mitä heiltä vaaditaan projektin onnistumiselle_
-
 ### Työkalut
 
 _Listaa tähän kaikki työkalut joita projekti tarvitsee projektin onnistumiseksi. Niin ohjelmistot kuin raudatkin. Mikäli asiakas tarjoaa jotain siitä tulee mainita tässä kappaleessa_
@@ -138,6 +138,15 @@ _Listaa tähän kaikki työkalut joita projekti tarvitsee projektin onnistumisek
 - Pilvipalvelut?
 - Työasemat?
 - Jne
+- Angular
+- Tietokone
+- Adobe Creative Cloud
+- Visual Studio Code
+- GitHub
+- Git
+- Figma
+- Firebase
+- ZenHub
 
 ## Raportointi ja kommunikointi
 
@@ -145,13 +154,13 @@ _Listaa tähän kaikki työkalut joita projekti tarvitsee projektin onnistumisek
 
 _Kuvaa kuinka projekti raportoi omalle organisaatiolleen ja kuka vastaa mistäkin raportoinnista_
 
-### Asiakasraportointi
-
-_Kuvaa kuinka projekti raportoi asiakkaalle ja millä aikataululla. Kenelle tehdyt raportit lähetetään._
+Scrummaster toimittaa viikottain raportin projektista ohjaajille.
 
 ### Palaverikäytänteet (Daily Scrum, Sprint Backlog, jne)
 
 _Projektin viikkopalaveri pidetään xxx paikassa xxx. Palaverin aikana selvitetään tehdyt työt ja suunnitellaan tulevat. Palavereista tehdään pöytäkirja joita säilytetään projektihakemistossa_
+
+Projektin viikkopalaveri pidetöön perjantaisin tiimin huoneessa 208 DGC:llä. Palaverin aikana selvitetään mitä on tehty ja mitä tullaan tekemään. Palaverista tehdään pöytäkirja, joka säilytetään. Pidetään päivittäisiä scrum tapaamisia työpäivän alussa tiimin sopimaan aikaan.
 
 ### Kommunikointitavat
 
