@@ -94,10 +94,12 @@ _Tässä luvussa kuvataan tapa, jolla projekti viedään läpi. Esim. Scrum, OMT
 
 _Ketä projektiin kuuluu ja mitkä ovat henkilöiden päävastuut. Kuinka projekti organisoituu ja minkä tyyppisiä ryhmiä/työmuotoja muodostetaan. Selvittäkää myös ohjauksen ja asiakkaan kuin myös muidenkin projektiin osallistuneiden tehtävät ja toimet_
 
-| Nimi           | Rooli(t)                | Yhteystiedot          |
-| -------------- | ----------------------- | --------------------- |
-| Martti Vainaa  | Scrum Master            | A1234@student.jamk.fi |
-| Kalevi Kuollut | Developer, testing lead | B1234@student.jamk.fi |
+| Nimi           | Rooli(t)                    | Yhteystiedot           |
+| -------------- | --------------------------- | ---------------------- |
+| Antti Raita    | Scrum Master, Liiketoiminta | N1472@student.jamk.fi  |
+| Severi Natunen | Product Owner, UI/UX        | AA4352@student.jamk.fi |
+| Jyri Lahtinen  | UI/UX                       | N4065@student.jamk.fi  |
+| Timo Saarela   | Tekniikka, Testaus          | N9516@student.jamk.fi  |
 
 ### Ohjausryhmä
 
