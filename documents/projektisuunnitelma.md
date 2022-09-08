@@ -40,31 +40,31 @@ Tekijät: Severi Natunen, Jyri Lahtinen, Timo Saarela, Antti Raita
 
 ### Termit ja lyhenteet
 
-| Termi     | Kuvaus                                                      |
-| --------- | ----------------------------------------------------------- |
-| Git       | Versionhallintajärjestelmä                                  |
-| GitHub    | Palvelu joka on rakennettu GIT versionhallinnan ympärille   |
-| Markdown  | Merkkauskieli                                               |
-| TCHOPS    | Henkilökohtainen oppimisuunnitelma TIcorporateen            |
-| Scrum     | Ketterä sovelluskehityksen viitekehitys projektinhallintaan |
-| Artifakti | Scrumissa toteuttava asiakirja, joka säilytetään.           |
+| Termi     | Kuvaus                                                          |
+| --------- | --------------------------------------------------------------- |
+| Git       | Versionhallintajärjestelmä                                      |
+| GitHub    | Palvelu joka on rakennettu GIT versionhallinnan ympärille       |
+| Markdown  | Merkkauskieli                                                   |
+| TCHOPS    | Henkilökohtainen oppimisuunnitelma TIcorporateen                |
+| Scrum     | Ketterä sovelluskehityksen viitekehitys projektinhallintaan     |
+| Artifakti | Scrumissa toteuttava asiakirja, joka säilytetään.               |
+| HLTP      | High Level Testing Plan, jonka avulla suunnittellaan testausta. |
 
 ### Viitteet
 
-| Viittaus | Materiaali                        |
-| -------- | --------------------------------- |
-| HLTP     | \<linkki hltp dokumenttiin>       |
-| GDD      | \<linkki gamedesign dokumenttiin> |
+| Viittaus | Materiaali                  |
+| -------- | --------------------------- |
+| HLTP     | \<linkki hltp dokumenttiin> |
 
 ## Projektin sisältö
 
 ### Johdanto
 
-Kehittämme sovelluksen, joka auttaa ryhmiä muodostamaan yhteisiä päätöksiä äänestämällä. Tarkoituksemme on kehittää sovellus, joka keskittyy käytettävyyteen ja suorituskykyyn. Tämä dokumentti toimii projektisuunnitelmana.
+Kehittämme sovelluksen, joka auttaa ryhmiä muodostamaan yhteisiä päätöksiä äänestämällä. Tarkoituksemme on kehittää sovellus, joka keskittyy käytettävyyteen ja suorituskykyyn. Sovelluksen pääominaisuutena on luoda huoneita, joissa ryhmäläiset äänestävät huoneen luojan määrämistä vaihtoehdoista. Lopussa tulokset julkaistaan kaikkien nähtäviksi. Sovellukseen kehitetään monipuolisia vaihtoehtoja päätöksen tekemiseen. Tämä dokumentti toimii projektisuunnitelmana.
 
 ### Projektin tausta ja tavoitteet
 
-Kehitetään sovellus, joka helpottaa ongelmanratkaisua ryhmissä. Sovellus on suunnattu kenelle tahansa, joka omistaa älypuhelimen, mutta erityisesti nuorille aikuislle esim. opiskelija - ja kaveriporukoille. Tavoitteena on luoda on helppokäyttöinen ja nopea sovellus päätösten tekemiseen.
+Kehitetään sovellus, joka helpottaa ongelmanratkaisua ryhmissä. Sovellus on suunnattu kenelle tahansa, joka omistaa älypuhelimen, mutta erityisesti nuorille aikuislle esim. opiskelija - ja kaveriporukoille. Tavoitteena on luoda on helppokäyttöinen ja nopea sovellus päätösten tekemiseen. Tavoitteena on pitää sovellus hyvin nopeana ja helppokäyttöisenä.
 
 ### Tuotokset
 
@@ -78,28 +78,30 @@ Projekti tuottaa
 - Loppuraportti
 - Retrospektiivi
 - Sprint review
+- Viikottaiset raportit
+- Henkilökohtaiset portfoliot
 
-### Projektin hyväskyminen
+### Projektin hyväksyminen
 
-Projekti on hyväksyttävässä kunnossa, kun sovellus on teknisesti julkaistavissa ja sitä on testattu loppukäyttäjien kanssa ja on todettu, että sovellus on saavuttanut halutun helppokäyttöisyyden ja suorituskyvyn.
+Projekti on hyväksyttävässä kunnossa, kun sovellus on toimivuudeltaan ja ulkoasultaan julkaisukelpoinen. Hyväksyminen vaatii, että sitä on testattu loppukäyttäjien kanssa ja on todettu, että sovellus on saavuttanut halutun helppokäyttöisyyden ja suorituskyvyn.
 
 ## Toimintasuunnitelma
 
 ### Projektin aloittamisesta
 
-Ryhmä käy läpi konspetin ja tekee roolin jaon. Projekti jatkuu esituotannolla, joka tuottaa projektisuunnitelman ja esitutkimuksen. Ryhmänä vedetään Googlen design sprintiä, kunnes sovellus on sen mukaan hyväksyttävä. Projektin aikana jokainnen ryhmän jäsen kirjoittaa henkilökohtaisen TCHOPsin.
+Ryhmä käy läpi konspetin ja tekee roolien jaon. Projekti jatkuu esituotannolla, jonka aikana tehdään projektisuunnitelma ja esitutkimus. Ryhmänä suoritetaan Googlen design sprint, kunnes sovellus on sen mukaan hyväksyttävä. Projektin alussa jokainen ryhmän jäsen alkaa kirjoittamaan henkilökohtaista TCHOPSia.
 
 ### Projektin toteuttamisesta
 
-Sovelluskehityksessä tulemme käyttämään scrum viitekehystä projektinhallintaan. Jokainen ryhmän jäsen toteuttaa määrätyn roolin tehtäviänsä, mutta projekti tehdään ryhmätyönä yhteisesti. Projekti suoritetaan kahden viikon mittaisisssa sprinteissä, joiden alku on sprint planning ja ne loppuvat sprint revieween ja retrospektiiviin. Sprintin aikana pidetään päivittäisiä scrum tapaamisia. Scrum tapahtumien ulkopuolella työskentelemme omissa tehtävissämme.
+Sovelluskehityksessä tulemme käyttämään scrum viitekehystä projektinhallintaan. Jokainen ryhmän jäsen toteuttaa määrätyn roolin tehtäviänsä, mutta projekti tehdään ryhmätyönä yhteisesti. Projekti suoritetaan kahden viikon mittaisisssa sprinteissä, joiden alku on sprint planning ja ne loppuvat sprint revieween ja retrospektiiviin. Sprintin aikana pidetään päivittäisiä scrum tapaamisia. Scrum tapahtumien ulkopuolella työskentelemme omissa tehtävissämme. Jokainen ryhmän jäsen kirjaa ylös työtunnit.
 
 ### Projektin testaamisesta
 
-Sovellusta testataan koko projektin ajan toimivuuden varmistamiseksi. Toimivan version valmistuessa sovellusta aletaan testaamaan loppukäyttäjillä runsaasti. Suoritamme erilaisia käytettävyyden testejä teknisellä puolella. Suorituskykyä testataan parhaan tehokkuuden saamiseksi.
+Sovellusta testataan koko projektin ajan toimivuuden varmistamiseksi. Toimivan version valmistuessa sovellusta aletaan testaamaan loppukäyttäjillä runsaasti. Suoritamme erilaisia käytettävyyden testejä teknisellä puolella. Suorituskykyä testataan parhaan tehokkuuden saamiseksi. Testauksen suunnitteluun käytetään HLTP:tä.
 
 ### Projektin lopettamisesta
 
-Projektin lopuksi sovellusta demotaan ja teemme loppuseityksen, jossa kerrotaan tuotannosta. Tuotetaan myös projektin loppuraportti. Projekti varmuuskopioidaan sekä poistetaan versionhallinasta. Dokumentaatio palautetaan vastuuopettajalle. Projekti julkaistaan avoimena lähdekoodina. Jokainen ryhmän jäsen tekee henkilökohtaisen näyteportfolion projektin lopuksi.
+Projektin lopuksi sovellusta demotaan ja teemme loppuesityksen, jossa kerrotaan koko tuotannosta. Tuotetaan myös projektin loppuraportti, jossa kerrotaan syksyn aikana opittua ja tehtyä sekä reflektoidaan. Projekti varmuuskopioidaan sekä poistetaan versionhallinasta. Dokumentaatio palautetaan vastuuopettajalle. Projekti julkaistaan avoimena lähdekoodina. Jokainen ryhmän jäsen tekee henkilökohtaisen näyteportfolion projektin lopuksi.
 
 ## Projektin resurssit
 
@@ -125,12 +127,6 @@ _Ketä projektiin kuuluu ja mitkä ovat henkilöiden päävastuut. Kuinka projek
 
 ### Työkalut
 
-_Listaa tähän kaikki työkalut joita projekti tarvitsee projektin onnistumiseksi. Niin ohjelmistot kuin raudatkin. Mikäli asiakas tarjoaa jotain siitä tulee mainita tässä kappaleessa_
-
-- Palvelimet?
-- Pilvipalvelut?
-- Työasemat?
-- Jne
 - Angular
 - Tietokone
 - Adobe Creative Cloud
@@ -140,6 +136,7 @@ _Listaa tähän kaikki työkalut joita projekti tarvitsee projektin onnistumisek
 - Figma
 - Firebase
 - ZenHub
+- Matkakaiutin
 
 ## Raportointi ja kommunikointi
 
@@ -147,7 +144,7 @@ _Listaa tähän kaikki työkalut joita projekti tarvitsee projektin onnistumisek
 
 _Kuvaa kuinka projekti raportoi omalle organisaatiolleen ja kuka vastaa mistäkin raportoinnista_
 
-Scrummaster toimittaa viikottain raportin projektista ohjaajille.
+Scrummaster toimittaa viikottaisen raportin sekä kaikkiin tapaamisiin käytetyt minuutit ohjaajille. Sen lisäksi scrummaster tekee loppuraportin tuotantoprosessista.
 
 ### Palaverikäytänteet (Daily Scrum, Sprint Backlog, jne)
 
@@ -159,7 +156,7 @@ Projektin viikkopalaveri pidetöön perjantaisin tiimin huoneessa 208 DGC:llä. 
 
 _Kuvaa mitä eri tapoja projektilla ja asiakkaalla on käytössään kommunikointiin projektin aikana. Mikäli yrityksellä tai asiakkaalla on jokin järjestelmä esim. konferenssipuhelujen käyttämiseen, se tulee mainita tässä (mielellään myös käyttöohjeet)_
 
-Ryhmä kommunikoi sisäisesti Microsoft Teamsin kautta. Ryhmän muut yhteystiedot löytyvät teamsista, jotta niitä voi tarvittaessa käyttää.
+Ryhmä kommunikoi sisäisesti Microsoft Teamsin kautta. Ryhmän muut yhteystiedot löytyvät teamsista, jotta niitä voi tarvittaessa käyttää. Tiimillä on myös erilaisia palavereita, kuten viikottainen palaveri.
 
 ## Dokumentointi
 
