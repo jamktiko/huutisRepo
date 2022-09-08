@@ -109,8 +109,8 @@ _Ketä projektiin kuuluu ja mitkä ovat henkilöiden päävastuut. Kuinka projek
 | -------------- | --------------------------- | ---------------------- |
 | Antti Raita    | Scrum Master, Liiketoiminta | N1472@student.jamk.fi  |
 | Severi Natunen | Product Owner, UI/UX        | AA4352@student.jamk.fi |
-| Jyri Lahtinen  | UI/UX                       | N4065@student.jamk.fi  |
-| Timo Saarela   | Tekniikka, Testaus          | N9516@student.jamk.fi  |
+| Jyri Lahtinen  | UI/UX                       | N9516@student.jamk.fi  |
+| Timo Saarela   | Tekniikka, Testaus          | N4065@student.jamk.fi  |
 
 ### Ohjausryhmä
 
