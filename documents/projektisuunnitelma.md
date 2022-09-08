@@ -89,7 +89,7 @@ Ryhmä käy läpi konspetin ja tekee roolin jaon. Projekti jatkuu esituotannolla
 
 ### Projektin toteuttamisesta
 
-Sovelluskehityksessä tulemme käyttämään scrum viitekehystä projektinhallintaan. Jokainen ryhmän jäsen toteuttaa määrätyn roolin tehtäviänsä, mutta projekti tehdään ryhmätyönä yhteisesti.
+Sovelluskehityksessä tulemme käyttämään scrum viitekehystä projektinhallintaan. Jokainen ryhmän jäsen toteuttaa määrätyn roolin tehtäviänsä, mutta projekti tehdään ryhmätyönä yhteisesti. Projekti suoritetaan kahden viikon mittaisisssa sprinteissä, joiden alku on sprint planning ja ne loppuvat sprint revieween ja retrospektiiviin. Sprintin aikana pidetään päivittäisiä scrum tapaamisia. Scrum tapahtumien ulkopuolella työskentelemme omissa tehtävissämme.
 
 ### Projektin testaamisesta
 
@@ -114,21 +114,12 @@ _Ketä projektiin kuuluu ja mitkä ovat henkilöiden päävastuut. Kuinka projek
 
 ### Ohjausryhmä
 
-| Nimi           | Rooli(t) | Yhteystiedot           |
-| -------------- | -------- | ---------------------- |
-| Teemu Pölkki   | Ohjaaja  | teemu.polkki@jamk.fi   |
-| Jukka Riikonen | Ohjaaja  | jukka.riikonen@jamk.fi |
-| Jere Lamberg   | Ohjaaja  | jere.lamberg@jamk.fi   |
-| Antony Smal    | Ohjaaja  | antony.smal@jamk.fi    |
-
-### Työryhmät
-
-_jos on_
-
-| Nimi           | Rooli(t)                | Yhteystiedot          |
-| -------------- | ----------------------- | --------------------- |
-| Martti Vainaa  | Scrum Master            | A1234@student.jamk.fi |
-| Kalevi Kuollut | Developer, testing lead | B1234@student.jamk.fi |
+| Nimi           | Rooli(t)       | Yhteystiedot           |
+| -------------- | -------------- | ---------------------- |
+| Teemu Pölkki   | Vastuuopettaja | teemu.polkki@jamk.fi   |
+| Jukka Riikonen | Ohjaaja        | jukka.riikonen@jamk.fi |
+| Jere Lamberg   | Ohjaaja        | jere.lamberg@jamk.fi   |
+| Antony Smal    | Ohjaaja        | antony.smal@jamk.fi    |
 
 ### Työkalut
 
@@ -160,15 +151,19 @@ Scrummaster toimittaa viikottain raportin projektista ohjaajille.
 
 _Projektin viikkopalaveri pidetään xxx paikassa xxx. Palaverin aikana selvitetään tehdyt työt ja suunnitellaan tulevat. Palavereista tehdään pöytäkirja joita säilytetään projektihakemistossa_
 
-Projektin viikkopalaveri pidetöön perjantaisin tiimin huoneessa 208 DGC:llä. Palaverin aikana selvitetään mitä on tehty ja mitä tullaan tekemään. Palaverista tehdään pöytäkirja, joka säilytetään. Pidetään päivittäisiä scrum tapaamisia työpäivän alussa tiimin sopimaan aikaan.
+Projektin viikkopalaveri pidetöön perjantaisin tiimin huoneessa 208 DGC:llä. Muutkin tapaamiset pidetään samassa paikassa. Palaverin aikana selvitetään mitä on tehty ja mitä tullaan tekemään. Palaverista tehdään pöytäkirja, joka säilytetään. Pidetään päivittäisiä scrum tapaamisia työpäivän alussa tiimin sopimaan aikaan. Joka sprintti alkaa sprint planningilla, jossa luodaan sprint backlog. Sprintin loppupäässä muokataan product backlogia. Sprintin lopuksi pidetään myös sprint review, jossa käydään läpi mitä saatiin aikaiseksi. Sen lisäksi pidetään sprint retrospective, jossa mietitään mitä opimme.
 
 ### Kommunikointitavat
 
 _Kuvaa mitä eri tapoja projektilla ja asiakkaalla on käytössään kommunikointiin projektin aikana. Mikäli yrityksellä tai asiakkaalla on jokin järjestelmä esim. konferenssipuhelujen käyttämiseen, se tulee mainita tässä (mielellään myös käyttöohjeet)_
 
+Ryhmä kommunikoi sisäisesti Microsoft Teamsin kautta. Ryhmän yhteystiedot löytyvät teamsista, jota voi tarvittaessa käyttää.
+
 ## Dokumentointi
 
 _Kirjaa tähän miten projekti on ajatellut työnsä dokumentoida. Vai dokumentoiko lainkaan?_
+
+Sovelluksen lähdekoodi dokumentoidaan kommentoimalla sitä koodatessa. Projektia dokumentoidaan scrumin omilla ja sen ulkopuolisilla asiakirjoilla.
 
 ### Dokumenttipohjat
 
