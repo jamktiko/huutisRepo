@@ -98,6 +98,8 @@ Ryhmä käy läpi konspetin ja tekee roolien jaon. Projekti jatkuu esituotannoll
 
 Sovelluskehityksessä tulemme käyttämään scrum viitekehystä projektinhallintaan. Jokainen ryhmän jäsen toteuttaa määrätyn roolin tehtäviänsä, mutta projekti tehdään ryhmätyönä yhteisesti. Projekti suoritetaan kahden viikon mittaisisssa sprinteissä, joiden alku on sprint planning ja niiden loppu on sprint review ja retrospektiivi. Sprintin aikana pidetään päivittäisiä scrum tapaamisia. Scrum tapahtumien ulkopuolella työskentelemme omissa tehtävissämme. Jokainen ryhmän jäsen kirjaa ylös työtunnit.
 
+Sovelluksemme antaa ryhmälle työkalun yhteisiin päätöksiin, millä taataan, että jokaisella ryhmässä on ääni. Tämä edesauttaa sosiaalista ja kulttuurillista kehitystä, koska se antaa jokaiselle tasavertaisen mahdollisuuden tulla kuulluksi. Sovelluksemme edistää taloudellista kestävyyttä, koska se ei perustu velkaantumiseen tai luonnonvarojen liika käyttöön. Projektimme vaikutus ympäristön kuormitukseen on lähes olematon.
+
 ### Projektin testaamisesta
 
 Sovellusta testataan koko projektin ajan toimivuuden varmistamiseksi. Toimivan version valmistuessa sovellusta aletaan testaamaan loppukäyttäjillä runsaasti. Suoritamme erilaisia käytettävyyden testejä teknisellä puolella. Suorituskykyä testataan parhaan tehokkuuden saamiseksi. Testauksen suunnitteluun käytetään HLTP:tä.
