@@ -55,9 +55,9 @@ Tekijät: Severi Natunen, Jyri Lahtinen, Timo Saarela, Antti Raita
 
 ### Viitteet
 
-| Viittaus                                                                   | Materiaali                                                           |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| [HLTP](https://github.com/jamktiko/huutisRepo/blob/main/documents/hltp.md) | <https://github.com/jamktiko/huutisRepo/blob/main/documents/hltp.md> |
+| Viittaus | Materiaali                                                           |
+| -------- | -------------------------------------------------------------------- |
+| HLTP     | <https://github.com/jamktiko/huutisRepo/blob/main/documents/hltp.md> |
 
 ## Projektin sisältö
 
@@ -110,8 +110,6 @@ Projektin lopuksi sovellusta demotaan ja teemme loppuesityksen, jossa kerrotaan 
 
 ### Projektin organisaatio
 
-_Ketä projektiin kuuluu ja mitkä ovat henkilöiden päävastuut. Kuinka projekti organisoituu ja minkä tyyppisiä ryhmiä/työmuotoja muodostetaan. Selvittäkää myös ohjauksen ja asiakkaan kuin myös muidenkin projektiin osallistuneiden tehtävät ja toimet_
-
 | Nimi           | Rooli(t)                    | Yhteystiedot           |
 | -------------- | --------------------------- | ---------------------- |
 | Antti Raita    | Scrum Master, Liiketoiminta | N1472@student.jamk.fi  |
@@ -145,45 +143,29 @@ _Ketä projektiin kuuluu ja mitkä ovat henkilöiden päävastuut. Kuinka projek
 
 ### Sisäinen raportointi
 
-_Kuvaa kuinka projekti raportoi omalle organisaatiolleen ja kuka vastaa mistäkin raportoinnista_
-
 Scrummaster toimittaa viikottaisen raportin sekä kaikkiin tapaamisiin käytetyt minuutit ohjaajille. Sen lisäksi scrummaster tekee loppuraportin tuotantoprosessista.
 
 ### Palaverikäytänteet (Daily Scrum, Sprint Backlog, jne)
-
-_Projektin viikkopalaveri pidetään xxx paikassa xxx. Palaverin aikana selvitetään tehdyt työt ja suunnitellaan tulevat. Palavereista tehdään pöytäkirja joita säilytetään projektihakemistossa_
 
 Projektin viikkopalaveri pidetöön perjantaisin tiimin huoneessa 208 DGC:llä. Muutkin tapaamiset pidetään samassa paikassa. Palaverin aikana selvitetään mitä on tehty ja mitä tullaan tekemään. Palaverista tehdään pöytäkirja, joka säilytetään. Pidetään päivittäisiä scrum tapaamisia työpäivän alussa tiimin sopimaan aikaan. Joka sprintti alkaa sprint planningilla, jossa luodaan sprint backlog. Sprintin loppupäässä muokataan product backlogia. Sprintin lopuksi pidetään myös sprint review, jossa käydään läpi mitä saatiin aikaiseksi. Sen lisäksi pidetään sprint retrospective, jossa mietitään mitä opimme.
 
 ### Kommunikointitavat
 
-_Kuvaa mitä eri tapoja projektilla ja asiakkaalla on käytössään kommunikointiin projektin aikana. Mikäli yrityksellä tai asiakkaalla on jokin järjestelmä esim. konferenssipuhelujen käyttämiseen, se tulee mainita tässä (mielellään myös käyttöohjeet)_
-
 Ryhmä kommunikoi sisäisesti Microsoft Teamsin kautta. Ryhmän muut yhteystiedot löytyvät teamsista, jotta niitä voi tarvittaessa käyttää. Tiimillä on myös erilaisia palavereita, kuten viikottainen palaveri.
 
 ## Dokumentointi
-
-_Kirjaa tähän miten projekti on ajatellut työnsä dokumentoida. Vai dokumentoiko lainkaan?_
 
 Sovelluksen lähdekoodi dokumentoidaan kommentoimalla sitä koodatessa. Lisäksi tehdään readme.md tiedostoja eri versioiden julkaisun ohella. Projektia dokumentoidaan scrumin määräämillä artifakteilla, sekä viikottaisen palaverin tuottamalla raportilla. Projektiin käytetyt tunnit merkataan erilliseen excel taulukkoon.
 
 ### Dokumenttipohjat
 
-_Kuvaa mitä pohjia dokumentoinnissa käytetään. Onko kyseessä projektin omat vai JAMKin pohjat vai jotain muuta_
-
 Scrum artifaktien dokumentaatiossa käytetään projektin omia pohjia. Projektisuunnitelman ja esitutkimuksen dokumentointiin käytetään valmiita markdown templaatteja. Jälkituotannon dokumentointi toteutetaan JAMK:in tarjoamilla pohjilla. Tiimi on luonut oman pohjansa tuntien seuranalle.
 
 ### Dokumenttien hallinta
 
-_Kuvaa dokumenttien säilytys, kenellä on oikeudet dokumenttien hallintaan, miten backupit on hoidettu, kuinka dokumentteja versioidaan (esim. 1.0 on vasta kun asiakas on hyväksynyt dokumentin) ja nimetään (onko esim. dokumentin nimessä versionumero)_
-
 Product owner vastaa backlogien säilytyksestä ja niitten varmuuskopioimisesta. Scrummaster vastaa retrospektiivin, sprint reviewin ja sprint planningin säilytyksestä ja varmuuskopioimisesta. Tämän lisäksi scrummaster vastaa viikottaisten palaverien raporteista. Henkilökohtaisia dokumentteja, joita säilytetään on tuntilista ja TCHOPS. Sovellus versioidaan alkaen versiosta 0.1 aina versioon 1.0 asti, joka on valmis sovellus. Kaikki dokumentit ovat tiimiläisten hallittavissa paitsi tuntilistat ja TCHOPS, jotka ovat henkilökohtaisia.
 
 ## Riskien hallinta
-
-_Kuvaa tässä kuinka projekti aikoo hallinnoida ja seurata projektiriskejä_
-
-Esimerkiksi näin.
 
 | Riskit                                                       | Todennäköisyys    | Impakti     | Minimointi                                                                             |
 | ------------------------------------------------------------ | ----------------- | ----------- | -------------------------------------------------------------------------------------- |
