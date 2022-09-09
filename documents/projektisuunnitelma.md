@@ -40,21 +40,24 @@ Tekijät: Severi Natunen, Jyri Lahtinen, Timo Saarela, Antti Raita
 
 ### Termit ja lyhenteet
 
-| Termi     | Kuvaus                                                          |
-| --------- | --------------------------------------------------------------- |
-| Git       | Versionhallintajärjestelmä                                      |
-| GitHub    | Palvelu joka on rakennettu GIT versionhallinnan ympärille       |
-| Markdown  | Merkkauskieli                                                   |
-| TCHOPS    | Henkilökohtainen oppimisuunnitelma TIcorporateen                |
-| Scrum     | Ketterä sovelluskehityksen viitekehitys projektinhallintaan     |
-| Artifakti | Scrumissa toteuttava asiakirja, joka säilytetään.               |
-| HLTP      | High Level Testing Plan, jonka avulla suunnittellaan testausta. |
+| Termi                  | Kuvaus                                                                                                                        |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Git                    | Versionhallintajärjestelmä                                                                                                    |
+| GitHub                 | Palvelu joka on rakennettu GIT versionhallinnan ympärille                                                                     |
+| Markdown               | Merkkauskieli                                                                                                                 |
+| TCHOPS                 | Henkilökohtainen oppimisuunnitelma TIcorporateen                                                                              |
+| Scrum                  | Ketterä sovelluskehityksen viitekehitys projektinhallintaan                                                                   |
+| Artifakti              | Scrumissa toteuttava asiakirja, joka säilytetään.                                                                             |
+| HLTP                   | High Level Testing Plan, jonka avulla suunnittellaan testausta.                                                               |
+| Sprint review          | Scrum tapahtuma, jossa arvioidaan miten kulunut sprintti meni.                                                                |
+| Retrospektiivi         | Sprint retrospective. Scrum tapahtuma, jossa tiimi reflektoi toimintaansa ja suunnittelee parannuksia seuraavaan sprintttiin. |
+| Product/Sprint backlog | Luettelo tuotteeseen tehtävistä ominaisuuksista.                                                                              |
 
 ### Viitteet
 
-| Viittaus | Materiaali                  |
-| -------- | --------------------------- |
-| HLTP     | \<linkki hltp dokumenttiin> |
+| Viittaus                                                                   | Materiaali                                                           |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [HLTP](https://github.com/jamktiko/huutisRepo/blob/main/documents/hltp.md) | <https://github.com/jamktiko/huutisRepo/blob/main/documents/hltp.md> |
 
 ## Projektin sisältö
 
@@ -93,7 +96,7 @@ Ryhmä käy läpi konspetin ja tekee roolien jaon. Projekti jatkuu esituotannoll
 
 ### Projektin toteuttamisesta
 
-Sovelluskehityksessä tulemme käyttämään scrum viitekehystä projektinhallintaan. Jokainen ryhmän jäsen toteuttaa määrätyn roolin tehtäviänsä, mutta projekti tehdään ryhmätyönä yhteisesti. Projekti suoritetaan kahden viikon mittaisisssa sprinteissä, joiden alku on sprint planning ja ne loppuvat sprint revieween ja retrospektiiviin. Sprintin aikana pidetään päivittäisiä scrum tapaamisia. Scrum tapahtumien ulkopuolella työskentelemme omissa tehtävissämme. Jokainen ryhmän jäsen kirjaa ylös työtunnit.
+Sovelluskehityksessä tulemme käyttämään scrum viitekehystä projektinhallintaan. Jokainen ryhmän jäsen toteuttaa määrätyn roolin tehtäviänsä, mutta projekti tehdään ryhmätyönä yhteisesti. Projekti suoritetaan kahden viikon mittaisisssa sprinteissä, joiden alku on sprint planning ja niiden loppu on sprint review ja retrospektiivi. Sprintin aikana pidetään päivittäisiä scrum tapaamisia. Scrum tapahtumien ulkopuolella työskentelemme omissa tehtävissämme. Jokainen ryhmän jäsen kirjaa ylös työtunnit.
 
 ### Projektin testaamisesta
 
@@ -182,9 +185,12 @@ _Kuvaa tässä kuinka projekti aikoo hallinnoida ja seurata projektiriskejä_
 
 Esimerkiksi näin.
 
-| Riskit                                                       | Todennäköisyys    | Impakti | Minimointi                                                         |
-| ------------------------------------------------------------ | ----------------- | ------- | ------------------------------------------------------------------ |
-| Työntekijät eivät ole motivoituneita ja eivät saavu paikalle | Pieni             | Suuri   | Pidetään työpaikka viihtyisänä.                                    |
-| Työntekijä sairastuu                                         | Pieni             | Suuri   | Pidetään huoli yleisestä terveydestä.                              |
-| Työntekijä ylikuormittuu                                     | Pieni/Kohtalainen | Valtava | Pidetään huoli, että kaikilla on siedettävä määrä tehtävää.        |
-| Sovelluksesta tulee monimutkainen ja vaikea käyttää          | Pieni             | Suuri   | Pidetään sovelluksen visio mielessä ja testataan loppukäyttäjillä. |
+| Riskit                                                       | Todennäköisyys    | Impakti     | Minimointi                                                                             |
+| ------------------------------------------------------------ | ----------------- | ----------- | -------------------------------------------------------------------------------------- |
+| Työntekijät eivät ole motivoituneita ja eivät saavu paikalle | Pieni             | Suuri       | Pidetään työpaikka viihtyisänä.                                                        |
+| Työntekijä sairastuu                                         | Pieni             | Suuri       | Pidetään huoli yleisestä terveydestä.                                                  |
+| Työntekijä ylikuormittuu                                     | Pieni/Kohtalainen | Valtava     | Pidetään huoli, että kaikilla on siedettävä määrä tehtävää.                            |
+| Sovelluksesta tulee monimutkainen ja vaikea käyttää          | Pieni             | Suuri       | Pidetään sovelluksen visio mielessä ja testataan loppukäyttäjillä.                     |
+| Sovellus ei koskaan valmistu                                 | Pieni             | Valtava     | Noudatetaan scrumia ja toimintasuunnittelmaa päätyyn asti ja tehdään töitä.            |
+| Sovellus ei ole rahallisesti kannattava                      | Pieni/Kohtalainen | Kohtalainen | Pidetään kustannukset alhaalla ja keksitään, miten tälläinen sovellus tuottaisi rahaa. |
+| Sovelluksen tulee liikaa ominaisuuksia                       | Pieni             | Suuri       | Harkitaan ryhmän jäsenien ja loppukäyttäjien kanssa mitä ominaisuuksia halutaan.       |
