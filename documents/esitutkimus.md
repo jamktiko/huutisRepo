@@ -20,7 +20,9 @@
 
 _Projektin nimi ja lyhyt versio visiosta_
 
-Tekijät:
+Huutoäänestysäppi. Sovellus, jonka avulla ihmiset voivat ratkaista tilanteita äänestämällä.
+
+Tekijät: Jyri Lahtinen, Antti Raita, Severi Natunen, Timo Saarela
 
 ### Termit ja lyhenteet
 
@@ -45,11 +47,15 @@ _Esimerkiksi:_
 
 _Tämän dokumentin tarkoituksena on tuottaa esitutkimus tietojärjestelmästä X. Tietojärjestelmä X on..._
 
+Tämän dokumentin tarkoitus on tuottaa esitutkimus huutoäänestysäpistä. Huutoäänestysäppi on sovellus, jolla ryhmät voivat ratkaista ongelmatilanteita äänestämällä. Esitutkimuksessa käydään läpi käyttäjäkertomukset, tekniset vaatimukset ja ratkaisuvaatimukset.
+
 _Luvussa 2. listataan vaatimukset, luvussa 3. käyttötapaukset..._
 
 ## Visio
 
 _Tässä aliluvussa kuvataan tuotteen visio ja mahdollinen slogan_
+
+Kehittämme sovelluksen, joka auttaa ryhmiä muodostamaan yhteisiä päätöksiä äänestämällä. Tarkoituksemme on keskittyä sovelluksen suorituskykyyn ja käytettävyyteen, jotta tilanne on ratkaistu mahdollisimman nopeasti.
 
 ## Käyttäjäkertomukset
 
@@ -61,8 +67,14 @@ _Lista projektin teknisistä vaatimuksista_
 
 Esimerkiksi:
 
-1. Applikaation/sivuston tulee käyttää TLS/SLS salausta
-2. Pelin tulee toimi sulavasti (>60fps) Samsung Galaxy S2 puhelimella
+1. Sovelluksen tulee toimia Safarilla, Chromella, Firefox for Android ja Microsoft Edgellä
+2. Sovelluksen tulisi avautua alle viidessä sekunnissa.
+3. Sovelluksen tulee olla käyttäjäystävällinen värisokeille.
+4. Äänestyshuoneen tulee poistua automaattisesti 30 minuutin kuluessa tai kun kaikki käyttäjät ovat poistuneet huoneesta.
+5. Sovelluksen tiettyjen ominaisuuksien tulee toimia offline tilassa.
+6. Sovelluksen tulee toimia Android 9:llä ja ylsöpäin. sen tulee myös toimia iOS 12 ja ylöspäin.
+7. Sovelluksen tulee sisältää web-manifest ja pitää täyttää PWA:n vaatimukset.
+8.
 
 ## Ratkaisuvaihtoehdot
 
@@ -73,6 +85,35 @@ _Listaa niin monta ratkaisuvaihtoehtoa kuin niitä tulee ilmi_
 #### Toteutusympäristö
 
 _Tässä aliluvussa kerrotaan ympäristön jossa tietojärjestelmä tulee toimimaan. Tähän kannattaa liittää myös yksinkertainen arkkitehtuurikuva, josta pystytään havainnoimaan järjestelmän oleelliset osat ja osien välinen kommunikointi_
+
+Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena.
+
+#### Toteutettavat kertomukset
+
+_Tässä aliluvussa kerrotaan mitä kertomuksia kyseisellä tekniikalla pystytään toteuttamaan ja mitä ei_
+
+#### Työmääräarviot
+
+_Tähän arvioidaan hyvin karkealla tasolla työhön kuluva aika. Tehkää arviot käyttäen hyväksi seurantaraportin Työmäärien arviointi -välilehteä (SeurantaRaportti_Projektin_nimi.xls). Työmäärien arvioinnissa jokainen projektin jäsen tekee omat arvionsa ja sen jälkeen keskustellaan arviot läpi, jolloin päätetään vaiheeseen arvioitavat tunnit._
+
+_Esimerkiksi_>
+| Vaihe | Tunnit | Muuta?
+|---|---|---|
+Käynnistys | 10 | Jee
+Suunnittelu | 10 | Jee
+**Yht** | 20 | Paljon tunteja
+
+#### Pros and Cons
+
+_Tässä aliluvussa kerrotaan ratkaisuvaihtoehdon hyvät ja huonot puolet objektiivisesti_
+
+### Ratkaisuvaihtoehto 2
+
+#### Toteutusympäristö
+
+_Tässä aliluvussa kerrotaan ympäristön jossa tietojärjestelmä tulee toimimaan. Tähän kannattaa liittää myös yksinkertainen arkkitehtuurikuva, josta pystytään havainnoimaan järjestelmän oleelliset osat ja osien välinen kommunikointi_
+
+Sovellus tulee toimimaan serverless natiivisovelluksena.
 
 #### Toteutettavat kertomukset
 
