@@ -92,6 +92,8 @@ Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena.
 
 _Tässä aliluvussa kerrotaan mitä kertomuksia kyseisellä tekniikalla pystytään toteuttamaan ja mitä ei_
 
+Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa.
+
 #### Työmääräarviot
 
 _Tähän arvioidaan hyvin karkealla tasolla työhön kuluva aika. Tehkää arviot käyttäen hyväksi seurantaraportin Työmäärien arviointi -välilehteä (SeurantaRaportti_Projektin_nimi.xls). Työmäärien arvioinnissa jokainen projektin jäsen tekee omat arvionsa ja sen jälkeen keskustellaan arviot läpi, jolloin päätetään vaiheeseen arvioitavat tunnit._
@@ -107,17 +109,21 @@ Suunnittelu | 10 | Jee
 
 _Tässä aliluvussa kerrotaan ratkaisuvaihtoehdon hyvät ja huonot puolet objektiivisesti_
 
+Sovellusta pystyy käyttämään helposti selaimessa ja lisäksi lataamaan pikakuvakkeen aloitusnäyttöön. Sovellusta voi myös käyttää tietokoneella. Välimustin ansiosta sovellus avautuu nopeammin kuin natiivisovellus.
+
 ### Ratkaisuvaihtoehto 2
 
 #### Toteutusympäristö
 
 _Tässä aliluvussa kerrotaan ympäristön jossa tietojärjestelmä tulee toimimaan. Tähän kannattaa liittää myös yksinkertainen arkkitehtuurikuva, josta pystytään havainnoimaan järjestelmän oleelliset osat ja osien välinen kommunikointi_
 
-Sovellus tulee toimimaan serverless natiivisovelluksena.
+Sovellus tulee toimimaan serverless natiivisovelluksena, jonka voi ladata play androidille Play kaupasta ja iOS:lle App storesta.
 
 #### Toteutettavat kertomukset
 
 _Tässä aliluvussa kerrotaan mitä kertomuksia kyseisellä tekniikalla pystytään toteuttamaan ja mitä ei_
+
+Asiakas pystyy lataamaan sovelluksen play kaupasta tai app storesta.
 
 #### Työmääräarviot
 
