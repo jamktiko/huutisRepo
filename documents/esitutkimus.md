@@ -24,22 +24,23 @@ Tekijät: Jyri Lahtinen, Antti Raita, Severi Natunen, Timo Saarela
 
 ### Termit ja lyhenteet
 
-_Esimerkiksi:_
-
-| Termi    | Kuvaus                                                    |
-| -------- | --------------------------------------------------------- |
-| GIT      | Versionhallintajärjestelmä                                |
-| GitHub   | Palvelu joka on rakennettu GIT versionhallinnan ympärille |
-| Markdown | Merkkauskieli                                             |
+| Termi           | Kuvaus                                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------------------------- |
+| GIT             | Versionhallintajärjestelmä.                                                                               |
+| GitHub          | Palvelu joka on rakennettu GIT versionhallinnan ympärille.                                                |
+| Markdown        | Merkkauskieli.                                                                                            |
+| PWA             | Progressive Web Application.                                                                              |
+| Tikobiz         | Projektin liiketalous puoli.                                                                              |
+| Firebase        | Googlen kehittämä alusta mobiili- ja verkkosovellusten kehitykseen.                                       |
+| Tikobiz         | Projektin liiketalous puoli.                                                                              |
+| Native-sovellus | Sovellus, joka on kehitetty toimimaan tietyllä alustalla tai laitteella.                                  |
+| Serverless      | Pilivipalvelumuoto, jossa taustasovelluksen tarvitsema palvelimien määrä otetaan käyttöön tarpeen mukaan. |
 
 ### Viitteet
 
-_Esimerkiksi:_
-
-| Viittaus | Materiaali                       |
-| -------- | -------------------------------- |
-| HLTP     | _linkki hltp dokumenttiin_       |
-| GDD      | _linkki gamedesign dokumenttiin_ |
+| Viittaus | Materiaali                                                           |
+| -------- | -------------------------------------------------------------------- |
+| HLTP     | <https://github.com/jamktiko/huutisRepo/blob/main/documents/hltp.md> |
 
 ## Johdanto
 
@@ -85,20 +86,19 @@ Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa. K
 
 #### Työmääräarviot
 
-_Esimerkiksi_>
-| Vaihe | Tunnit | Muuta?
-|---|---|---|
-Käynnistys | 30 |
-Uuden opettelu | 200 |
-Projektisuunnittelu | 140 |
-Kahvittelu | 60 |
-UI/UX Suunnittelu | 300 |
-Sovelluksen koodaaminen | 300 |
-Palaverit | 100 |
-Käyttäjätestaaminen | 80 |
-Tekninen testaaminen | 50 |
-Tikobiz | 180 |
-**Yht** | 1440 | Koko tiimin yhteenlasketut tunnit.
+| Vaihe                   | Tunnit | Muuta?                                                     |
+| ----------------------- | ------ | ---------------------------------------------------------- |
+| Käynnistys              | 30     | Projektin kehitysympäristön pystytys.                      |
+| Uuden opettelu          | 200    |
+| Projektisuunnittelu     | 140    |
+| Kahvittelu              | 60     | Aika mitä käytetään kahvin juomiseen ja verkostoitumiseen. |
+| UI/UX Suunnittelu       | 300    |
+| Sovelluksen koodaaminen | 300    |
+| Palaverit               | 100    | Scrumin ja sen ulkopuoliset keskustelut ja palaverit.      |
+| Käyttäjätestaaminen     | 80     |
+| Tekninen testaaminen    | 50     |
+| Tikobiz                 | 180    | Kaikki liiketalouteen liittyvä.                            |
+| **Yht**                 | 1440   | Koko tiimin yhteenlasketut tunnit.                         |
 
 #### Pros and Cons
 
@@ -116,20 +116,19 @@ Asiakas pystyy lataamaan sovelluksen play kaupasta tai app storesta. Kaikki yll�
 
 #### Työmääräarviot
 
-_Esimerkiksi_>
-| Vaihe | Tunnit | Muuta?
-|---|---|---|
-Käynnistys | 30 |
-Uuden opettelu | 350 | Paljon enemmän uutta opeteltavaa PWA verrattuna.
-Projektisuunnittelu | 140 |
-Kahvittelu | 60 |
-UI/UX Suunnittelu | 225 |
-Sovelluksen koodaaminen | 225 |
-Palaverit | 100 |
-Käyttäjätestaaminen | 80 |
-Tekninen testaaminen | 50 |
-Tikobiz | 180 |
-**Yht** | 1440 | Koko tiimin yhteenlasketut tunnit.
+| Vaihe                   | Tunnit | Muuta?                                                     |
+| ----------------------- | ------ | ---------------------------------------------------------- |
+| Käynnistys              | 30     | Projektin kehitysympäristön pystytys.                      |
+| Uuden opettelu          | 350    | Paljon enemmän uutta opeteltavaa PWA verrattuna.           |
+| Projektisuunnittelu     | 140    |
+| Kahvittelu              | 60     | Aika mitä käytetään kahvin juomiseen ja verkostoitumiseen. |
+| UI/UX Suunnittelu       | 225    |
+| Sovelluksen koodaaminen | 225    |
+| Palaverit               | 100    | Scrumin ja sen ulkopuoliset keskustelut ja palaverit.      |
+| Käyttäjätestaaminen     | 80     |
+| Tekninen testaaminen    | 50     |
+| Tikobiz                 | 180    | Kaikki liiketalouteen liittyvä.                            |
+| **Yht**                 | 1440   | Koko tiimin yhteenlasketut tunnit.                         |
 
 #### Pros and Cons
 
