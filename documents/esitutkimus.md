@@ -61,6 +61,14 @@ Kehittämme sovelluksen, joka auttaa ryhmiä muodostamaan yhteisiä päätöksi�
 
 _Listaa käyttäjäkertomukset ja niiden hyväksymiskriteeristö_
 
+1. Käyttäjä haluaa liittyä huoneeseen äänestääkseen. Hyväksymiskriteeri: käyttäjä voi liittyä huoneeseen koodilla tai linkillä.
+2. Käyttäjä haluaa tehdä huoneen, jotta voidaan äänestää. Hyväksymiskriteeri: Käyttäjä voi tehdä huoneen johon muut voivat liittyä.
+3. Käyttäjä haluaa nähdä tulokset, jotta voi päättää. Hyväksymiskriteeri: Käyttäjä näkee tulokset selkeästi esitettynä.
+4. Käyttäjä haluaa kutsua muut äänestämään huoneeseen. Hyväksymiskriteeri: Käyttäjä voi luoda eri liittymistapoja.
+5. Käyttäjä haluaa valita äänestystavan. Hyväksymiskriteeri: Käyttäjällä on eri vaihtoehtoja äänestämiseen huonetta luodessa.
+6. Käyttäjä haluaa äänestää. Hyväksymiskriteeri: Käyttäjä voi valita haluamansa vaihtoehdon.
+7. Käyttäjä haluaa muokata äänestyksen asetuksia. Hyväksymiskriteeri: Käyttäjällä on mahdollisuus vaihtaa asetuksia huonetta luodessa.
+
 ## Tekniset vaatimukset
 
 _Lista projektin teknisistä vaatimuksista_
@@ -74,15 +82,12 @@ Esimerkiksi:
 5. Sovelluksen tiettyjen ominaisuuksien tulee toimia offline tilassa.
 6. Sovelluksen tulee toimia Android 9:llä ja ylsöpäin. sen tulee myös toimia iOS 12 ja ylöspäin.
 7. Sovelluksen tulee sisältää web-manifest ja pitää täyttää PWA:n vaatimukset.
-8.
 
 ## Ratkaisuvaihtoehdot
 
 _Listaa niin monta ratkaisuvaihtoehtoa kuin niitä tulee ilmi_
 
 ### Ratkaisuvaihtoehto 1
-
-S
 
 #### Toteutusympäristö
 
@@ -94,7 +99,7 @@ Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. ![A
 
 _Tässä aliluvussa kerrotaan mitä kertomuksia kyseisellä tekniikalla pystytään toteuttamaan ja mitä ei_
 
-Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa.
+Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa. Kaikki yllä mainitut käyttäjäkertomukset toteutuvat tällä tekniikalla.
 
 #### Työmääräarviot
 
@@ -103,7 +108,7 @@ _Tähän arvioidaan hyvin karkealla tasolla työhön kuluva aika. Tehkää arvio
 _Esimerkiksi_>
 | Vaihe | Tunnit | Muuta?
 |---|---|---|
-Käynnistys | 10 | Jee
+Projektin käynnistys | 10 | Jee
 Suunnittelu | 10 | Jee
 **Yht** | 20 | Paljon tunteja
 
@@ -111,7 +116,7 @@ Suunnittelu | 10 | Jee
 
 _Tässä aliluvussa kerrotaan ratkaisuvaihtoehdon hyvät ja huonot puolet objektiivisesti_
 
-Sovellusta pystyy käyttämään helposti selaimessa ja lisäksi lataamaan pikakuvakkeen aloitusnäyttöön. Sovellusta voi myös käyttää tietokoneella. Välimustin ansiosta sovellus avautuu nopeammin kuin natiivisovellus.
+Sovellusta pystyy käyttämään helposti selaimessa ja lisäksi lataamaan pikakuvakkeen aloitusnäyttöön. Sovellusta voi myös käyttää tietokoneella. Välimustin ansiosta sovellus avautuu nopeammin kuin natiivisovellus. Sovellus ei vaadi mitään pitkäaikaista tallennettavaa. Sovelluksen käyttäminen ei vaadi kirjautumista. UI/UX suunnittelu voi olla hankalaa, koska kyseessä ei ole natiivisovellus.
 
 ### Ratkaisuvaihtoehto 2
 
@@ -119,7 +124,7 @@ Sovellusta pystyy käyttämään helposti selaimessa ja lisäksi lataamaan pikak
 
 _Tässä aliluvussa kerrotaan ympäristön jossa tietojärjestelmä tulee toimimaan. Tähän kannattaa liittää myös yksinkertainen arkkitehtuurikuva, josta pystytään havainnoimaan järjestelmän oleelliset osat ja osien välinen kommunikointi_
 
-Sovellus tulee toimimaan serverless natiivisovelluksena, jonka voi ladata play androidille Play kaupasta ja iOS:lle App storesta.
+Sovellus tulee toimimaan serverless natiivisovelluksena, jonka voi ladata play androidille Play kaupasta ja iOS:lle App storesta. ![Arkkitehtuurikuva](./assets/nativeserverless.png)
 
 #### Toteutettavat kertomukset
 
