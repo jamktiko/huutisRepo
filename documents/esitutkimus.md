@@ -82,11 +82,13 @@ _Listaa niin monta ratkaisuvaihtoehtoa kuin niitä tulee ilmi_
 
 ### Ratkaisuvaihtoehto 1
 
+S
+
 #### Toteutusympäristö
 
 _Tässä aliluvussa kerrotaan ympäristön jossa tietojärjestelmä tulee toimimaan. Tähän kannattaa liittää myös yksinkertainen arkkitehtuurikuva, josta pystytään havainnoimaan järjestelmän oleelliset osat ja osien välinen kommunikointi_
 
-Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena.
+Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. ![Arkkitehtuurikuva](images\pwa-architecture.png)
 
 #### Toteutettavat kertomukset
 
