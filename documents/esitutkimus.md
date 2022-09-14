@@ -18,8 +18,6 @@
 
 ## Projektin tiedot
 
-_Projektin nimi ja lyhyt versio visiosta_
-
 Huutoäänestysäppi. Sovellus, jonka avulla ihmiset voivat ratkaista tilanteita äänestämällä.
 
 Tekijät: Jyri Lahtinen, Antti Raita, Severi Natunen, Timo Saarela
@@ -45,21 +43,13 @@ _Esimerkiksi:_
 
 ## Johdanto
 
-_Tämän dokumentin tarkoituksena on tuottaa esitutkimus tietojärjestelmästä X. Tietojärjestelmä X on..._
-
 Tämän dokumentin tarkoitus on tuottaa esitutkimus huutoäänestysäpistä. Huutoäänestysäppi on sovellus, jolla ryhmät voivat ratkaista ongelmatilanteita äänestämällä. Esitutkimuksessa käydään läpi käyttäjäkertomukset, tekniset vaatimukset ja ratkaisuvaatimukset.
 
-_Luvussa 2. listataan vaatimukset, luvussa 3. käyttötapaukset..._
-
 ## Visio
-
-_Tässä aliluvussa kuvataan tuotteen visio ja mahdollinen slogan_
 
 Kehittämme sovelluksen, joka auttaa ryhmiä muodostamaan yhteisiä päätöksiä äänestämällä. Tarkoituksemme on keskittyä sovelluksen suorituskykyyn ja käytettävyyteen, jotta tilanne on ratkaistu mahdollisimman nopeasti.
 
 ## Käyttäjäkertomukset
-
-_Listaa käyttäjäkertomukset ja niiden hyväksymiskriteeristö_
 
 1. Käyttäjä haluaa liittyä huoneeseen äänestääkseen. Hyväksymiskriteeri: käyttäjä voi liittyä huoneeseen koodilla tai linkillä.
 2. Käyttäjä haluaa tehdä huoneen, jotta voidaan äänestää. Hyväksymiskriteeri: Käyttäjä voi tehdä huoneen johon muut voivat liittyä.
@@ -70,8 +60,6 @@ _Listaa käyttäjäkertomukset ja niiden hyväksymiskriteeristö_
 7. Käyttäjä haluaa muokata äänestyksen asetuksia. Hyväksymiskriteeri: Käyttäjällä on mahdollisuus vaihtaa asetuksia huonetta luodessa.
 
 ## Tekniset vaatimukset
-
-_Lista projektin teknisistä vaatimuksista_
 
 Esimerkiksi:
 
@@ -85,36 +73,34 @@ Esimerkiksi:
 
 ## Ratkaisuvaihtoehdot
 
-_Listaa niin monta ratkaisuvaihtoehtoa kuin niitä tulee ilmi_
-
 ### Ratkaisuvaihtoehto 1
 
 #### Toteutusympäristö
-
-_Tässä aliluvussa kerrotaan ympäristön jossa tietojärjestelmä tulee toimimaan. Tähän kannattaa liittää myös yksinkertainen arkkitehtuurikuva, josta pystytään havainnoimaan järjestelmän oleelliset osat ja osien välinen kommunikointi_
 
 Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. ![Arkkitehtuurikuva](./assets/pwa-architecture.png)
 
 #### Toteutettavat kertomukset
 
-_Tässä aliluvussa kerrotaan mitä kertomuksia kyseisellä tekniikalla pystytään toteuttamaan ja mitä ei_
-
 Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa. Kaikki yllä mainitut käyttäjäkertomukset toteutuvat tällä tekniikalla.
 
 #### Työmääräarviot
 
-_Tähän arvioidaan hyvin karkealla tasolla työhön kuluva aika. Tehkää arviot käyttäen hyväksi seurantaraportin Työmäärien arviointi -välilehteä (SeurantaRaportti_Projektin_nimi.xls). Työmäärien arvioinnissa jokainen projektin jäsen tekee omat arvionsa ja sen jälkeen keskustellaan arviot läpi, jolloin päätetään vaiheeseen arvioitavat tunnit._
-
 _Esimerkiksi_>
 | Vaihe | Tunnit | Muuta?
 |---|---|---|
-Projektin käynnistys | 10 | Jee
-Suunnittelu | 10 | Jee
-**Yht** | 20 | Paljon tunteja
+Käynnistys | 30 |
+Uuden opettelu | 200 |
+Projektisuunnittelu | 140 |
+Kahvittelu | 60 |
+UI/UX Suunnittelu | 300 |
+Sovelluksen koodaaminen | 300 |
+Palaverit | 100 |
+Käyttäjätestaaminen | 80 |
+Tekninen testaaminen | 50 |
+Tikobiz | 180 |
+**Yht** | 1440 | Koko tiimin yhteenlasketut tunnit.
 
 #### Pros and Cons
-
-_Tässä aliluvussa kerrotaan ratkaisuvaihtoehdon hyvät ja huonot puolet objektiivisesti_
 
 Sovellusta pystyy käyttämään helposti selaimessa ja lisäksi lataamaan pikakuvakkeen aloitusnäyttöön. Sovellusta voi myös käyttää tietokoneella. Välimustin ansiosta sovellus avautuu nopeammin kuin natiivisovellus. Sovellus ei vaadi mitään pitkäaikaista tallennettavaa. Sovelluksen käyttäminen ei vaadi kirjautumista. UI/UX suunnittelu voi olla hankalaa, koska kyseessä ei ole natiivisovellus.
 
@@ -122,31 +108,33 @@ Sovellusta pystyy käyttämään helposti selaimessa ja lisäksi lataamaan pikak
 
 #### Toteutusympäristö
 
-_Tässä aliluvussa kerrotaan ympäristön jossa tietojärjestelmä tulee toimimaan. Tähän kannattaa liittää myös yksinkertainen arkkitehtuurikuva, josta pystytään havainnoimaan järjestelmän oleelliset osat ja osien välinen kommunikointi_
-
 Sovellus tulee toimimaan serverless natiivisovelluksena, jonka voi ladata play androidille Play kaupasta ja iOS:lle App storesta. ![Arkkitehtuurikuva](./assets/nativeserverless.png)
 
 #### Toteutettavat kertomukset
 
-_Tässä aliluvussa kerrotaan mitä kertomuksia kyseisellä tekniikalla pystytään toteuttamaan ja mitä ei_
-
-Asiakas pystyy lataamaan sovelluksen play kaupasta tai app storesta.
+Asiakas pystyy lataamaan sovelluksen play kaupasta tai app storesta. Kaikki yllä mainitut käyttäjäkertomukset toteutuvat tällä tekniikalla.
 
 #### Työmääräarviot
-
-_Tähän arvioidaan hyvin karkealla tasolla työhön kuluva aika. Tehkää arviot käyttäen hyväksi seurantaraportin Työmäärien arviointi -välilehteä (SeurantaRaportti_Projektin_nimi.xls). Työmäärien arvioinnissa jokainen projektin jäsen tekee omat arvionsa ja sen jälkeen keskustellaan arviot läpi, jolloin päätetään vaiheeseen arvioitavat tunnit._
 
 _Esimerkiksi_>
 | Vaihe | Tunnit | Muuta?
 |---|---|---|
-Käynnistys | 10 | Jee
-Suunnittelu | 10 | Jee
-**Yht** | 20 | Paljon tunteja
+Käynnistys | 30 |
+Uuden opettelu | 350 | Paljon enemmän uutta opeteltavaa PWA verrattuna.
+Projektisuunnittelu | 140 |
+Kahvittelu | 60 |
+UI/UX Suunnittelu | 225 |
+Sovelluksen koodaaminen | 225 |
+Palaverit | 100 |
+Käyttäjätestaaminen | 80 |
+Tekninen testaaminen | 50 |
+Tikobiz | 180 |
+**Yht** | 1440 | Koko tiimin yhteenlasketut tunnit.
 
 #### Pros and Cons
 
-_Tässä aliluvussa kerrotaan ratkaisuvaihtoehdon hyvät ja huonot puolet objektiivisesti_
+Nativiisovelluksessa voidaan hyödyntää jo opittuja web teknologioita. Natiivisovellus voi hyödyntää puhelimen omia ominaisuuksia paremmin. Natiivisovellusta ei saa selaimeen. Natiivisovelluksen kulut voivat olla suuremmat ja vaatii enemmän resursseja. Julkaistun natiivisovelluksen ylläpito on vaikeaa.
 
 ## Yhteenveto
 
-_Tässä luvussa tehdään ehdotus järjestelmän toteutustavasta (siis jokin edellä esitellyistä vaihtoehdoista) ja perustellaan ko. valinta._
+Projektin toteutustavaksi valitaan vaihtoehto 1: Serverless PWA. Tämä päätös tehtiin, koska todettiin että natiivisovelluksen kehittäminen vaatisi liikaa resursseja. PWA sopii meidän tarkoitukseen paremmin, koska voimme kehittää yhtä aikaa kaikille alustoilla saman sovelluksen. Tiimistä löytyy valmiiksi PWA osaamista mikä nopeuttaa kehitysprosessia, koska ei tarvitse opiskella uusia asioita.
