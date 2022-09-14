@@ -88,7 +88,7 @@ S
 
 _Tässä aliluvussa kerrotaan ympäristön jossa tietojärjestelmä tulee toimimaan. Tähän kannattaa liittää myös yksinkertainen arkkitehtuurikuva, josta pystytään havainnoimaan järjestelmän oleelliset osat ja osien välinen kommunikointi_
 
-Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. ![Arkkitehtuurikuva](\images\pwa-architecture.png)
+Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. ![Arkkitehtuurikuva](huutisRepo\documents\images\pwa-architecture.png)
 
 #### Toteutettavat kertomukset
 
