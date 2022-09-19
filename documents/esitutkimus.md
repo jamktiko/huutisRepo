@@ -14,6 +14,18 @@
       - [Toteutettavat kertomukset](#toteutettavat-kertomukset)
       - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot)
       - [Pros and Cons](#pros-and-cons)
+      - [Ratkaisuvaihtoehdot](#ratkaisuvaihtoehdot)
+    - [Ratkaisuvaihtoehto 2](#ratkaisuvaihtoehto-2)
+      - [Toteutusympäristö](#toteutusymp%C3%A4rist%C3%B6)
+      - [Toteutettavat kertomukset](#toteutettavat-kertomukset)
+      - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot)
+      - [Pros and Cons](#pros-and-cons)
+      - [Ratkaisuvaihtoehdot](#ratkaisuvaihtoehdot)
+    - [Ratkaisuvaihtoehto 3](#ratkaisuvaihtoehto-3)
+      - [Toteutusympäristö](#toteutusymp%C3%A4rist%C3%B6)
+      - [Toteutettavat kertomukset](#toteutettavat-kertomukset)
+      - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot)
+      - [Pros and Cons](#pros-and-cons)
   - [Yhteenveto](#yhteenveto)
 
 ## Projektin tiedot
