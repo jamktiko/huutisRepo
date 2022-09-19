@@ -14,18 +14,16 @@
       - [Toteutettavat kertomukset](#toteutettavat-kertomukset)
       - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot)
       - [Pros and Cons](#pros-and-cons)
-      - [Ratkaisuvaihtoehdot](#ratkaisuvaihtoehdot)
     - [Ratkaisuvaihtoehto 2](#ratkaisuvaihtoehto-2)
-      - [Toteutusympäristö](#toteutusymp%C3%A4rist%C3%B6)
-      - [Toteutettavat kertomukset](#toteutettavat-kertomukset)
-      - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot)
-      - [Pros and Cons](#pros-and-cons)
-      - [Ratkaisuvaihtoehdot](#ratkaisuvaihtoehdot)
+      - [Toteutusympäristö 2](#toteutusymp%C3%A4rist%C3%B6-2)
+      - [Toteutettavat kertomukset 2](#toteutettavat-kertomukset-2)
+      - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot-2)
+      - [Pros and Cons](#pros-and-cons-2)
     - [Ratkaisuvaihtoehto 3](#ratkaisuvaihtoehto-3)
-      - [Toteutusympäristö](#toteutusymp%C3%A4rist%C3%B6)
-      - [Toteutettavat kertomukset](#toteutettavat-kertomukset)
-      - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot)
-      - [Pros and Cons](#pros-and-cons)
+      - [Toteutusympäristö](#toteutusymp%C3%A4rist%C3%B6-3)
+      - [Toteutettavat kertomukset](#toteutettavat-kertomukset-3)
+      - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot-3)
+      - [Pros and Cons](#pros-and-cons-3)
   - [Yhteenveto](#yhteenveto)
 
 ## Projektin tiedot
@@ -118,15 +116,15 @@ Sovellusta pystyy käyttämään helposti selaimessa ja lisäksi lataamaan pikak
 
 ### Ratkaisuvaihtoehto 2
 
-#### Toteutusympäristö
+#### Toteutusympäristö 2
 
 Sovellus tulee toimimaan serverless natiivisovelluksena, jonka voi ladata play androidille Play kaupasta ja iOS:lle App storesta. ![Arkkitehtuurikuva](./assets/nativeserverless.png)
 
-#### Toteutettavat kertomukset
+#### Toteutettavat kertomukset 2
 
 Asiakas pystyy lataamaan sovelluksen play kaupasta tai app storesta. Kaikki yllä mainitut käyttäjäkertomukset toteutuvat tällä tekniikalla.
 
-#### Työmääräarviot
+#### Työmääräarviot 2
 
 | Vaihe                   | Tunnit | Muuta?                                                     |
 | ----------------------- | ------ | ---------------------------------------------------------- |
@@ -142,21 +140,21 @@ Asiakas pystyy lataamaan sovelluksen play kaupasta tai app storesta. Kaikki yll�
 | Tikobiz                 | 180    | Kaikki liiketalouteen liittyvä.                            |
 | **Yht**                 | 1440   | Koko tiimin yhteenlasketut tunnit.                         |
 
-#### Pros and Cons
+#### Pros and Cons 2
 
 Nativiisovelluksessa voidaan hyödyntää jo opittuja web teknologioita. Natiivisovellus voi hyödyntää puhelimen omia ominaisuuksia paremmin. Natiivisovellusta ei saa selaimeen. Natiivisovelluksen kulut voivat olla suuremmat ja vaatii enemmän resursseja. Julkaistun natiivisovelluksen ylläpito on vaikeaa.
 
 ### Ratkaisuvaihtoehto 3
 
-#### Toteutusympäristö
+#### Toteutusympäristö 3
 
 Sovellus toimii ladattavana PWA:na. Sovellus hostataan AWS pilvipalveluissa. Sovelluksen backend toimii myös AWS pilvipalveluilla. ![Arkkitehtuurikuva](./assets/pwa-arkkitehtuuri.png)
 
-#### Toteutettavat kertomukset
+#### Toteutettavat kertomukset 3
 
 Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa. Kaikki yllä mainitut käyttäjäkertomukset toteutuvat tällä tekniikalla.
 
-#### Työmääräarviot
+#### Työmääräarviot 3
 
 | Vaihe                   | Tunnit | Muuta?                                                     |
 | ----------------------- | ------ | ---------------------------------------------------------- |
@@ -172,7 +170,7 @@ Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa. K
 | Tikobiz                 | 180    | Kaikki liiketalouteen liittyvä.                            |
 | **Yht**                 | 1440   | Koko tiimin yhteenlasketut tunnit.                         |
 
-#### Pros and Cons
+#### Pros and Cons 3
 
 Koululta saa ilmaista crediittiä AWS pilvipalveluihin. Arvioimme, että AWS palveluja käyttämällä syntyy vähemmän kuluja kuin firebasella. AWS palveluilla on kattavat dokumentaatiot ja ohjeita löytyy paljon, mikä helpottaa uuden opettelua. Projektia hankaloittaa hiukan se, että tiimin pitää opetella käyttämään AWS pilvipalveluita.
 
