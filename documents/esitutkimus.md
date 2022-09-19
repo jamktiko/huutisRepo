@@ -134,6 +134,32 @@ Asiakas pystyy lataamaan sovelluksen play kaupasta tai app storesta. Kaikki yll�
 
 Nativiisovelluksessa voidaan hyödyntää jo opittuja web teknologioita. Natiivisovellus voi hyödyntää puhelimen omia ominaisuuksia paremmin. Natiivisovellusta ei saa selaimeen. Natiivisovelluksen kulut voivat olla suuremmat ja vaatii enemmän resursseja. Julkaistun natiivisovelluksen ylläpito on vaikeaa.
 
+### Ratkaisuvaihtoehto 3
+
+#### Toteutusympäristö
+
+#### Toteutettavat kertomukset
+
+Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa. Kaikki yllä mainitut käyttäjäkertomukset toteutuvat tällä tekniikalla.
+
+#### Työmääräarviot
+
+| Vaihe                   | Tunnit | Muuta?                                                     |
+| ----------------------- | ------ | ---------------------------------------------------------- |
+| Käynnistys              | 30     | Projektin kehitysympäristön pystytys.                      |
+| Uuden opettelu          | 300    | Pitää opetella käyttämään AWS:n pilvipalveluja.            |
+| Projektisuunnittelu     | 140    |
+| Kahvittelu              | 60     | Aika mitä käytetään kahvin juomiseen ja verkostoitumiseen. |
+| UI/UX Suunnittelu       | 250    |
+| Sovelluksen koodaaminen | 250    |
+| Palaverit               | 100    | Scrumin ja sen ulkopuoliset keskustelut ja palaverit.      |
+| Käyttäjätestaaminen     | 80     |
+| Tekninen testaaminen    | 50     |
+| Tikobiz                 | 180    | Kaikki liiketalouteen liittyvä.                            |
+| **Yht**                 | 1440   | Koko tiimin yhteenlasketut tunnit.                         |
+
+#### Pros and Cons
+
 ## Yhteenveto
 
 Projektin toteutustavaksi valitaan vaihtoehto 1: Serverless PWA. Tämä päätös tehtiin, koska todettiin että natiivisovelluksen kehittäminen vaatisi liikaa resursseja. PWA sopii meidän tarkoitukseen paremmin, koska voimme kehittää yhtä aikaa kaikille alustoilla saman sovelluksen. Tiimistä löytyy valmiiksi PWA osaamista mikä nopeuttaa kehitysprosessia, koska ei tarvitse opiskella uusia asioita.
