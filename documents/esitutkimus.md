@@ -78,7 +78,7 @@ Esimerkiksi:
 
 #### Toteutusympäristö
 
-Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. ![Arkkitehtuurikuva](./assets/pwa-arkkitehtuuri.png)
+Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. Sovellusta hostataan firebasessa. ![Arkkitehtuurikuva](./assets/pwa-architecture.png)
 
 #### Toteutettavat kertomukset
 
@@ -138,6 +138,8 @@ Nativiisovelluksessa voidaan hyödyntää jo opittuja web teknologioita. Natiivi
 
 #### Toteutusympäristö
 
+Sovellus toimii ladattavana PWA:na. Sovellus hostataan AWS pilvipalveluissa. Sovelluksen backend toimii myös AWS pilvipalveluilla. ![Arkkitehtuurikuva](./assets/pwa-arkkitehtuuri.png)
+
 #### Toteutettavat kertomukset
 
 Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa. Kaikki yllä mainitut käyttäjäkertomukset toteutuvat tällä tekniikalla.
@@ -160,6 +162,8 @@ Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa. K
 
 #### Pros and Cons
 
+Koululta saa ilmaista crediittiä AWS pilvipalveluihin. Arvioimme, että AWS palveluja käyttämällä syntyy vähemmän kuluja kuin firebasella. AWS palveluilla on kattavat dokumentaatiot ja ohjeita löytyy paljon, mikä helpottaa uuden opettelua. Projektia hankaloittaa hiukan se, että tiimin pitää opetella käyttämään AWS pilvipalveluita.
+
 ## Yhteenveto
 
-Projektin toteutustavaksi valitaan vaihtoehto 1: Serverless PWA. Tämä päätös tehtiin, koska todettiin että natiivisovelluksen kehittäminen vaatisi liikaa resursseja. PWA sopii meidän tarkoitukseen paremmin, koska voimme kehittää yhtä aikaa kaikille alustoilla saman sovelluksen. Tiimistä löytyy valmiiksi PWA osaamista mikä nopeuttaa kehitysprosessia, koska ei tarvitse opiskella uusia asioita.
+Projektin toteutustavaksi valitaan vaihtoehto 3: Serverless PWA AWS backendillä. Tämä päätös tehtiin, koska todettiin että natiivisovelluksen kehittäminen vaatisi liikaa resursseja. PWA sopii meidän tarkoitukseen paremmin, koska voimme kehittää yhtä aikaa kaikille alustoilla saman sovelluksen. Tiimistä löytyy valmiiksi PWA osaamista mikä nopeuttaa kehitysprosessia, koska ei tarvitse opiskella uusia asioita. AWS palveluitten opettelu vaatii oman aikansa, mutta se tulee halvemmaksi kuin firebase.
