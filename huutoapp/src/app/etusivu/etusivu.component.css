@@ -1,0 +1,58 @@
+/* .container{
+ display: flex;
+ max-width: 70vw;
+ flex-direction: column;
+ height: 100vh;
+ justify-content: space-evenly;
+ row-gap: 10%;
+}  */
+
+
+
+/* #huone{
+  flex-grow: 2;
+}
+#title{
+  flex-grow: 1;
+  font-size: 1.5rem;
+}
+
+#input{
+  flex-grow: 1;
+}
+
+#liity{
+  flex-grow: 1;
+} */
+
+.container{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 4fr; 
+  margin-top: 20px;
+ } 
+
+ #huone{
+  height: 10em;
+  align-self: center;
+  width: 50vw;
+  justify-self: center;
+  
+ }
+
+ #title{
+  font-size: 1.5em;
+  justify-self: center;
+  align-self: center;
+ }
+
+ #input{
+  align-self: center;
+  justify-self: center;
+ }
+
+ #liity{
+  height: 10em;
+  align-self: center;
+  width: 50vw;
+  justify-self: center;
+ }
