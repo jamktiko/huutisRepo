@@ -78,7 +78,7 @@ Esimerkiksi:
 
 #### Toteutusympäristö
 
-Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. ![Arkkitehtuurikuva](./assets/pwa-architecture.png)
+Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. ![Arkkitehtuurikuva](./assets/pwa-arkkitehtuuri.png)
 
 #### Toteutettavat kertomukset
 
