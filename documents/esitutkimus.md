@@ -14,11 +14,19 @@
       - [Toteutettavat kertomukset](#toteutettavat-kertomukset)
       - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot)
       - [Pros and Cons](#pros-and-cons)
+    - [Ratkaisuvaihtoehto 2](#ratkaisuvaihtoehto-2)
+      - [Toteutusympäristö 2](#toteutusymp%C3%A4rist%C3%B6-2)
+      - [Toteutettavat kertomukset 2](#toteutettavat-kertomukset-2)
+      - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot-2)
+      - [Pros and Cons](#pros-and-cons-2)
+    - [Ratkaisuvaihtoehto 3](#ratkaisuvaihtoehto-3)
+      - [Toteutusympäristö](#toteutusymp%C3%A4rist%C3%B6-3)
+      - [Toteutettavat kertomukset](#toteutettavat-kertomukset-3)
+      - [Työmääräarviot](#ty%C3%B6m%C3%A4%C3%A4r%C3%A4arviot-3)
+      - [Pros and Cons](#pros-and-cons-3)
   - [Yhteenveto](#yhteenveto)
 
 ## Projektin tiedot
-
-_Projektin nimi ja lyhyt versio visiosta_
 
 Huutoäänestysäppi. Sovellus, jonka avulla ihmiset voivat ratkaista tilanteita äänestämällä.
 
@@ -26,44 +34,43 @@ Tekijät: Jyri Lahtinen, Antti Raita, Severi Natunen, Timo Saarela
 
 ### Termit ja lyhenteet
 
-_Esimerkiksi:_
-
-| Termi    | Kuvaus                                                    |
-| -------- | --------------------------------------------------------- |
-| GIT      | Versionhallintajärjestelmä                                |
-| GitHub   | Palvelu joka on rakennettu GIT versionhallinnan ympärille |
-| Markdown | Merkkauskieli                                             |
+| Termi           | Kuvaus                                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------------------------- |
+| GIT             | Versionhallintajärjestelmä.                                                                               |
+| GitHub          | Palvelu joka on rakennettu GIT versionhallinnan ympärille.                                                |
+| Markdown        | Merkkauskieli.                                                                                            |
+| PWA             | Progressive Web Application.                                                                              |
+| Tikobiz         | Projektin liiketalous puoli.                                                                              |
+| Firebase        | Googlen kehittämä alusta mobiili- ja verkkosovellusten kehitykseen.                                       |
+| Tikobiz         | Projektin liiketalous puoli.                                                                              |
+| Native-sovellus | Sovellus, joka on kehitetty toimimaan tietyllä alustalla tai laitteella.                                  |
+| Serverless      | Pilivipalvelumuoto, jossa taustasovelluksen tarvitsema palvelimien määrä otetaan käyttöön tarpeen mukaan. |
 
 ### Viitteet
 
-_Esimerkiksi:_
-
-| Viittaus | Materiaali                       |
-| -------- | -------------------------------- |
-| HLTP     | _linkki hltp dokumenttiin_       |
-| GDD      | _linkki gamedesign dokumenttiin_ |
+| Viittaus | Materiaali                                                           |
+| -------- | -------------------------------------------------------------------- |
+| HLTP     | <https://github.com/jamktiko/huutisRepo/blob/main/documents/hltp.md> |
 
 ## Johdanto
 
-_Tämän dokumentin tarkoituksena on tuottaa esitutkimus tietojärjestelmästä X. Tietojärjestelmä X on..._
-
 Tämän dokumentin tarkoitus on tuottaa esitutkimus huutoäänestysäpistä. Huutoäänestysäppi on sovellus, jolla ryhmät voivat ratkaista ongelmatilanteita äänestämällä. Esitutkimuksessa käydään läpi käyttäjäkertomukset, tekniset vaatimukset ja ratkaisuvaatimukset.
 
-_Luvussa 2. listataan vaatimukset, luvussa 3. käyttötapaukset..._
-
 ## Visio
-
-_Tässä aliluvussa kuvataan tuotteen visio ja mahdollinen slogan_
 
 Kehittämme sovelluksen, joka auttaa ryhmiä muodostamaan yhteisiä päätöksiä äänestämällä. Tarkoituksemme on keskittyä sovelluksen suorituskykyyn ja käytettävyyteen, jotta tilanne on ratkaistu mahdollisimman nopeasti.
 
 ## Käyttäjäkertomukset
 
-_Listaa käyttäjäkertomukset ja niiden hyväksymiskriteeristö_
+1. Käyttäjä haluaa liittyä huoneeseen äänestääkseen. Hyväksymiskriteeri: käyttäjä voi liittyä huoneeseen koodilla tai linkillä.
+2. Käyttäjä haluaa tehdä huoneen, jotta voidaan äänestää. Hyväksymiskriteeri: Käyttäjä voi tehdä huoneen johon muut voivat liittyä.
+3. Käyttäjä haluaa nähdä tulokset, jotta voi päättää. Hyväksymiskriteeri: Käyttäjä näkee tulokset selkeästi esitettynä.
+4. Käyttäjä haluaa kutsua muut äänestämään huoneeseen. Hyväksymiskriteeri: Käyttäjä voi luoda eri liittymistapoja.
+5. Käyttäjä haluaa valita äänestystavan. Hyväksymiskriteeri: Käyttäjällä on eri vaihtoehtoja äänestämiseen huonetta luodessa.
+6. Käyttäjä haluaa äänestää. Hyväksymiskriteeri: Käyttäjä voi valita haluamansa vaihtoehdon.
+7. Käyttäjä haluaa muokata äänestyksen asetuksia. Hyväksymiskriteeri: Käyttäjällä on mahdollisuus vaihtaa asetuksia huonetta luodessa.
 
 ## Tekniset vaatimukset
-
-_Lista projektin teknisistä vaatimuksista_
 
 Esimerkiksi:
 
@@ -74,74 +81,99 @@ Esimerkiksi:
 5. Sovelluksen tiettyjen ominaisuuksien tulee toimia offline tilassa.
 6. Sovelluksen tulee toimia Android 9:llä ja ylsöpäin. sen tulee myös toimia iOS 12 ja ylöspäin.
 7. Sovelluksen tulee sisältää web-manifest ja pitää täyttää PWA:n vaatimukset.
-8.
 
 ## Ratkaisuvaihtoehdot
 
-_Listaa niin monta ratkaisuvaihtoehtoa kuin niitä tulee ilmi_
-
 ### Ratkaisuvaihtoehto 1
-
-S
 
 #### Toteutusympäristö
 
-_Tässä aliluvussa kerrotaan ympäristön jossa tietojärjestelmä tulee toimimaan. Tähän kannattaa liittää myös yksinkertainen arkkitehtuurikuva, josta pystytään havainnoimaan järjestelmän oleelliset osat ja osien välinen kommunikointi_
-
-Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. ![Arkkitehtuurikuva](./assets/pwa-architecture.png)
+Sovellus tulee toimimaan selaimessa ladattavana serverless PWA sovelluksena. Sovellusta hostataan firebasessa. ![Arkkitehtuurikuva](./assets/pwa-architecture.png)
 
 #### Toteutettavat kertomukset
 
-_Tässä aliluvussa kerrotaan mitä kertomuksia kyseisellä tekniikalla pystytään toteuttamaan ja mitä ei_
-
-Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa.
+Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa. Kaikki yllä mainitut käyttäjäkertomukset toteutuvat tällä tekniikalla.
 
 #### Työmääräarviot
 
-_Tähän arvioidaan hyvin karkealla tasolla työhön kuluva aika. Tehkää arviot käyttäen hyväksi seurantaraportin Työmäärien arviointi -välilehteä (SeurantaRaportti_Projektin_nimi.xls). Työmäärien arvioinnissa jokainen projektin jäsen tekee omat arvionsa ja sen jälkeen keskustellaan arviot läpi, jolloin päätetään vaiheeseen arvioitavat tunnit._
-
-_Esimerkiksi_>
-| Vaihe | Tunnit | Muuta?
-|---|---|---|
-Käynnistys | 10 | Jee
-Suunnittelu | 10 | Jee
-**Yht** | 20 | Paljon tunteja
+| Vaihe                   | Tunnit | Muuta?                                                     |
+| ----------------------- | ------ | ---------------------------------------------------------- |
+| Käynnistys              | 30     | Projektin kehitysympäristön pystytys.                      |
+| Uuden opettelu          | 200    |
+| Projektisuunnittelu     | 140    |
+| Kahvittelu              | 60     | Aika mitä käytetään kahvin juomiseen ja verkostoitumiseen. |
+| UI/UX Suunnittelu       | 300    |
+| Sovelluksen koodaaminen | 300    |
+| Palaverit               | 100    | Scrumin ja sen ulkopuoliset keskustelut ja palaverit.      |
+| Käyttäjätestaaminen     | 80     |
+| Tekninen testaaminen    | 50     |
+| Tikobiz                 | 180    | Kaikki liiketalouteen liittyvä.                            |
+| **Yht**                 | 1440   | Koko tiimin yhteenlasketut tunnit.                         |
 
 #### Pros and Cons
 
-_Tässä aliluvussa kerrotaan ratkaisuvaihtoehdon hyvät ja huonot puolet objektiivisesti_
-
-Sovellusta pystyy käyttämään helposti selaimessa ja lisäksi lataamaan pikakuvakkeen aloitusnäyttöön. Sovellusta voi myös käyttää tietokoneella. Välimustin ansiosta sovellus avautuu nopeammin kuin natiivisovellus.
+Sovellusta pystyy käyttämään helposti selaimessa ja lisäksi lataamaan pikakuvakkeen aloitusnäyttöön. Sovellusta voi myös käyttää tietokoneella. Välimustin ansiosta sovellus avautuu nopeammin kuin natiivisovellus. Sovellus ei vaadi mitään pitkäaikaista tallennettavaa. Sovelluksen käyttäminen ei vaadi kirjautumista. UI/UX suunnittelu voi olla hankalaa, koska kyseessä ei ole natiivisovellus.
 
 ### Ratkaisuvaihtoehto 2
 
-#### Toteutusympäristö
+#### Toteutusympäristö 2
 
-_Tässä aliluvussa kerrotaan ympäristön jossa tietojärjestelmä tulee toimimaan. Tähän kannattaa liittää myös yksinkertainen arkkitehtuurikuva, josta pystytään havainnoimaan järjestelmän oleelliset osat ja osien välinen kommunikointi_
+Sovellus tulee toimimaan serverless natiivisovelluksena, jonka voi ladata play androidille Play kaupasta ja iOS:lle App storesta. ![Arkkitehtuurikuva](./assets/nativeserverless.png)
 
-Sovellus tulee toimimaan serverless natiivisovelluksena, jonka voi ladata play androidille Play kaupasta ja iOS:lle App storesta.
+#### Toteutettavat kertomukset 2
 
-#### Toteutettavat kertomukset
+Asiakas pystyy lataamaan sovelluksen play kaupasta tai app storesta. Kaikki yllä mainitut käyttäjäkertomukset toteutuvat tällä tekniikalla.
 
-_Tässä aliluvussa kerrotaan mitä kertomuksia kyseisellä tekniikalla pystytään toteuttamaan ja mitä ei_
+#### Työmääräarviot 2
 
-Asiakas pystyy lataamaan sovelluksen play kaupasta tai app storesta.
+| Vaihe                   | Tunnit | Muuta?                                                     |
+| ----------------------- | ------ | ---------------------------------------------------------- |
+| Käynnistys              | 30     | Projektin kehitysympäristön pystytys.                      |
+| Uuden opettelu          | 350    | Paljon enemmän uutta opeteltavaa PWA verrattuna.           |
+| Projektisuunnittelu     | 140    |
+| Kahvittelu              | 60     | Aika mitä käytetään kahvin juomiseen ja verkostoitumiseen. |
+| UI/UX Suunnittelu       | 225    |
+| Sovelluksen koodaaminen | 225    |
+| Palaverit               | 100    | Scrumin ja sen ulkopuoliset keskustelut ja palaverit.      |
+| Käyttäjätestaaminen     | 80     |
+| Tekninen testaaminen    | 50     |
+| Tikobiz                 | 180    | Kaikki liiketalouteen liittyvä.                            |
+| **Yht**                 | 1440   | Koko tiimin yhteenlasketut tunnit.                         |
 
-#### Työmääräarviot
+#### Pros and Cons 2
 
-_Tähän arvioidaan hyvin karkealla tasolla työhön kuluva aika. Tehkää arviot käyttäen hyväksi seurantaraportin Työmäärien arviointi -välilehteä (SeurantaRaportti_Projektin_nimi.xls). Työmäärien arvioinnissa jokainen projektin jäsen tekee omat arvionsa ja sen jälkeen keskustellaan arviot läpi, jolloin päätetään vaiheeseen arvioitavat tunnit._
+Nativiisovelluksessa voidaan hyödyntää jo opittuja web teknologioita. Natiivisovellus voi hyödyntää puhelimen omia ominaisuuksia paremmin. Natiivisovellusta ei saa selaimeen. Natiivisovelluksen kulut voivat olla suuremmat ja vaatii enemmän resursseja. Julkaistun natiivisovelluksen ylläpito on vaikeaa.
 
-_Esimerkiksi_>
-| Vaihe | Tunnit | Muuta?
-|---|---|---|
-Käynnistys | 10 | Jee
-Suunnittelu | 10 | Jee
-**Yht** | 20 | Paljon tunteja
+### Ratkaisuvaihtoehto 3
 
-#### Pros and Cons
+#### Toteutusympäristö 3
 
-_Tässä aliluvussa kerrotaan ratkaisuvaihtoehdon hyvät ja huonot puolet objektiivisesti_
+Sovellus toimii ladattavana PWA:na. Sovellus hostataan AWS pilvipalveluissa. Sovelluksen backend toimii myös AWS pilvipalveluilla. ![Arkkitehtuurikuva](./assets/pwa-arkkitehtuuri.png)
+
+#### Toteutettavat kertomukset 3
+
+Käyttäjät voivat ladata sovelluksen PWA:na tai käyttää sitä selaimessa. Kaikki yllä mainitut käyttäjäkertomukset toteutuvat tällä tekniikalla.
+
+#### Työmääräarviot 3
+
+| Vaihe                   | Tunnit | Muuta?                                                     |
+| ----------------------- | ------ | ---------------------------------------------------------- |
+| Käynnistys              | 30     | Projektin kehitysympäristön pystytys.                      |
+| Uuden opettelu          | 300    | Pitää opetella käyttämään AWS:n pilvipalveluja.            |
+| Projektisuunnittelu     | 140    |
+| Kahvittelu              | 60     | Aika mitä käytetään kahvin juomiseen ja verkostoitumiseen. |
+| UI/UX Suunnittelu       | 250    |
+| Sovelluksen koodaaminen | 250    |
+| Palaverit               | 100    | Scrumin ja sen ulkopuoliset keskustelut ja palaverit.      |
+| Käyttäjätestaaminen     | 80     |
+| Tekninen testaaminen    | 50     |
+| Tikobiz                 | 180    | Kaikki liiketalouteen liittyvä.                            |
+| **Yht**                 | 1440   | Koko tiimin yhteenlasketut tunnit.                         |
+
+#### Pros and Cons 3
+
+Koululta saa ilmaista crediittiä AWS pilvipalveluihin. Arvioimme, että AWS palveluja käyttämällä syntyy vähemmän kuluja kuin firebasella. AWS palveluilla on kattavat dokumentaatiot ja ohjeita löytyy paljon, mikä helpottaa uuden opettelua. Projektia hankaloittaa hiukan se, että tiimin pitää opetella käyttämään AWS pilvipalveluita.
 
 ## Yhteenveto
 
-_Tässä luvussa tehdään ehdotus järjestelmän toteutustavasta (siis jokin edellä esitellyistä vaihtoehdoista) ja perustellaan ko. valinta._
+Projektin toteutustavaksi valitaan vaihtoehto 3: Serverless PWA AWS backendillä. Tämä päätös tehtiin, koska todettiin että natiivisovelluksen kehittäminen vaatisi liikaa resursseja. PWA sopii meidän tarkoitukseen paremmin, koska voimme kehittää yhtä aikaa kaikille alustoilla saman sovelluksen. Tiimistä löytyy valmiiksi PWA osaamista mikä nopeuttaa kehitysprosessia, koska ei tarvitse opiskella uusia asioita. AWS palveluitten opettelu vaatii oman aikansa, mutta se tulee halvemmaksi kuin firebase.
