@@ -1,58 +1,141 @@
-/* .container{
- display: flex;
- max-width: 70vw;
- flex-direction: column;
- height: 100vh;
- justify-content: space-evenly;
- row-gap: 10%;
-}  */
+/* .container {
+  display: flex;
+  max-width: 70vw;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-evenly;
+  row-gap: 10%;
+}
 
-
-
-/* #huone{
+#huone {
   flex-grow: 2;
 }
-#title{
+#title {
   flex-grow: 1;
   font-size: 1.5rem;
 }
 
-#input{
+#input {
   flex-grow: 1;
 }
 
-#liity{
+#liity {
   flex-grow: 1;
 } */
 
-.container{
+.container {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 4fr; 
+  grid-template-rows: 1fr 1fr 1fr 4fr;
   margin-top: 20px;
- } 
+}
 
- #huone{
-  height: 10em;
-  align-self: center;
-  width: 50vw;
-  justify-self: center;
-  
- }
-
- #title{
+#title {
   font-size: 1.5em;
   justify-self: center;
   align-self: center;
- }
+  text-transform: uppercase;
+  font-weight: bold;
+}
 
- #input{
+#input {
   align-self: center;
   justify-self: center;
- }
+}
 
- #liity{
+/* #liity {
   height: 10em;
   align-self: center;
   width: 50vw;
   justify-self: center;
- }
+} */
+
+/* #luohuone {
+  height: 10em;
+  align-self: center;
+  width: 50vw;
+  justify-self: center;
+} */
+
+.liity {
+  align-self: center;
+  justify-self: center;
+  box-sizing: border-box;
+  border-color: transparent;
+  margin-right: 0;
+  border-radius: 0px 0px 0px 0px;
+  margin-bottom: 0;
+  background-color: transparent;
+}
+
+.liityroboto {
+  width: 70vw;
+  max-width: 400px;
+  align-self: center;
+  justify-self: center;
+  padding: 26px 34.66666793823242px;
+  box-shadow: 0px 4.333333492279053px 0px 0px rgba(0, 0, 0, 1);
+  box-sizing: border-box;
+  border-color: rgba(2, 2, 2, 1);
+  border-style: solid;
+  border-width: 2.1666667461395264px;
+  margin-right: 0;
+  border-radius: 541.6666870117188px;
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.luohuone {
+  align-self: center;
+  justify-self: center;
+  box-sizing: border-box;
+  border-color: transparent;
+  margin-right: 0;
+  border-radius: 0px 0px 0px 0px;
+  margin-bottom: 0;
+  background-color: transparent;
+}
+
+.luohuoneroboto {
+  width: 70vw;
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-self: center;
+  justify-self: center;
+  padding: 26px 34.66666793823242px;
+  box-shadow: 0px 4.333333492279053px 0px 0px rgba(0, 0, 0, 1);
+  box-sizing: border-box;
+  border-color: rgba(2, 2, 2, 1);
+  border-style: solid;
+  border-width: 2.1666667461395264px;
+  margin-right: 0;
+  border-radius: 541.6666870117188px;
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.buttontext {
+  color: var(--dl-color-gray-900);
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: Roboto;
+  font-weight: bold;
+  line-height: 34.66666793823242px;
+  font-stretch: normal;
+  text-transform: uppercase;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+.iconplus {
+  align-self: center;
+  justify-self: center;
+  width: 45px;
+  height: 45px;
+  box-sizing: border-box;
+  margin-right: 10.833333969116211px;
+  margin-bottom: 0;
+}
