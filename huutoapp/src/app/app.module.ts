@@ -3,14 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { EtusivuComponent } from './etusivu/etusivu.component';
+import { CreationComponent } from './creation/creation.component';
+import { AppRoutingModule } from './app-routing.module';
+import { Routes, RouterModule } from '@angular/router';
+import { VoteComponent } from './vote/vote.component';
+import { UsernameComponent } from './username/username.component'; 
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    EtusivuComponent
+    EtusivuComponent,
+    CreationComponent,
+    VoteComponent,
+    UsernameComponent,
+ 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

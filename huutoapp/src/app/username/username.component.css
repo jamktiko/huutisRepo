@@ -1,0 +1,35 @@
+.container{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 2fr; 
+  margin-top: 20px;
+  max-height: 100vh;
+ } 
+
+ #random{
+  height: 10em;
+  align-self: start;
+  width: 50vw;
+  justify-self: center;
+  
+ }
+
+ #title{
+  font-size: 1.5em;
+  justify-self: center;
+  align-self: center;
+ }
+
+ #input{
+  align-self: center;
+  /* justify-self: center; */
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+ }
+
+ #liity{
+  height: 10em;
+  align-self: center;
+  width: 50vw;
+  justify-self: center;
+ }
