@@ -1,35 +1,94 @@
-.container{
+.container {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 2fr; 
+  grid-template-rows: 1fr 1fr 2fr 1fr;
   margin-top: 20px;
   max-height: 100vh;
- } 
+}
 
- #random{
+/* #random {
   height: 10em;
   align-self: start;
   width: 50vw;
   justify-self: center;
-  
- }
+} */
 
- #title{
+#title {
   font-size: 1.5em;
   justify-self: center;
   align-self: center;
- }
+  /* text-transform: uppercase; */
+  font-weight: bold;
+}
 
- #input{
+#input {
   align-self: center;
-  /* justify-self: center; */
-  margin-left: 10%;
-  margin-right: 10%;
-  text-align: center;
- }
+  justify-self: center;
+}
 
- #liity{
+/* #liity {
   height: 10em;
   align-self: center;
   width: 50vw;
   justify-self: center;
- }
+} */
+
+.govote {
+  align-self: center;
+  justify-self: center;
+  box-sizing: border-box;
+  border-color: transparent;
+  margin-right: 0;
+  border-radius: 0px 0px 0px 0px;
+  margin-bottom: 0;
+  background-color: transparent;
+}
+
+.govoteroboto {
+  width: 70vw;
+  max-width: 400px;
+  align-self: center;
+  justify-self: center;
+  padding: 26px 34.66666793823242px;
+  box-shadow: 0px 4.333333492279053px 0px 0px rgba(0, 0, 0, 1);
+  box-sizing: border-box;
+  border-color: rgba(2, 2, 2, 1);
+  border-style: solid;
+  border-width: 2.1666667461395264px;
+  margin-right: 0;
+  border-radius: 541.6666870117188px;
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.randomroboto {
+  width: 70vw;
+  max-width: 400px;
+  align-self: center;
+  justify-self: center;
+  padding: 26px 34.66666793823242px;
+  box-shadow: 0px 4.333333492279053px 0px 0px rgba(0, 0, 0, 1);
+  box-sizing: border-box;
+  border-color: rgba(2, 2, 2, 1);
+  border-style: solid;
+  border-width: 2.1666667461395264px;
+  margin-right: 0;
+  border-radius: 541.6666870117188px;
+  margin-bottom: 0;
+  background-color: rgb(201, 234, 212);
+}
+
+.buttontext {
+  color: var(--dl-color-gray-900);
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: Roboto;
+  font-weight: bold;
+  line-height: 34.66666793823242px;
+  font-stretch: normal;
+  text-transform: uppercase;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}

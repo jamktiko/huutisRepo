@@ -33,7 +33,7 @@
   font-size: 1.5em;
   justify-self: center;
   align-self: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: bold;
 }
 
