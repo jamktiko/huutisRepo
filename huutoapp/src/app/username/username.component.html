@@ -1,20 +1,8 @@
 <div class="container">
   <p id="title">What is your username</p>
 
-  <input id="input" type="text" />
+  <input id="input" type="text" value="{{ name }}" />
 
   <button id="liity" type="button" routerLink="/vote">Go Vote</button>
-  <button id="random" type="button" onclick="rndm()">Random username</button>
+  <button id="random" type="button" (click)="rndm()">Random username</button>
 </div>
-
-<script type="text/javascript">
-  //ei toimi ei tunnista functiota
-  let Moniker = require("moniker");
-
-  let user = { name: Moniker.choose() };
-
-  function rndm() {
-    document.getElementById("input") = "Pekka";
-  }
-  let nimi = "pekka";
-</script>
