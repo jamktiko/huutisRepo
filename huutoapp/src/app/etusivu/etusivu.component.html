@@ -1,11 +1,12 @@
+
 <div class="container">
   <p id="title">Enter room code</p>
 
   <form class="roomcode">
-    <input id="input" type="text" maxlength="1" />
-    <input id="input" type="text" maxlength="1" />
-    <input id="input" type="text" maxlength="1" />
-    <input id="input" type="text" maxlength="1" />
+    <input id="input" type="text" maxlength="1" (keyup)="onDigitInput($event)"/>
+    <input id="input" type="text" maxlength="1" (keyup)="onDigitInput($event)"/>
+    <input id="input" type="text" maxlength="1" (keyup)="onDigitInput($event)"/>
+    <input id="input" type="text" maxlength="1" (keyup)="onDigitInput($event)"/>
   </form>
 
   <button class="liity">
