@@ -4,6 +4,7 @@
   margin-top: 20px;
 }
 
+/* titlen tyylit */
 #title {
   font-size: 1.5em;
   justify-self: center;
@@ -12,11 +13,13 @@
   font-weight: bold;
 }
 
+/* huonekoodin neljää tekstikenttää holdaavan formin tyylit */
 .roomcode {
   align-self: center;
   justify-self: center;
 }
 
+/* huonekoodin neljän tekstikentän tyylit */
 #input {
   width: 50px;
   height: 50px;
@@ -27,6 +30,7 @@
   text-transform: uppercase;
 }
 
+/* JOIN napin "container" */
 .liity {
   align-self: center;
   justify-self: center;
@@ -38,6 +42,7 @@
   background-color: transparent;
 }
 
+/* itse JOIN nappi joka löytyy UI:sta valkoisena ellipsinä */
 .liityroboto {
   width: 70vw;
   max-width: 400px;
@@ -55,6 +60,7 @@
   background-color: white;
 }
 
+/* CREATE ROOM napin "container" */
 .luohuone {
   align-self: center;
   justify-self: center;
@@ -66,6 +72,7 @@
   background-color: transparent;
 }
 
+/* varsineinen CREATE ROOM nappi joka myöskin havaittavissa UI:sta */
 .luohuoneroboto {
   width: 70vw;
   max-width: 400px;
@@ -85,6 +92,7 @@
   background-color: white;
 }
 
+/* kaikkien buttoneiden tesktien tyylit */
 .buttontext {
   color: var(--dl-color-gray-900);
   height: auto;
@@ -101,6 +109,7 @@
   text-decoration: none;
 }
 
+/* CREATE ROOM napin plus-ikonin tyylit */
 .iconplus {
   align-self: center;
   justify-self: center;

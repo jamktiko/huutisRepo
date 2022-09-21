@@ -13,11 +13,18 @@
   font-weight: bold;
 }
 
+/* username textfieldin tyylit */
 #input {
   align-self: center;
   justify-self: center;
+  width: 200px;
+  height: 50px;
+  outline: none;
+  text-align: center;
+  font-size: 1.5em;
 }
 
+/* GO VOTE napin "container" */
 .govote {
   align-self: center;
   justify-self: center;
@@ -29,7 +36,10 @@
   background-color: transparent;
 }
 
+/* GO VOTE napin tyylit ja gridi asetukset että nuoli-ikoni mahtuu */
 .govoteroboto {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   width: 70vw;
   max-width: 400px;
   align-self: center;
@@ -46,6 +56,7 @@
   background-color: white;
 }
 
+/* RANDOM napin tyylit */
 .randomroboto {
   width: 70vw;
   max-width: 400px;
@@ -63,6 +74,7 @@
   background-color: rgb(201, 234, 212);
 }
 
+/* button tekstien tyylit */
 .buttontext {
   color: var(--dl-color-gray-900);
   height: auto;
@@ -77,4 +89,14 @@
   margin-right: 0;
   margin-bottom: 0;
   text-decoration: none;
+  align-self: center;
+  justify-self: center;
+}
+
+/* arrow ikonin tyylit */
+.iconarrow {
+  width: 45px;
+  height: 45px;
+  align-self: center;
+  justify-self: center;
 }
