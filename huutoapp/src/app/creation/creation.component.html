@@ -1,1 +1,27 @@
-<p>creation works!</p>
+<div class="container">
+  <!--formi, jonka submittaamalla saadaan kaikki tarvittavat tiedot käyttäjän tekemästä kyselystä-->
+  <form id="formi" #f="ngForm" novalidate>
+    Question<input id="kysymys" type="text" required minlength="3" />
+
+    <!--radionapit wräpätty diveihin, jotta ne menevät titlen kanssa molemmat samaan grid slottiin-->
+    <div>Multiple choice<input id="multiple" type="radio" name="choice" /></div>
+
+    <div>
+      Opinion grid:<input class="form-control" type="radio" name="choice" />
+    </div>
+
+    <div>
+      Wheel of fortune:<input class="form-control" type="radio" name="choice" />
+    </div>
+
+    Choices<input class="form-control" type="text" />
+
+    <button>+</button>
+  </form>
+
+  <button class="govote" type="button" routerLink="/vote">
+    <button class="govoteroboto" routerLink="/user">
+      <span class="buttontext"> Create </span>
+    </button>
+  </button>
+</div>
