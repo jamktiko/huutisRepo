@@ -1,20 +1,17 @@
 <div class="container">
   <p id="title">What is your username</p>
 
-  <input id="input" type="text" />
+  <input id="input" type="text" value="{{ name }}" />
 
-  <button id="liity" type="button" routerLink="/vote">Go Vote</button>
-  <button id="random" type="button" onclick="rndm()">Random username</button>
+  <button class="govote" type="button" routerLink="/vote">
+    <button class="govoteroboto" routerLink="/user">
+      <span class="buttontext"> Go Vote </span>
+    </button>
+  </button>
+
+  <button class="govote" type="button">
+    <button class="randomroboto" (click)="rndm()">
+      <span class="buttontext"> Random username </span>
+    </button>
+  </button>
 </div>
-
-<script type="text/javascript">
-  //ei toimi ei tunnista functiota
-  let Moniker = require("moniker");
-
-  let user = { name: Moniker.choose() };
-
-  function rndm() {
-    document.getElementById("input") = "Pekka";
-  }
-  let nimi = "pekka";
-</script>
