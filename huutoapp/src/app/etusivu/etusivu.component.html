@@ -1,7 +1,12 @@
 <div class="container">
   <p id="title">Enter room code</p>
 
-  <input id="input" type="number" pattern="[0-9]+" />
+  <form class="roomcode">
+    <input id="input" type="text" maxlength="1" />
+    <input id="input" type="text" maxlength="1" />
+    <input id="input" type="text" maxlength="1" />
+    <input id="input" type="text" maxlength="1" />
+  </form>
 
   <button class="liity">
     <button class="liityroboto" routerLink="/user">
@@ -10,8 +15,6 @@
       </span>
     </button>
   </button>
-
-  <!-- <button id="luohuone">Create room</button> -->
 
   <button class="luohuone">
     <button class="luohuoneroboto" routerLink="/creation">

@@ -5,13 +5,6 @@
   max-height: 100vh;
 }
 
-/* #random {
-  height: 10em;
-  align-self: start;
-  width: 50vw;
-  justify-self: center;
-} */
-
 #title {
   font-size: 1.5em;
   justify-self: center;
@@ -24,13 +17,6 @@
   align-self: center;
   justify-self: center;
 }
-
-/* #liity {
-  height: 10em;
-  align-self: center;
-  width: 50vw;
-  justify-self: center;
-} */
 
 .govote {
   align-self: center;
