@@ -13,9 +13,11 @@
 
 /* gridin tyylit, jonka sisään vastausvaihtoehdot menevät kahteen sarakkeeseen */
 .optiongrid {
+  justify-self: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 2em;
+  width: 360px;
 }
 
 /* divit joihin äänestysvaihtoehto buttonit tulostuvat */
@@ -42,6 +44,7 @@
   background-color: white;
 }
 
+/* äänestysvaihtoehtojen fontit */
 .optiontext {
   color: var(--dl-color-gray-900);
   font-size: 1rem;
@@ -75,4 +78,5 @@
   border-radius: 541.6666870117188px;
   margin-bottom: 0;
   background-color: rgb(31, 229, 182);
+  justify-self: center;
 }
