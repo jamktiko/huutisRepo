@@ -1,5 +1,7 @@
 <div class="container">
   <span class="title">Vote!</span>
+
+  <!-- grid jonka sisällä div joiden sisään tulostuu äänestysvaihtoehdot nappeina -->
   <div class="optiongrid">
     <div *ngFor="let item of vastausvaihtoehdot" class="optiondiv">
       <button class="optionbutton buttontext">
@@ -7,5 +9,6 @@
       </button>
     </div>
   </div>
+  <!-- button joka arpoo vastausvaihtoehdon -->
   <button class="chosenone buttontext">Choose for me</button>
 </div>
