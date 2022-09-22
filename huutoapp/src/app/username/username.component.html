@@ -3,12 +3,19 @@
 
   <input id="input" type="text" value="{{ name }}" />
 
-  <button class="govote" type="button" routerLink="/vote">
-    <button class="govoteroboto" routerLink="/user">
-      <span class="buttontext"> Go Vote </span>
+  <!-- GO VOTE nappi ja arrow ikoni -->
+  <button class="govote" type="button">
+    <button class="govoteroboto" routerLink="/vote">
+      <span class="buttontext"> Go vote </span>
+      <img
+        src="/assets/images/arrowicon.png"
+        alt="arrowicon"
+        class="iconarrow"
+      />
     </button>
   </button>
 
+  <!-- RANDOM USERNAME nappi -->
   <button class="govote" type="button">
     <button class="randomroboto" (click)="rndm()">
       <span class="buttontext"> Random username </span>
