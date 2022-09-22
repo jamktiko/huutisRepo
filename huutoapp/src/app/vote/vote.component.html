@@ -1,1 +1,6 @@
-<p>vote works!</p>
+<div class="container">
+  <div *ngFor="let item of vastausvaihtoehdot" class="gridi">
+    <button>{{ item.vastausvaihtoehto }}</button>
+  </div>
+  <button>Choose for me</button>
+</div>

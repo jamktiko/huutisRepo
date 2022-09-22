@@ -12,4 +12,19 @@ export class VoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  public vastausvaihtoehdot = [
+    {
+      vastausvaihtoehto: '1'
+    },
+    {
+      vastausvaihtoehto: '2'
+    },
+    {
+      vastausvaihtoehto: '3'
+    },
+    {
+      vastausvaihtoehto: '4'
+    }
+  ];
 }
