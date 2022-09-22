@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormArray } from '@angular/forms'
 
 @Component({
   selector: 'app-creation',
@@ -9,7 +10,25 @@ export class CreationComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+
+  ngOnInit() {
+    
   }
+
+
+  public vaihtoehdot = [
+    {
+      vaihtoehto: ''
+    }
+  ];
+
+  addForm() {
+    this.vaihtoehdot.push({
+      vaihtoehto: '',
+    });
+
+    console.log(this.vaihtoehdot)
+  }
+  
 
 }

@@ -14,9 +14,22 @@
       Wheel of fortune:<input class="form-control" type="radio" name="choice" />
     </div>
 
-    Choices<input class="form-control" type="text" />
+    <h2>Choices</h2>
 
-    <button>+</button>
+    <!--Alussa yksi input kenttä, jota iteroidaan lisää napin painalluksella ja samalla pusketaan
+    taulukkoon, jossa säilytetään vastausvaihtoehdot-->
+
+    <div *ngFor="let item of vaihtoehdot">
+      <div class="row">
+        <div class="col-4">
+          <input
+            [(ngModel)]="item.vaihtoehto"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </div>
+      </div>
+    </div>
+    <button (click)="addForm()">add</button>
   </form>
 
   <button class="govote" type="button" routerLink="/vote">
