@@ -13,12 +13,22 @@
   width: 300px;
 }
 
+/* kysymys textfieldin tyyli */
 .kysymys {
   justify-self: start;
   width: 300px;
   height: 1.5em;
 }
 
+/* vaihtoehtojen tekstikenttien tyylit */
+.choice {
+  justify-self: start;
+  width: 300px;
+  height: 1.5em;
+  margin-bottom: 1em;
+}
+
+/* otsikoiden tekstien tyylit */
 .statictext {
   font-size: 1.25em;
   justify-self: start;
@@ -26,30 +36,26 @@
   font-weight: bold;
 }
 
+/* kyselymuodon checkboxien tekstien tyylit */
 .statictextsmall {
   font-size: 1.25em;
   justify-self: start;
   font-family: Roboto;
 }
 
+/* marginit textfieldeille ja otsikoille */
 .divmargin {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
+/* marginit checkboxeille */
 .divmarginsmall {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
-.choices {
-  margin-top: 1em;
-  font-size: 1.25em;
-  justify-self: start;
-  font-family: Roboto;
-  font-weight: bold;
-}
-
+/* create napin container tyylit */
 .create {
   align-self: center;
   justify-self: center;
@@ -61,6 +67,7 @@
   background-color: transparent;
 }
 
+/* create napin tyylit */
 .createroboto {
   width: 70vw;
   max-width: 400px;
@@ -78,12 +85,13 @@
   background-color: white;
 }
 
+/* button tekstien fontit */
 .buttontext {
   color: var(--dl-color-gray-900);
   height: auto;
   font-size: 1.5em;
   font-style: normal;
-  text-align: left;
+  text-align: center;
   font-family: Roboto;
   font-weight: bold;
   line-height: 34.66666793823242px;
@@ -105,6 +113,7 @@
   background-color: transparent;
 }
 
+/* choicen lisäämisnapin tyylit */
 .addroboto {
   width: 50px;
   align-self: center;
@@ -122,6 +131,7 @@
   background-color: white;
 }
 
+/* add choice napin ikonin koko */
 .iconplus {
   height: 25px;
   width: 25px;

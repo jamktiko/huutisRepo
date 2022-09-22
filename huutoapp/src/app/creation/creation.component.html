@@ -21,15 +21,19 @@
       <span class="statictextsmall">Wheel of fortune</span>
       <input type="radio" name="choice" />
     </div>
+
+    <!-- vaihtoehtojen kirjoittamiselle tekstikenttä -->
+    <span class="statictext divmargin">Choices</span>
     <div *ngFor="let item of vaihtoehdot">
-      Choices<input
-        class="form-control"
+      <input
+        class="choice"
         type="text"
         [(ngModel)]="item.vaihtoehto"
         [ngModelOptions]="{ standalone: true }"
       />
     </div>
 
+    <!-- vaihtoehtojen lisäämiselle nappi -->
     <button class="add" type="button">
       <button class="addroboto" (click)="addForm()">
         <img
@@ -41,12 +45,14 @@
     </button>
   </form>
 
+  <!-- huoneen luonnin nappi -->
   <button class="create" type="button">
     <button class="createroboto" routerLink="/user">
       <span class="buttontext"> Create </span>
     </button>
   </button>
 
+  <!-- nappi jos tarvitsee palata etusivulle -->
   <button class="create" type="button">
     <button class="createroboto" routerLink="/etusivu">
       <span class="buttontext"> Back </span>
