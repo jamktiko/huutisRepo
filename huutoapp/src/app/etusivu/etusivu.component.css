@@ -11,6 +11,7 @@
   align-self: center;
   /* text-transform: uppercase; */
   font-weight: bold;
+  font-family: "Roboto", sans-serif;
 }
 
 /* huonekoodin neljää tekstikenttää holdaavan formin tyylit */
@@ -107,7 +108,7 @@
   font-size: 1.5em;
   font-style: normal;
   text-align: left;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   line-height: 34.66666793823242px;
   font-stretch: normal;

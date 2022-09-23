@@ -6,7 +6,7 @@
 .title {
   margin-top: 2em;
   justify-self: center;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-size: 1.5em;
   font-weight: bold;
 }
@@ -50,7 +50,7 @@
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   margin-right: 0;
   margin-bottom: 0;
 }
@@ -61,7 +61,7 @@
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   margin-right: 0;
   margin-bottom: 0;
 }
