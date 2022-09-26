@@ -69,6 +69,11 @@
   background-color: white;
 }
 
+.liityroboto:active {
+  background-color: rgb(217, 217, 217);
+  box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 1);
+}
+
 /* CREATE ROOM napin "container" */
 .luohuone {
   align-self: center;
@@ -99,6 +104,11 @@
   border-radius: 541.6666870117188px;
   margin-bottom: 0;
   background-color: white;
+}
+
+.luohuoneroboto:active {
+  background-color: rgb(217, 217, 217);
+  box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 1);
 }
 
 /* kaikkien buttoneiden tesktien tyylit */
