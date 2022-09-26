@@ -30,4 +30,10 @@ export class VoteComponent implements OnInit {
       vastausvaihtoehto: '6',
     },
   ];
+
+  random() {
+    this.vastausvaihtoehdot[
+      Math.floor(Math.random() * this.vastausvaihtoehdot.length)
+    ];
+  }
 }
