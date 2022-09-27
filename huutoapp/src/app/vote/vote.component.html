@@ -12,11 +12,13 @@
   <!-- grid jonka sisällä div joiden sisään tulostuu äänestysvaihtoehdot nappeina -->
   <div class="optiongrid">
     <div *ngFor="let item of vastausvaihtoehdot" class="optiondiv">
-      <button class="optionbutton optiontext">
+      <button class="optionbutton optiontext" routerLink="/result">
         {{ item.vastausvaihtoehto }}
       </button>
     </div>
   </div>
   <!-- button joka arpoo vastausvaihtoehdon -->
-  <button class="chosenone buttontext" (click)="random()">Choose for me</button>
+  <button class="chosenone buttontext" (click)="random()" routerLink="/result">
+    Choose for me
+  </button>
 </div>

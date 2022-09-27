@@ -8,7 +8,8 @@ import { CreationComponent } from './creation/creation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 import { VoteComponent } from './vote/vote.component';
-import { UsernameComponent } from './username/username.component'; 
+import { UsernameComponent } from './username/username.component';
+import { ResultComponent } from './result/result.component'; 
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { UsernameComponent } from './username/username.component';
     CreationComponent,
     VoteComponent,
     UsernameComponent,
+    ResultComponent,
  
   ],
   imports: [
