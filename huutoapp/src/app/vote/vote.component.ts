@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebsocketService } from '../websocket.service';
 
 @Component({
   selector: 'app-vote',
@@ -6,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vote.component.css'],
 })
 export class VoteComponent implements OnInit {
-  constructor() {}
+  constructor(private webSocketService: WebsocketService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.webSocketService.setupSocketConnection();
+  }
+
+  ngOnDestroy() {
+    this.webSocketService.disconnect();
+  }
+
+  idx = '';
+
+  sendData(data: any) {
+    this.webSocketService.sendData(data);
+  }
 
   public vastausvaihtoehdot = [
     {
@@ -35,5 +48,11 @@ export class VoteComponent implements OnInit {
     this.vastausvaihtoehdot[
       Math.floor(Math.random() * this.vastausvaihtoehdot.length)
     ];
+  }
+
+  vote(data: any) {
+    this.idx = data;
+    console.log(this.idx);
+    this.sendData(this.idx);
   }
 }

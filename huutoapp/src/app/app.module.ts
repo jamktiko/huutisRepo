@@ -9,7 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 import { VoteComponent } from './vote/vote.component';
 import { UsernameComponent } from './username/username.component';
-import { ResultComponent } from './result/result.component'; 
+import { ResultComponent } from './result/result.component';
+import { WebsocketService } from './websocket.service'; 
 
 
 @NgModule({
@@ -27,9 +28,9 @@ import { ResultComponent } from './result/result.component';
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [WebsocketService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
