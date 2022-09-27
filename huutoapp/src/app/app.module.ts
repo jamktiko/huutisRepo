@@ -8,8 +8,9 @@ import { CreationComponent } from './creation/creation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 import { VoteComponent } from './vote/vote.component';
-import { UsernameComponent } from './username/username.component'; 
-
+import { UsernameComponent } from './username/username.component';
+import { WebsocketService } from './websocket.service';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -18,16 +19,16 @@ import { UsernameComponent } from './username/username.component';
     CreationComponent,
     VoteComponent,
     UsernameComponent,
- 
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [WebsocketService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

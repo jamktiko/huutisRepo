@@ -2,25 +2,51 @@
   <!--formi, jonka submittaamalla saadaan kaikki tarvittavat tiedot käyttäjän tekemästä kyselystä-->
   <form class="formi" #f="ngForm" novalidate>
     <span class="statictext divmargin"> Question </span>
-    <input class="kysymys" type="text" required minlength="3" />
+    <input
+      class="kysymys"
+      type="text"
+      required
+      minlength="3"
+      [(ngModel)]="kysymys"
+      [ngModelOptions]="{ standalone: true }"
+    />
 
     <span class="statictext divmargin">Format</span>
 
     <!--radionapit wräpätty diveihin, jotta ne menevät titlen kanssa molemmat samaan grid slottiin-->
-    <div class="divmarginsmall">
-      <span class="statictextsmall">Multiple choice</span>
-      <input type="radio" name="choice" />
+    <div class="form-group">
+      <div class="divmarginsmall">
+        <span class="statictextsmall">Multiple choice</span>
+        <input
+          type="radio"
+          name="choice"
+          value="multiple"
+          (change)="changeGender($event)"
+          checked
+        />
+      </div>
+
+      <div class="divmarginsmall">
+        <span class="statictextsmall">Opinion grid</span>
+        <input
+          type="radio"
+          name="choice"
+          value="grid"
+          (change)="changeGender($event)"
+        />
+      </div>
+
+      <div class="divmarginsmall">
+        <span class="statictextsmall">Wheel of fortune</span>
+        <input
+          type="radio"
+          name="choice"
+          value="fortune"
+          (change)="changeGender($event)"
+        />
+      </div>
     </div>
 
-    <div class="divmarginsmall">
-      <span class="statictextsmall">Opinion grid</span>
-      <input type="radio" name="choice" />
-    </div>
-
-    <div class="divmarginsmall">
-      <span class="statictextsmall">Wheel of fortune</span>
-      <input type="radio" name="choice" />
-    </div>
     <div *ngFor="let item of vaihtoehdot">
       Choices<input
         class="form-control"
@@ -31,7 +57,7 @@
     </div>
 
     <button class="add" type="button">
-      <button class="addroboto" (click)="addForm()">
+      <button class="addroboto" (click)="addForm()" type="submit">
         <img
           src="/assets/images/plusicon.png"
           alt="plusicon"
@@ -42,7 +68,7 @@
   </form>
 
   <button class="create" type="button">
-    <button class="createroboto" routerLink="/user">
+    <button class="createroboto" routerLink="/user" (click)="submit()">
       <span class="buttontext"> Create </span>
     </button>
   </button>
