@@ -10,8 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { VoteComponent } from './vote/vote.component';
 import { UsernameComponent } from './username/username.component';
 import { ResultComponent } from './result/result.component';
-import { WebsocketService } from './websocket.service'; 
-
+import { WebsocketService } from './websocket.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { WebsocketService } from './websocket.service';
     VoteComponent,
     UsernameComponent,
     ResultComponent,
- 
   ],
   imports: [
     BrowserModule,
