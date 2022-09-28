@@ -15,18 +15,18 @@ export class ResultComponent implements OnInit {
     let myChart = new Chart('myChart', {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['1', '2', '3', '4', '5', '6'],
         datasets: [
           {
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [7, 9, 3, 5, 1, 2],
             backgroundColor: [
-              'rgba(255, 99, 132)',
-              'rgba(54, 162, 235)',
-              'rgba(255, 206, 86)',
-              'rgba(75, 192, 192)',
-              'rgba(153, 102, 255)',
-              'rgba(255, 159, 64)',
+              'rgba(27, 223, 6)',
+              'rgba(31, 229, 182)',
+              'rgba(89, 255, 0)',
+              'rgba(37, 242, 196)',
+              'rgba(110, 230, 98)',
+              'rgba(142, 233, 209)',
             ],
           },
         ],
