@@ -9,7 +9,7 @@
 <div class="container">
   <p id="title">Enter room code</p>
 
-  <!-- formi jossa sisällä kaikki neljä huonekoodin tekstikenttää -->
+  <!-- form that holds the four textfields (boxes) for the room code -->
   <form class="roomcode">
     <input id="input" type="text" maxlength="1" />
     <input id="input" type="text" maxlength="1" />
@@ -17,18 +17,18 @@
     <input id="input" type="text" maxlength="1" />
   </form>
 
-  <!-- JOIN nappi liittymiseen -->
-  <button class="liity">
-    <button class="liityroboto" routerLink="/user">
+  <!-- JOIN button for joining the room -->
+  <button class="join">
+    <button class="joinroboto" routerLink="/user">
       <span class="buttontext">
         <span>Join</span>
       </span>
     </button>
   </button>
 
-  <!-- CREATE ROOM nappi huoneen luontiin ja plus-ikoni -->
-  <button class="luohuone">
-    <button class="luohuoneroboto" routerLink="/creation">
+  <!-- CREATE ROOM button that leads to the room creation page (also holds the plusicon) -->
+  <button class="create">
+    <button class="createroboto" routerLink="/creation">
       <img src="/assets/images/plusicon.png" alt="plusicon" class="iconplus" />
       <span class="buttontext">
         <span>

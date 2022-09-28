@@ -4,7 +4,7 @@
   margin-top: 20px;
 }
 
-/* titlen tyylit */
+/* title styles */
 #title {
   font-size: 1.5em;
   justify-self: center;
@@ -14,13 +14,13 @@
   font-family: "Roboto", sans-serif;
 }
 
-/* huonekoodin neljää tekstikenttää holdaavan formin tyylit */
+/* styles for the form that holds the four text boxes */
 .roomcode {
   align-self: center;
   justify-self: center;
 }
 
-/* huonekoodin neljän tekstikentän tyylit */
+/* styles for the four textfields (boxes) */
 #input {
   width: 50px;
   height: 50px;
@@ -31,6 +31,7 @@
   text-transform: uppercase;
 }
 
+/* hover and focus effects for the room code inputs  */
 #input:hover {
   background-color: rgb(217, 217, 217);
 }
@@ -39,8 +40,8 @@
   background-color: rgb(217, 217, 217);
 }
 
-/* JOIN napin "container" */
-.liity {
+/* container for JOIN button */
+.join {
   align-self: center;
   justify-self: center;
   box-sizing: border-box;
@@ -51,8 +52,8 @@
   background-color: transparent;
 }
 
-/* itse JOIN nappi joka löytyy UI:sta valkoisena ellipsinä */
-.liityroboto {
+/* styles for the actual JOIN button in the UI */
+.joinroboto {
   width: 70vw;
   max-width: 400px;
   align-self: center;
@@ -69,13 +70,14 @@
   background-color: white;
 }
 
-.liityroboto:active {
+/* effect for the JOIN button which makes it look like its being pressed */
+.joinroboto:active {
   background-color: rgb(217, 217, 217);
   box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 1);
 }
 
-/* CREATE ROOM napin "container" */
-.luohuone {
+/* container for the CREATE ROOM button */
+.create {
   align-self: center;
   justify-self: center;
   box-sizing: border-box;
@@ -86,8 +88,8 @@
   background-color: transparent;
 }
 
-/* varsineinen CREATE ROOM nappi joka myöskin havaittavissa UI:sta */
-.luohuoneroboto {
+/* styles for the actual CREATE ROOM button in the UI */
+.createroboto {
   width: 70vw;
   max-width: 400px;
   display: grid;
@@ -106,12 +108,13 @@
   background-color: white;
 }
 
-.luohuoneroboto:active {
+/* effect for CREATE ROOM to make it look like its being pressed */
+.createroboto:active {
   background-color: rgb(217, 217, 217);
   box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 1);
 }
 
-/* kaikkien buttoneiden tesktien tyylit */
+/* styles for all the button texts */
 .buttontext {
   color: var(--dl-color-gray-900);
   height: auto;
@@ -128,7 +131,7 @@
   text-decoration: none;
 }
 
-/* CREATE ROOM napin plus-ikonin tyylit */
+/* CREATE ROOM button plusicons style */
 .iconplus {
   align-self: center;
   justify-self: center;

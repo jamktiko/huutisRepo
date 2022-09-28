@@ -11,7 +11,7 @@
   font-weight: bold;
 }
 
-/* gridin tyylit, jonka sisään vastausvaihtoehdot menevät kahteen sarakkeeseen */
+/* styles for the grid, which holds the voting options in two columns */
 .optiongrid {
   justify-self: center;
   display: grid;
@@ -20,7 +20,7 @@
   width: 360px;
 }
 
-/* divit joihin äänestysvaihtoehto buttonit tulostuvat */
+/* styles for the divs which hold the buttons for the voting options */
 .optiondiv {
   margin: 0.5em;
   display: grid;
@@ -29,7 +29,7 @@
   margin-bottom: 2em;
 }
 
-/* nappien tyylit */
+/* button styles */
 .optionbutton {
   max-width: 150px;
   padding: 2em;
@@ -44,12 +44,13 @@
   background-color: white;
 }
 
+/* effect to make the buttons look like they are being pressed */
 .optionbutton:active {
   background-color: rgb(217, 217, 217);
   box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 1);
 }
 
-/* äänestysvaihtoehtojen fontit */
+/* font style for the voting options */
 .optiontext {
   color: var(--dl-color-gray-900);
   font-size: 1rem;
@@ -60,7 +61,7 @@
   margin-bottom: 0;
 }
 
-/* nappien tekstien tyylit */
+/* styles for all the other button texts */
 .buttontext {
   color: var(--dl-color-gray-900);
   font-size: 1.5em;
@@ -71,7 +72,7 @@
   margin-bottom: 0;
 }
 
-/* choose for me napin tyylit */
+/* styles for the choose for me button */
 .chosenone {
   padding: 1em;
   box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 1);
@@ -86,6 +87,7 @@
   justify-self: center;
 }
 
+/* effect for the button to look like its being pressed */
 .chosenone:active {
   background-color: rgb(22, 170, 136);
   box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 1);

@@ -7,11 +7,11 @@
   />
 </head>
 <div class="container">
-  <!--formi, jonka submittaamalla saadaan kaikki tarvittavat tiedot käyttäjän tekemästä kyselystä-->
-  <form class="formi" #f="ngForm" novalidate>
+  <!-- form, which on submit posts all the information about the users poll -->
+  <form class="form" #f="ngForm" novalidate>
     <span class="statictext divmargin"> Question </span>
     <input
-      class="kysymys"
+      class="question"
       type="text"
       required
       minlength="3"
@@ -21,7 +21,7 @@
 
     <span class="statictext divmargin">Format</span>
 
-    <!--radionapit wräpätty diveihin, jotta ne menevät titlen kanssa molemmat samaan grid slottiin-->
+    <!--radio buttons wrapped in to divs, so they find the same gridslot with the title-->
     <div class="form-group">
       <div class="divmarginsmall">
         <span class="statictextsmall">Multiple choice</span>
@@ -64,7 +64,7 @@
       />
     </div>
 
-    <!-- vaihtoehtojen lisäämiselle nappi -->
+    <!-- button for adding answer options -->
     <button class="add" type="button">
       <button class="addroboto" (click)="addForm()" type="submit">
         <img
@@ -76,14 +76,14 @@
     </button>
   </form>
 
-  <!-- huoneen luonnin nappi -->
+  <!-- button to create the room -->
   <button class="create" type="button">
     <button class="createroboto" routerLink="/user" (click)="submit()">
       <span class="buttontext"> Create </span>
     </button>
   </button>
 
-  <!-- nappi jos tarvitsee palata etusivulle -->
+  <!-- button to return to the frontpage incase of missclick -->
   <button class="create" type="button">
     <button class="createroboto" routerLink="/etusivu">
       <span class="buttontext"> Back </span>

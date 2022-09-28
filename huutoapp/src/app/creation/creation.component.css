@@ -5,22 +5,22 @@
   max-height: 100vh;
 }
 
-/*formi laitettu gridiin */
-.formi {
+/* form put in to a grid */
+.form {
   justify-self: center;
   display: grid;
   max-height: 100vh;
   width: 300px;
 }
 
-/* kysymys textfieldin tyyli */
-.kysymys {
+/* texfield style for the main question */
+.question {
   justify-self: start;
   width: 300px;
   height: 1.5em;
 }
 
-/* vaihtoehtojen tekstikenttien tyylit */
+/* textfield style for the answer options */
 .choice {
   justify-self: start;
   width: 300px;
@@ -28,7 +28,7 @@
   margin-bottom: 1em;
 }
 
-/* otsikoiden tekstien tyylit */
+/* textstyles for the headlines */
 .statictext {
   font-size: 1.25em;
   justify-self: start;
@@ -36,26 +36,26 @@
   font-weight: bold;
 }
 
-/* kyselymuodon checkboxien tekstien tyylit */
+/* textstyles for the question format choices */
 .statictextsmall {
   font-size: 1.25em;
   justify-self: start;
   font-family: "Roboto", sans-serif;
 }
 
-/* marginit textfieldeille ja otsikoille */
+/* margin for textfields and headlines */
 .divmargin {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-/* marginit checkboxeille */
+/* margin for checkboxes */
 .divmarginsmall {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
-/* create napin container tyylit */
+/* create button container styles */
 .create {
   align-self: center;
   justify-self: center;
@@ -67,7 +67,7 @@
   background-color: transparent;
 }
 
-/* create napin tyylit */
+/* styles for the actual CREATE button visible in the UI */
 .createroboto {
   width: 70vw;
   max-width: 400px;
@@ -85,12 +85,13 @@
   background-color: white;
 }
 
+/* effect to make the button look like its being pressed */
 .createroboto:active {
   background-color: rgb(217, 217, 217);
   box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 1);
 }
 
-/* button tekstien fontit */
+/* textstyle for all the button texts */
 .buttontext {
   color: var(--dl-color-gray-900);
   height: auto;
@@ -107,8 +108,8 @@
   text-decoration: none;
 }
 
+/* container for the ADD (answer choice) button */
 .add {
-  /* align-self: flex-start; */
   justify-self: flex-start;
   box-sizing: border-box;
   border-color: transparent;
@@ -118,7 +119,7 @@
   background-color: transparent;
 }
 
-/* choicen lisäämisnapin tyylit */
+/* ADD (choice) button styles */
 .addroboto {
   width: 50px;
   align-self: center;
@@ -136,12 +137,13 @@
   background-color: white;
 }
 
+/* effect to make the button look like its being clicked */
 .addroboto:active {
   background-color: rgb(217, 217, 217);
   box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 1);
 }
 
-/* add choice napin ikonin koko */
+/* ADD (choice) button icon style */
 .iconplus {
   height: 25px;
   width: 25px;

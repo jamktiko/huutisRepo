@@ -9,15 +9,19 @@
 <div class="container">
   <span class="title">Vote!</span>
 
-  <!-- grid jonka sisällä div joiden sisään tulostuu äänestysvaihtoehdot nappeina -->
+  <!-- grid, that holds a div, which in turn posts all the voting options as buttons -->
   <div class="optiongrid">
     <div *ngFor="let item of vastausvaihtoehdot" class="optiondiv">
-      <button (click)="vote(item.vastausvaihtoehto)" class="optionbutton optiontext" routerLink="/result">
+      <button
+        (click)="vote(item.vastausvaihtoehto)"
+        class="optionbutton optiontext"
+        routerLink="/result"
+      >
         {{ item.vastausvaihtoehto }}
       </button>
     </div>
   </div>
-  <!-- button joka arpoo vastausvaihtoehdon -->
+  <!-- button which gives your vote to a random option -->
   <button class="chosenone buttontext" (click)="random()" routerLink="/result">
     Choose for me
   </button>
