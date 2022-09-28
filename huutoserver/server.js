@@ -1,7 +1,7 @@
 const app = require('express')();
 const http = require('http').createServer(app);
 const mongoose = require('mongoose');
-
+require('dotenv').config()
 
 const Results = require('./resultsModel');
 const Room = require('./roomModel')
@@ -13,7 +13,7 @@ const io = require('socket.io')(http, {
 
 mongoose.connect(
 
-  'mongodb+srv://huutis:huutis123@cluster0.bo0ayql.mongodb.net/huutis?retryWrites=true&w=majority',
+  process.env.MONGO_URI,
 
   { useNewUrlParser: true },
 
@@ -43,7 +43,7 @@ io.on('connection', (socket) => {
 
   socket.on('msg', (msg) => {
     console.log('message: ' + msg);
-    Room.insertMany([{"kysymys":msg.kysymys,"format":msg.format, "choices":msg.choices}])
+    Room.insertMany([{"id":msg.id,"kysymys":msg.kysymys,"format":msg.format, "choices":msg.choices}])
   });
 
   socket.on('vote', () => {
