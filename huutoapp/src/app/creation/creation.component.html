@@ -1,17 +1,11 @@
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-    rel="stylesheet"
-  />
-</head>
-<div class="container">
+<!-- div which works as a 2 row grid for the form and the buttons -->
+<div class="grid grid-rows-2">
   <!-- form, which on submit posts all the information about the users poll -->
-  <form class="form" #f="ngForm" novalidate>
-    <span class="statictext divmargin"> Question </span>
+  <!-- form is also in a grid which wraps the question input, radiobuttons, and choices -->
+  <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
+    <span class="font-sans text-xl font-semibold my-2"> Question </span>
     <input
-      class="question"
+      class="w-72 h-6 font-sans"
       type="text"
       required
       minlength="3"
@@ -19,45 +13,48 @@
       [ngModelOptions]="{ standalone: true }"
     />
 
-    <span class="statictext divmargin">Format</span>
+    <span class="font-sans text-xl font-semibold my-2">Format</span>
 
     <!--radio buttons wrapped in to divs, so they find the same gridslot with the title-->
-    <div class="form-group">
-      <div class="divmarginsmall">
-        <span class="statictextsmall">Multiple choice</span>
-        <input
-          type="radio"
-          name="choice"
-          value="multiple"
-          (change)="changeGender($event)"
-          checked
-        />
-      </div>
-
-      <div class="divmarginsmall">
-        <span class="statictextsmall">Opinion grid</span>
-        <input
-          type="radio"
-          name="choice"
-          value="grid"
-          (change)="changeGender($event)"
-        />
-      </div>
-
-      <div class="divmarginsmall">
-        <span class="statictextsmall">Wheel of fortune</span>
-        <input
-          type="radio"
-          name="choice"
-          value="fortune"
-          (change)="changeGender($event)"
-        />
-      </div>
+    <!-- radio button divs have display flex so the title and the radio button align -->
+    <div class="flex">
+      <span class="font-sans text-lg self-center">Multiple choice</span>
+      <input
+        class="ml-2 w-5 h-5 self-center"
+        type="radio"
+        name="choice"
+        value="multiple"
+        (change)="changeGender($event)"
+        checked
+      />
     </div>
 
+    <div class="flex my-2">
+      <span class="font-sans text-lg self-center">Opinion grid</span>
+      <input
+        class="ml-2 w-5 h-5 self-center"
+        type="radio"
+        name="choice"
+        value="grid"
+        (change)="changeGender($event)"
+      />
+    </div>
+
+    <div class="flex">
+      <span class="font-sans text-lg self-center">Wheel of fortune</span>
+      <input
+        class="ml-2 w-5 h-5 self-center"
+        type="radio"
+        name="choice"
+        value="fortune"
+        (change)="changeGender($event)"
+      />
+    </div>
+
+    <span class="font-sans text-xl font-semibold mt-2">Choices</span>
     <div *ngFor="let item of vaihtoehdot">
       <input
-        class="choice"
+        class="w-72 h-6 font-sans mt-2"
         type="text"
         [(ngModel)]="item.vaihtoehto"
         [ngModelOptions]="{ standalone: true }"
@@ -65,28 +62,44 @@
     </div>
 
     <!-- button for adding answer options -->
-    <button class="add" type="button">
-      <button class="addroboto" (click)="addForm()" type="submit">
-        <img
-          src="/assets/images/plusicon.png"
-          alt="plusicon"
-          class="iconplus"
+    <button
+      class="bg-white shadow-2xl rounded-full w-12 h-12 justify-self-start my-2"
+      (click)="addForm()"
+      type="submit"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-12 h-12 justify-self-center self-center"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
         />
-      </button>
+      </svg>
     </button>
   </form>
 
-  <!-- button to create the room -->
-  <button class="create" type="button">
-    <button class="createroboto" routerLink="/user" (click)="submit()">
-      <span class="buttontext"> Create </span>
+  <div class="grid grid-rows-2 max-h-72">
+    <!-- button to create the room -->
+    <button
+      class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center"
+      routerLink="/user"
+      (click)="submit()"
+    >
+      <span class="font-sans text-2xl font-semibold uppercase"> Create </span>
     </button>
-  </button>
 
-  <!-- button to return to the frontpage incase of missclick -->
-  <button class="create" type="button">
-    <button class="createroboto" routerLink="/etusivu">
-      <span class="buttontext"> Back </span>
+    <!-- button to return to the frontpage incase of missclick -->
+    <button
+      class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center"
+      routerLink="/etusivu"
+    >
+      <span class="font-sans text-2xl font-semibold uppercase"> Back </span>
     </button>
-  </button>
+  </div>
 </div>

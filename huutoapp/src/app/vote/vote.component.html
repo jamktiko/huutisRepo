@@ -1,28 +1,33 @@
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-    rel="stylesheet"
-  />
-</head>
-<div class="container">
-  <span class="title">Vote!</span>
+<!-- component in grid which holds title, the voting options and choose for me button-->
+<div class="grid">
+  <!-- title and styles -->
+  <span
+    class="font-sans text-2xl font-semibold justify-self-center self-center my-14"
+  >
+    Vote!
+  </span>
 
-  <!-- grid, that holds a div, which in turn posts all the voting options as buttons -->
-  <div class="optiongrid">
-    <div *ngFor="let item of vastausvaihtoehdot" class="optiondiv">
+  <!-- grid with two columns, which hold divs, which in turn posts all the voting options as buttons -->
+  <div class="grid grid-cols-2 justify-self-center w-80">
+    <div *ngFor="let item of vastausvaihtoehdot" class="justify-self-center">
       <button
         (click)="vote(item.vastausvaihtoehto)"
-        class="optionbutton optiontext"
+        class="bg-white shadow-2xl rounded-full w-36 h-20 m-4"
         routerLink="/result"
       >
         {{ item.vastausvaihtoehto }}
       </button>
     </div>
   </div>
+
   <!-- button which gives your vote to a random option -->
-  <button class="chosenone buttontext" (click)="random()" routerLink="/result">
-    Choose for me
+  <button
+    class="bg-appblue shadow-2xl rounded-full w-4/5 max-w-sm h-28 mt-14 justify-self-center"
+    (click)="random()"
+    routerLink="/result"
+  >
+    <span class="font-sans text-2xl font-semibold uppercase"
+      >Choose for me</span
+    >
   </button>
 </div>
