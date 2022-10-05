@@ -11,9 +11,13 @@
 
   <!-- grid jonka sisällä div joiden sisään tulostuu äänestysvaihtoehdot nappeina -->
   <div class="optiongrid">
-    <div *ngFor="let item of vastausvaihtoehdot" class="optiondiv">
-      <button (click)="vote(item.vastausvaihtoehto)" class="optionbutton optiontext" routerLink="/result">
-        {{ item.vastausvaihtoehto }}
+    <div *ngFor="let item of data.choices; index as i" class="optiondiv">
+      <button
+        class="optionbutton optiontext"
+        routerLink="/result"
+        (click)="sendVote(item.id, item.choices.vaihtoehto)"
+      >
+        {{ item.choices.vaihtoehto }}
       </button>
     </div>
   </div>

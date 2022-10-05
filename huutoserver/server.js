@@ -43,18 +43,20 @@ io.on('connection', (socket) => {
 
   socket.on('msg', (msg) => {
     console.log('message: ' + msg);
-    Room.insertMany([{"id":msg.id,"kysymys":msg.kysymys,"format":msg.format, "choices":msg.choices}])
+    Room.insertMany([{"id":msg.id,"kysymys":msg.kysymys,"format":msg.format, "choices":msg.choices}]);
   });
 
-  socket.on('vote', () => {
+  socket.on('vote', (data) => {
 
     // Results.insertMany([{7:"1"}, {8:"1"}])
 
-    Results.updateOne({"_id":"6331963a26a54a0bb52c898d"}, {$inc:{"1":1}})
+    console.log("Tässä on data millä haetaan mongosta inkrementoitava vaihtoehto: " + data)
+
+    Room.findOneAndUpdate({"id":[]})
 
     // Results.findByIdAndUpdate('633198d326a54a0bb52c898e' , { $inc: { '1': 1 } })
     .then((doc) => {
-      console.log('Document updated ' , {...doc});
+      console.log('Documents data ' , {...doc});
     })
     .catch((err) => {
       console.error(err);
@@ -64,6 +66,14 @@ io.on('connection', (socket) => {
 
   socket.on('my message', (msg) => {
     io.emit('my broadcast', `server: ${msg}`);
+  });
+
+  socket.on('fetch', (id) => {
+    Room.find({"id":id})
+    .then((data) =>{
+      socket.emit("data", data)
+      console.log("Tässä on tiedot mitä emitoidaan id:n perusteella: " + data)
+    })
   });
 
 

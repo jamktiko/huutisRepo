@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'node_modules/chart.js';
 import { registerables } from 'chart.js';
+import { WebsocketService } from '../websocket.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-result',
@@ -8,14 +10,42 @@ import { registerables } from 'chart.js';
   styleUrls: ['./result.component.css'],
 })
 export class ResultComponent implements OnInit {
-  constructor() {}
+  id!: number;
+  subscription!: Subscription;
+
+  data!: any;
+  subscriptionData!: Subscription;
+  labels: any = [];
+
+  labelSubscription!: Subscription;
+  labelData!: any;
+
+  constructor(private websocketservice: WebsocketService) {}
 
   ngOnInit(): void {
+    this.websocketservice.setupSocketConnection();
+    this.subscription = this.websocketservice.currentIdentification.subscribe(
+      (idn) => (this.id = idn)
+    );
+
+    this.subscriptionData = this.websocketservice.currentData.subscribe(
+      //@ts-ignore
+      (data) => (this.data = data[0])
+    );
+
+    //iterate thorugh the possible choices and store them in the
+    //this.labels array and display them in the graph.
+    for (let item of this.data.choices) {
+      this.labels.push(item.vaihtoehto);
+    }
+
+    this.websocketservice.fetchData(this.id);
+
     Chart.register(...registerables);
     let myChart = new Chart('myChart', {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: this.labels,
         datasets: [
           {
             label: '# of Votes',
@@ -48,5 +78,7 @@ export class ResultComponent implements OnInit {
         },
       },
     });
+
+    console.log('Tässä on id: ' + this.id);
   }
 }

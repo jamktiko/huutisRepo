@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebsocketService } from '../websocket.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-vote',
@@ -7,10 +8,35 @@ import { WebsocketService } from '../websocket.service';
   styleUrls: ['./vote.component.css'],
 })
 export class VoteComponent implements OnInit {
+  id!: number;
+  subscription!: Subscription;
+
+  data!: any;
+  itData!: any;
+  subscriptionData!: Subscription;
+  dataObj!: any;
   constructor(private webSocketService: WebsocketService) {}
 
   ngOnInit(): void {
     this.webSocketService.setupSocketConnection();
+
+    //get the id that was used in the creation component. The id will be
+    //used in fetching the data to the voting component with webSocketService
+    //fetchData(this.id) method
+    this.subscription = this.webSocketService.currentIdentification.subscribe(
+      (idn) => (this.id = idn)
+    );
+
+    this.subscriptionData = this.webSocketService.currentData.subscribe(
+      //@ts-ignore
+      (data) => (this.data = data[0])
+    );
+
+    this.webSocketService.fetchData(this.id);
+
+    console.log(this.data);
+
+    console.log(this.data);
   }
 
   ngOnDestroy() {
@@ -19,8 +45,8 @@ export class VoteComponent implements OnInit {
 
   idx = '';
 
-  sendData(data: any) {
-    this.webSocketService.sendData(data);
+  sendVote(id: any, choice: any) {
+    this.webSocketService.sendVote(id, choice);
   }
 
   public vastausvaihtoehdot = [
@@ -53,6 +79,5 @@ export class VoteComponent implements OnInit {
   vote(data: any) {
     this.idx = data;
     console.log(this.idx);
-    this.sendData(this.idx);
   }
 }

@@ -1,7 +1,8 @@
 export class Room {
+  id!: Number;
   kysymys!: string;
   format!: string;
   choices!: object;
 
-  constructor(kysymys: string, format: string, choices: string) {}
+  constructor(id: number, kysymys: string, format: string, choices: string) {}
 }
