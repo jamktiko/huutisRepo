@@ -1,5 +1,7 @@
+/* styles for the chart div */
 #divChart {
   display: block;
-  width: 400px;
+  width: 300px;
   height: 400px;
+  justify-self: center;
 }
