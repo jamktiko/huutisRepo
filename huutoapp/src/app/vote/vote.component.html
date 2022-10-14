@@ -7,18 +7,20 @@
   />
 </head>
 <div class="container">
+  <p>Room code: {{ messageFromServer.Item.roomId }}</p>
   <span class="title">Vote!</span>
 
   <!-- grid jonka sisällä div joiden sisään tulostuu äänestysvaihtoehdot nappeina -->
   <div class="optiongrid">
-    <div *ngFor="let item of data.choices; index as i" class="optiondiv">
+    <div *ngFor="let item of messageFromServer.Item.choices" class="optiondiv">
       <button
         class="optionbutton optiontext"
         routerLink="/result"
-        (click)="sendVote(item.id, item.choices.vaihtoehto)"
+        (click)="sendVote(item.vaihtoehto)"
       >
-        {{ item.choices.vaihtoehto }}
+        {{ item.vaihtoehto }}
       </button>
+      <p>{{ item.votes }}</p>
     </div>
   </div>
   <!-- button joka arpoo vastausvaihtoehdon -->

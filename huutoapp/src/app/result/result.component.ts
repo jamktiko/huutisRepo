@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'node_modules/chart.js';
 import { registerables } from 'chart.js';
-import { WebsocketService } from '../websocket.service';
 import { Subscription } from 'rxjs';
+import { WebsockethandlerService } from '../AWSapi.service';
 
 @Component({
   selector: 'app-result',
@@ -20,26 +20,12 @@ export class ResultComponent implements OnInit {
   labelSubscription!: Subscription;
   labelData!: any;
 
-  constructor(private websocketservice: WebsocketService) {}
+  constructor(private AWS: WebsockethandlerService) {}
 
   ngOnInit(): void {
-    this.websocketservice.setupSocketConnection();
-    this.subscription = this.websocketservice.currentIdentification.subscribe(
+    this.subscription = this.AWS.currentIdentification.subscribe(
       (idn) => (this.id = idn)
     );
-
-    this.subscriptionData = this.websocketservice.currentData.subscribe(
-      //@ts-ignore
-      (data) => (this.data = data[0])
-    );
-
-    //iterate thorugh the possible choices and store them in the
-    //this.labels array and display them in the graph.
-    for (let item of this.data.choices) {
-      this.labels.push(item.vaihtoehto);
-    }
-
-    this.websocketservice.fetchData(this.id);
 
     Chart.register(...registerables);
     let myChart = new Chart('myChart', {

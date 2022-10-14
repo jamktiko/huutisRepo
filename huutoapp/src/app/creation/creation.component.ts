@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { WebsocketService } from '../websocket.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { WebsockethandlerService } from '../AWSapi.service';
 import { Room } from '../models/Room';
 import { Subscription } from 'rxjs';
 
@@ -8,21 +8,64 @@ import { Subscription } from 'rxjs';
   templateUrl: './creation.component.html',
   styleUrls: ['./creation.component.css'],
 })
-export class CreationComponent implements OnInit {
+export class CreationComponent implements OnInit, OnDestroy {
   idn!: number;
   subscription!: Subscription;
-  constructor(private webSocketService: WebsocketService) {}
+  messageFromServer!: any;
+  wsSubscription!: Subscription;
+  status: any;
+
+  constructor(private AWS: WebsockethandlerService) {}
 
   //when page is loaded a connection to the websocket is started
   //with setupSocketConnection() method. We also generate an id that goes along
   //with other information to the database
   ngOnInit() {
-    this.webSocketService.setupSocketConnection();
+    // this.webSocketService.setupSocketConnection();
     this.genId();
 
-    this.subscription = this.webSocketService.currentIdentification.subscribe(
+    this.subscription = this.AWS.currentIdentification.subscribe(
       (id) => (this.idn = id)
     );
+
+    //subscribing to AWS Websocket to be able to use different methods
+    this.wsSubscription = this.AWS.createObservableSocket().subscribe(
+      (data) => (this.messageFromServer = data),
+      (err) => console.log('err'),
+      () => console.log('The observable stream is complete')
+    );
+  }
+
+  //sendMessageToServer is called when the user clicks the create room button after which
+  //the data for the room is sent to DynamoDB using the 'sendRoomInfo' route.
+  //the sendMessageToServer can be used to invoke any routes by changing the action variable of
+  //the message payload.
+
+  sendMessageToServer() {
+    const msg: {
+      action: string;
+      Id: string;
+      Question: string;
+      Format: string;
+      Choices: any;
+    } = {
+      action: 'sendRoomInfo',
+      Id: this.id.toString(),
+      Question: this.kysymys,
+      Format: this.format,
+      Choices: this.vaihtoehdot,
+    };
+    this.status = this.AWS.sendMessage(JSON.stringify(msg));
+  }
+
+  //closing the connection to the websocket after the view is destroyed
+  closeSocket() {
+    this.wsSubscription.unsubscribe();
+    this.status = 'The socket is closed';
+  }
+
+  ngOnDestroy() {
+    this.closeSocket();
   }
 
   //when a user is changing format based on the 3 current options
@@ -49,7 +92,7 @@ export class CreationComponent implements OnInit {
   public format = '';
 
   changeIdentification(id: number) {
-    this.webSocketService.updateIdentification(id);
+    this.AWS.updateIdentification(id);
   }
 
   //method for generating an id. This method is called when the creation component
@@ -68,19 +111,5 @@ export class CreationComponent implements OnInit {
 
     console.log(this.vaihtoehdot);
     console.log(this.kysymys);
-  }
-
-  //when the user clicks the create room button the data in the variables is sent to the server
-  //using a method from webSocketService called sendData() where the data is passed in as a variable
-  submit() {
-    let data: Room = {
-      id: this.id,
-      kysymys: this.kysymys,
-      format: this.format,
-      choices: this.vaihtoehdot,
-    };
-    console.log(data);
-    this.webSocketService.sendData(data);
-    this.changeIdentification(this.id);
   }
 }

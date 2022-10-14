@@ -10,7 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { VoteComponent } from './vote/vote.component';
 import { UsernameComponent } from './username/username.component';
 import { ResultComponent } from './result/result.component';
-import { WebsocketService } from './websocket.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,9 @@ import { WebsocketService } from './websocket.service';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [WebsocketService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

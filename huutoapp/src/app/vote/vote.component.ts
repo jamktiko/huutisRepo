@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { WebsocketService } from '../websocket.service';
+import { WebsockethandlerService } from '../AWSapi.service';
 import { Subscription } from 'rxjs';
+import { timingSafeEqual } from 'crypto';
+import { resolve } from 'dns';
+import { waitForAsync } from '@angular/core/testing';
 
 @Component({
   selector: 'app-vote',
@@ -15,38 +18,90 @@ export class VoteComponent implements OnInit {
   itData!: any;
   subscriptionData!: Subscription;
   dataObj!: any;
-  constructor(private webSocketService: WebsocketService) {}
+  status!: any;
+
+  messageFromServer!: any;
+  wsSubscription!: Subscription;
+
+  constructor(
+    // private webSocketService: WebsocketService,
+    private AWS: WebsockethandlerService
+  ) {}
+
+  initSocket = async (): Promise<any> => {
+    try {
+      this.wsSubscription = this.AWS.createObservableSocket().subscribe(
+        (data) => (this.messageFromServer = JSON.parse(data)),
+        (err) => console.log('err'),
+        () => console.log('The observable stream is complete')
+      );
+    } catch (error) {
+      if (error) {
+        console.error(error);
+      }
+    }
+  };
 
   ngOnInit(): void {
-    this.webSocketService.setupSocketConnection();
+    // this.webSocketService.setupSocketConnection();
 
+    this.initSocket();
     //get the id that was used in the creation component. The id will be
     //used in fetching the data to the voting component with webSocketService
     //fetchData(this.id) method
-    this.subscription = this.webSocketService.currentIdentification.subscribe(
-      (idn) => (this.id = idn)
-    );
+    // this.subscription = this.webSocketService.currentIdentification.subscribe(
+    //   (idn) => (this.id = idn)
+    // );
 
-    this.subscriptionData = this.webSocketService.currentData.subscribe(
-      //@ts-ignore
-      (data) => (this.data = data[0])
-    );
+    // this.subscriptionData = this.webSocketService.currentData.subscribe(
+    //   //@ts-ignore
+    //   (data) => (this.data = data[0])
+    // );
 
-    this.webSocketService.fetchData(this.id);
+    // this.webSocketService.fetchData(this.id);
 
-    console.log(this.data);
-
-    console.log(this.data);
+    setTimeout(() => {
+      if (this.AWS.ws.readyState === 1) {
+        this.fetchFromServer();
+        console.log(this.AWS.ws.readyState);
+      }
+    }, 500);
   }
 
   ngOnDestroy() {
-    this.webSocketService.disconnect();
+    // this.webSocketService.disconnect();
+    this.closeSocket();
+  }
+
+  closeSocket() {
+    this.wsSubscription.unsubscribe();
+    this.status = 'The socket is closed';
+  }
+
+  fetchFromServer() {
+    const msg: {
+      action: string;
+      data: string;
+    } = {
+      action: 'sendData',
+      data: '1207',
+    };
+    this.status = this.AWS.sendMessage(JSON.stringify(msg));
+    console.log(JSON.stringify(msg));
   }
 
   idx = '';
 
-  sendVote(id: any, choice: any) {
-    this.webSocketService.sendVote(id, choice);
+  sendVote(vaihtoehto: any) {
+    const msg: {
+      action: string;
+      data: string;
+    } = {
+      action: 'incrementChoiceVotes',
+      data: '1207',
+    };
+    this.status = this.AWS.sendMessage(JSON.stringify(msg));
+    console.log(JSON.stringify(msg));
   }
 
   public vastausvaihtoehdot = [

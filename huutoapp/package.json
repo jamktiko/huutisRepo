@@ -18,12 +18,14 @@
     "@angular/platform-browser": "^14.2.3",
     "@angular/platform-browser-dynamic": "^14.2.3",
     "@angular/router": "^14.2.3",
+    "aws-sdk": "^2.1229.0",
     "chart.js": "^3.9.1",
     "dotenv": "^16.0.3",
     "moniker": "^0.1.2",
     "rxjs": "~7.4.0",
     "socket.io-client": "^4.5.2",
     "unique-names-generator": "^4.7.1",
+    "ws": "^8.9.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

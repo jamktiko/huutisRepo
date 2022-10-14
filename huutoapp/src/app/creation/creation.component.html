@@ -78,7 +78,11 @@
 
   <!-- huoneen luonnin nappi -->
   <button class="create" type="button">
-    <button class="createroboto" routerLink="/user" (click)="submit()">
+    <button
+      class="createroboto"
+      routerLink="/user"
+      (click)="sendMessageToServer()"
+    >
       <span class="buttontext"> Create </span>
     </button>
   </button>
