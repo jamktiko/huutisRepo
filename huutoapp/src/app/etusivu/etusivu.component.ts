@@ -9,4 +9,16 @@ export class EtusivuComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onDigitInput(event: any) {
+    let element;
+    if (event.code !== 'Backspace')
+      element = event.srcElement.nextElementSibling;
+
+    if (event.code === 'Backspace')
+      element = event.srcElement.previousElementSibling;
+
+    if (element == null) return;
+    else element.focus();
+  }
 }
