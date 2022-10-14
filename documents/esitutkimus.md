@@ -148,7 +148,7 @@ Nativiisovelluksessa voidaan hyödyntää jo opittuja web teknologioita. Natiivi
 
 #### Toteutusympäristö 3
 
-Sovellus toimii ladattavana PWA:na. Sovellus hostataan AWS pilvipalveluissa. Sovelluksen backend toimii myös AWS pilvipalveluilla. ![Arkkitehtuurikuva](./assets/pwa-arkkitehtuuri.png)
+Sovellus toimii ladattavana PWA:na. Sovellus hostataan AWS pilvipalveluissa. Sovelluksen backend toimii myös AWS pilvipalveluilla. ![Arkkitehtuurikuva](./assets/pwa-arkkitehtuuri.jpg)
 
 #### Toteutettavat kertomukset 3
 
