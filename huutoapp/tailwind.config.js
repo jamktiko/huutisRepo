@@ -5,8 +5,11 @@ module.exports = {
     extend: {
       colors: {
         appblue: "#1fe5b6",
+        appyellow: "#eefc5e",
+        appblack: "#000000",
       },
     },
+
   },
   plugins: [],
 };

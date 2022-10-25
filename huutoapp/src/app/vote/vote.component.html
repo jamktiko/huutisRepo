@@ -2,7 +2,7 @@
 <div class="grid">
   <!-- title and styles -->
   <span
-    class="font-sans text-2xl font-semibold justify-self-center self-center my-14"
+    class="h1"
   >
     Vote!
   </span>
@@ -14,7 +14,7 @@
         (click)="vote(item.vastausvaihtoehto)"
         class="bg-white shadow-2xl rounded-full w-36 h-20 m-4"
         routerLink="/result"
-      >
+      ><!--TODO: vastausvaihtoehdot tarkoitus käyttää button-2 classia (jossa atm ei muuta kuin fonttiasetus), vaihda kunhan classi tehty ja sidottu tulosruudun tuloksiin. Ks. styles.css button-2 --Jyri -->
         {{ item.vastausvaihtoehto }}
       </button>
     </div>
@@ -22,11 +22,11 @@
 
   <!-- button which gives your vote to a random option -->
   <button
-    class="bg-appblue shadow-2xl rounded-full w-4/5 max-w-sm h-28 mt-14 justify-self-center"
+    class="button-1"
     (click)="random()"
     routerLink="/result"
   >
-    <span class="font-sans text-2xl font-semibold uppercase"
+    <span class="button-text"
       >Choose for me</span
     >
   </button>
