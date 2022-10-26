@@ -10,22 +10,30 @@ import { WebsockethandlerService } from '../AWSapi.service';
   styleUrls: ['./result.component.css'],
 })
 export class ResultComponent implements OnInit {
-  id!: number;
+  currentRoomId!: number;
   subscription!: Subscription;
 
   data!: any;
   subscriptionData!: Subscription;
   labels: any = [];
 
-  labelSubscription!: Subscription;
-  labelData!: any;
+  messageSubscription!: Subscription;
+  messageFromServer!: any;
+
+  status!: any;
 
   constructor(private AWS: WebsockethandlerService) {}
 
+  chartData = this.AWS.messageFromServer.Item.choices;
+
+  chartChoices: string[] = [];
+  chartVotes: string[] = [];
+
   ngOnInit(): void {
-    this.subscription = this.AWS.currentIdentification.subscribe(
-      (idn) => (this.id = idn)
-    );
+    for (let item of this.AWS.messageFromServer.Item.choices) {
+      this.chartChoices.push(item.vaihtoehto);
+      this.chartVotes.push(item.votes);
+    }
 
     Chart.register(...registerables);
     // new bar chart
@@ -33,13 +41,13 @@ export class ResultComponent implements OnInit {
       type: 'bar',
       //labels for data, in real version these would be the voting options
       data: {
-        labels: ['1', '2', '3', '4', '5', '6'],
+        labels: this.chartChoices,
         datasets: [
           {
             label: '# of Votes',
             //data and their representing colors, in real version
             //these would be the results of the vote + the colors given in voting phase
-            data: [7, 9, 3, 5, 1, 2],
+            data: this.chartVotes,
             backgroundColor: [
               'rgba(27, 223, 6)',
               'rgba(31, 229, 182)',
@@ -60,6 +68,24 @@ export class ResultComponent implements OnInit {
       },
     });
 
-    console.log('Tässä on id: ' + this.id);
+    console.log('Tässä on id: ' + this.currentRoomId);
+
+    this.fetchFromServer();
+
+    this.AWS.ws.addEventListener('message', (event) => {
+      this.messageFromServer = event.data;
+    });
+  }
+
+  fetchFromServer() {
+    const msg: {
+      action: string;
+      data: string;
+    } = {
+      action: 'sendData',
+      data: '1207',
+    };
+    this.status = this.AWS.sendMessage(JSON.stringify(msg));
+    console.log(JSON.stringify(msg));
   }
 }

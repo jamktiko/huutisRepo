@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from './environment';
-import { io } from 'socket.io-client';
+import { Subscription } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -11,10 +11,17 @@ export class WebsockethandlerService {
   ws!: WebSocket;
   socketIsOpen = 1;
 
+  wsSubscription!: Subscription;
+  messageFromServer!: any;
+  status: any;
+
   constructor() {}
 
   private identificationSource = new BehaviorSubject(1234);
   currentIdentification = this.identificationSource.asObservable();
+
+  private roomIdSource = new BehaviorSubject(1234);
+  currentRoomId = this.roomIdSource.asObservable();
 
   createObservableSocket(): Observable<any> {
     this.ws = new WebSocket(environment.API_ENDPOINT);
@@ -32,8 +39,25 @@ export class WebsockethandlerService {
     });
   }
 
+  initSocket() {
+    this.wsSubscription = this.createObservableSocket().subscribe(
+      (data) => (this.messageFromServer = JSON.parse(data)),
+      (err) => console.log('err'),
+      () => console.log('The observable stream is complete')
+    );
+  }
+  catch(error: any) {
+    if (error) {
+      console.error(error);
+    }
+  }
+
   updateIdentification(id: number) {
     this.identificationSource.next(id);
+  }
+
+  updateRoomId(id: any) {
+    this.roomIdSource.next(id);
   }
 
   sendMessage(message: any) {
@@ -44,5 +68,18 @@ export class WebsockethandlerService {
     } else {
       console.log('Message was not sent - the socket is closed');
     }
+  }
+
+  //this.currentRoomId.toString()
+
+  fetchFromServer(roomId: any) {
+    const msg: {
+      action: string;
+      data: string;
+    } = {
+      action: 'sendData',
+      data: roomId.toString(),
+    };
+    this.status = this.sendMessage(JSON.stringify(msg));
   }
 }
