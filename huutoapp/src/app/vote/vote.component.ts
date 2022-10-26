@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WebsockethandlerService } from '../AWSapi.service';
 import { Subscription } from 'rxjs';
 import { timingSafeEqual } from 'crypto';
-import { resolve } from 'dns';
+import { AnyMxRecord, resolve } from 'dns';
 import { waitForAsync } from '@angular/core/testing';
 
 @Component({
@@ -92,13 +92,15 @@ export class VoteComponent implements OnInit {
 
   idx = '';
 
-  sendVote(vaihtoehto: any) {
+  sendVote(index: any, id: any) {
     const msg: {
+      roomId: string;
       action: string;
-      data: string;
+      choice: string;
     } = {
       action: 'incrementChoiceVotes',
-      data: '1207',
+      roomId: id,
+      choice: JSON.stringify(index),
     };
     this.status = this.AWS.sendMessage(JSON.stringify(msg));
     console.log(JSON.stringify(msg));

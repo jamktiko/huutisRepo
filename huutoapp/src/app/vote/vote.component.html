@@ -17,7 +17,12 @@
       <button
         class="bg-white shadow-2xl rounded-full w-36 h-20 m-4"
         routerLink="/result"
-        (click)="sendVote(item.vaihtoehto)"
+        (click)="
+          sendVote(
+            messageFromServer.Item.choices.indexOf(item),
+            messageFromServer.Item.roomId
+          )
+        "
       >
         {{ item.vaihtoehto }}
       </button>
