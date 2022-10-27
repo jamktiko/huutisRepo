@@ -2,186 +2,267 @@
 @tailwind components;
 @tailwind utilities;
 
+/* This color is the same as appyellow, just in RGB - Jyri */
 html {
   background-color: rgb(238, 252, 94);
-}/* This color is the same as bg-appyellow, just in RGB - Jyri */
+  font-size: 16px;
+}
 
-@layer base{
-  .h1{
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  	font-size: 1.5rem;
-    line-height: 2rem;
+@layer base {
+  /* typography rules for h1, h2 and bread text -S */
+  .h1 {
+    font-size: 1.5em;
+    line-height: 1.5em;
     font-weight: 600;
     justify-self: center;
     align-self: center;
-    margin: 20% 0px 0.5rem;
+  }
 
-  }
-  .h2{
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";		font-size: 1.5rem;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+  .h2 {
+    font-size: 1.25em;
+    line-height: 1.25em;
     font-weight: 600;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
   }
-  .breadtext{
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";		
-    font-size: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    
+
+  .breadtext {
+    font-size: 1em;
+    line-height: 1.5em;
   }
 }
 
 /* layer for custom buttons, input fields, ripple animation on click. Never hover for mobiles. Also does not work atm - Jyri*/
-@layer components{
-     .button-1 /*Basic Button that should have ripple effect, for mobile users - Jyri*/
-     {
-      align-items: center;
-      appearance: none;
-      background-clip: padding-box;
-      background-color: bg-appyellow; /*TODO: Korjaa värit oikeiksi --Jyri */
-      background-image: none;
-      border-style: none;
-      box-sizing: border-box;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-      justify-self: center;
-      line-height: 24px;
-      min-height: 5rem;
-      max-width: 24rem;
-      padding: 1rem;
-      outline: none;
-      overflow: visible;
-      margin: 2.5rem 50%;
-      pointer-events: auto;
-      position: relative;
-      text-align: center;
-      text-decoration: none;
-      text-transform: none;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      vertical-align: middle;
-      width: 80%;
-      word-break: keep-all;
-      z-index: 0;
-    }
-    
-    @media (min-width: 768px) {
-      .button-1 {
-        padding: 19px 32px;
-      }
-    }
-    
-    .button-1:before,
-    .button-1:after {
-      border-radius: 80px;
-    }
-    
-    .button-1:before {
-      background-color: rgba(249, 58, 19, .32);
-      content: "";
-      display: block;
-      height: 100%;
-      left: 0;
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      z-index: -2;
-    }
-    
-    .button-1:after {
-      background-color: initial;
-      background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
-      bottom: 4px;
-      content: "";
-      display: block;
-      left: 4px;
-      overflow: hidden;
-      position: absolute;
-      right: 4px;
-      top: 4px;
-      transition: all 100ms ease-out;
-      z-index: -1;
-    }
-    
-    .button-1:hover:not(:disabled):after {
-      bottom: 0;
-      left: 0;
-      right: 0;
-      top: 0;
-      transition-timing-function: ease-in;
-    }
-    
-    .button-1:active:not(:disabled) {
-      color: #ccc;
-    }
-    
-    .button-1:active:not(:disabled):after {
-      background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
-      bottom: 4px;
-      left: 4px;
-      right: 4px;
-      top: 4px;
-    }
-    
-    .button-1:disabled {
-      cursor: default;
-      opacity: .24;
-    }
-    .button-2{
-      /*button-2 are Vote component's voting buttons.*/
-    /*TODO: Backend-juttu, äänestysvaihtoehdot pitää olla samanväriset kuin tulosruudun tulokset. Miten määritellä värit painikkeille? --Jyri*/
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";		
-    }
-    .button-3{
-      /*button-3 is for Creation component's "more options" button*/
-      background-color: bg-appblue;
-      border-radius: 9999px;
-      width: 3rem;
-      height: 3rem;
-      justify-self: start;
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .button-text{
-      /* button-text is for text inside button elements*/
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";	
-      font-size: 1.5rem;
-      line-height: 2rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
- 
-    .input-1{
-    /*input-1 is for Etusivu component's input-fields*/
-      width: 3.5rem;
-      height: 3.5rem;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: 600;
-      line-height: 2rem;
-      text-transform: uppercase;
-      margin: 0px 0.25rem 0px 0.25rem;
-   
-    /*  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";	
-   /* -- check if you can set Roboto as a global font with Tailwind. Setting the same font for every item separately is meh. --Jyri*/
-    }
-    .input-2
-    {
-      /*input-2 is for larger input-fields, such as the ones on Creation component - Jyri*/
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";	      
-      width: 18rem;
-      height: 3rem;
-      font-size: 1.5rem;
-      margin: 5px;
-    }
-    .input-3{
-      /*input-3 is for radio buttons on Creation screen - Jyri*/ 	
-      margin-right: auto 2px auto auto;
+@layer components {
+  /*Basic Button that should have ripple effect, for mobile users - Jyri*/
+
+  /* Removed the unnecessary css rules so only button styles are specified, sizing is done with inline -S*/
+  .button-1 {
+    align-items: center;
+    appearance: none;
+    background-clip: padding-box;
+    background-color: initial;
+    background-image: none;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    overflow: visible;
+    padding: 19px 26px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: auto;
+    word-break: keep-all;
+    z-index: 0;
+  }
+
+  @media (min-width: 768px) {
+    .button-1 {
+      padding: 19px 32px;
     }
   }
+
+  .button-1:before,
+  .button-1:after {
+    border-radius: 80px;
+  }
+
+  .button-1:before {
+    background-color: rgba(249, 58, 19, 0.32);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -2;
+  }
+
+  .button-1:after {
+    background-color: initial;
+    background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+    bottom: 4px;
+    content: "";
+    display: block;
+    left: 4px;
+    overflow: hidden;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    transition: all 100ms ease-out;
+    z-index: -1;
+  }
+
+  .button-1:hover:not(:disabled):after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition-timing-function: ease-in;
+  }
+
+  .button-1:active:not(:disabled) {
+    color: #ccc;
+  }
+
+  .button-1:active:not(:disabled):after {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
+      ),
+      linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    top: 4px;
+  }
+
+  .button-1:disabled {
+    cursor: default;
+    opacity: 0.24;
+  }
+
+  /* button 2 is for the voting option buttons in vote component, for now they look same with button-1 */
+  /* before function is created to assign colors for voting options -S */
+  .button-2 {
+    align-items: center;
+    appearance: none;
+    background-clip: padding-box;
+    background-color: initial;
+    background-image: none;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    overflow: visible;
+    padding: 19px 26px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: auto;
+    word-break: keep-all;
+    z-index: 0;
+  }
+
+  @media (min-width: 768px) {
+    .button-2 {
+      padding: 19px 32px;
+    }
+  }
+
+  .button-2:before,
+  .button-2:after {
+    border-radius: 80px;
+  }
+
+  .button-2:before {
+    background-color: rgba(249, 58, 19, 0.32);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -2;
+  }
+
+  .button-2:after {
+    background-color: initial;
+    background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+    bottom: 4px;
+    content: "";
+    display: block;
+    left: 4px;
+    overflow: hidden;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    transition: all 100ms ease-out;
+    z-index: -1;
+  }
+
+  .button-2:hover:not(:disabled):after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition-timing-function: ease-in;
+  }
+
+  .button-2:active:not(:disabled) {
+    color: #ccc;
+  }
+
+  .button-2:active:not(:disabled):after {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
+      ),
+      linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    top: 4px;
+  }
+
+  .button-2:disabled {
+    cursor: default;
+    opacity: 0.24;
+  }
+
+  .button-3 {
+    /*button-3 is for Creation component's "more/less options" button*/
+    width: 3rem;
+    height: 3rem;
+    justify-self: start;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .button-text {
+    /* button-text is for text inside button elements*/
+    font-size: 1.5em;
+    line-height: 1.5em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .input-1 {
+    /*input-1 is for Etusivu component's input-fields*/
+    width: 3.5rem;
+    height: 3.5rem;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    margin: 0rem 0.25rem 0rem 0.25rem;
+  }
+
+  .input-2 {
+    /*input-2 is for larger input-fields, such as the ones on Creation component - Jyri*/
+    width: 18rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    margin: 0.25rem 0rem 0.25rem 0rem;
+  }
+}

@@ -1,25 +1,21 @@
 <!-- div that has display grid and rows for all the elements -->
-<div class="grid grid-rows-4">
+<div class="grid grid-rows-4 h-screen">
   <!-- title and styles -->
-  <p class="h1">
-    What is your username?
-  </p>
+  <p class="h1 font-sans">What is your username?</p>
 
   <!-- inputfield for username and its styles -->
   <input
-    class="input-2 justify-self-center self-center"
+    class="input-2 font-sans justify-self-center self-center"
     type="text"
     value="{{ name }}"
   />
 
   <!-- GO VOTE button and heroicons arrow icon -->
   <button
-    class="button-1 grid grid-cols-2"
+    class="button-1 justify-self-center self-center w-80 h-32 grid grid-cols-2"
     routerLink="/vote"
   >
-    <span
-      class="button-text justify-self-end self-center"
-    >
+    <span class="button-text font-sans justify-self-end self-center">
       Go vote
     </span>
     <!-- TODO: Get rid of the template arrow, make a new svg? -- Jyri -->
@@ -41,11 +37,9 @@
 
   <!-- RANDOM USERNAME button -->
   <button
-    class="button-1 justify-self-center"
+    class="button-1 justify-self-center self-center w-80 h-32"
     (click)="rndm()"
   >
-    <span class="button-text">
-      Random username
-    </span>
+    <span class="button-text font-sans"> Random username </span>
   </button>
 </div>
