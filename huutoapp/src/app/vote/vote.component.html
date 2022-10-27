@@ -4,7 +4,11 @@
   <span class="h1 font-sans"> Vote! </span>
 
   <!-- grid with two columns, which hold divs, which in turn posts all the voting options as buttons -->
-  <div class="grid grid-cols-2 justify-self-center w-80">
+ 
+  <div class="justify-self-center self-center grid grid-cols-2 w-80">
+    <!--grid should be made more dynamic, 
+      number of vote buttons will change with every room, 
+      depending on what's being voted --Jyri -->
     <div *ngFor="let item of vastausvaihtoehdot" class="justify-self-center">
       <button
         (click)="vote(item.vastausvaihtoehto)"

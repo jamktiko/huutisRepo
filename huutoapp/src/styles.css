@@ -1,12 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* This color is the same as appyellow, just in RGB - Jyri */
-html {
-  background-color: rgb(238, 252, 94);
-  font-size: 16px;
-}
+/*html, body is here only for the animated gradient background -- Jyri*/
+  html, body {
+    width: 100%;
+    height:100%;
+    font-size: 16px;
+  }  
+  body {
+      background: linear-gradient(-45deg, #e9ee52, #ffae43, #f7c911ee, #ecef23);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+  }
+    @keyframes gradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+/* background-color: rgb(238, 252, 94);
+/* This color is the same as bg-appyellow, just in RGB - Jyri */
 
 @layer base {
   /* typography rules for h1, h2 and bread text -S */
