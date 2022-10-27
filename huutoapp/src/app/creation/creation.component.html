@@ -1,9 +1,10 @@
 <!-- div which works as a 2 row grid for the form and the buttons -->
 <div class="grid grid-rows-2">
+  <!-- Possible app logo is going to be added here, fonts might need reworking after that. --Jyri-->
   <!-- form, which on submit posts all the information about the users poll -->
   <!-- form is also in a grid which wraps the question input, radiobuttons, and choices -->
   <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
-    <span class="h1 justify-self-start"> Question </span>
+    <p class="h2"> Question </p>
     <input
       class="input-2"
       type="text"
@@ -13,12 +14,12 @@
       [ngModelOptions]="{ standalone: true }"
     />
 
-    <span class="h2">Format</span>
+    <p class="h2 max-h-0 pb-5">Format</p>
 
     <!--radio buttons wrapped in to divs, so they find the same gridslot with the title-->
 
-    <div class="grid grid-cols-2">
-      <span class="breadtext">Multiple choice</span>
+    <div class="grid grid-cols-2 max-h-1">
+      <p class="breadtext">Multiple choice</p>
       <input
         class="input-3"
         type="radio"
@@ -28,9 +29,10 @@
         checked
       />
     </div>
-<!--TODO: Radio buttons are not aligned evenly, do eet. -- Jyri -->
-    <div class="grid grid-cols-2 my-3">
-      <span class="breadtext">Opinion grid</span>
+<!--TODO: Too much empty space between elements, fix eeet. 
+  User should have all the controls in view at first glance and the empty space are pushing the buttons out of view. -- Jyri -->
+    <div class="grid grid-cols-2 my-3 max-h-1">
+      <p class="breadtext">Opinion grid</p>
       <input
         class="input-3"
         type="radio"
@@ -40,8 +42,8 @@
       />
     </div>
 
-    <div class="grid grid-cols-2">
-      <span class="breadtext">Wheel of fortune</span>
+    <div class="grid grid-cols-2 max-h-1">
+      <p class="breadtext">Wheel of fortune</p>
       <input
         class="input-3"
         type="radio"
@@ -51,7 +53,7 @@
       />
     </div>
 
-    <span class="h2">Choices</span>
+    <p class="h2 pt-5">Choices</p>
     <div *ngFor="let item of vaihtoehdot">
       <input
         class="input-2"
@@ -79,20 +81,20 @@
           stroke-linejoin="round"
           d="M12 8v10m5-5H7m14 0a9 9 0 11-18 0 9 9 0 0118 0z"
              
-        /><!--TODO: Get rid of the template svg and make a better one, with blackjack and hookers --Jyri -->
+        /><!--TODO: Get rid of the template svg + sign and make a better one, with blackjack and hookers --Jyri -->
      
       </svg>
     </button>
   </form>
 
-  <div class="grid grid-rows-2 max-h-72">
+  <div class="grid grid-rows-2">
     <!-- button to create the room -->
     <button
       class="button-1"
       routerLink="/user"
       (click)="submit()"
     >
-      <span class="button-text"> Create </span>
+      <p class="button-text"> Create </p>
     </button>
 
     <!-- button to return to the frontpage incase of missclick -->
@@ -100,7 +102,7 @@
       class="button-1"
       routerLink="/etusivu"
     >
-      <span class="button-text"> Back </span>
+      <p class="button-text"> Back </p>
     </button>
   </div>
 </div>

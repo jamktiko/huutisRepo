@@ -1,10 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-html {
-  background-color: rgb(238, 252, 94);
-}/* This color is the same as bg-appyellow, just in RGB - Jyri */
+/*html, body is here only for the animated gradient background -- Jyri*/
+  html, body {
+    width: 100%;
+    height:100%;
+  }  
+  body {
+      background: linear-gradient(-45deg, #e9ee52, #ffae43, #f7c911ee, #ecef23);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+  }
+    @keyframes gradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+/* background-color: rgb(238, 252, 94);
+/* This color is the same as bg-appyellow, just in RGB - Jyri */
 
 @layer base{
   .h1{
@@ -14,34 +33,37 @@ html {
     font-weight: 600;
     justify-self: center;
     align-self: center;
-    margin: 20% 0px 0.5rem;
+    margin: 20% 0px 2rem; 
+    /*TODO: Top margin/header will have the app's logo above it, currently there is nothing there. 
+    This might need fixing after adding the logo -- Jyri*/
 
   }
   .h2{
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";		font-size: 1.5rem;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";		
+    font-size: 1.5em;
+    font-size: 1.25em;
     font-weight: 600;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+
   }
   .breadtext{
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";		
     font-size: 1.5rem;
     font-size: 1rem;
     line-height: 1.5rem;
-    
-  }
+ }
 }
 
 /* layer for custom buttons, input fields, ripple animation on click. Never hover for mobiles. Also does not work atm - Jyri*/
 @layer components{
+      .buttons{
+        block-size: fit-content;
+      }
+
      .button-1 /*Basic Button that should have ripple effect, for mobile users - Jyri*/
      {
       align-items: center;
       appearance: none;
       background-clip: padding-box;
-      background-color: bg-appyellow; /*TODO: Korjaa värit oikeiksi --Jyri */
       background-image: none;
       border-style: none;
       box-sizing: border-box;
@@ -51,11 +73,11 @@ html {
       justify-self: center;
       line-height: 24px;
       min-height: 5rem;
+      height: 8rem;
       max-width: 24rem;
-      padding: 1rem;
       outline: none;
       overflow: visible;
-      margin: 2.5rem 50%;
+      margin: 1.5rem 20% 1.5rem 20%;
       pointer-events: auto;
       position: relative;
       text-align: center;
@@ -69,20 +91,14 @@ html {
       word-break: keep-all;
       z-index: 0;
     }
-    
-    @media (min-width: 768px) {
-      .button-1 {
-        padding: 19px 32px;
-      }
-    }
-    
+   
     .button-1:before,
     .button-1:after {
       border-radius: 80px;
     }
     
     .button-1:before {
-      background-color: rgba(249, 58, 19, .32);
+      background-color: rgba(249, 57, 19, 0.234);
       content: "";
       display: block;
       height: 100%;
@@ -96,7 +112,7 @@ html {
     
     .button-1:after {
       background-color: initial;
-      background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+      background-image: linear-gradient(92.83deg, #ff762600 0, #f9391347 75%);
       bottom: 4px;
       content: "";
       display: block;
@@ -122,7 +138,7 @@ html {
     }
     
     .button-1:active:not(:disabled):after {
-      background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+      background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7626d0 0, #f939136c 100%);
       bottom: 4px;
       left: 4px;
       right: 4px;
@@ -135,18 +151,27 @@ html {
     }
     .button-2{
       /*button-2 are Vote component's voting buttons.*/
-    /*TODO: Backend-juttu, äänestysvaihtoehdot pitää olla samanväriset kuin tulosruudun tulokset. Miten määritellä värit painikkeille? --Jyri*/
+    /*TODO: Backend-thing, the colors should match the vote colors.  --Jyri*/
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";		
     }
     .button-3{
       /*button-3 is for Creation component's "more options" button*/
-      background-color: bg-appblue;
-      border-radius: 9999px;
-      width: 3rem;
-      height: 3rem;
+      background-color: white;
+      border-radius: 99px;
+      width: 3em;
+      height: 3em;
       justify-self: start;
       margin-top: 0.5rem;
       margin-bottom: 0.5rem;
+    }
+    .button-4{
+      /*Button-4 is for Vote-component's voting buttons*/
+    
+      border-radius: 9999px;
+      border: 1px solid black;
+      margin: 1em 0px 1em 0px;
+      width: 5em;
+      height: 5em;
     }
     .button-text{
       /* button-text is for text inside button elements*/
@@ -159,14 +184,16 @@ html {
  
     .input-1{
     /*input-1 is for Etusivu component's input-fields*/
-      width: 3.5rem;
-      height: 3.5rem;
+      width: 4.5rem;
+      height: 4.5rem;
+      border: 1px solid rgba(135, 134, 134, 0.473);
       text-align: center;
       font-size: 1.5rem;
       font-weight: 600;
       line-height: 2rem;
       text-transform: uppercase;
-      margin: 0px 0.25rem 0px 0.25rem;
+      margin: 20% 0.25em 10% 0.25em;
+     
    
     /*  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";	
    /* -- check if you can set Roboto as a global font with Tailwind. Setting the same font for every item separately is meh. --Jyri*/
@@ -175,13 +202,20 @@ html {
     {
       /*input-2 is for larger input-fields, such as the ones on Creation component - Jyri*/
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";	      
+      border: 1px solid rgba(135, 134, 134, 0.473);
       width: 18rem;
       height: 3rem;
+      text-align: center;
       font-size: 1.5rem;
-      margin: 5px;
+      font-weight: 600;
+      line-height: 2rem;
+      text-transform: uppercase;
+     
     }
     .input-3{
-      /*input-3 is for radio buttons on Creation screen - Jyri*/ 	
-      margin-right: auto 2px auto auto;
-    }
+      /*input-3 is for radio buttons on Creation screen. 
+      Seems like this might be useless, 
+      since I had to do the needed changes inline -- Jyri*/ 	
+      background-color: azure;
+   }
   }

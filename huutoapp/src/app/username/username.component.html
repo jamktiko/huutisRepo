@@ -1,17 +1,20 @@
 <!-- div that has display grid and rows for all the elements -->
-<div class="grid grid-rows-4">
+<div class="grid grid-rows-4 max-h-screen">
   <!-- title and styles -->
   <p class="h1">
     What is your username?
   </p>
 
   <!-- inputfield for username and its styles -->
+  <form class=" justify-self-center self-center">
   <input
-    class="input-2 justify-self-center self-center"
+    class="input-2"
     type="text"
     value="{{ name }}"
   />
+</form>
 
+  <div class="buttons grid grid-rows-4 max-h-screen">
   <!-- GO VOTE button and heroicons arrow icon -->
   <button
     class="button-1 grid grid-cols-2"
@@ -48,4 +51,5 @@
       Random username
     </span>
   </button>
+</div>
 </div>

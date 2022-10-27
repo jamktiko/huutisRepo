@@ -1,5 +1,5 @@
-<!-- "etusivu" component wrapped in a div that is given display flex with 4 rows -->
-<div class="grid grid-rows-4"> 
+<!-- "etusivu" component wrapped in a div that is given display grid with 4 rows -->
+<div class="grid grid-rows-4 max-h-screen"> 
   
   <!-- title with text styles -->
   <p class="h1">
@@ -31,9 +31,10 @@
     />
   </form>
 
+<div class="buttons grid grid-rows-4 max-h-screen">
   <!-- JOIN button for joining the room -->
   <button
-    class="button-1" 
+    class="button-1 m-10" 
     routerLink="/user"
   ><!--custom button for testing -->
     <span class="button-text">Join</span>
@@ -51,3 +52,5 @@
     </span>
   </button>
 </div>
+</div>
+

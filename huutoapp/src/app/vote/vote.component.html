@@ -1,20 +1,22 @@
 <!-- component in grid which holds title, the voting options and choose for me button-->
-<div class="grid">
+<div class="grid grid-rows-3 max-h-screen">
   <!-- title and styles -->
-  <span
-    class="h1"
-  >
+  <p class="h1 justify-around">
     Vote!
-  </span>
+</p>
 
   <!-- grid with two columns, which hold divs, which in turn posts all the voting options as buttons -->
-  <div class="grid grid-cols-2 justify-self-center w-80">
+ 
+  <div class="justify-self-center self-center grid grid-cols-2 w-80">
+    <!--grid should be made more dynamic, 
+      number of vote buttons will change with every room, 
+      depending on what's being voted --Jyri -->
     <div *ngFor="let item of vastausvaihtoehdot" class="justify-self-center">
       <button
         (click)="vote(item.vastausvaihtoehto)"
-        class="bg-white shadow-2xl rounded-full w-36 h-20 m-4"
+        class="button-4 bg-appblue"
         routerLink="/result"
-      ><!--TODO: vastausvaihtoehdot tarkoitus käyttää button-2 classia (jossa atm ei muuta kuin fonttiasetus), vaihda kunhan classi tehty ja sidottu tulosruudun tuloksiin. Ks. styles.css button-2 --Jyri -->
+      ><!--TODO: Vastausvaihtoehto colors should be the sames as the graph vote colors on the Tulos-screen. --Jyri -->
         {{ item.vastausvaihtoehto }}
       </button>
     </div>
@@ -22,7 +24,7 @@
 
   <!-- button which gives your vote to a random option -->
   <button
-    class="button-1"
+    class="button-1 mt-20"
     (click)="random()"
     routerLink="/result"
   >
