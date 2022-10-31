@@ -50,10 +50,11 @@
   <button
     class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center"
     routerLink="/user"
+    (click)="fetchRoom()"
   >
     <span
       class="font-sans text-2xl font-semibold uppercase"
-      (click)="fetchRoom()"
+      
       >Join</span
     >
   </button>

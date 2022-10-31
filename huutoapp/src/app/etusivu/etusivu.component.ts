@@ -25,7 +25,6 @@ export class EtusivuComponent implements OnInit {
 
   fetchRoom() {
     this.roomId = this.input1 + this.input2 + this.input3 + this.input4;
-
     console.log(this.roomId);
 
     this.AWS.updateRoomId(this.roomId);
