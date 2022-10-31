@@ -30,6 +30,8 @@ export class ResultComponent implements OnInit {
   chartVotes: string[] = [];
 
   ngOnInit(): void {
+    this.fetchFromServer();
+
     for (let item of this.AWS.messageFromServer.Item.choices) {
       this.chartChoices.push(item.vaihtoehto);
       this.chartVotes.push(item.votes);
@@ -69,8 +71,6 @@ export class ResultComponent implements OnInit {
     });
 
     console.log('Tässä on id: ' + this.currentRoomId);
-
-    this.fetchFromServer();
 
     this.AWS.ws.addEventListener('message', (event) => {
       this.messageFromServer = event.data;

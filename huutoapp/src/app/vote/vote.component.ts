@@ -9,49 +9,25 @@ import { Subscription } from 'rxjs';
 })
 export class VoteComponent implements OnInit {
   id!: number;
-  subscription!: Subscription;
 
-  data!: any;
-  itData!: any;
-  subscriptionData!: Subscription;
-  dataObj!: any;
   status!: any;
 
   messageFromServer!: any;
   wsSubscription!: Subscription;
 
-  constructor(
-    // private webSocketService: WebsocketService,
-    private AWS: WebsockethandlerService
-  ) {}
+  currrentNameSubscr!: Subscription;
+  currentName!: any;
 
-  // initSocket = async (): Promise<any> => {
-  //   try {
-  //     this.wsSubscription = this.AWS.createObservableSocket().subscribe(
-  //       (data) => (this.messageFromServer = JSON.parse(data)),
-  //       (err) => console.log('err'),
-  //       () => console.log('The observable stream is complete')
-  //     );
-  //   } catch (error) {
-  //     if (error) {
-  //       console.error(error);
-  //     }
-  //   }
-  // };
+  constructor(private AWS: WebsockethandlerService) {}
 
   ngOnInit(): void {
-    // this.initSocket();
-
-    // setTimeout(() => {
-    //   if (this.AWS.ws.readyState === 1) {
-    //     this.fetchFromServer();
-    //     console.log(this.AWS.ws.readyState);
-    //   }
-    // }, 500);
-
     console.log(this.AWS.messageFromServer);
 
     this.messageFromServer = this.AWS.messageFromServer;
+
+    this.currrentNameSubscr = this.AWS.currentName.subscribe(
+      (name) => (this.currentName = name)
+    );
   }
 
   closeSocket() {
@@ -64,10 +40,12 @@ export class VoteComponent implements OnInit {
       roomId: string;
       action: string;
       choice: string;
+      name: string;
     } = {
       action: 'incrementChoiceVotes',
       roomId: id,
       choice: JSON.stringify(index),
+      name: this.currentName,
     };
     this.status = this.AWS.sendMessage(JSON.stringify(msg));
     console.log(JSON.stringify(msg));

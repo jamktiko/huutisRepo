@@ -23,6 +23,9 @@ export class WebsockethandlerService {
   private roomIdSource = new BehaviorSubject(1234);
   currentRoomId = this.roomIdSource.asObservable();
 
+  private nameSource = new BehaviorSubject(1234);
+  currentName = this.nameSource.asObservable();
+
   createObservableSocket(): Observable<any> {
     this.ws = new WebSocket(environment.API_ENDPOINT);
 
@@ -60,6 +63,10 @@ export class WebsockethandlerService {
     this.roomIdSource.next(id);
   }
 
+  updateName(name: any) {
+    this.nameSource.next(name);
+  }
+
   sendMessage(message: any) {
     console.log(this.ws.readyState);
     if (this.ws.readyState === this.socketIsOpen) {
@@ -77,8 +84,25 @@ export class WebsockethandlerService {
       action: string;
       data: string;
     } = {
-      action: 'sendData',
+      action: 'fetchRoomData',
       data: roomId.toString(),
+    };
+    this.status = this.sendMessage(JSON.stringify(msg));
+  }
+
+  sendMessageToServer(roomId: any, question: any, format: any, choices: any) {
+    const msg: {
+      action: string;
+      Id: string;
+      Question: string;
+      Format: string;
+      Choices: any;
+    } = {
+      action: 'sendRoomInfo',
+      Id: roomId,
+      Question: question,
+      Format: format,
+      Choices: choices,
     };
     this.status = this.sendMessage(JSON.stringify(msg));
   }

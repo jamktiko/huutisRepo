@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class UsernameComponent implements OnInit {
   currentRoomSubscr!: Subscription;
   currentRoomId!: any;
+
   constructor(private AWS: WebsockethandlerService) {}
 
   ngOnInit(): void {
@@ -18,12 +19,20 @@ export class UsernameComponent implements OnInit {
       (id) => (this.currentRoomId = id)
     );
 
+    console.log(this.currentRoomId);
+
     this.AWS.fetchFromServer(this.currentRoomId);
+  }
+
+  public name = '';
+
+  forwardName() {
+    this.AWS.updateName(this.name);
+    console.log('Nimi forwardoitu');
   }
 
   //name muuttujaan two way bindattu käyttjän syöttämä nimi, sekä mahdollinen
   //satunnainen nimi, jos käyttäjä sellaisen valitsee
-  name = '';
 
   //funktio, joka valitsee satunnaisen nimen mikäli käyttäjä painaa nappia
   rndm() {

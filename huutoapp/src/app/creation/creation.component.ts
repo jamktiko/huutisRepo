@@ -8,11 +8,13 @@ import { Subscription } from 'rxjs';
   templateUrl: './creation.component.html',
   styleUrls: ['./creation.component.css'],
 })
-export class CreationComponent implements OnInit, OnDestroy {
+export class CreationComponent implements OnInit {
   idn!: number;
   subscription!: Subscription;
   messageFromServer!: any;
   wsSubscription!: Subscription;
+  nameSubscription!: Subscription;
+  name!: string;
   status: any;
 
   constructor(private AWS: WebsockethandlerService) {}
@@ -21,7 +23,6 @@ export class CreationComponent implements OnInit, OnDestroy {
   //with setupSocketConnection() method. We also generate an id that goes along
   //with other information to the database
   ngOnInit() {
-    // this.webSocketService.setupSocketConnection();
     this.genId();
 
     this.subscription = this.AWS.currentIdentification.subscribe(
@@ -29,11 +30,7 @@ export class CreationComponent implements OnInit, OnDestroy {
     );
 
     //subscribing to AWS Websocket to be able to use different methods
-    this.wsSubscription = this.AWS.createObservableSocket().subscribe(
-      (data) => (this.messageFromServer = data),
-      (err) => console.log('err'),
-      () => console.log('The observable stream is complete')
-    );
+    this.AWS.initSocket();
   }
 
   //sendMessageToServer is called when the user clicks the create room button after which
@@ -42,30 +39,16 @@ export class CreationComponent implements OnInit, OnDestroy {
   //the message payload.
 
   sendMessageToServer() {
-    const msg: {
-      action: string;
-      Id: string;
-      Question: string;
-      Format: string;
-      Choices: any;
-    } = {
-      action: 'sendRoomInfo',
-      Id: this.id.toString(),
-      Question: this.kysymys,
-      Format: this.format,
-      Choices: this.vaihtoehdot,
-    };
-    this.status = this.AWS.sendMessage(JSON.stringify(msg));
-  }
+    this.AWS.sendMessageToServer(
+      this.id.toString(),
+      this.kysymys,
+      this.format,
+      this.vaihtoehdot
+    );
 
-  //closing the connection to the websocket after the view is destroyed
-  closeSocket() {
-    this.wsSubscription.unsubscribe();
-    this.status = 'The socket is closed';
-  }
-
-  ngOnDestroy() {
-    this.closeSocket();
+    setTimeout(() => {
+      this.AWS.fetchFromServer(this.id.toString());
+    }, 2000);
   }
 
   //when a user is changing format based on the 3 current options
@@ -92,7 +75,7 @@ export class CreationComponent implements OnInit, OnDestroy {
   public format = '';
 
   changeIdentification(id: number) {
-    this.AWS.updateIdentification(id);
+    this.AWS.updateRoomId(id);
   }
 
   //method for generating an id. This method is called when the creation component
@@ -100,6 +83,7 @@ export class CreationComponent implements OnInit, OnDestroy {
   genId() {
     this.id = Math.floor(1000 + Math.random() * 9000);
     console.log(this.id);
+    this.changeIdentification(this.id);
   }
 
   //when a user adds an option the current ones get pushed into "vaihtoehdot" array in an object
