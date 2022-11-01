@@ -65,6 +65,7 @@ export class CreationComponent implements OnInit {
     {
       vaihtoehto: '',
       votes: 0,
+      names: [],
     },
   ];
 
@@ -91,6 +92,7 @@ export class CreationComponent implements OnInit {
     this.vaihtoehdot.push({
       vaihtoehto: '',
       votes: 0,
+      names: [],
     });
 
     console.log(this.vaihtoehdot);

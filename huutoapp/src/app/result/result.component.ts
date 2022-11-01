@@ -70,8 +70,6 @@ export class ResultComponent implements OnInit {
       },
     });
 
-    console.log('Tässä on id: ' + this.currentRoomId);
-
     this.AWS.ws.addEventListener('message', (event) => {
       this.messageFromServer = event.data;
     });
@@ -82,8 +80,8 @@ export class ResultComponent implements OnInit {
       action: string;
       data: string;
     } = {
-      action: 'sendData',
-      data: '1207',
+      action: 'fetchRoomData',
+      data: this.AWS.messageFromServer.Item.roomId,
     };
     this.status = this.AWS.sendMessage(JSON.stringify(msg));
     console.log(JSON.stringify(msg));

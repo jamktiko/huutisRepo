@@ -28,6 +28,8 @@ export class EtusivuComponent implements OnInit {
     console.log(this.roomId);
 
     this.AWS.updateRoomId(this.roomId);
+
+    this.AWS.saveConnection(this.roomId);
   }
 
   onDigitInput(event: any) {

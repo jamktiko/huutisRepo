@@ -77,7 +77,16 @@ export class WebsockethandlerService {
     }
   }
 
-  //this.currentRoomId.toString()
+  saveConnection(roomId: any) {
+    const msg: {
+      action: string;
+      roomId: string;
+    } = {
+      action: 'RoomSaveConnection',
+      roomId: roomId.toString(),
+    };
+    this.status = this.sendMessage(JSON.stringify(msg));
+  }
 
   fetchFromServer(roomId: any) {
     const msg: {
