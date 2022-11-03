@@ -32,7 +32,10 @@ export class WebsockethandlerService {
     console.log(this.ws.readyState);
 
     return new Observable((observer) => {
-      this.ws.onmessage = (event) => observer.next(event.data);
+      this.ws.onmessage = function (event) {
+        observer.next(event.data);
+        console.log(event.data);
+      };
 
       this.ws.onerror = (event) => observer.error(event);
 
@@ -45,14 +48,8 @@ export class WebsockethandlerService {
   initSocket() {
     this.wsSubscription = this.createObservableSocket().subscribe(
       (data) => (this.messageFromServer = JSON.parse(data)),
-      (err) => console.log('err'),
-      () => console.log('The observable stream is complete')
+      (err) => console.log('err')
     );
-  }
-  catch(error: any) {
-    if (error) {
-      console.error(error);
-    }
   }
 
   updateIdentification(id: number) {
@@ -77,6 +74,9 @@ export class WebsockethandlerService {
     }
   }
 
+  //this method is called when the user presses the join button on the frontpage
+  //and after that the connection is saved to the connection table in the specific
+  //rooms "connections" array
   saveConnection(roomId: any) {
     const msg: {
       action: string;
@@ -88,6 +88,9 @@ export class WebsockethandlerService {
     this.status = this.sendMessage(JSON.stringify(msg));
   }
 
+  //when a user join the voting component this method is called before to show the correct
+  //information by using the roomId that the user specified or that the creation component
+  //created.
   fetchFromServer(roomId: any) {
     const msg: {
       action: string;
@@ -99,6 +102,7 @@ export class WebsockethandlerService {
     this.status = this.sendMessage(JSON.stringify(msg));
   }
 
+  //this method is used when creating the room and sending all the info
   sendMessageToServer(roomId: any, question: any, format: any, choices: any) {
     const msg: {
       action: string;

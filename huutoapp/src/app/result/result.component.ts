@@ -10,6 +10,7 @@ import { WebsockethandlerService } from '../AWSapi.service';
   styleUrls: ['./result.component.css'],
 })
 export class ResultComponent implements OnInit {
+  //Ids that are used to get the correct rooms information
   currentRoomId!: number;
   subscription!: Subscription;
 
@@ -18,27 +19,31 @@ export class ResultComponent implements OnInit {
   labels: any = [];
 
   messageSubscription!: Subscription;
+  //messageFromServer contains the data that comes from websocket messages events
   messageFromServer!: any;
 
   status!: any;
 
   constructor(private AWS: WebsockethandlerService) {}
 
-  chartData = this.AWS.messageFromServer.Item.choices;
-
+  //arrays where the votes and the choices are saved that they can be
+  //displayed in the chart
   chartChoices: string[] = [];
   chartVotes: string[] = [];
 
+  chartexists = 0;
+
   ngOnInit(): void {
+    //on initing the result component
     this.fetchFromServer();
 
-    for (let item of this.AWS.messageFromServer.Item.choices) {
-      this.chartChoices.push(item.vaihtoehto);
-      this.chartVotes.push(item.votes);
-    }
+    console.log(this.AWS.messageFromServer);
+
+    this.messageFromServer = JSON.stringify(this.AWS.messageFromServer);
+
+    //chart that displays the results of the vote in the HTML canvas component
 
     Chart.register(...registerables);
-    // new bar chart
     let myChart = new Chart('myChart', {
       type: 'bar',
       //labels for data, in real version these would be the voting options
@@ -70,9 +75,7 @@ export class ResultComponent implements OnInit {
       },
     });
 
-    this.AWS.ws.addEventListener('message', (event) => {
-      this.messageFromServer = event.data;
-    });
+    myChart.render();
   }
 
   fetchFromServer() {
@@ -85,5 +88,13 @@ export class ResultComponent implements OnInit {
     };
     this.status = this.AWS.sendMessage(JSON.stringify(msg));
     console.log(JSON.stringify(msg));
+
+    this.chartChoices.splice(0, this.chartChoices.length);
+    this.chartVotes.splice(0, this.chartVotes.length);
+
+    for (let item of this.AWS.messageFromServer.Item.choices) {
+      this.chartChoices.push(item.vaihtoehto);
+      this.chartVotes.push(item.votes);
+    }
   }
 }

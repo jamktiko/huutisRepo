@@ -12,6 +12,10 @@
     <canvas id="myChart" width="400" height="400"></canvas>
   </div>
 
+  <div *ngFor="let item of chartVotes">{{ item }}</div>
+
+  <button (click)="fetchFromServer()">DATAAAAAA</button>
+
   <!-- button which takes you back to the frontpage -->
   <button
     class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 justify-self-center"
