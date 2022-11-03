@@ -1,27 +1,105 @@
-<div class="container">
-  <!--formi, jonka submittaamalla saadaan kaikki tarvittavat tiedot käyttäjän tekemästä kyselystä-->
-  <form id="formi" #f="ngForm" novalidate>
-    Question<input id="kysymys" type="text" required minlength="3" />
+<!-- div which works as a 2 row grid for the form and the buttons -->
+<div class="grid grid-rows-2">
+  <!-- form, which on submit posts all the information about the users poll -->
+  <!-- form is also in a grid which wraps the question input, radiobuttons, and choices -->
+  <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
+    <span class="font-sans text-xl font-semibold my-2"> Question </span>
+    <input
+      class="w-72 h-6 font-sans"
+      type="text"
+      required
+      minlength="3"
+      [(ngModel)]="kysymys"
+      [ngModelOptions]="{ standalone: true }"
+    />
 
-    <!--radionapit wräpätty diveihin, jotta ne menevät titlen kanssa molemmat samaan grid slottiin-->
-    <div>Multiple choice<input id="multiple" type="radio" name="choice" /></div>
+    <span class="font-sans text-xl font-semibold my-2">Format</span>
 
-    <div>
-      Opinion grid:<input class="form-control" type="radio" name="choice" />
+    <!--radio buttons wrapped in to divs, so they find the same gridslot with the title-->
+    <!-- radio button divs have display flex so the title and the radio button align -->
+    <div class="flex">
+      <span class="font-sans text-lg self-center">Multiple choice</span>
+      <input
+        class="ml-2 w-5 h-5 self-center"
+        type="radio"
+        name="choice"
+        value="multiple"
+        (change)="changeChoice($event)"
+        checked
+      />
     </div>
 
-    <div>
-      Wheel of fortune:<input class="form-control" type="radio" name="choice" />
+    <div class="flex my-2">
+      <span class="font-sans text-lg self-center">Opinion grid</span>
+      <input
+        class="ml-2 w-5 h-5 self-center"
+        type="radio"
+        name="choice"
+        value="grid"
+        (change)="changeChoice($event)"
+      />
     </div>
 
-    Choices<input class="form-control" type="text" />
+    <div class="flex">
+      <span class="font-sans text-lg self-center">Wheel of fortune</span>
+      <input
+        class="ml-2 w-5 h-5 self-center"
+        type="radio"
+        name="choice"
+        value="fortune"
+        (change)="changeChoice($event)"
+      />
+    </div>
 
-    <button>+</button>
+    <span class="font-sans text-xl font-semibold mt-2">Choices</span>
+    <div *ngFor="let item of vaihtoehdot">
+      <input
+        class="w-72 h-6 font-sans mt-2"
+        type="text"
+        [(ngModel)]="item.vaihtoehto"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+
+    <!-- button for adding answer options -->
+    <button
+      class="bg-white shadow-2xl rounded-full w-12 h-12 justify-self-start my-2"
+      (click)="addForm()"
+      type="submit"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-12 h-12 justify-self-center self-center"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    </button>
   </form>
 
-  <button class="govote" type="button" routerLink="/vote">
-    <button class="govoteroboto" routerLink="/user">
-      <span class="buttontext"> Create </span>
+  <div class="grid grid-rows-2 max-h-72">
+    <!-- button to create the room -->
+    <button
+      class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center"
+      routerLink="/user"
+      (click)="sendMessageToServer()"
+    >
+      <span class="font-sans text-2xl font-semibold uppercase"> Create </span>
     </button>
-  </button>
+
+    <!-- button to return to the frontpage incase of missclick -->
+    <button
+      class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center"
+      routerLink="/etusivu"
+    >
+      <span class="font-sans text-2xl font-semibold uppercase"> Back </span>
+    </button>
+  </div>
 </div>

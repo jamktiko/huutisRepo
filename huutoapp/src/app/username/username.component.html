@@ -1,17 +1,52 @@
-<div class="container">
-  <p id="title">What is your username</p>
+<!-- div that has display grid and rows for all the elements -->
+<div class="grid grid-rows-4">
+  <!-- title and styles -->
+  <p class="font-sans text-2xl font-semibold justify-self-center self-end">
+    What is your username
+  </p>
 
-  <input id="input" type="text" value="{{ name }}" />
+  <!-- inputfield for username and its styles -->
+  <input
+    class="w-80 h-12 text-center font-sans text-2xl font-semibold justify-self-center self-center"
+    type="text"
+    [(ngModel)]="name"
+  />
 
-  <button class="govote" type="button" routerLink="/vote">
-    <button class="govoteroboto" routerLink="/user">
-      <span class="buttontext"> Go Vote </span>
-    </button>
+  <!-- GO VOTE button and heroicons arrow icon -->
+  <button
+    class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center grid grid-cols-2"
+    routerLink="/vote"
+    (click)="forwardName()"
+  >
+    <span
+      class="font-sans text-2xl font-semibold uppercase justify-self-end self-center"
+    >
+      Go vote
+    </span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-14 h-14 justify-self-center self-center"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+      />
+    </svg>
   </button>
 
-  <button class="govote" type="button">
-    <button class="randomroboto" (click)="rndm()">
-      <span class="buttontext"> Random username </span>
-    </button>
+  <!-- RANDOM USERNAME button -->
+  <button
+    class="bg-appblue shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center"
+    (click)="rndm()"
+    (click)="forwardName()"
+  >
+    <span class="font-sans text-2xl font-semibold uppercase">
+      Random username
+    </span>
   </button>
 </div>

@@ -1,1 +1,42 @@
-<p>vote works!</p>
+<!-- component in grid which holds title, the voting options and choose for me button-->
+<div class="grid">
+  <!-- title and styles -->
+  <span
+    class="font-sans text-2xl font-semibold justify-self-center self-center my-14"
+  >
+    <p>Room code: {{ messageFromServer.Item.roomId }}</p>
+    Vote!
+  </span>
+
+  <!-- grid jonka sisällä div joiden sisään tulostuu äänestysvaihtoehdot nappeina -->
+  <div class="grid grid-cols-2 justify-self-center w-80">
+    <div
+      *ngFor="let item of messageFromServer.Item.choices"
+      class="justify-self-center"
+    >
+      <button
+        class="bg-white shadow-2xl rounded-full w-36 h-20 m-4"
+        routerLink="/result"
+        (click)="
+          sendVote(
+            messageFromServer.Item.choices.indexOf(item),
+            messageFromServer.Item.roomId
+          )
+        "
+      >
+        {{ item.vaihtoehto }}
+      </button>
+      <p>{{ item.votes }}</p>
+    </div>
+  </div>
+
+  <!-- button which gives your vote to a random option -->
+  <button
+    class="bg-appblue shadow-2xl rounded-full w-4/5 max-w-sm h-28 mt-14 justify-self-center"
+    routerLink="/result"
+  >
+    <span class="font-sans text-2xl font-semibold uppercase"
+      >Choose for me</span
+    >
+  </button>
+</div>

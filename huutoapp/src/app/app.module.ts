@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { EtusivuComponent } from './etusivu/etusivu.component';
@@ -8,8 +8,9 @@ import { CreationComponent } from './creation/creation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 import { VoteComponent } from './vote/vote.component';
-import { UsernameComponent } from './username/username.component'; 
-
+import { UsernameComponent } from './username/username.component';
+import { ResultComponent } from './result/result.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,15 +19,17 @@ import { UsernameComponent } from './username/username.component';
     CreationComponent,
     VoteComponent,
     UsernameComponent,
- 
+    ResultComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -8,9 +8,8 @@ describe('UsernameComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsernameComponent ]
-    })
-    .compileComponents();
+      declarations: [UsernameComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,10 @@ describe('UsernameComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should create a random username', () => {
+    component.rndm();
+    expect(component.name.length).toBeGreaterThan(1);
   });
 });
