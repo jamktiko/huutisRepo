@@ -74,7 +74,7 @@ html {
   }
 
   .button-1:before {
-    background-color: rgba(249, 58, 19, 0.32);
+    background-color: rgba(143, 242, 218, 0.32);
     content: "";
     display: block;
     height: 100%;
@@ -88,7 +88,7 @@ html {
 
   .button-1:after {
     background-color: initial;
-    background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+    background-image: linear-gradient(92.83deg, #1fe5b6 0, #1abf98 100%);
     bottom: 4px;
     content: "";
     display: block;
@@ -119,7 +119,7 @@ html {
         rgba(0, 0, 0, 0.2),
         rgba(0, 0, 0, 0.2)
       ),
-      linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+      linear-gradient(92.83deg, #1fe5b6 0, #159979 100%);
     bottom: 4px;
     left: 4px;
     right: 4px;
