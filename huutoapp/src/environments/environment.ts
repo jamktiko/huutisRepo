@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  // Leaving a reminder here that this might be set to true for the PWA to work -S
+  production: false,
 };
 
 /*

@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^14.2.3",
     "@angular/platform-browser-dynamic": "^14.2.3",
     "@angular/router": "^14.2.3",
-    "aws-sdk": "^2.1229.0",
+    "@angular/service-worker": "^14.2.3",
     "chart.js": "^3.9.1",
     "dotenv": "^16.0.3",
     "moniker": "^0.1.2",

@@ -1,11 +1,11 @@
 <!-- div which works as a 2 row grid for the form and the buttons -->
-<div class="grid grid-rows-2">
+<div class="grid">
   <!-- form, which on submit posts all the information about the users poll -->
   <!-- form is also in a grid which wraps the question input, radiobuttons, and choices -->
   <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
-    <span class="font-sans text-xl font-semibold my-2"> Question </span>
+    <span class="h1 font-sans justify-self-start mt-8"> Question </span>
     <input
-      class="w-72 h-6 font-sans"
+      class="input-2 font-sans my-4"
       type="text"
       required
       minlength="3"
@@ -13,14 +13,14 @@
       [ngModelOptions]="{ standalone: true }"
     />
 
-    <span class="font-sans text-xl font-semibold my-2">Format</span>
+    <span class="h2 font-sans mb-4">Format</span>
 
     <!--radio buttons wrapped in to divs, so they find the same gridslot with the title-->
-    <!-- radio button divs have display flex so the title and the radio button align -->
-    <div class="flex">
-      <span class="font-sans text-lg self-center">Multiple choice</span>
+
+    <div class="grid grid-cols-2">
+      <span class="breadtext font-sans">Multiple choice</span>
       <input
-        class="ml-2 w-5 h-5 self-center"
+        class="input-3"
         type="radio"
         name="choice"
         value="multiple"
@@ -29,10 +29,10 @@
       />
     </div>
 
-    <div class="flex my-2">
-      <span class="font-sans text-lg self-center">Opinion grid</span>
+    <div class="grid grid-cols-2 my-3">
+      <span class="breadtext font-sans">Opinion grid</span>
       <input
-        class="ml-2 w-5 h-5 self-center"
+        class="input-3"
         type="radio"
         name="choice"
         value="grid"
@@ -40,10 +40,10 @@
       />
     </div>
 
-    <div class="flex">
-      <span class="font-sans text-lg self-center">Wheel of fortune</span>
+    <div class="grid grid-cols-2">
+      <span class="breadtext font-sans">Wheel of fortune</span>
       <input
-        class="ml-2 w-5 h-5 self-center"
+        class="input-3"
         type="radio"
         name="choice"
         value="fortune"
@@ -51,55 +51,76 @@
       />
     </div>
 
-    <span class="font-sans text-xl font-semibold mt-2">Choices</span>
+    <span class="h2 font-sans my-4">Choices</span>
     <div *ngFor="let item of vaihtoehdot">
       <input
-        class="w-72 h-6 font-sans mt-2"
+        class="input-2"
         type="text"
         [(ngModel)]="item.vaihtoehto"
         [ngModelOptions]="{ standalone: true }"
       />
     </div>
 
-    <!-- button for adding answer options -->
-    <button
-      class="bg-white shadow-2xl rounded-full w-12 h-12 justify-self-start my-2"
-      (click)="addForm()"
-      type="submit"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-12 h-12 justify-self-center self-center"
+    <div class="grid grid-cols-2 w-24">
+      <!-- button for adding answer options -->
+      <button
+        class="button-3 justify-self-center self-center"
+        (click)="addForm()"
+        type="submit"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    </button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-12 h-12 justify-self-center self-center"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </button>
+
+      <!-- button for removing choices -S -->
+      <button
+        class="button-3 justify-self-center self-center"
+        (click)="removeForm()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-12 h-12 justify-self-center self-center"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </button>
+    </div>
   </form>
 
-  <div class="grid grid-rows-2 max-h-72">
-    <!-- button to create the room -->
-    <button
-      class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center"
-      routerLink="/user"
-      (click)="sendMessageToServer()"
-    >
-      <span class="font-sans text-2xl font-semibold uppercase"> Create </span>
-    </button>
+  <!-- button to create the room -->
+  <button
+    class="button-1 w-80 h-32 justify-self-center mt-4"
+    routerLink="/user"
+    (click)="sendMessageToServer()"
+  >
+    <span class="button-text font-sans"> Create </span>
+  </button>
 
-    <!-- button to return to the frontpage incase of missclick -->
-    <button
-      class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center"
-      routerLink="/etusivu"
-    >
-      <span class="font-sans text-2xl font-semibold uppercase"> Back </span>
-    </button>
-  </div>
+  <!-- button to return to the frontpage incase of missclick -->
+  <button
+    class="button-1 w-80 h-32 justify-self-center mt-4"
+    routerLink="/etusivu"
+  >
+    <span class="button-text font-sans"> Back </span>
+  </button>
 </div>
