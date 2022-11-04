@@ -1,2 +1,2 @@
 # huutisRepo
-Repository for developing Huutoäänestysäppi (name pending)
+Repository for developing Votea
