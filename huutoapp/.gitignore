@@ -40,8 +40,10 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+/cypress
 
 # System Files
 .DS_Store
 Thumbs.db
 .env
+/cypress.config.ts

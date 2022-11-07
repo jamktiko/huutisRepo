@@ -8,9 +8,8 @@ describe('EtusivuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EtusivuComponent ]
-    })
-    .compileComponents();
+      declarations: [EtusivuComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

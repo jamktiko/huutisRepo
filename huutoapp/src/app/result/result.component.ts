@@ -3,6 +3,7 @@ import { Chart } from 'node_modules/chart.js';
 import { registerables } from 'chart.js';
 import { Subscription } from 'rxjs';
 import { WebsockethandlerService } from '../AWSapi.service';
+import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-result',
@@ -10,36 +11,53 @@ import { WebsockethandlerService } from '../AWSapi.service';
   styleUrls: ['./result.component.css'],
 })
 export class ResultComponent implements OnInit {
-  id!: number;
+  //Ids that are used to get the correct rooms information
+  currentRoomId!: number;
   subscription!: Subscription;
 
   data!: any;
   subscriptionData!: Subscription;
   labels: any = [];
 
-  labelSubscription!: Subscription;
-  labelData!: any;
+  messageSubscription!: Subscription;
+  //messageFromServer contains the data that comes from websocket messages events
+  messageFromServer!: any;
+
+  chart!: any;
+
+  status!: any;
 
   constructor(private AWS: WebsockethandlerService) {}
 
+  //arrays where the votes and the choices are saved that they can be
+  //displayed in the chart
+  chartChoices: string[] = [];
+  chartVotes: string[] = [];
+
+  chartexists = 0;
+
   ngOnInit(): void {
-    this.subscription = this.AWS.currentIdentification.subscribe(
-      (idn) => (this.id = idn)
-    );
+    //on initing the result component
+    this.fetchFromServer();
+
+    console.log(this.AWS.messageFromServer);
+
+    this.messageFromServer = JSON.stringify(this.AWS.messageFromServer);
+
+    //chart that displays the results of the vote in the HTML canvas component
 
     Chart.register(...registerables);
-    // new bar chart
-    let myChart = new Chart('myChart', {
+    this.chart = new Chart('myChart', {
       type: 'bar',
       //labels for data, in real version these would be the voting options
       data: {
-        labels: ['1', '2', '3', '4', '5', '6'],
+        labels: this.chartChoices,
         datasets: [
           {
             label: '# of Votes',
             //data and their representing colors, in real version
             //these would be the results of the vote + the colors given in voting phase
-            data: [7, 9, 3, 5, 1, 2],
+            data: this.chartVotes,
             backgroundColor: [
               'rgba(27, 223, 6)',
               'rgba(31, 229, 182)',
@@ -47,6 +65,10 @@ export class ResultComponent implements OnInit {
               'rgba(37, 242, 196)',
               'rgba(110, 230, 98)',
               'rgba(142, 233, 209)',
+              'rgba(132, 224, 44)',
+              'rgba(102, 133, 109)',
+              'rgba(90, 153, 61)',
+              'rgba(69, 69, 69)',
             ],
           },
         ],
@@ -60,6 +82,40 @@ export class ResultComponent implements OnInit {
       },
     });
 
-    console.log('Tässä on id: ' + this.id);
+    this.AWS.createObservableSocket().subscribe((event) => {
+      this.messageFromServer = JSON.parse(event);
+      this.updateChart();
+    });
+  }
+
+  updateChart() {
+    // lisätään uusi data chartData -taulukkoon
+    this.chartVotes = [];
+
+    for (let item of this.AWS.messageFromServer.Item.choices) {
+      this.chartVotes.push(item.votes);
+    }
+    // päivitetään chart
+    this.chart.update();
+  }
+
+  fetchFromServer() {
+    const msg: {
+      action: string;
+      data: string;
+    } = {
+      action: 'fetchRoomData',
+      data: this.AWS.messageFromServer.Item.roomId,
+    };
+    this.status = this.AWS.sendMessage(JSON.stringify(msg));
+    console.log(JSON.stringify(msg));
+
+    this.chartChoices.splice(0, this.chartChoices.length);
+    this.chartVotes.splice(0, this.chartVotes.length);
+
+    for (let item of this.AWS.messageFromServer.Item.choices) {
+      this.chartChoices.push(item.vaihtoehto);
+      this.chartVotes.push(item.votes);
+    }
   }
 }

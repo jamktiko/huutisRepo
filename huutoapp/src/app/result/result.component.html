@@ -1,22 +1,22 @@
 <!-- grid that hold the title, chart and done button-->
-<div class="grid">
+<div class="grid grid-rows-3 h-screen">
   <!-- title and styles -->
-  <div
-    class="font-sans text-2xl font-semibold justify-self-center self-center my-14"
-  >
-    The results
-  </div>
+  <div class="h1 font-sans">The results</div>
 
   <!-- div which holds the chart.js chart in a canvas element -->
   <div id="divChart">
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <canvas id="myChart"></canvas>
   </div>
+
+  <div *ngFor="let item of chartVotes">{{ item }}</div>
+
+  <button (click)="fetchFromServer()" (click)="updateChart()">DATAAAAAA</button>
 
   <!-- button which takes you back to the frontpage -->
   <button
-    class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 justify-self-center"
+    class="button-1 justify-self-center self-center w-80 h-32"
     routerLink="/etusivu"
   >
-    <span class="font-sans text-2xl font-semibold uppercase">Done</span>
+    <span class="button-text font-sans">Done</span>
   </button>
 </div>

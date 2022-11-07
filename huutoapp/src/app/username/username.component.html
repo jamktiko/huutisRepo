@@ -1,27 +1,25 @@
 <!-- div that has display grid and rows for all the elements -->
-<div class="grid grid-rows-4">
+<div class="grid grid-rows-4 h-screen">
   <!-- title and styles -->
-  <p class="font-sans text-2xl font-semibold justify-self-center self-end">
-    What is your username
-  </p>
+  <p class="h1 font-sans">What is your username?</p>
 
   <!-- inputfield for username and its styles -->
   <input
-    class="w-80 h-12 text-center font-sans text-2xl font-semibold justify-self-center self-center"
+    class="input-2 font-sans justify-self-center self-center"
     type="text"
-    value="{{ name }}"
+    [(ngModel)]="name"
   />
 
   <!-- GO VOTE button and heroicons arrow icon -->
   <button
-    class="bg-white shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center grid grid-cols-2"
+    class="button-1 justify-self-center self-center w-80 h-32 grid grid-cols-2"
     routerLink="/vote"
+    (click)="forwardName()"
   >
-    <span
-      class="font-sans text-2xl font-semibold uppercase justify-self-end self-center"
-    >
+    <span class="button-text font-sans justify-self-end self-center">
       Go vote
     </span>
+    <!-- TODO: Get rid of the template arrow, make a new svg? -- Jyri -->
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -40,11 +38,10 @@
 
   <!-- RANDOM USERNAME button -->
   <button
-    class="bg-appblue shadow-2xl rounded-full w-4/5 max-w-sm h-32 m-4 justify-self-center"
+    class="button-1 justify-self-center self-center w-80 h-32"
     (click)="rndm()"
+    (click)="forwardName()"
   >
-    <span class="font-sans text-2xl font-semibold uppercase">
-      Random username
-    </span>
+    <span class="button-text font-sans"> Random username </span>
   </button>
 </div>

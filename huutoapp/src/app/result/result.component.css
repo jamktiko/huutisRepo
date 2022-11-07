@@ -1,7 +1,18 @@
 /* styles for the chart div */
 #divChart {
-  display: block;
-  width: 300px;
-  height: 400px;
-  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#myChart {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* media query for the chart so that in web it doent take up the whole screen -S */
+@media only screen and (min-width: 500px) {
+  #myChart {
+    max-width: 500px;
+  }
 }
