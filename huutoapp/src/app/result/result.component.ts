@@ -3,6 +3,7 @@ import { Chart } from 'node_modules/chart.js';
 import { registerables } from 'chart.js';
 import { Subscription } from 'rxjs';
 import { WebsockethandlerService } from '../AWSapi.service';
+import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-result',
@@ -21,6 +22,8 @@ export class ResultComponent implements OnInit {
   messageSubscription!: Subscription;
   //messageFromServer contains the data that comes from websocket messages events
   messageFromServer!: any;
+
+  chart!: any;
 
   status!: any;
 
@@ -44,7 +47,7 @@ export class ResultComponent implements OnInit {
     //chart that displays the results of the vote in the HTML canvas component
 
     Chart.register(...registerables);
-    let myChart = new Chart('myChart', {
+    this.chart = new Chart('myChart', {
       type: 'bar',
       //labels for data, in real version these would be the voting options
       data: {
@@ -79,7 +82,21 @@ export class ResultComponent implements OnInit {
       },
     });
 
-    myChart.render();
+    this.AWS.createObservableSocket().subscribe((event) => {
+      this.messageFromServer = JSON.parse(event);
+      this.updateChart();
+    });
+  }
+
+  updateChart() {
+    // lisätään uusi data chartData -taulukkoon
+    this.chartVotes = [];
+
+    for (let item of this.AWS.messageFromServer.Item.choices) {
+      this.chartVotes.push(item.votes);
+    }
+    // päivitetään chart
+    this.chart.update();
   }
 
   fetchFromServer() {

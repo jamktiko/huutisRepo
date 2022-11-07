@@ -10,7 +10,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { VoteComponent } from './vote/vote.component';
 import { UsernameComponent } from './username/username.component';
 import { ResultComponent } from './result/result.component';
-import { WebsocketService } from './websocket.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // Dont delete, might be crucial for the PWA to work, commented off for production -S
@@ -41,8 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
   ],
   providers: [
-    ,// Dont delete, might be crucial for the PWA to work, commented off for production -S
-  // { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // Dont delete, might be crucial for the PWA to work, commented off for production -S
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],
 })
