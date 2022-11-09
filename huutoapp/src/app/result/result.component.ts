@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'node_modules/chart.js';
+import Chart from 'chart.js/auto';
 import { registerables } from 'chart.js';
 import { Subscription } from 'rxjs';
 import { WebsockethandlerService } from '../AWSapi.service';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-result',
@@ -34,19 +33,19 @@ export class ResultComponent implements OnInit {
   chartChoices: string[] = [];
   chartVotes: string[] = [];
 
-  chartexists = 0;
-
   ngOnInit(): void {
     //on initing the result component
     this.fetchFromServer();
 
-    console.log(this.AWS.messageFromServer);
+    this.messageFromServer = this.AWS.messageFromServer;
 
-    this.messageFromServer = JSON.stringify(this.AWS.messageFromServer);
+    //bind the updateChart method to a function parameter in the service
+    //and when its called the function is called and the chart is updated
+    this.AWS.bindFunction(this.updateChart.bind(this));
 
-    //chart that displays the results of the vote in the HTML canvas component
+    // chart that displays the results of the vote in the HTML canvas component
 
-    Chart.register(...registerables);
+    // Chart.register(...registerables);
     this.chart = new Chart('myChart', {
       type: 'bar',
       //labels for data, in real version these would be the voting options
@@ -79,18 +78,16 @@ export class ResultComponent implements OnInit {
             beginAtZero: true,
           },
         },
+        responsive: true,
       },
-    });
-
-    this.AWS.createObservableSocket().subscribe((event) => {
-      this.messageFromServer = JSON.parse(event);
-      this.updateChart();
     });
   }
 
   updateChart() {
     // lisätään uusi data chartData -taulukkoon
-    this.chartVotes = [];
+    let length = this.chartVotes.length;
+
+    this.chartVotes.splice(0, length);
 
     for (let item of this.AWS.messageFromServer.Item.choices) {
       this.chartVotes.push(item.votes);

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { environment } from './environment';
 import { Subscription } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { ResultComponent } from './result/result.component';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +11,13 @@ import { BehaviorSubject } from 'rxjs';
 export class WebsockethandlerService {
   ws!: WebSocket;
   socketIsOpen = 1;
+  private myFunc!: () => void;
 
   wsSubscription!: Subscription;
   messageFromServer!: any;
   status: any;
+
+  chartVotes: string[] = [];
 
   constructor() {}
 
@@ -34,7 +38,6 @@ export class WebsockethandlerService {
     return new Observable((observer) => {
       this.ws.onmessage = function (event) {
         observer.next(event.data);
-        console.log(event.data);
       };
 
       this.ws.onerror = (event) => observer.error(event);
@@ -47,9 +50,18 @@ export class WebsockethandlerService {
 
   initSocket() {
     this.wsSubscription = this.createObservableSocket().subscribe(
-      (data) => (this.messageFromServer = JSON.parse(data)),
+      (data) => ((this.messageFromServer = JSON.parse(data)), this.myFunc()),
       (err) => console.log('err')
     );
+  }
+
+  closeSocket() {
+    this.wsSubscription.unsubscribe();
+  }
+
+  bindFunction(fn: () => void) {
+    this.myFunc = fn;
+    // from now on, call myFunc wherever you want inside this service
   }
 
   updateIdentification(id: number) {

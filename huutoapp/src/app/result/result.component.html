@@ -1,16 +1,23 @@
 <!-- grid that hold the title, chart and done button-->
+
 <div class="grid grid-rows-3 h-screen">
   <!-- title and styles -->
   <div class="h1 font-sans">The results</div>
 
   <!-- div which holds the chart.js chart in a canvas element -->
   <div id="divChart">
-    <canvas id="myChart"></canvas>
+    <canvas id="myChart">{{ chart }}</canvas>
   </div>
 
-  <div *ngFor="let item of chartVotes">{{ item }}</div>
+  <div *ngFor="let item of messageFromServer.Item.choices">
+    {{ item.names }}
+  </div>
 
-  <button (click)="fetchFromServer()" (click)="updateChart()">DATAAAAAA</button>
+  <!-- <div *ngFor="let item of chartVotes">
+    <p>{{ item }}</p>
+  </div> -->
+
+  <button (click)="updateChart()">DATAAAAAA</button>
 
   <!-- button which takes you back to the frontpage -->
   <button
