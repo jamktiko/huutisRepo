@@ -39,7 +39,7 @@ export class CreationComponent implements OnInit {
     console.log(this.kysymys);
   }
 
-  // added method to remove "choices" in cretion phase, in case of an misclick
+  // added method to remove choices in cretion phase, in case of an misclick -S
   removeForm() {
     if (this.vaihtoehdot.length > 1) {
       this.vaihtoehdot.pop();

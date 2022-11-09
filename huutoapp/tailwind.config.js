@@ -6,6 +6,7 @@ module.exports = {
       // main colors to use in app
       colors: {
         appblue: "#1fe5b6",
+        app2ndblue: "#1abf98",
         appyellow: "#eefc5e",
         appblack: "#000000",
       },

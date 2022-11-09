@@ -16,6 +16,8 @@ import { environment } from '../environments/environment';
 // Dont delete, might be crucial for the PWA to work, commented off for production -S
 // import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule,
   ],
   providers: [
     WebsocketService,

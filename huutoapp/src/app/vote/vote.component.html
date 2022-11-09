@@ -1,9 +1,32 @@
-<!-- component in grid which holds title, the voting options and choose for me button-->
+<!-- component in grid (set to whole screen) which holds header, title, the voting options and choose for me button -S -->
 <div class="grid h-screen">
-  <!-- title and styles -->
+  <!-- header that holds the app icon (yet to be replaced with own), the menu button and the roomcode -S -->
+  <header
+    class="bg-app2ndblue w-full grid grid-cols-3 h-10 border-solid border-white border-b-2"
+  >
+    <img
+      src="../assets/icons/icon-72x72.png"
+      class="justify-self-start self-center ml-3 h-9 w-9"
+    />
+
+    <p class="justify-self-center self-center h2 font-sans">roomcode</p>
+
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      class="justify-self-end self-center mr-2.5"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>How to play</button>
+      <a href="https://www.votea.net/" mat-menu-item>About our app</a>
+    </mat-menu>
+  </header>
+
   <span class="h1 font-sans"> Vote! </span>
 
-  <!-- grid with two columns, which hold divs, which in turn posts all the voting options as buttons -->
+  <!-- grid with two columns, which hold divs, which in turn posts all the voting options as buttons -S -->
   <div class="grid grid-cols-2 justify-self-center w-80">
     <div *ngFor="let item of vastausvaihtoehdot" class="justify-self-center">
       <button
@@ -11,18 +34,17 @@
         class="button-2 w-36 h-20"
         routerLink="/result"
       >
-        <!--TODO: vastausvaihtoehdot tarkoitus käyttää button-2 classia (jossa atm ei muuta kuin fonttiasetus), vaihda kunhan classi tehty ja sidottu tulosruudun tuloksiin. Ks. styles.css button-2 --Jyri -->
         {{ item.vastausvaihtoehto }}
       </button>
     </div>
   </div>
 
-  <!-- button which gives your vote to a random option -->
+  <!-- button which gives your vote to a random option -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32"
+    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     (click)="random()"
     routerLink="/result"
   >
-    <span class="button-text font-sans">Choose for me</span>
+    Choose for me
   </button>
 </div>

@@ -74,7 +74,7 @@ html {
   }
 
   .button-1:before {
-    background-color: rgba(143, 242, 218, 0.32);
+    background-color: rgba(21, 153, 121, 0.32);
     content: "";
     display: block;
     height: 100%;
@@ -131,8 +131,8 @@ html {
     opacity: 0.24;
   }
 
-  /* button 2 is for the voting option buttons in vote component, for now they look same with button-1 */
-  /* before function is created to assign colors for voting options -S */
+  /* button-2 is default for now, the function to assaign random colors is in icebox for now */
+  /* free to style them all to look like same -S */
   .button-2 {
     align-items: center;
     appearance: none;

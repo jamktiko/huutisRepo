@@ -1,7 +1,29 @@
-<!-- div which works as a 2 row grid for the form and the buttons -->
+<!-- div set as grid to hold the header, form and buttons -S -->
 <div class="grid">
-  <!-- form, which on submit posts all the information about the users poll -->
-  <!-- form is also in a grid which wraps the question input, radiobuttons, and choices -->
+  <!-- header that holds the app icon (yet to be replaced with own) and the menu button -S -->
+  <header
+    class="bg-app2ndblue w-full grid grid-cols-2 h-10 border-solid border-white border-b-2"
+  >
+    <img
+      src="../assets/icons/icon-72x72.png"
+      class="justify-self-start self-center ml-3 h-9 w-9"
+    />
+
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      class="justify-self-end self-center mr-2.5"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>How to play</button>
+      <a href="https://www.votea.net/" mat-menu-item>About our app</a>
+    </mat-menu>
+  </header>
+
+  <!-- form, which on submit posts information about the users poll -->
+  <!-- form is also in a grid which wraps the question input, radiobuttons, and choices -S -->
   <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
     <span class="h1 font-sans justify-self-start mt-8"> Question </span>
     <input
@@ -15,8 +37,7 @@
 
     <span class="h2 font-sans mb-4">Format</span>
 
-    <!--radio buttons wrapped in to divs, so they find the same gridslot with the title-->
-
+    <!-- radio buttons wrapped in to divs, so they find the same gridslot with the title -S -->
     <div class="grid grid-cols-2">
       <span class="breadtext font-sans">Multiple choice</span>
       <input
@@ -62,7 +83,7 @@
     </div>
 
     <div class="grid grid-cols-2 w-24">
-      <!-- button for adding answer options -->
+      <!-- button for adding choices -S -->
       <button
         class="button-3 justify-self-center self-center"
         (click)="addForm()"
@@ -107,7 +128,7 @@
     </div>
   </form>
 
-  <!-- button to create the room -->
+  <!-- button to create the room -S -->
   <button
     class="button-1 w-80 h-32 justify-self-center mt-4"
     routerLink="/user"
@@ -116,7 +137,7 @@
     <span class="button-text font-sans"> Create </span>
   </button>
 
-  <!-- button to return to the frontpage incase of missclick -->
+  <!-- button to return to the frontpage incase of missclick -S -->
   <button
     class="button-1 w-80 h-32 justify-self-center mt-4"
     routerLink="/etusivu"

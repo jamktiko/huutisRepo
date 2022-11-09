@@ -44,6 +44,7 @@ export class VoteComponent implements OnInit {
     },
   ];
 
+  // function that selects random choice to vote when user presses the "choose for me" button -S
   random() {
     this.vastausvaihtoehdot[
       Math.floor(Math.random() * this.vastausvaihtoehdot.length)

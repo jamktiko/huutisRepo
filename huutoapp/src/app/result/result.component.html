@@ -1,18 +1,41 @@
-<!-- grid that hold the title, chart and done button-->
-<div class="grid grid-rows-3 h-screen">
-  <!-- title and styles -->
+<!-- grid (set to whole screen) that holds the header, title, chart and done button -S -->
+<div class="grid h-screen">
+  <!-- header that holds the app icon (yet to be replaced with own), the menu button and the roomcode -S -->
+  <header
+    class="bg-app2ndblue w-full grid grid-cols-3 h-10 border-solid border-white border-b-2"
+  >
+    <img
+      src="../assets/icons/icon-72x72.png"
+      class="justify-self-start self-center ml-3 h-9 w-9"
+    />
+
+    <p class="justify-self-center self-center h2 font-sans">roomcode</p>
+
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      class="justify-self-end self-center mr-2.5"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>How to play</button>
+      <a href="https://www.votea.net/" mat-menu-item>About our app</a>
+    </mat-menu>
+  </header>
+
   <div class="h1 font-sans">The results</div>
 
-  <!-- div which holds the chart.js chart in a canvas element -->
+  <!-- div which holds the chart.js chart in a canvas element -S -->
   <div id="divChart">
     <canvas id="myChart"></canvas>
   </div>
 
-  <!-- button which takes you back to the frontpage -->
+  <!-- button which takes you back to the frontpage -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32"
+    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     routerLink="/etusivu"
   >
-    <span class="button-text font-sans">Done</span>
+    Done
   </button>
 </div>

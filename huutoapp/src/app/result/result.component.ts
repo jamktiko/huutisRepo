@@ -12,17 +12,16 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
     Chart.register(...registerables);
-    // new bar chart
+    // new bar chart -S
     let myChart = new Chart('myChart', {
       type: 'bar',
-      //labels for data, in real version these would be the voting options
+      //labels for data, in real version these would be the voting options -S
       data: {
         labels: ['1', '2', '3', '4', '5', '6'],
         datasets: [
           {
             label: '# of Votes',
-            //data and their representing colors, in real version
-            //these would be the results of the vote + the colors given in voting phase
+            //data and their representing colors, in real version these would be the results of the vote -S
             data: [7, 9, 3, 5, 1, 2],
             backgroundColor: [
               'rgba(27, 223, 6)',
