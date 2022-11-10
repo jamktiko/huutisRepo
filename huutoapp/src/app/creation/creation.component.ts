@@ -46,6 +46,14 @@ export class CreationComponent implements OnInit {
     }
   }
 
+  // toDisplay is boolean that changes when toggleDisplay is activated by onclick in the creation component
+  // based on its value the ngIf shows more room settings -S
+  toDisplay = false;
+
+  toggleDisplay() {
+    this.toDisplay = !this.toDisplay;
+  }
+
   submit() {
     let data = {
       kysymys: this.kysymys,

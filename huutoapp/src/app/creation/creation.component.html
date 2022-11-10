@@ -126,6 +126,36 @@
         </svg>
       </button>
     </div>
+
+    <!-- div that holds title and icon for the "extra settings", clicking it activates the ngIf and shows the settings -S -->
+    <div (click)="toggleDisplay()" class="grid grid-cols-2 my-4">
+      <p class="justify-self-start self-center h2">Room settings</p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 justify-self-center self-center"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+        />
+      </svg>
+    </div>
+    <div *ngIf="toDisplay">
+      <div class="grid grid-cols-2 my-4">
+        <p class="breadtext">Anonymous voting</p>
+        <input type="checkbox" />
+      </div>
+      <!-- angular materials slider for the vote limit setting -S -->
+      <div class="grid grid-cols-2 my-4 items-center">
+        <p class="breadtext">Vote limit</p>
+        <mat-slider min="1" max="10" step="1" thumbLabel></mat-slider>
+      </div>
+    </div>
   </form>
 
   <!-- button to create the room -S -->

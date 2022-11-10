@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatMenuModule,
     MatIconModule,
+    MatSliderModule,
   ],
   providers: [
     WebsocketService,
