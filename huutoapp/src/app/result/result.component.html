@@ -9,7 +9,9 @@
       class="justify-self-start self-center ml-3 h-9 w-9"
     />
 
-    <p class="justify-self-center self-center h2 font-sans">Roomcode:</p>
+    <p class="justify-self-center self-center h2 font-sans">
+      Roomcode:{{ messageFromServer.Item.roomId }}
+    </p>
 
     <button
       mat-button
@@ -41,7 +43,6 @@
     </ul>
   </div>
 
-  <<<<<<< HEAD
   <!-- <div *ngFor="let item of chartVotes">
     <p>{{ item }}</p>
   </div> -->
@@ -49,9 +50,8 @@
   <button (click)="updateChart()">DATAAAAAA</button>
 
   <!-- button which takes you back to the frontpage -->
-  =======
   <!-- button which takes you back to the frontpage -S -->
-  >>>>>>> origin/severinBranch
+
   <button
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     routerLink="/etusivu"

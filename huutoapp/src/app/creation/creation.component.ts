@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WebsockethandlerService } from '../AWSapi.service';
-import { Room } from '../models/Room';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -16,6 +15,8 @@ export class CreationComponent implements OnInit {
   nameSubscription!: Subscription;
   name!: string;
   status: any;
+  anonymousVal: boolean = false;
+  sliderValue: number = 0;
 
   constructor(private AWS: WebsockethandlerService) {}
 
@@ -43,7 +44,9 @@ export class CreationComponent implements OnInit {
       this.id.toString(),
       this.kysymys,
       this.format,
-      this.vaihtoehdot
+      this.vaihtoehdot,
+      this.anonymousVal,
+      this.sliderValue
     );
 
     setTimeout(() => {
@@ -56,6 +59,11 @@ export class CreationComponent implements OnInit {
   changeChoice(e: any) {
     this.format = e.target.value;
     console.log(this.format);
+  }
+
+  onInputChange(event: any) {
+    console.log('This is emitted as the thumb slides');
+    this.sliderValue = event.value;
   }
 
   //variables where the information is stored for sending the data
@@ -114,13 +122,13 @@ export class CreationComponent implements OnInit {
     this.toDisplay = !this.toDisplay;
   }
 
-  submit() {
-    let data = {
-      kysymys: this.kysymys,
-      format: this.format,
-      choices: this.vaihtoehdot,
-    };
-    console.log(data);
-    this.webSocketService.sendData(data);
-  }
+  // submit() {
+  //   let data = {
+  //     kysymys: this.kysymys,
+  //     format: this.format,
+  //     choices: this.vaihtoehdot,
+  //   };
+  //   console.log(data);
+  //   this.AWS.se(data);
+  // }
 }

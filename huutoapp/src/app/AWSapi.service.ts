@@ -42,7 +42,7 @@ export class WebsockethandlerService {
 
       this.ws.onerror = (event) => observer.error(event);
 
-      this.ws.onclose = (event) => observer.complete();
+      this.ws.onclose = (event) => this.deleteConnection(this.currentRoomId);
 
       return () => this.ws.close(1000, 'The user disconnected');
     });
@@ -122,19 +122,30 @@ export class WebsockethandlerService {
   }
 
   //this method is used when creating the room and sending all the info
-  sendMessageToServer(roomId: any, question: any, format: any, choices: any) {
+  sendMessageToServer(
+    roomId: any,
+    question: any,
+    format: any,
+    choices: any,
+    anonymous: any,
+    votelimit: any
+  ) {
     const msg: {
       action: string;
       Id: string;
       Question: string;
       Format: string;
       Choices: any;
+      Anonymous: any;
+      Votelimit: any;
     } = {
       action: 'sendRoomInfo',
       Id: roomId,
       Question: question,
       Format: format,
       Choices: choices,
+      Anonymous: anonymous,
+      Votelimit: votelimit,
     };
     this.status = this.sendMessage(JSON.stringify(msg));
   }
