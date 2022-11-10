@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { registerables } from 'chart.js';
 import { Subscription } from 'rxjs';
 import { WebsockethandlerService } from '../AWSapi.service';
 
@@ -92,6 +91,8 @@ export class ResultComponent implements OnInit {
     for (let item of this.AWS.messageFromServer.Item.choices) {
       this.chartVotes.push(item.votes);
     }
+
+    this.AWS.messageFromServer = this.messageFromServer;
     // päivitetään chart
     this.chart.update();
   }

@@ -55,13 +55,8 @@ export class WebsockethandlerService {
     );
   }
 
-  closeSocket() {
-    this.wsSubscription.unsubscribe();
-  }
-
   bindFunction(fn: () => void) {
     this.myFunc = fn;
-    // from now on, call myFunc wherever you want inside this service
   }
 
   updateIdentification(id: number) {
@@ -84,6 +79,18 @@ export class WebsockethandlerService {
     } else {
       console.log('Message was not sent - the socket is closed');
     }
+  }
+
+  deleteConnection(roomId: any) {
+    const msg: {
+      action: string;
+      roomId: string;
+    } = {
+      action: 'test2',
+      roomId: roomId.toString(),
+    };
+    this.status = this.sendMessage(JSON.stringify(msg));
+    console.log('deleteConnection lähti');
   }
 
   //this method is called when the user presses the join button on the frontpage
