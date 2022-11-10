@@ -28,6 +28,16 @@ html {
     font-size: 1em;
     line-height: 1.5em;
   }
+
+  /* two very badly named text style classes to scale down the roomcode font in the header when device screen size shrinks -S */
+  .roomcode {
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .roomcodeXss {
+    font-size: 0.8em;
+  }
 }
 
 /* layer for custom buttons, input fields, ripple animation on click. Never hover for mobiles. Also does not work atm - Jyri*/

@@ -2,11 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { WebsocketService } from '../websocket.service';
 import { Room } from '../models/Room';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-creation',
   templateUrl: './creation.component.html',
   styleUrls: ['./creation.component.css'],
+  animations: [
+    // trigger binded to the svg element -S
+    trigger('openClose', [
+      // if the state if open, rotate the element 90 degrees -S
+      state('open', style({ transform: 'rotate(90deg)' })),
+      transition('closed => open', [animate('0.01s')]),
+      transition('open => closed', [animate('0.01s')]),
+    ]),
+  ],
 })
 export class CreationComponent implements OnInit {
   constructor(private webSocketService: WebsocketService) {}
@@ -52,6 +68,13 @@ export class CreationComponent implements OnInit {
 
   toggleDisplay() {
     this.toDisplay = !this.toDisplay;
+  }
+
+  // same function as above just for the menu icon animation -S
+  isOpen = true;
+
+  toggle() {
+    this.isOpen = !this.isOpen;
   }
 
   submit() {

@@ -27,7 +27,7 @@
   <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
     <span class="h1 font-sans justify-self-start mt-8"> Question </span>
     <input
-      class="input-2 font-sans my-4"
+      class="input-2 font-sans my-4 border-gray-500 border-2"
       type="text"
       required
       minlength="3"
@@ -75,7 +75,7 @@
     <span class="h2 font-sans my-4">Choices</span>
     <div *ngFor="let item of vaihtoehdot">
       <input
-        class="input-2"
+        class="input-2 border-gray-500 border-2"
         type="text"
         [(ngModel)]="item.vaihtoehto"
         [ngModelOptions]="{ standalone: true }"
@@ -128,9 +128,14 @@
     </div>
 
     <!-- div that holds title and icon for the "extra settings", clicking it activates the ngIf and shows the settings -S -->
-    <div (click)="toggleDisplay()" class="grid grid-cols-2 my-4">
+    <div
+      (click)="toggleDisplay()"
+      (click)="toggle()"
+      class="grid grid-cols-2 my-4"
+    >
       <p class="justify-self-start self-center h2">Room settings</p>
       <svg
+        [@openClose]="isOpen ? 'closed' : 'open'"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
