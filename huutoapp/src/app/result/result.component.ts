@@ -47,7 +47,7 @@ export class ResultComponent implements OnInit {
     // Chart.register(...registerables);
     this.chart = new Chart('myChart', {
       type: 'bar',
-      //labels for data, in real version these would be the voting options
+      //labels for data, in real version these would be the voting options -S
       data: {
         labels: this.chartChoices,
         datasets: [

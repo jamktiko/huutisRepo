@@ -1,16 +1,39 @@
-<!-- div that has display grid and rows for all the elements -->
-<div class="grid grid-rows-4 h-screen">
-  <!-- title and styles -->
+<!-- div that has display grid and set to take up whole screen -S -->
+<div class="grid h-screen">
+  <!-- header that holds the app icon (yet to be replaced with own), roomcode and the menu button -S -->
+  <header
+    class="bg-app2ndblue w-full grid grid-cols-3 h-10 border-solid border-white border-b-2"
+  >
+    <img
+      src="../assets/icons/icon-72x72.png"
+      class="justify-self-start self-center ml-3 h-9 w-9"
+    />
+
+    <p class="justify-self-center self-center h2 font-sans">Roomcode:</p>
+
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      class="justify-self-end self-center mr-2.5"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>How to play</button>
+      <a href="https://www.votea.net/" mat-menu-item>About our app</a>
+    </mat-menu>
+  </header>
+
   <p class="h1 font-sans">What is your username?</p>
 
-  <!-- inputfield for username and its styles -->
+  <!-- inputfield for username and its styles -S -->
   <input
-    class="input-2 font-sans justify-self-center self-center"
+    class="input-2 font-sans justify-self-center self-center border-gray-500 border-2"
     type="text"
     [(ngModel)]="name"
   />
 
-  <!-- GO VOTE button and heroicons arrow icon -->
+  <!-- GO VOTE button and heroicons arrow icon -S -->
   <button
     class="button-1 justify-self-center self-center w-80 h-32 grid grid-cols-2"
     routerLink="/vote"
@@ -19,7 +42,6 @@
     <span class="button-text font-sans justify-self-end self-center">
       Go vote
     </span>
-    <!-- TODO: Get rid of the template arrow, make a new svg? -- Jyri -->
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -36,12 +58,12 @@
     </svg>
   </button>
 
-  <!-- RANDOM USERNAME button -->
+  <!-- RANDOM USERNAME button -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32"
+    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     (click)="rndm()"
     (click)="forwardName()"
   >
-    <span class="button-text font-sans"> Random username </span>
+    Random username
   </button>
 </div>

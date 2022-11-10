@@ -1,9 +1,30 @@
-<!-- "etusivu" component wrapped in a div that is given display flex with 4 rows -->
-<div class="grid grid-rows-4 h-screen">
-  <!-- title with text styles -->
+<!-- "etusivu" component wrapped in a div that is given display grid and set to take up whole screen -S -->
+<div class="grid h-screen">
+  <!-- header that holds the app icon (yet to be replaced with own) and the menu button -S -->
+  <header
+    class="bg-app2ndblue w-full grid grid-cols-2 h-10 border-solid border-white border-b-2"
+  >
+    <img
+      src="../assets/icons/icon-72x72.png"
+      class="justify-self-start self-center ml-3 h-9 w-9"
+    />
+
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      class="justify-self-end self-center mr-2.5"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>How to play</button>
+      <a href="https://www.votea.net/" mat-menu-item>About our app</a>
+    </mat-menu>
+  </header>
+
   <p class="h1 font-sans">Enter room code</p>
 
-  <!-- form that holds the four textfields (boxes) for the room code -->
+  <!-- form that holds the four textfields (boxes) for the room code -S -->
   <form class="justify-self-center self-center">
     <!-- input fields styled to look like boxes and text styles for them -->
     <input
@@ -44,25 +65,26 @@
     />
   </form>
 
-  <!-- JOIN button for joining the room -->
+  <!-- JOIN button for joining the room -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32"
+    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     routerLink="/user"
     (click)="fetchRoom()"
   >
-    <!--custom button for testing -->
-    <span class="button-text font-sans">Join</span>
+    Join
   </button>
 
-  <!-- CREATE ROOM button that leads to the room creation page -->
+  <!-- CREATE ROOM button that leads to the room creation page -S -->
   <button
     class="button-1 justify-self-center self-center w-80 h-32"
     routerLink="/creation"
   >
-    <span class="justify-self-start self-center">
-      <span class="button-text font-sans">Create</span>
-      <br />
-      <span class="button-text font-sans">room</span>
-    </span>
+    <span class="button-text font-sans justify-self-start self-center"
+      >Create</span
+    >
+    <br />
+    <span class="button-text font-sans justify-self-start self-center"
+      >room</span
+    >
   </button>
 </div>

@@ -99,20 +99,28 @@ export class CreationComponent implements OnInit {
     console.log(this.kysymys);
   }
 
-  // added method to remove "choices" in cretion phase, in case of an misclick
+  // added method to remove choices in cretion phase, in case of an misclick -S
   removeForm() {
     if (this.vaihtoehdot.length > 1) {
       this.vaihtoehdot.pop();
     }
   }
 
-  // submit() {
-  //   let data = {
-  //     kysymys: this.kysymys,
-  //     format: this.format,
-  //     choices: this.vaihtoehdot,
-  //   };
-  //   console.log(data);
-  //   this.webSocketService.sendData(data);
-  // }
+  // toDisplay is boolean that changes when toggleDisplay is activated by onclick in the creation component
+  // based on its value the ngIf shows more room settings -S
+  toDisplay = false;
+
+  toggleDisplay() {
+    this.toDisplay = !this.toDisplay;
+  }
+
+  submit() {
+    let data = {
+      kysymys: this.kysymys,
+      format: this.format,
+      choices: this.vaihtoehdot,
+    };
+    console.log(data);
+    this.webSocketService.sendData(data);
+  }
 }
