@@ -2,11 +2,7 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
-    screens: {
-      /* two very badly named screen sizes to scale down the roomcode font in the header when device screen size shrinks -S */
-      xxs: "353px",
-      xs: "377px",
-    },
+    screens: {},
     extend: {
       // main colors to use in app
       colors: {

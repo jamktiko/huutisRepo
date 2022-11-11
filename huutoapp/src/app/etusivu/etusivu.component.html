@@ -2,7 +2,7 @@
 <div class="grid h-screen">
   <!-- header that holds the app icon (yet to be replaced with own) and the menu button -S -->
   <header
-    class="bg-app2ndblue w-full grid grid-cols-2 h-10 border-solid border-white border-b-2"
+    class="bg-app2ndblue w-full grid grid-cols-2 h-14 border-solid border-white border-b-2"
   >
     <img
       src="../assets/icons/icon-72x72.png"
@@ -14,7 +14,7 @@
       [matMenuTriggerFor]="menu"
       class="justify-self-end self-center mr-2.5"
     >
-      <mat-icon>more_vert</mat-icon>
+      <mat-icon class="mt-1">more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>How to play</button>
