@@ -1,0 +1,21 @@
+<!-- header that holds the app icon (yet to be replaced with own) and the menu button -S -->
+<header
+  class="bg-app2ndblue w-full grid grid-cols-2 h-14 border-solid border-white border-b-2"
+>
+  <img
+    src="../assets/icons/icon-72.png"
+    class="justify-self-start self-center ml-3 h-9 w-9"
+  />
+
+  <button
+    mat-button
+    [matMenuTriggerFor]="menu"
+    class="justify-self-end self-center mr-2.5"
+  >
+    <mat-icon class="mt-1">info</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onOpenDialogClick()">How to use</button>
+    <a href="https://www.votea.net/" mat-menu-item>Our website</a>
+  </mat-menu>
+</header>
