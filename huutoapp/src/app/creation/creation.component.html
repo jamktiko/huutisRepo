@@ -5,7 +5,7 @@
   <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
     <span class="h1 font-sans justify-self-start mt-8"> Question </span>
     <input
-      class="input-2 font-sans my-4"
+      class="input-2"
       type="text"
       required
       minlength="3"
@@ -13,7 +13,7 @@
       [ngModelOptions]="{ standalone: true }"
     />
 
-    <span class="h2 font-sans mb-4">Format</span>
+    <span class="h1 font-sans justify-self-start mt-8">Format</span>
 
     <!--radio buttons wrapped in to divs, so they find the same gridslot with the title-->
 
@@ -51,7 +51,7 @@
       />
     </div>
 
-    <span class="h2 font-sans my-4">Choices</span>
+    <span class="h1 font-sans justify-self-start mt-8">Choices</span>
     <div *ngFor="let item of vaihtoehdot">
       <input
         class="input-2"
