@@ -1,5 +1,7 @@
 <!-- div that has display grid and set to take up whole screen -S -->
 <div class="grid h-screen">
+  <!-- header which holds the icon, roomcode and the info button -S -->
+  <app-header [showRoomcode]="true"></app-header>
   <p class="h1 font-sans">What is your username?</p>
 
   <!-- inputfield for username and its styles -S -->
@@ -14,9 +16,7 @@
     class="button-1 justify-self-center self-center w-80 h-32 grid grid-cols-2"
     routerLink="/vote"
   >
-    <span class="button-text font-sans justify-self-end self-center">
-      Go vote
-    </span>
+    <p class="button-text font-sans justify-self-end self-center">Go vote</p>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -33,7 +33,7 @@
     </svg>
   </button>
 
-  <!-- RANDOM USERNAME button -S -->
+  <!-- random username button -S -->
   <button
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     (click)="rndm()"

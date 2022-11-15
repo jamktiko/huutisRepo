@@ -1,5 +1,7 @@
 <!-- grid (set to whole screen) that holds the header, title, chart and done button -S -->
 <div class="grid h-screen">
+  <!-- header which holds the icon, roomcode and info button -S -->
+  <app-header [showRoomcode]="true"></app-header>
   <div class="h1 font-sans">The results</div>
 
   <!-- div which holds the chart.js chart in a canvas element -S -->

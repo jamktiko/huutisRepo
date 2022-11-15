@@ -1,9 +1,11 @@
 <!-- div set as grid to hold the header, form and buttons -S -->
 <div class="grid">
+  <!-- app header which holds the icon and the info button -S -->
+  <app-header></app-header>
   <!-- form, which on submit posts information about the users poll -->
   <!-- form is also in a grid which wraps the question input, radiobuttons, and choices -S -->
   <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
-    <span class="h1 font-sans justify-self-start mt-8"> Question </span>
+    <p class="h1 font-sans justify-self-start mt-8">Question</p>
     <input
       class="input-2 font-sans my-4 border-gray-500 border-2"
       type="text"
@@ -13,11 +15,11 @@
       [ngModelOptions]="{ standalone: true }"
     />
 
-    <span class="h2 font-sans mb-4">Format</span>
+    <p class="h2 font-sans mb-4">Format</p>
 
     <!-- radio buttons wrapped in to divs, so they find the same gridslot with the title -S -->
     <div class="grid grid-cols-2">
-      <span class="breadtext font-sans">Multiple choice</span>
+      <p class="breadtext font-sans">Multiple choice</p>
       <input
         class="input-3"
         type="radio"
@@ -29,7 +31,7 @@
     </div>
 
     <div class="grid grid-cols-2 my-3">
-      <span class="breadtext font-sans">Opinion grid</span>
+      <p class="breadtext font-sans">Opinion grid</p>
       <input
         class="input-3"
         type="radio"
@@ -40,7 +42,7 @@
     </div>
 
     <div class="grid grid-cols-2">
-      <span class="breadtext font-sans">Wheel of fortune</span>
+      <p class="breadtext font-sans">Wheel of fortune</p>
       <input
         class="input-3"
         type="radio"
@@ -50,7 +52,7 @@
       />
     </div>
 
-    <span class="h2 font-sans my-4">Choices</span>
+    <p class="h2 font-sans my-4">Choices</p>
     <div *ngFor="let item of vaihtoehdot">
       <input
         class="input-2 border-gray-500 border-2"
@@ -105,7 +107,7 @@
       </button>
     </div>
 
-    <!-- div that holds title and icon for the "extra settings", clicking it activates the ngIf and shows the settings -S -->
+    <!-- div that holds title and icon for the "extra settings", clicking it changes the boolean of ngIf and shows the settings -S -->
     <div
       (click)="toggleDisplay()"
       (click)="toggle()"
@@ -147,7 +149,7 @@
     routerLink="/user"
     (click)="submit()"
   >
-    <span class="button-text font-sans"> Create </span>
+    <p class="button-text font-sans">Create</p>
   </button>
 
   <!-- button to return to the frontpage incase of missclick -S -->
@@ -155,6 +157,6 @@
     class="button-1 w-80 h-32 justify-self-center mt-4"
     routerLink="/etusivu"
   >
-    <span class="button-text font-sans"> Back </span>
+    <p class="button-text font-sans">Back</p>
   </button>
 </div>
