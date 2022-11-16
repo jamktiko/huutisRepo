@@ -21,15 +21,21 @@ export class EtusivuComponent implements OnInit {
   public input3 = '';
   public input4 = '';
 
-  public roomId = '';
+  public roomId = this.input1;
+
+  validateRoomCode() {
+    if (this.roomId.length == 4) {
+      console.log('validation toimii');
+    }
+  }
 
   fetchRoom() {
     this.roomId = this.input1 + this.input2 + this.input3 + this.input4;
     console.log(this.roomId);
 
-    this.AWS.updateRoomId(this.roomId);
+    this.AWS.updateRoomId(this.input1);
 
-    this.AWS.saveConnection(this.roomId);
+    this.AWS.saveConnection(this.input1);
   }
 
   onDigitInput(event: any) {

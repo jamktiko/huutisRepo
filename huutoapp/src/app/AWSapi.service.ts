@@ -38,11 +38,12 @@ export class WebsockethandlerService {
     return new Observable((observer) => {
       this.ws.onmessage = function (event) {
         observer.next(event.data);
+        console.log(event.data);
       };
 
       this.ws.onerror = (event) => observer.error(event);
 
-      this.ws.onclose = (event) => this.deleteConnection(this.currentRoomId);
+      this.ws.onclose = (event) => observer.complete();
 
       return () => this.ws.close(1000, 'The user disconnected');
     });
@@ -79,18 +80,6 @@ export class WebsockethandlerService {
     } else {
       console.log('Message was not sent - the socket is closed');
     }
-  }
-
-  deleteConnection(roomId: any) {
-    const msg: {
-      action: string;
-      roomId: string;
-    } = {
-      action: 'test2',
-      roomId: roomId.toString(),
-    };
-    this.status = this.sendMessage(JSON.stringify(msg));
-    console.log('deleteConnection lähti');
   }
 
   //this method is called when the user presses the join button on the frontpage

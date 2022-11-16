@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Subscription } from 'rxjs';
 import { WebsockethandlerService } from '../AWSapi.service';
@@ -33,14 +33,19 @@ export class ResultComponent implements OnInit {
   chartVotes: string[] = [];
 
   ngOnInit(): void {
+    this.AWS.bindFunction(this.updateChart.bind(this));
+
     //on initing the result component
-    this.fetchFromServer();
 
     this.messageFromServer = this.AWS.messageFromServer;
 
+    for (let item of this.AWS.messageFromServer.Item.choices) {
+      this.chartChoices.push(item.vaihtoehto);
+      this.chartVotes.push(item.votes);
+    }
+
     //bind the updateChart method to a function parameter in the service
     //and when its called the function is called and the chart is updated
-    this.AWS.bindFunction(this.updateChart.bind(this));
 
     // chart that displays the results of the vote in the HTML canvas component
 
@@ -80,15 +85,18 @@ export class ResultComponent implements OnInit {
         responsive: true,
       },
     });
+
+    this.fetchDataForAll(this.AWS.messageFromServer.Item.roomId);
   }
 
   updateChart() {
     // lisätään uusi data chartData -taulukkoon
-    let length = this.chartVotes.length;
 
-    this.chartVotes.splice(0, length);
+    this.chartVotes.splice(0, this.chartVotes.length);
+    this.chartChoices.splice(0, this.chartChoices.length);
 
     for (let item of this.AWS.messageFromServer.Item.choices) {
+      this.chartChoices.push(item.vaihtoehto);
       this.chartVotes.push(item.votes);
     }
 
@@ -97,23 +105,15 @@ export class ResultComponent implements OnInit {
     this.chart.update();
   }
 
-  fetchFromServer() {
+  fetchDataForAll(id: any) {
     const msg: {
+      roomId: string;
       action: string;
-      data: string;
     } = {
-      action: 'fetchRoomData',
-      data: this.AWS.messageFromServer.Item.roomId,
+      action: 'fetchDataForAll',
+      roomId: id,
     };
-    this.status = this.AWS.sendMessage(JSON.stringify(msg));
     console.log(JSON.stringify(msg));
-
-    this.chartChoices.splice(0, this.chartChoices.length);
-    this.chartVotes.splice(0, this.chartVotes.length);
-
-    for (let item of this.AWS.messageFromServer.Item.choices) {
-      this.chartChoices.push(item.vaihtoehto);
-      this.chartVotes.push(item.votes);
-    }
+    this.status = this.AWS.sendMessage(JSON.stringify(msg));
   }
 }

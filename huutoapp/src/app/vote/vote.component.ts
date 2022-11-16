@@ -56,9 +56,4 @@ export class VoteComponent implements OnInit {
   //     Math.floor(Math.random() * this.vastausvaihtoehdot.length)
   //   ];
   // }
-
-  // vote(data: any) {
-  //   this.idx = data;
-  //   console.log(this.idx);
-  // }
 }
