@@ -9,6 +9,13 @@
     <canvas id="myChart"></canvas>
   </div>
 
+  <div class="grid grid-cols-3 justify-self-center">
+    <div *ngFor="let name of namearr">
+      <p>{{ name.vaihtoehto }}</p>
+      <p>{{ name.names }}</p>
+    </div>
+  </div>
+
   <!-- button which takes you back to the frontpage -S -->
   <button
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"

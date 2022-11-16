@@ -10,6 +10,21 @@ import { registerables } from 'chart.js';
 export class ResultComponent implements OnInit {
   constructor() {}
 
+  namearr = [
+    {
+      vaihtoehto: 'pizza',
+      names: ['Aaran', 'Aaren', 'Aarez', 'Aarman', 'Aaron'],
+    },
+    {
+      vaihtoehto: 'pasta',
+      names: ['Aaran', 'Aaren', 'Aarez', 'Aarman', 'Aaron'],
+    },
+    {
+      vaihtoehto: 'burgir',
+      names: ['Aaran', 'Aaren', 'Aarez', 'Aarman', 'Aaron'],
+    },
+  ];
+
   ngOnInit(): void {
     Chart.register(...registerables);
     // new bar chart -S
@@ -17,12 +32,12 @@ export class ResultComponent implements OnInit {
       type: 'bar',
       //labels for data, in real version these would be the voting options -S
       data: {
-        labels: ['1', '2', '3', '4', '5', '6'],
+        labels: ['pizza', 'pasta', 'burgir'],
         datasets: [
           {
             label: '# of Votes',
             //data and their representing colors, in real version these would be the results of the vote -S
-            data: [7, 9, 3, 5, 1, 2],
+            data: [5, 5, 5],
             backgroundColor: [
               'rgba(27, 223, 6)',
               'rgba(31, 229, 182)',
