@@ -8,7 +8,7 @@ import { WebsockethandlerService } from '../AWSapi.service';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css'],
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent implements OnInit, OnDestroy {
   //Ids that are used to get the correct rooms information
   currentRoomId!: number;
   subscription!: Subscription;
@@ -87,6 +87,11 @@ export class ResultComponent implements OnInit {
     });
 
     this.fetchDataForAll(this.AWS.messageFromServer.Item.roomId);
+  }
+
+  ngOnDestroy(): void {
+    this.AWS.closeSocket();
+    console.log('Socketti suljettu');
   }
 
   updateChart() {

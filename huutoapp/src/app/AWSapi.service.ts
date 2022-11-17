@@ -60,8 +60,8 @@ export class WebsockethandlerService {
     this.myFunc = fn;
   }
 
-  updateIdentification(id: number) {
-    this.identificationSource.next(id);
+  closeSocket() {
+    this.ws.close();
   }
 
   updateRoomId(id: any) {

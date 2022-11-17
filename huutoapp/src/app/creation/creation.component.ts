@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WebsockethandlerService } from '../AWSapi.service';
 import { Subscription } from 'rxjs';
+import { getMatIconNoHttpProviderError } from '@angular/material/icon';
 
 @Component({
   selector: 'app-creation',
@@ -26,12 +27,11 @@ export class CreationComponent implements OnInit {
   ngOnInit() {
     this.genId();
 
+    this.AWS.bindFunction(this.validateRoomCode.bind(this));
+
     this.subscription = this.AWS.currentIdentification.subscribe(
       (id) => (this.idn = id)
     );
-
-    //subscribing to AWS Websocket to be able to use different methods
-    this.AWS.initSocket();
   }
 
   //sendMessageToServer is called when the user clicks the create room button after which
@@ -83,16 +83,22 @@ export class CreationComponent implements OnInit {
 
   public format = '';
 
-  changeIdentification(id: number) {
-    this.AWS.updateRoomId(id);
-  }
-
   //method for generating an id. This method is called when the creation component
   //is initialized
   genId() {
     this.id = Math.floor(1000 + Math.random() * 9000);
     console.log(this.id);
-    this.changeIdentification(this.id);
+    this.AWS.fetchFromServer(this.id);
+  }
+
+  validateRoomCode() {
+    if ('Item' in this.AWS.messageFromServer) {
+      console.log('Huone löytyi');
+      this.genId();
+    } else {
+      this.AWS.updateRoomId(this.id);
+      this.AWS.bindFunction(() => null);
+    }
   }
 
   //when a user adds an option the current ones get pushed into "vaihtoehdot" array in an object
@@ -121,14 +127,4 @@ export class CreationComponent implements OnInit {
   toggleDisplay() {
     this.toDisplay = !this.toDisplay;
   }
-
-  // submit() {
-  //   let data = {
-  //     kysymys: this.kysymys,
-  //     format: this.format,
-  //     choices: this.vaihtoehdot,
-  //   };
-  //   console.log(data);
-  //   this.AWS.se(data);
-  // }
 }

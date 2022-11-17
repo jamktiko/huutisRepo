@@ -32,7 +32,7 @@
       type="text"
       maxlength="4"
       id="input1"
-      (keyup)="onDigitInput($event)"
+      (keyup)="validateRoomCode1()"
       [(ngModel)]="input1"
       [ngModelOptions]="{ standalone: true }"
     />
@@ -41,8 +41,9 @@
   <!-- JOIN button for joining the room -S -->
   <button
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
-    routerLink="/user"
+    routerLink="{{ routeLink(anonymous) }}"
     (click)="fetchRoom()"
+    [disabled]="isDisabled"
   >
     Join
   </button>

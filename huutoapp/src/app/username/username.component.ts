@@ -23,7 +23,7 @@ export class UsernameComponent implements OnInit {
 
     console.log(this.currentRoomId);
 
-    this.AWS.fetchFromServer(this.currentRoomId);
+    // this.AWS.fetchFromServer(this.currentRoomId);
   }
 
   public name = '';

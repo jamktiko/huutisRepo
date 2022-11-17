@@ -10,12 +10,15 @@ import { Subscription } from 'rxjs';
 export class EtusivuComponent implements OnInit {
   messageFromServer!: any;
   wsSubscription!: Subscription;
+  anonymous!: any;
   constructor(private AWS: WebsockethandlerService) {}
 
   ngOnInit(): void {
     this.AWS.initSocket();
-  }
 
+    this.AWS.bindFunction(this.validateRoomCode2.bind(this));
+  }
+  isDisabled = true;
   public input1 = '';
   public input2 = '';
   public input3 = '';
@@ -23,9 +26,30 @@ export class EtusivuComponent implements OnInit {
 
   public roomId = this.input1;
 
-  validateRoomCode() {
-    if (this.roomId.length == 4) {
+  validateRoomCode1() {
+    if (this.input1.length == 4) {
       console.log('validation toimii');
+      this.AWS.fetchFromServer(this.input1.toString());
+    } else {
+      this.isDisabled = true;
+    }
+  }
+
+  validateRoomCode2() {
+    if ('Item' in this.AWS.messageFromServer) {
+      console.log('huoneen validation toimii');
+      this.isDisabled = false;
+      this.anonymous = this.AWS.messageFromServer.Item.anonymous;
+    } else {
+      this.isDisabled = true;
+    }
+  }
+
+  routeLink(bool: any) {
+    if (bool == true) {
+      return ['/vote'];
+    } else {
+      return ['/user'];
     }
   }
 
