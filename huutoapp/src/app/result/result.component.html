@@ -1,31 +1,7 @@
 <!-- grid (set to whole screen) that holds the header, title, chart and done button -S -->
 <div class="grid h-screen">
-  <!-- header that holds the app icon (yet to be replaced with own), the menu button and the roomcode -S -->
-  <header
-    class="bg-app2ndblue w-full grid grid-cols-3 h-10 border-solid border-white border-b-2"
-  >
-    <img
-      src="../assets/icons/icon-72x72.png"
-      class="justify-self-start self-center ml-3 h-9 w-9"
-    />
-
-    <p class="justify-self-center self-center h2 font-sans">
-      Roomcode:{{ messageFromServer.Item.roomId }}
-    </p>
-
-    <button
-      mat-button
-      [matMenuTriggerFor]="menu"
-      class="justify-self-end self-center mr-2.5"
-    >
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>How to play</button>
-      <a href="https://www.votea.net/" mat-menu-item>About our app</a>
-    </mat-menu>
-  </header>
-
+  <!-- header which holds the icon, roomcode and info button -S -->
+  <app-header [showRoomcode]="true"></app-header>
   <div class="h1 font-sans">The results</div>
 
   <!-- div which holds the chart.js chart in a canvas element -S -->
@@ -33,7 +9,40 @@
     <canvas id="myChart">{{ chart }}</canvas>
   </div>
 
-  <!-- button which takes you back to the frontpage -->
+  <!-- div that holds "more results" and the arrow icon, which when clicked changes the ngIf boolean to true and shows the detailed results-->
+  <!-- clicking also activates the animation on the icon -S -->
+  <div
+    (click)="toggleDisplay()"
+    (click)="toggle()"
+    class="grid grid-cols-2 w-80 justify-self-center my-4"
+  >
+    <p class="justify-self-center self-center h2">More results</p>
+    <svg
+      [@openClose]="isOpen ? 'closed' : 'open'"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 justify-self-center self-center"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+      />
+    </svg>
+  </div>
+  <!-- ngIf div which holds the voting choice as a header and then listed the usernames which voted for that option -S -->
+  <div class="grid" *ngIf="toDisplay">
+    <div class="grid justify-self-center">
+      <div *ngFor="let name of namearr">
+        <p class="h2">{{ name.vaihtoehto }}:</p>
+        <p class="breadtext">{{ name.names.join(", ") }}</p>
+      </div>
+    </div>
+  </div>
+
   <!-- button which takes you back to the frontpage -S -->
 
   <button

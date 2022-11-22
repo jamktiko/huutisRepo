@@ -28,6 +28,11 @@ html {
     font-size: 1em;
     line-height: 1.5em;
   }
+
+  .roomcode {
+    font-size: 1.25em;
+    font-weight: 600;
+  }
 }
 
 /* layer for custom buttons, input fields, ripple animation on click. Never hover for mobiles. Also does not work atm - Jyri*/
@@ -172,7 +177,7 @@ html {
   }
 
   .button-2:before {
-    background-color: rgba(249, 58, 19, 0.32);
+    background-color: rgba(21, 153, 121, 0.32);
     content: "";
     display: block;
     height: 100%;
@@ -186,7 +191,7 @@ html {
 
   .button-2:after {
     background-color: initial;
-    background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+    background-image: linear-gradient(92.83deg, #1abf98 0, #10735b 100%);
     bottom: 4px;
     content: "";
     display: block;
@@ -217,7 +222,7 @@ html {
         rgba(0, 0, 0, 0.2),
         rgba(0, 0, 0, 0.2)
       ),
-      linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+      linear-gradient(92.83deg, #10735b 0, #0a4c3d 100%);
     bottom: 4px;
     left: 4px;
     right: 4px;
@@ -247,8 +252,8 @@ html {
   }
 
   .input-1 {
-    /*input-1 is for Etusivu component's input-fields*/
-    width: 10rem;
+    /* input-1 is for Etusivu component's input-field -S */
+    width: 11rem;
     height: 3.5rem;
     text-align: center;
     font-size: 1.5em;

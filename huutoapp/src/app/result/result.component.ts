@@ -2,11 +2,27 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Subscription } from 'rxjs';
 import { WebsockethandlerService } from '../AWSapi.service';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css'],
+  animations: [
+    // trigger binded to the svg element -S
+    trigger('openClose', [
+      // if the state if open, rotate the element 90 degrees -S
+      state('open', style({ transform: 'rotate(90deg)' })),
+      transition('closed => open', [animate('0.01s')]),
+      transition('open => closed', [animate('0.01s')]),
+    ]),
+  ],
 })
 export class ResultComponent implements OnInit {
   //Ids that are used to get the correct rooms information
@@ -25,12 +41,41 @@ export class ResultComponent implements OnInit {
 
   status!: any;
 
+  toDisplay = false;
+
+  // function that changes boolean above -S
+  toggleDisplay() {
+    this.toDisplay = !this.toDisplay;
+  }
+
+  // same boolean and function than above just for the animation on the arrow icon -S
+  isOpen = true;
+
+  toggle() {
+    this.isOpen = !this.isOpen;
+  }
+
   constructor(private AWS: WebsockethandlerService) {}
 
   //arrays where the votes and the choices are saved that they can be
   //displayed in the chart
   chartChoices: string[] = [];
   chartVotes: string[] = [];
+
+  namearr = [
+    {
+      vaihtoehto: 'Pizza',
+      names: ['Aaran', 'Aaren'],
+    },
+    {
+      vaihtoehto: 'Pasta',
+      names: ['Eero', 'Eemeli', 'Erkki'],
+    },
+    {
+      vaihtoehto: 'Burgir',
+      names: ['Vellamo', 'Veikko', 'Viljo', 'Vilho'],
+    },
+  ];
 
   ngOnInit(): void {
     this.AWS.bindFunction(this.updateChart.bind(this));
@@ -62,16 +107,13 @@ export class ResultComponent implements OnInit {
             //these would be the results of the vote + the colors given in voting phase
             data: this.chartVotes,
             backgroundColor: [
-              'rgba(27, 223, 6)',
+              'rgba(143, 242, 218)',
+              'rgba(16, 115, 91)',
+              'rgba(106, 238, 206)',
+              'rgba(21, 153, 121)',
+              'rgba(68, 233, 194)',
+              'rgba(26, 191, 152)',
               'rgba(31, 229, 182)',
-              'rgba(89, 255, 0)',
-              'rgba(37, 242, 196)',
-              'rgba(110, 230, 98)',
-              'rgba(142, 233, 209)',
-              'rgba(132, 224, 44)',
-              'rgba(102, 133, 109)',
-              'rgba(90, 153, 61)',
-              'rgba(69, 69, 69)',
             ],
           },
         ],

@@ -2,11 +2,27 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WebsockethandlerService } from '../AWSapi.service';
 import { Subscription } from 'rxjs';
 import { getMatIconNoHttpProviderError } from '@angular/material/icon';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-creation',
   templateUrl: './creation.component.html',
   styleUrls: ['./creation.component.css'],
+  animations: [
+    // trigger binded to the svg element -S
+    trigger('openClose', [
+      // if the state if open, rotate the element 90 degrees -S
+      state('open', style({ transform: 'rotate(90deg)' })),
+      transition('closed => open', [animate('0.01s')]),
+      transition('open => closed', [animate('0.01s')]),
+    ]),
+  ],
 })
 export class CreationComponent implements OnInit {
   idn!: number;
