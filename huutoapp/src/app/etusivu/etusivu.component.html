@@ -22,7 +22,7 @@
     </mat-menu>
   </header>
 
-  <p class="h1 font-sans">Enter room code</p>
+  <p id="roomP" class="h1 font-sans">Enter room code</p>
 
   <!-- form that holds the four textfields (boxes) for the room code -S -->
   <form class="justify-self-center self-center">
@@ -40,6 +40,7 @@
 
   <!-- JOIN button for joining the room -S -->
   <button
+    id="nappiJoin"
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     routerLink="{{ routeLink(anonymous) }}"
     (click)="fetchRoom()"

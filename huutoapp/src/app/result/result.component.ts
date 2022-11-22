@@ -8,7 +8,7 @@ import { WebsockethandlerService } from '../AWSapi.service';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css'],
 })
-export class ResultComponent implements OnInit, OnDestroy {
+export class ResultComponent implements OnInit {
   //Ids that are used to get the correct rooms information
   currentRoomId!: number;
   subscription!: Subscription;
@@ -85,14 +85,12 @@ export class ResultComponent implements OnInit, OnDestroy {
         responsive: true,
       },
     });
-
-    this.fetchDataForAll(this.AWS.messageFromServer.Item.roomId);
   }
 
-  ngOnDestroy(): void {
-    this.AWS.closeSocket();
-    console.log('Socketti suljettu');
-  }
+  // ngOnDestroy(): void {
+  //   this.AWS.closeSocket();
+  //   console.log('Socketti suljettu');
+  // }
 
   updateChart() {
     // lisätään uusi data chartData -taulukkoon
@@ -108,17 +106,5 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.AWS.messageFromServer = this.messageFromServer;
     // päivitetään chart
     this.chart.update();
-  }
-
-  fetchDataForAll(id: any) {
-    const msg: {
-      roomId: string;
-      action: string;
-    } = {
-      action: 'fetchDataForAll',
-      roomId: id,
-    };
-    console.log(JSON.stringify(msg));
-    this.status = this.AWS.sendMessage(JSON.stringify(msg));
   }
 }
