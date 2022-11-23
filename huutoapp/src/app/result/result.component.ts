@@ -64,6 +64,12 @@ export class ResultComponent implements OnInit {
   chartVotes: string[] = [];
 
   ngOnInit(): void {
+   
+
+    if(!this.AWS.messageFromServer) {
+      this.AWS.messageFromServer = JSON.parse(sessionStorage.getItem('roomData') || '{}');
+    }
+
     this.AWS.bindFunction(this.updateChart.bind(this));
 
     //on initing the result component

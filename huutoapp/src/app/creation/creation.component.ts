@@ -65,9 +65,9 @@ export class CreationComponent implements OnInit {
       this.sliderValue
     );
 
-    setTimeout(() => {
+     setTimeout(() => {
       this.AWS.fetchFromServer(this.id.toString());
-    }, 2000);
+     }, 2000);
   }
 
   //when a user is changing format based on the 3 current options
@@ -113,6 +113,8 @@ export class CreationComponent implements OnInit {
     } else {
       this.AWS.updateRoomId(this.id);
       this.AWS.bindFunction(() => null);
+      sessionStorage.setItem('roomId', this.id.toString());
+      
     }
   }
 

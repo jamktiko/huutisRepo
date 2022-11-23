@@ -12,12 +12,26 @@ export class HeaderComponent implements OnInit {
   @Input()
   public showRoomcode: boolean = false;
 
-  @Input()
-  roomCode!: string;
+  public roomCode!: string;
 
   constructor(private matDialog: MatDialog) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.showRoomcode) {
+      if (sessionStorage.getItem('roomId')) {
+        this.roomCode = sessionStorage.getItem('roomId') || 'ei ollu';
+        return;
+      }
+      if (
+        JSON.parse(sessionStorage.getItem('roomCode') || '{}').Item ===
+        undefined
+      ) {
+        this.roomCode = JSON.parse(
+          sessionStorage.getItem('roomData') || '{}'
+        ).Item.roomId;
+      }
+    }
+  }
 
   //when how to use is clicked in menu, it invokes this function which in turn shows the DialogComponent as a dialog -S
   onOpenDialogClick() {

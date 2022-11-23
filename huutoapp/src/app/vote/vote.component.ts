@@ -24,7 +24,17 @@ export class VoteComponent implements OnInit {
   constructor(private AWS: WebsockethandlerService) {}
 
   ngOnInit(): void {
-    console.log(this.AWS.messageFromServer);
+    console.log(this.AWS.wsSubscription);
+    if (!this.AWS.messageFromServer) {
+      this.AWS.messageFromServer = JSON.parse(
+        sessionStorage.getItem('roomData') || '{}'
+      );
+    }
+
+    if (this.AWS.wsSubscription === undefined) {
+      this.AWS.initSocket();
+      this.AWS.hasReconnected = true;
+    }
 
     this.messageFromServer = this.AWS.messageFromServer;
 
@@ -54,6 +64,11 @@ export class VoteComponent implements OnInit {
     };
     this.status = this.AWS.sendMessage(JSON.stringify(msg));
     console.log(JSON.stringify(msg));
+    if (this.AWS.hasReconnected) {
+      this.AWS.saveConnection(
+        JSON.parse(sessionStorage.getItem('roomData') || '{}').Item.roomId
+      );
+    }
   }
 
   // random() {

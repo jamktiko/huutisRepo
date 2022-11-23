@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { environment } from './environment';
 import { Subscription } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
-import { ResultComponent } from './result/result.component';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +15,10 @@ export class WebsockethandlerService {
   wsSubscription!: Subscription;
   messageFromServer!: any;
   status: any;
+
+  hasVoted: boolean = false;
+  hasReconnected:boolean = false;
+
 
   chartVotes: string[] = [];
 
@@ -33,7 +36,7 @@ export class WebsockethandlerService {
   createObservableSocket(): Observable<any> {
     this.ws = new WebSocket(environment.API_ENDPOINT);
 
-    console.log(this.ws.readyState);
+    //console.log(this.ws.readyState);
 
     return new Observable((observer) => {
       this.ws.onmessage = function (event) {
@@ -73,7 +76,7 @@ export class WebsockethandlerService {
   }
 
   sendMessage(message: any) {
-    console.log(this.ws.readyState);
+    //console.log(this.ws.readyState);
     if (this.ws.readyState === this.socketIsOpen) {
       this.ws.send(message);
       console.log(`Sent to server ${message}`);
