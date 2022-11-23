@@ -2,6 +2,7 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
+    screens: {},
     extend: {
       // main colors to use in app
       colors: {

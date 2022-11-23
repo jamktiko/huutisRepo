@@ -9,9 +9,7 @@
       class="justify-self-start self-center ml-3 h-9 w-9"
     />
 
-    <p class="justify-self-center self-center h2 font-sans">
-      Roomcode: {{ currentRoomId }}
-    </p>
+    <p class="justify-self-center self-center h2 font-sans">Roomcode:</p>
 
     <button
       mat-button
@@ -40,10 +38,9 @@
     class="button-1 justify-self-center self-center w-80 h-32 grid grid-cols-2"
     routerLink="/vote"
     (click)="forwardName()"
+    id="testnappi"
   >
-    <span class="button-text font-sans justify-self-end self-center">
-      Go vote
-    </span>
+    <p class="button-text font-sans justify-self-end self-center">Go vote</p>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -60,7 +57,7 @@
     </svg>
   </button>
 
-  <!-- RANDOM USERNAME button -S -->
+  <!-- random username button -S -->
   <button
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     (click)="rndm()"

@@ -1,27 +1,7 @@
 <!-- "etusivu" component wrapped in a div that is given display grid and set to take up whole screen -S -->
 <div class="grid h-screen">
-  <!-- header that holds the app icon (yet to be replaced with own) and the menu button -S -->
-  <header
-    class="bg-app2ndblue w-full grid grid-cols-2 h-10 border-solid border-white border-b-2"
-  >
-    <img
-      src="../assets/icons/icon-72x72.png"
-      class="justify-self-start self-center ml-3 h-9 w-9"
-    />
-
-    <button
-      mat-button
-      [matMenuTriggerFor]="menu"
-      class="justify-self-end self-center mr-2.5"
-    >
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>How to play</button>
-      <a href="https://www.votea.net/" mat-menu-item>About our app</a>
-    </mat-menu>
-  </header>
-
+  <!-- appheader which holds icon and info button -S -->
+  <app-header></app-header>
   <p class="h1 font-sans">Enter room code</p>
 
   <!-- form that holds the four textfields (boxes) for the room code -S -->
@@ -40,6 +20,7 @@
 
   <!-- JOIN button for joining the room -S -->
   <button
+    id="nappiJoin"
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     routerLink="{{ routeLink(anonymous) }}"
     (click)="fetchRoom()"

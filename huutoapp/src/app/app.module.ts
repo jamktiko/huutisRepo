@@ -18,6 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
+import { HeaderComponent } from './header/header.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import { MatSliderModule } from '@angular/material/slider';
     VoteComponent,
     UsernameComponent,
     ResultComponent,
+    HeaderComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,14 +43,17 @@ import { MatSliderModule } from '@angular/material/slider';
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000',
+      registrationStrategy: 'registerImmediately',
     }),
     BrowserAnimationsModule,
     MatMenuModule,
     MatIconModule,
     MatSliderModule,
+    MatDialogModule,
   ],
   providers: [
+    WebsocketService,
+    MatDialogModule,
     // Dont delete, might be crucial for the PWA to work, commented off for production -S
     // { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],

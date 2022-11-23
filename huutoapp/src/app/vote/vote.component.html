@@ -1,30 +1,7 @@
 <!-- component in grid (set to whole screen) which holds header, title, the voting options and choose for me button -S -->
 <div class="grid h-screen">
   <!-- header that holds the app icon (yet to be replaced with own), the menu button and the roomcode -S -->
-  <header
-    class="bg-app2ndblue w-full grid grid-cols-3 h-10 border-solid border-white border-b-2"
-  >
-    <img
-      src="../assets/icons/icon-72x72.png"
-      class="justify-self-start self-center ml-3 h-9 w-9"
-    />
-
-    <p class="justify-self-center self-center h2 font-sans">
-      Roomcode:{{ messageFromServer.Item.roomId }}
-    </p>
-
-    <button
-      mat-button
-      [matMenuTriggerFor]="menu"
-      class="justify-self-end self-center mr-2.5"
-    >
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>How to play</button>
-      <a href="https://www.votea.net/" mat-menu-item>About our app</a>
-    </mat-menu>
-  </header>
+  <app-header [showRoomcode]="true"></app-header>
 
   <span class="h1 font-sans"> Vote! </span>
 
@@ -47,7 +24,6 @@
         <!--TODO: vastausvaihtoehdot tarkoitus käyttää button-2 classia (jossa atm ei muuta kuin fonttiasetus), vaihda kunhan classi tehty ja sidottu tulosruudun tuloksiin. Ks. styles.css button-2 --Jyri -->
         {{ item.vaihtoehto }}
       </button>
-      <p>{{ item.votes }}</p>
     </div>
   </div>
 
