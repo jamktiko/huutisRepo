@@ -3,8 +3,6 @@
 @tailwind utilities;
 /*Body is just for setting a background gradient. --Jyri*/
 body {
-  max-height: 100vh;
-  max-width: 100vh;
   background: linear-gradient(#d2faf0, #f6fdae, #d2faf0);
 }
 /*.wrap and .svg are part of the SVG animation on the background. --Jyri*/
