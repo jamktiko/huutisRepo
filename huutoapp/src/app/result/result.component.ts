@@ -52,6 +52,7 @@ export class ResultComponent implements OnInit {
   isOpen = true;
 
   toggle() {
+    this.messageFromServer = this.AWS.messageFromServer;
     this.isOpen = !this.isOpen;
   }
 
@@ -61,21 +62,6 @@ export class ResultComponent implements OnInit {
   //displayed in the chart
   chartChoices: string[] = [];
   chartVotes: string[] = [];
-
-  namearr = [
-    {
-      vaihtoehto: 'Pizza',
-      names: ['Aaran', 'Aaren'],
-    },
-    {
-      vaihtoehto: 'Pasta',
-      names: ['Eero', 'Eemeli', 'Erkki'],
-    },
-    {
-      vaihtoehto: 'Burgir',
-      names: ['Vellamo', 'Veikko', 'Viljo', 'Vilho'],
-    },
-  ];
 
   ngOnInit(): void {
     this.AWS.bindFunction(this.updateChart.bind(this));
@@ -145,7 +131,7 @@ export class ResultComponent implements OnInit {
       this.chartVotes.push(item.votes);
     }
 
-    this.AWS.messageFromServer = this.messageFromServer;
+    this.messageFromServer = this.AWS.messageFromServer;
     // päivitetään chart
     this.chart.update();
   }

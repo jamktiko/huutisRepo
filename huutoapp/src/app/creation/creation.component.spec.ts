@@ -11,7 +11,7 @@ describe('CreationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CreationComponent],
-      imports: [MatMenuModule, NgForm],
+      imports: [MatMenuModule],
     }).compileComponents();
   });
 

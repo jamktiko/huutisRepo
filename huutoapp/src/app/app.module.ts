@@ -13,7 +13,7 @@ import { ResultComponent } from './result/result.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // Dont delete, might be crucial for the PWA to work, commented off for production -S
-// import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -52,10 +52,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule,
   ],
   providers: [
-    WebsocketService,
     MatDialogModule,
     // Dont delete, might be crucial for the PWA to work, commented off for production -S
-    // { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],
 })

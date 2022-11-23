@@ -13,13 +13,14 @@
     >
       <button
         class="button-2 w-36 h-20"
-        routerLink="/result"
         (click)="
           sendVote(
             messageFromServer.Item.choices.indexOf(item),
             messageFromServer.Item.roomId
           )
         "
+        [routerLink]="votes == voteLimit - 1 ? '/result' : null"
+        (click)="disableButton($event)"
       >
         <!--TODO: vastausvaihtoehdot tarkoitus käyttää button-2 classia (jossa atm ei muuta kuin fonttiasetus), vaihda kunhan classi tehty ja sidottu tulosruudun tuloksiin. Ks. styles.css button-2 --Jyri -->
         {{ item.vaihtoehto }}
@@ -28,6 +29,13 @@
   </div>
 
   <!-- button which gives your vote to a random option -S -->
+  <button
+    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
+    routerLink="/result"
+    [disabled]="votes >= 1 ? false : true"
+  >
+    Results
+  </button>
   <button
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     routerLink="/result"

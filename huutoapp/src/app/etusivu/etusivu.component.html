@@ -1,7 +1,7 @@
 <!-- "etusivu" component wrapped in a div that is given display grid and set to take up whole screen -S -->
 <div class="grid h-screen">
   <!-- appheader which holds icon and info button -S -->
-  <app-header></app-header>
+  <app-header [roomCode]="roomId"></app-header>
   <p class="h1 font-sans">Enter room code</p>
 
   <!-- form that holds the four textfields (boxes) for the room code -S -->
@@ -22,7 +22,7 @@
   <button
     id="nappiJoin"
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
-    routerLink="{{ routeLink(anonymous) }}"
+    [routerLink]="anonymous ? '/vote' : '/user'"
     (click)="fetchRoom()"
     [disabled]="isDisabled"
   >

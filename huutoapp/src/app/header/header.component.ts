@@ -12,6 +12,9 @@ export class HeaderComponent implements OnInit {
   @Input()
   public showRoomcode: boolean = false;
 
+  @Input()
+  roomCode!: string;
+
   constructor(private matDialog: MatDialog) {}
 
   ngOnInit(): void {}

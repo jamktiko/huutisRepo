@@ -78,7 +78,6 @@ export class CreationComponent implements OnInit {
   }
 
   onInputChange(event: any) {
-    console.log('This is emitted as the thumb slides');
     this.sliderValue = event.value;
   }
 
@@ -142,5 +141,10 @@ export class CreationComponent implements OnInit {
 
   toggleDisplay() {
     this.toDisplay = !this.toDisplay;
+  }
+  isOpen = true;
+
+  toggle() {
+    this.isOpen = !this.isOpen;
   }
 }

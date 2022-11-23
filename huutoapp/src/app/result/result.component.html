@@ -11,34 +11,36 @@
 
   <!-- div that holds "more results" and the arrow icon, which when clicked changes the ngIf boolean to true and shows the detailed results-->
   <!-- clicking also activates the animation on the icon -S -->
-  <div
-    (click)="toggleDisplay()"
-    (click)="toggle()"
-    class="grid grid-cols-2 w-80 justify-self-center my-4"
-  >
-    <p class="justify-self-center self-center h2">More results</p>
-    <svg
-      [@openClose]="isOpen ? 'closed' : 'open'"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="w-6 h-6 justify-self-center self-center"
+  <div *ngIf="!messageFromServer.Item.anonymous">
+    <div
+      (click)="toggleDisplay()"
+      (click)="toggle()"
+      class="grid grid-cols-2 w-80 justify-self-center my-4"
     >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-      />
-    </svg>
-  </div>
-  <!-- ngIf div which holds the voting choice as a header and then listed the usernames which voted for that option -S -->
-  <div class="grid" *ngIf="toDisplay">
-    <div class="grid justify-self-center">
-      <div *ngFor="let name of namearr">
-        <p class="h2">{{ name.vaihtoehto }}:</p>
-        <p class="breadtext">{{ name.names.join(", ") }}</p>
+      <p class="justify-self-center self-center h2">More results</p>
+      <svg
+        [@openClose]="isOpen ? 'closed' : 'open'"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 justify-self-center self-center"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+        />
+      </svg>
+    </div>
+    <!-- ngIf div which holds the voting choice as a header and then listed the usernames which voted for that option -S -->
+    <div class="grid" *ngIf="toDisplay">
+      <div class="grid justify-self-center">
+        <div *ngFor="let item of messageFromServer.Item.choices">
+          <p class="h2">{{ item.vaihtoehto }}:</p>
+          <p class="breadtext">{{ item.names.join(", ") }}</p>
+        </div>
       </div>
     </div>
   </div>

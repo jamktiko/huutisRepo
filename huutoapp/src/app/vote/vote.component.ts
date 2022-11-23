@@ -18,6 +18,9 @@ export class VoteComponent implements OnInit {
   currrentNameSubscr!: Subscription;
   currentName!: any;
 
+  voteLimit!: number;
+  votes: number = 0;
+
   constructor(private AWS: WebsockethandlerService) {}
 
   ngOnInit(): void {
@@ -25,17 +28,19 @@ export class VoteComponent implements OnInit {
 
     this.messageFromServer = this.AWS.messageFromServer;
 
+    this.voteLimit = this.AWS.messageFromServer.Item.votelimit;
     this.currrentNameSubscr = this.AWS.currentName.subscribe(
       (name) => (this.currentName = name)
     );
   }
 
-  closeSocket() {
-    this.wsSubscription.unsubscribe();
-    this.status = 'The socket is closed';
+  disableButton(event: any) {
+    event.target.disabled = true;
   }
 
   sendVote(index: any, id: any) {
+    this.votes += 1;
+    console.log(this.votes);
     const msg: {
       roomId: string;
       action: string;

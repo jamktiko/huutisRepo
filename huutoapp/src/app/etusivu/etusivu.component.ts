@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { WebsockethandlerService } from '../AWSapi.service';
 import { Subscription } from 'rxjs';
+import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-etusivu',
   templateUrl: './etusivu.component.html',
@@ -20,9 +21,6 @@ export class EtusivuComponent implements OnInit {
   }
   isDisabled = true;
   public input1 = '';
-  public input2 = '';
-  public input3 = '';
-  public input4 = '';
 
   public roomId = this.input1;
 
@@ -40,16 +38,9 @@ export class EtusivuComponent implements OnInit {
       console.log('huoneen validation toimii');
       this.isDisabled = false;
       this.anonymous = this.AWS.messageFromServer.Item.anonymous;
+      this.roomId = this.input1;
     } else {
       this.isDisabled = true;
-    }
-  }
-
-  routeLink(bool: any) {
-    if (bool == true) {
-      return ['/vote'];
-    } else {
-      return ['/user'];
     }
   }
 
