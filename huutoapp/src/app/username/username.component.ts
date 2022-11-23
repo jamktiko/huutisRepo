@@ -19,13 +19,16 @@ export class UsernameComponent implements OnInit {
   //in this component the websocket connection is initialized
   //and the connection stays the same even when changing page in this SPA-application
   ngOnInit(): void {
-
-    let data = JSON.parse(sessionStorage.getItem('roomData') || '{}');
-    console.log(data.Item.roomId);
-
     this.currentRoomSubscr = this.AWS.currentRoomId.subscribe(
       (id) => (this.currentRoomId = id)
     );
+
+  
+    if(!this.AWS.messageFromServer) {
+      this.AWS.messageFromServer = JSON.parse(sessionStorage.getItem('roomData') || '{}');
+    }
+
+    
 
     //console.log(this.currentRoomId);
 

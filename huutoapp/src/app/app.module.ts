@@ -52,7 +52,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule,
   ],
   providers: [
-    WebsocketService,
     MatDialogModule,
     // Dont delete, might be crucial for the PWA to work, commented off for production -S
     // { provide: LocationStrategy, useClass: HashLocationStrategy },
