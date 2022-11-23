@@ -22,6 +22,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { HeaderComponent } from './header/header.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatSliderModule,
     MatDialogModule,
+    MatSlideToggleModule,
   ],
   providers: [
     WebsocketService,
