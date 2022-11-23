@@ -86,7 +86,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       },
     });
 
-    this.fetchDataForAll(this.AWS.messageFromServer.Item.roomId);
+    //this.fetchDataForAll(this.AWS.messageFromServer.Item.roomId);
   }
 
   ngOnDestroy(): void {

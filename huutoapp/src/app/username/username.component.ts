@@ -11,17 +11,23 @@ import { Subscription } from 'rxjs';
 export class UsernameComponent implements OnInit {
   currentRoomSubscr!: Subscription;
   currentRoomId!: any;
+  data!:any;
+
 
   constructor(private AWS: WebsockethandlerService) {}
 
   //in this component the websocket connection is initialized
   //and the connection stays the same even when changing page in this SPA-application
   ngOnInit(): void {
+
+    let data = JSON.parse(sessionStorage.getItem('roomData') || '{}');
+    console.log(data.Item.roomId);
+
     this.currentRoomSubscr = this.AWS.currentRoomId.subscribe(
       (id) => (this.currentRoomId = id)
     );
 
-    console.log(this.currentRoomId);
+    //console.log(this.currentRoomId);
 
     // this.AWS.fetchFromServer(this.currentRoomId);
   }

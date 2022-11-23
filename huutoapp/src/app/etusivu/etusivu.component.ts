@@ -38,6 +38,7 @@ export class EtusivuComponent implements OnInit {
   validateRoomCode2() {
     if ('Item' in this.AWS.messageFromServer) {
       console.log('huoneen validation toimii');
+      sessionStorage.setItem('roomData', JSON.stringify(this.AWS.messageFromServer));
       this.isDisabled = false;
       this.anonymous = this.AWS.messageFromServer.Item.anonymous;
     } else {

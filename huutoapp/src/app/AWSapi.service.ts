@@ -17,6 +17,8 @@ export class WebsockethandlerService {
   messageFromServer!: any;
   status: any;
 
+  hasVoted: boolean = false;
+
   chartVotes: string[] = [];
 
   constructor() {}
