@@ -20,4 +20,15 @@ export class HeaderComponent implements OnInit {
   onOpenDialogClick() {
     this.matDialog.open(DialogComponent);
   }
+
+  themeSwitch() {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      return;
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  }
 }

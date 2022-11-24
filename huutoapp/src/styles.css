@@ -3,7 +3,7 @@
 @tailwind utilities;
 /*Body is just for setting a background gradient. --Jyri*/
 body {
-  background: linear-gradient(#d2faf0, #f6fdae, #d2faf0);
+  background: linear-gradient(#f1fc79, #f1fc79, #8ff2da);
 }
 /*.wrap and .svg are part of the SVG animation on the background. --Jyri*/
 .wrap {
@@ -418,7 +418,6 @@ body {
   .input-2 {
     /*input-2 is for larger input-fields, such as the ones on Creation component - Jyri*/
     border: 1px solid rgba(135, 134, 134, 0.473);
-    text-align: center;
     width: 18rem;
     height: 3rem;
     font-size: 1.5rem;

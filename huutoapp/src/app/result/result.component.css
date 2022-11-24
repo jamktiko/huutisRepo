@@ -14,7 +14,7 @@
 /* media query for the chart so that in web it doent take up the whole screen -S */
 @media only screen and (min-width: 500px) {
   #myChart {
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 400px;
+    max-height: 400px;
   }
 }

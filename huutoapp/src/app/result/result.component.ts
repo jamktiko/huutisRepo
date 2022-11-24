@@ -59,7 +59,7 @@ export class ResultComponent implements OnInit {
     Chart.register(...registerables);
     // new bar chart -S
     let myChart = new Chart('myChart', {
-      type: 'bar',
+      type: 'doughnut',
       //labels for data, in real version these would be the voting options -S
       data: {
         labels: ['Pizza', 'Pasta', 'Burgir'],
@@ -81,11 +81,8 @@ export class ResultComponent implements OnInit {
         ],
       },
       options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
+        scales: {},
+        responsive: true,
       },
     });
   }
