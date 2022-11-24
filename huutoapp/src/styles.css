@@ -1,13 +1,143 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* This color is the same as appyellow, just in RGB - Jyri */
-html {
-  background-color: rgb(238, 252, 94);
-  font-size: 16px;
+/*Body is just for setting a background gradient. --Jyri*/
+body {
+  background: linear-gradient(#f1fc79, #f1fc79, #8ff2da);
 }
-
+/*.wrap and .svg are part of the SVG animation on the background. --Jyri*/
+.wrap {
+  max-height: 100vh;
+}
+.svg {
+  stroke: #7ceaa4;
+  position: fixed;
+  transform-style: flat;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -5;
+}
+.svg:nth-child(1) {
+  left: 55%;
+  top: 15%;
+  animation: raise1 600s linear infinite;
+  transform: scale(0.5);
+  filter: blur(-5px);
+}
+@keyframes raise1 {
+  to {
+    transform: scale(0.5) rotate(1080deg);
+  }
+}
+.svg:nth-child(2) {
+  left: 31%;
+  top: 31%;
+  animation: raise2 600s linear infinite;
+  transform: scale(0.4);
+  filter: blur(-4px);
+}
+@keyframes raise2 {
+  to {
+    transform: scale(0.4) rotate(-1080deg);
+  }
+}
+.svg:nth-child(3) {
+  left: 17%;
+  top: 17%;
+  animation: raise3 600s linear infinite;
+  transform: scale(0.7);
+  filter: blur(-3px);
+}
+@keyframes raise3 {
+  to {
+    transform: scale(0.7) rotate(1080deg);
+  }
+}
+.svg:nth-child(4) {
+  left: 26%;
+  top: 36%;
+  animation: raise4 600s linear infinite;
+  transform: scale(0.9);
+  filter: blur(-2px);
+}
+@keyframes raise4 {
+  to {
+    transform: scale(0.9) rotate(-720deg);
+  }
+}
+.svg:nth-child(5) {
+  left: -10%;
+  top: 20%;
+  animation: raise5 600s linear infinite;
+  transform: scale(0.6);
+  filter: blur(-1px);
+}
+@keyframes raise5 {
+  to {
+    transform: scale(0.6) rotate(-720deg);
+  }
+}
+.svg:nth-child(6) {
+  left: 5%;
+  top: 26%;
+  animation: raise6 600s linear infinite;
+  transform: scale(1);
+  filter: blur(0px);
+}
+@keyframes raise6 {
+  to {
+    transform: scale(1) rotate(720deg);
+  }
+}
+.svg:nth-child(7) {
+  left: 58%;
+  top: 48%;
+  animation: raise7 600s linear infinite;
+  transform: scale(1.9);
+  filter: blur(1px);
+}
+@keyframes raise7 {
+  to {
+    transform: scale(1.9) rotate(-360deg);
+  }
+}
+.svg:nth-child(8) {
+  left: 65%;
+  top: 37%;
+  animation: raise8 600s linear infinite;
+  transform: scale(1.2);
+  filter: blur(1px);
+}
+@keyframes raise8 {
+  to {
+    transform: scale(1.2) rotate(360deg);
+  }
+}
+.svg:nth-child(9) {
+  left: 80%;
+  top: 70%;
+  animation: raise9 600s linear infinite;
+  transform: scale(2.5);
+  filter: blur(2px);
+}
+@keyframes raise9 {
+  to {
+    transform: scale(2.5) rotate(-360deg);
+  }
+}
+.svg:nth-child(10) {
+  left: 23%;
+  top: 57%;
+  animation: raise10 600s linear infinite;
+  transform: scale(2.2);
+  filter: blur(2px);
+}
+@keyframes raise10 {
+  to {
+    transform: scale(2.2) rotate(360deg);
+  }
+}
+/*end of animated background svg --Jyri*/
 @layer base {
   /* typography rules for h1, h2 and bread text -S */
   .h1 {
@@ -16,17 +146,21 @@ html {
     font-weight: 600;
     justify-self: center;
     align-self: center;
+    z-index: 9;
+    -webkit-text-stroke: 1px #c7d24e64;
   }
 
   .h2 {
     font-size: 1.25em;
     line-height: 1.25em;
     font-weight: 600;
+    z-index: 9;
   }
 
   .breadtext {
     font-size: 1em;
     line-height: 1.5em;
+    z-index: 9;
   }
 
   .roomcode {
@@ -35,11 +169,12 @@ html {
   }
 }
 
-/* layer for custom buttons, input fields, ripple animation on click. Never hover for mobiles. Also does not work atm - Jyri*/
+/* layer for custom buttons, input fields. Used to have ripple animation on button-1 but replaced it with a darker pressed state - Jyri*/
 @layer components {
-  /*Basic Button that should have ripple effect, for mobile users - Jyri*/
+  /*Basic Button that has a flashing feedback - Jyri*/
 
-  /* Removed the unnecessary css rules so only button styles are specified, sizing is done with inline -S*/
+  /* Removed the unnecessary css rules so only button 
+  styles are specified, sizing is done with inline -S*/
   .button-1 {
     align-items: center;
     appearance: none;
@@ -60,11 +195,12 @@ html {
     text-transform: none;
     user-select: none;
     -webkit-user-select: none;
+    -webkit-text-stroke: 1px #d2faf000;
     touch-action: manipulation;
     vertical-align: middle;
     width: auto;
     word-break: keep-all;
-    z-index: 0;
+    z-index: 9;
   }
 
   @media (min-width: 768px) {
@@ -76,10 +212,14 @@ html {
   .button-1:before,
   .button-1:after {
     border-radius: 80px;
+    z-index: 4;
   }
 
   .button-1:before {
-    background-color: rgba(21, 153, 121, 0.32);
+    background-color: initial;
+    /*background-image here is the outer lining of the 
+    button element here --Jyri*/
+    background-image: linear-gradient(92.83deg, #159978 0, #159978b4 60%);
     content: "";
     display: block;
     height: 100%;
@@ -88,12 +228,14 @@ html {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: -2;
+    z-index: -4;
   }
 
   .button-1:after {
     background-color: initial;
-    background-image: linear-gradient(92.83deg, #1fe5b6 0, #1abf98 100%);
+    /*background-image here is the inner coloring of the 
+    button element. --Jyri*/
+    background-image: linear-gradient(92.83deg, #159979 0, #1fe5b6 75%);
     bottom: 4px;
     content: "";
     display: block;
@@ -115,16 +257,19 @@ html {
   }
 
   .button-1:active:not(:disabled) {
+    /*text color inside the element when clicked --Jyri */
     color: #ccc;
   }
 
   .button-1:active:not(:disabled):after {
     background-image: linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.2),
-        rgba(0, 0, 0, 0.2)
+        rgba(83, 83, 83, 0.2),
+        rgba(209, 0, 0, 0.2)
       ),
-      linear-gradient(92.83deg, #1fe5b6 0, #159979 100%);
+      /*linear-gradient is the gradient inside the button element
+      which shows when the button element is clicked --Jyri*/
+        linear-gradient(92.83deg, #159979 0, #1fe5b6 90%);
     bottom: 4px;
     left: 4px;
     right: 4px;
@@ -146,6 +291,7 @@ html {
     background-image: none;
     border-style: none;
     box-sizing: border-box;
+    /*color of the text inside the button element --Jyri*/
     color: #fff;
     cursor: pointer;
     outline: none;
@@ -162,7 +308,7 @@ html {
     vertical-align: middle;
     width: auto;
     word-break: keep-all;
-    z-index: 0;
+    z-index: 9;
   }
 
   @media (min-width: 768px) {
@@ -177,7 +323,9 @@ html {
   }
 
   .button-2:before {
-    background-color: rgba(21, 153, 121, 0.32);
+    /*background-color is the color of the outer 
+    lining of the button element --Jyri*/
+    background-color: #159978af;
     content: "";
     display: block;
     height: 100%;
@@ -191,7 +339,9 @@ html {
 
   .button-2:after {
     background-color: initial;
-    background-image: linear-gradient(92.83deg, #1abf98 0, #10735b 100%);
+    /*background-image is the color of the content 
+    inside the button element --Jyri*/
+    background-image: linear-gradient(92.83deg, #159979 0, #1fe5b6 90%);
     bottom: 4px;
     content: "";
     display: block;
@@ -222,7 +372,7 @@ html {
         rgba(0, 0, 0, 0.2),
         rgba(0, 0, 0, 0.2)
       ),
-      linear-gradient(92.83deg, #10735b 0, #0a4c3d 100%);
+      linear-gradient(92.83deg, #159979 0, #1fe5b6 90%);
     bottom: 4px;
     left: 4px;
     right: 4px;
@@ -241,6 +391,7 @@ html {
     justify-self: start;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    z-index: 9;
   }
 
   .button-text {
@@ -261,13 +412,21 @@ html {
     line-height: 1.5em;
     text-transform: uppercase;
     margin: 0rem 0.25rem 0rem 0.25rem;
+    z-index: 9;
   }
 
   .input-2 {
     /*input-2 is for larger input-fields, such as the ones on Creation component - Jyri*/
+    border: 1px solid rgba(135, 134, 134, 0.473);
     width: 18rem;
     height: 3rem;
     font-size: 1.5rem;
     margin: 0.25rem 0rem 0.25rem 0rem;
+    z-index: 9;
+  }
+  .input-3 {
+    /*input-3 is for the Creation elements radio buttons etc. --Jyri*/
+    accent-color: #159979;
+    z-index: 9;
   }
 }

@@ -17,5 +17,12 @@
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="onOpenDialogClick()">How to use</button>
     <a href="https://www.votea.net/" mat-menu-item>Our website</a>
+    <button mat-menu-item>
+      <span>Dark mode</span>
+      <mat-slide-toggle
+        (click)="$event.stopPropagation()"
+        (click)="themeSwitch()"
+      ></mat-slide-toggle>
+    </button>
   </mat-menu>
 </header>

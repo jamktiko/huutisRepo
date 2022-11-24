@@ -29,6 +29,14 @@
   background-color: #eefc5e !important;
 }
 
+.mat-slide-toggle-bar {
+  background-color: gray !important;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #1fe5b6;
+}
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
