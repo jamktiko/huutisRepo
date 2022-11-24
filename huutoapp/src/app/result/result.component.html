@@ -1,22 +1,56 @@
-<!-- grid that hold the title, chart and done button-->
-<div class="grid grid-rows-3 h-screen">
-  <!-- title and styles -->
+<!-- grid (set to whole screen) that holds the header, title, chart and done button -S -->
+<div class="grid h-screen">
+  <!-- header which holds the icon, roomcode and info button -S -->
+  <app-header [showRoomcode]="true"></app-header>
   <div class="h1 font-sans">The results</div>
 
-  <!-- div which holds the chart.js chart in a canvas element -->
+  <!-- div which holds the chart.js chart in a canvas element -S -->
   <div id="divChart">
-    <canvas id="myChart"></canvas>
+    <canvas id="myChart">{{ chart }}</canvas>
   </div>
 
-  <div *ngFor="let item of chartVotes">{{ item }}</div>
+  <!-- div that holds "more results" and the arrow icon, which when clicked changes the ngIf boolean to true and shows the detailed results-->
+  <!-- clicking also activates the animation on the icon -S -->
+  <div *ngIf="!messageFromServer.Item.anonymous" class="justify-self-center">
+    <div
+      (click)="toggleDisplay()"
+      (click)="toggle()"
+      class="grid grid-cols-2 w-80 justify-self-center my-4"
+    >
+      <p class="justify-self-center self-center h2">More results</p>
+      <svg
+        [@openClose]="isOpen ? 'closed' : 'open'"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 justify-self-center self-center"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+        />
+      </svg>
+    </div>
+    <!-- ngIf div which holds the voting choice as a header and then listed the usernames which voted for that option -S -->
+    <div class="grid" *ngIf="toDisplay">
+      <div class="grid justify-self-center">
+        <div *ngFor="let item of messageFromServer.Item.choices">
+          <p class="h2">{{ item.vaihtoehto }}:</p>
+          <p class="breadtext">{{ item.names.join(", ") }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <button (click)="fetchFromServer()" (click)="updateChart()">DATAAAAAA</button>
+  <!-- button which takes you back to the frontpage -S -->
 
-  <!-- button which takes you back to the frontpage -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32"
+    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     routerLink="/etusivu"
   >
-    <span class="button-text font-sans">Done</span>
+    Done
   </button>
 </div>

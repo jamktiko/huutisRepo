@@ -1,12 +1,11 @@
-<!-- component in grid which holds title, the voting options and choose for me button-->
+<!-- component in grid (set to whole screen) which holds header, title, the voting options and choose for me button -S -->
 <div class="grid h-screen">
-  <!-- title and styles -->
-  <span class="h1 font-sans">
-    <p>Room code: {{ messageFromServer.Item.roomId }}</p>
-    Vote!
-  </span>
+  <!-- header that holds the app icon (yet to be replaced with own), the menu button and the roomcode -S -->
+  <app-header [showRoomcode]="true"></app-header>
 
-  <!-- grid jonka sisällä div joiden sisään tulostuu äänestysvaihtoehdot nappeina -->
+  <span class="h1 font-sans"> Vote! </span>
+
+  <!-- grid with two columns, which hold divs, which in turn posts all the voting options as buttons -S -->
   <div class="grid grid-cols-2 justify-self-center w-80">
     <div
       *ngFor="let item of messageFromServer.Item.choices"
@@ -14,26 +13,34 @@
     >
       <button
         class="button-2 w-36 h-20"
-        routerLink="/result"
         (click)="
           sendVote(
             messageFromServer.Item.choices.indexOf(item),
             messageFromServer.Item.roomId
           )
         "
+        [routerLink]="votes == voteLimit - 1 ? '/result' : null"
+        (click)="disableButton($event)"
       >
         <!--TODO: vastausvaihtoehdot tarkoitus käyttää button-2 classia (jossa atm ei muuta kuin fonttiasetus), vaihda kunhan classi tehty ja sidottu tulosruudun tuloksiin. Ks. styles.css button-2 --Jyri -->
         {{ item.vaihtoehto }}
       </button>
-      <p>{{ item.votes }}</p>
     </div>
   </div>
 
-  <!-- button which gives your vote to a random option -->
+  <!-- button which gives your vote to a random option -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32"
+    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
+    routerLink="/result"
+    [disabled]="votes >= 1 ? false : true"
+    (click)="checkReconnect()"
+  >
+    Results
+  </button>
+  <button
+    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     routerLink="/result"
   >
-    <span class="button-text font-sans">Choose for me</span>
+    Choose for me
   </button>
 </div>

@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 export class UsernameComponent implements OnInit {
   currentRoomSubscr!: Subscription;
   currentRoomId!: any;
+  data!:any;
+
 
   constructor(private AWS: WebsockethandlerService) {}
 
@@ -21,9 +23,16 @@ export class UsernameComponent implements OnInit {
       (id) => (this.currentRoomId = id)
     );
 
-    console.log(this.currentRoomId);
+  
+    if(!this.AWS.messageFromServer) {
+      this.AWS.messageFromServer = JSON.parse(sessionStorage.getItem('roomData') || '{}');
+    }
 
-    this.AWS.fetchFromServer(this.currentRoomId);
+    
+
+    //console.log(this.currentRoomId);
+
+    // this.AWS.fetchFromServer(this.currentRoomId);
   }
 
   public name = '';

@@ -1,68 +1,45 @@
-<!-- "etusivu" component wrapped in a div that is given display flex with 4 rows -->
-<div class="grid grid-rows-4 h-screen">
-  <!-- title with text styles -->
+<!-- "etusivu" component wrapped in a div that is given display grid and set to take up whole screen -S -->
+<div class="grid h-screen">
+  <!-- appheader which holds icon and info button -S -->
+  <app-header [showRoomcode]="false"></app-header>
   <p class="h1 font-sans">Enter room code</p>
 
-  <!-- form that holds the four textfields (boxes) for the room code -->
+  <!-- form that holds the four textfields (boxes) for the room code -S -->
   <form class="justify-self-center self-center">
     <!-- input fields styled to look like boxes and text styles for them -->
     <input
       class="input-1 font-sans"
       type="text"
-      maxlength="1"
+      maxlength="4"
       id="input1"
-      (keyup)="onDigitInput($event)"
+      (keyup)="validateRoomCode1()"
       [(ngModel)]="input1"
-      [ngModelOptions]="{ standalone: true }"
-    />
-    <input
-      class="input-1 font-sans"
-      type="text"
-      maxlength="1"
-      id="input2"
-      (keyup)="onDigitInput($event)"
-      [(ngModel)]="input2"
-      [ngModelOptions]="{ standalone: true }"
-    />
-    <input
-      class="input-1 font-sans"
-      type="text"
-      maxlength="1"
-      id="input3"
-      (keyup)="onDigitInput($event)"
-      [(ngModel)]="input3"
-      [ngModelOptions]="{ standalone: true }"
-    />
-    <input
-      class="input-1 font-sans"
-      type="text"
-      maxlength="1"
-      id="input4"
-      (keyup)="onDigitInput($event)"
-      [(ngModel)]="input4"
       [ngModelOptions]="{ standalone: true }"
     />
   </form>
 
-  <!-- JOIN button for joining the room -->
+  <!-- JOIN button for joining the room -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32"
-    routerLink="/user"
+    id="nappiJoin"
+    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
+    [routerLink]="anonymous ? '/vote' : '/user'"
     (click)="fetchRoom()"
+    [disabled]="isDisabled"
   >
-    <!--custom button for testing -->
-    <span class="button-text font-sans">Join</span>
+    Join
   </button>
 
-  <!-- CREATE ROOM button that leads to the room creation page -->
+  <!-- CREATE ROOM button that leads to the room creation page -S -->
   <button
     class="button-1 justify-self-center self-center w-80 h-32"
     routerLink="/creation"
   >
-    <span class="justify-self-start self-center">
-      <span class="button-text font-sans">Create</span>
-      <br />
-      <span class="button-text font-sans">room</span>
-    </span>
+    <span class="button-text font-sans justify-self-start self-center"
+      >Create</span
+    >
+    <br />
+    <span class="button-text font-sans justify-self-start self-center"
+      >room</span
+    >
   </button>
 </div>

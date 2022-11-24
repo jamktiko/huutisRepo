@@ -13,8 +13,15 @@ import { ResultComponent } from './result/result.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // Dont delete, might be crucial for the PWA to work, commented off for production -S
-// import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSliderModule } from '@angular/material/slider';
+import { HeaderComponent } from './header/header.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -24,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     VoteComponent,
     UsernameComponent,
     ResultComponent,
+    HeaderComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,13 +44,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000',
+      registrationStrategy: 'registerImmediately',
     }),
     BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule,
+    MatSliderModule,
+    MatDialogModule,
+    MatSlideToggleModule,
   ],
   providers: [
+    MatDialogModule,
     // Dont delete, might be crucial for the PWA to work, commented off for production -S
-    // { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],
 })

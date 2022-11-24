@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { VoteComponent } from './vote.component';
 
@@ -8,9 +9,9 @@ describe('VoteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VoteComponent ]
-    })
-    .compileComponents();
+      declarations: [VoteComponent],
+      imports: [MatMenuModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

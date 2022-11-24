@@ -1,14 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart } from 'node_modules/chart.js';
-import { registerables } from 'chart.js';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import Chart from 'chart.js/auto';
 import { Subscription } from 'rxjs';
 import { WebsockethandlerService } from '../AWSapi.service';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css'],
+  animations: [
+    // trigger binded to the svg element -S
+    trigger('openClose', [
+      // if the state if open, rotate the element 90 degrees -S
+      state('open', style({ transform: 'rotate(90deg)' })),
+      transition('closed => open', [animate('0.01s')]),
+      transition('open => closed', [animate('0.01s')]),
+    ]),
+  ],
 })
 export class ResultComponent implements OnInit {
   //Ids that are used to get the correct rooms information
@@ -27,6 +41,21 @@ export class ResultComponent implements OnInit {
 
   status!: any;
 
+  toDisplay = false;
+
+  // function that changes boolean above -S
+  toggleDisplay() {
+    this.toDisplay = !this.toDisplay;
+  }
+
+  // same boolean and function than above just for the animation on the arrow icon -S
+  isOpen = true;
+
+  toggle() {
+    this.messageFromServer = this.AWS.messageFromServer;
+    this.isOpen = !this.isOpen;
+  }
+
   constructor(private AWS: WebsockethandlerService) {}
 
   //arrays where the votes and the choices are saved that they can be
@@ -34,22 +63,35 @@ export class ResultComponent implements OnInit {
   chartChoices: string[] = [];
   chartVotes: string[] = [];
 
-  chartexists = 0;
-
   ngOnInit(): void {
+    sessionStorage.setItem('hasVoted', '1');
+
+    if (!this.AWS.messageFromServer) {
+      this.AWS.messageFromServer = JSON.parse(
+        sessionStorage.getItem('roomData') || '{}'
+      );
+    }
+
+    this.AWS.bindFunction(this.updateChart.bind(this));
+
     //on initing the result component
-    this.fetchFromServer();
 
-    console.log(this.AWS.messageFromServer);
+    this.messageFromServer = this.AWS.messageFromServer;
 
-    this.messageFromServer = JSON.stringify(this.AWS.messageFromServer);
+    for (let item of this.AWS.messageFromServer.Item.choices) {
+      this.chartChoices.push(item.vaihtoehto);
+      this.chartVotes.push(item.votes);
+    }
 
-    //chart that displays the results of the vote in the HTML canvas component
+    //bind the updateChart method to a function parameter in the service
+    //and when its called the function is called and the chart is updated
 
-    Chart.register(...registerables);
+    // chart that displays the results of the vote in the HTML canvas component
+
+    // Chart.register(...registerables);
     this.chart = new Chart('myChart', {
-      type: 'bar',
-      //labels for data, in real version these would be the voting options
+      type: 'doughnut',
+      //labels for data, in real version these would be the voting options -S
       data: {
         labels: this.chartChoices,
         datasets: [
@@ -59,63 +101,38 @@ export class ResultComponent implements OnInit {
             //these would be the results of the vote + the colors given in voting phase
             data: this.chartVotes,
             backgroundColor: [
-              'rgba(27, 223, 6)',
+              'rgba(143, 242, 218)',
+              'rgba(16, 115, 91)',
+              'rgba(106, 238, 206)',
+              'rgba(21, 153, 121)',
+              'rgba(68, 233, 194)',
+              'rgba(26, 191, 152)',
               'rgba(31, 229, 182)',
-              'rgba(89, 255, 0)',
-              'rgba(37, 242, 196)',
-              'rgba(110, 230, 98)',
-              'rgba(142, 233, 209)',
-              'rgba(132, 224, 44)',
-              'rgba(102, 133, 109)',
-              'rgba(90, 153, 61)',
-              'rgba(69, 69, 69)',
             ],
           },
         ],
       },
       options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
+        scales: {},
+        responsive: true,
+        animation: false,
       },
-    });
-
-    this.AWS.createObservableSocket().subscribe((event) => {
-      this.messageFromServer = JSON.parse(event);
-      this.updateChart();
     });
   }
 
   updateChart() {
     // lisätään uusi data chartData -taulukkoon
-    this.chartVotes = [];
 
-    for (let item of this.AWS.messageFromServer.Item.choices) {
-      this.chartVotes.push(item.votes);
-    }
-    // päivitetään chart
-    this.chart.update();
-  }
-
-  fetchFromServer() {
-    const msg: {
-      action: string;
-      data: string;
-    } = {
-      action: 'fetchRoomData',
-      data: this.AWS.messageFromServer.Item.roomId,
-    };
-    this.status = this.AWS.sendMessage(JSON.stringify(msg));
-    console.log(JSON.stringify(msg));
-
-    this.chartChoices.splice(0, this.chartChoices.length);
     this.chartVotes.splice(0, this.chartVotes.length);
+    this.chartChoices.splice(0, this.chartChoices.length);
 
     for (let item of this.AWS.messageFromServer.Item.choices) {
       this.chartChoices.push(item.vaihtoehto);
       this.chartVotes.push(item.votes);
     }
+
+    this.messageFromServer = this.AWS.messageFromServer;
+    // päivitetään chart
+    this.chart.update();
   }
 }

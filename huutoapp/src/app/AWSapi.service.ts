@@ -10,10 +10,17 @@ import { BehaviorSubject } from 'rxjs';
 export class WebsockethandlerService {
   ws!: WebSocket;
   socketIsOpen = 1;
+  private myFunc!: () => void;
 
   wsSubscription!: Subscription;
   messageFromServer!: any;
   status: any;
+
+  hasVoted: boolean = false;
+  hasReconnected:boolean = false;
+
+
+  chartVotes: string[] = [];
 
   constructor() {}
 
@@ -29,7 +36,7 @@ export class WebsockethandlerService {
   createObservableSocket(): Observable<any> {
     this.ws = new WebSocket(environment.API_ENDPOINT);
 
-    console.log(this.ws.readyState);
+    //console.log(this.ws.readyState);
 
     return new Observable((observer) => {
       this.ws.onmessage = function (event) {
@@ -47,13 +54,17 @@ export class WebsockethandlerService {
 
   initSocket() {
     this.wsSubscription = this.createObservableSocket().subscribe(
-      (data) => (this.messageFromServer = JSON.parse(data)),
+      (data) => ((this.messageFromServer = JSON.parse(data)), this.myFunc()),
       (err) => console.log('err')
     );
   }
 
-  updateIdentification(id: number) {
-    this.identificationSource.next(id);
+  bindFunction(fn: () => void) {
+    this.myFunc = fn;
+  }
+
+  closeSocket() {
+    this.ws.close();
   }
 
   updateRoomId(id: any) {
@@ -65,7 +76,7 @@ export class WebsockethandlerService {
   }
 
   sendMessage(message: any) {
-    console.log(this.ws.readyState);
+    //console.log(this.ws.readyState);
     if (this.ws.readyState === this.socketIsOpen) {
       this.ws.send(message);
       console.log(`Sent to server ${message}`);
@@ -103,19 +114,30 @@ export class WebsockethandlerService {
   }
 
   //this method is used when creating the room and sending all the info
-  sendMessageToServer(roomId: any, question: any, format: any, choices: any) {
+  sendMessageToServer(
+    roomId: any,
+    question: any,
+    format: any,
+    choices: any,
+    anonymous: any,
+    votelimit: any
+  ) {
     const msg: {
       action: string;
       Id: string;
       Question: string;
       Format: string;
       Choices: any;
+      Anonymous: any;
+      Votelimit: any;
     } = {
       action: 'sendRoomInfo',
       Id: roomId,
       Question: question,
       Format: format,
       Choices: choices,
+      Anonymous: anonymous,
+      Votelimit: votelimit,
     };
     this.status = this.sendMessage(JSON.stringify(msg));
   }

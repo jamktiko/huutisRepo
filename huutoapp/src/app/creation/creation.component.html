@@ -1,11 +1,13 @@
-<!-- div which works as a 2 row grid for the form and the buttons -->
+<!-- div set as grid to hold the header, form and buttons -S -->
 <div class="grid">
-  <!-- form, which on submit posts all the information about the users poll -->
-  <!-- form is also in a grid which wraps the question input, radiobuttons, and choices -->
+  <!-- app header which holds the icon and the info button -S -->
+  <app-header></app-header>
+  <!-- form, which on submit posts information about the users poll -->
+  <!-- form is also in a grid which wraps the question input, radiobuttons, and choices -S -->
   <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
-    <span class="h1 font-sans justify-self-start mt-8"> Question </span>
+    <p class="h1 font-sans justify-self-start mt-8">Question</p>
     <input
-      class="input-2 font-sans my-4"
+      class="input-2 font-sans my-4 border-gray-500 border-2"
       type="text"
       required
       minlength="3"
@@ -13,12 +15,11 @@
       [ngModelOptions]="{ standalone: true }"
     />
 
-    <span class="h2 font-sans mb-4">Format</span>
+    <p class="h2 font-sans mb-4">Format</p>
 
-    <!--radio buttons wrapped in to divs, so they find the same gridslot with the title-->
-
+    <!-- radio buttons wrapped in to divs, so they find the same gridslot with the title -S -->
     <div class="grid grid-cols-2">
-      <span class="breadtext font-sans">Multiple choice</span>
+      <p class="breadtext font-sans">Multiple choice</p>
       <input
         class="input-3"
         type="radio"
@@ -30,7 +31,7 @@
     </div>
 
     <div class="grid grid-cols-2 my-3">
-      <span class="breadtext font-sans">Opinion grid</span>
+      <p class="breadtext font-sans">Opinion grid</p>
       <input
         class="input-3"
         type="radio"
@@ -41,7 +42,7 @@
     </div>
 
     <div class="grid grid-cols-2">
-      <span class="breadtext font-sans">Wheel of fortune</span>
+      <p class="breadtext font-sans">Wheel of fortune</p>
       <input
         class="input-3"
         type="radio"
@@ -51,10 +52,10 @@
       />
     </div>
 
-    <span class="h2 font-sans my-4">Choices</span>
+    <p class="h2 font-sans my-4">Choices</p>
     <div *ngFor="let item of vaihtoehdot">
       <input
-        class="input-2"
+        class="input-2 border-gray-500 border-2"
         type="text"
         [(ngModel)]="item.vaihtoehto"
         [ngModelOptions]="{ standalone: true }"
@@ -62,7 +63,7 @@
     </div>
 
     <div class="grid grid-cols-2 w-24">
-      <!-- button for adding answer options -->
+      <!-- button for adding choices -S -->
       <button
         class="button-3 justify-self-center self-center"
         (click)="addForm()"
@@ -105,22 +106,68 @@
         </svg>
       </button>
     </div>
+
+    <!-- div that holds title and icon for the "extra settings", clicking it changes the boolean of ngIf and shows the settings -S -->
+    <div
+      (click)="toggleDisplay()"
+      
+      class="grid grid-cols-2 my-4"
+    >
+      <p class="justify-self-start self-center h2">Room settings</p>
+      <svg
+        
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 justify-self-center self-center"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+        />
+      </svg>
+    </div>
+    <div *ngIf="toDisplay">
+      <div class="grid grid-cols-2 my-4">
+        <p class="breadtext">Anonymous voting</p>
+        <input
+          type="checkbox"
+          [checked]="anonymousVal"
+          (change)="anonymousVal = !anonymousVal"
+        />
+      </div>
+      <!-- angular materials slider for the vote limit setting -S -->
+      <div class="grid grid-cols-2 my-4 items-center">
+        <p class="breadtext">Vote limit</p>
+        <mat-slider
+          (input)="onInputChange($event)"
+          value="{{ sliderValue }}"
+          min="1"
+          max="{{ vaihtoehdot.length }}"
+          step="1"
+          thumbLabel
+        ></mat-slider>
+      </div>
+    </div>
   </form>
 
-  <!-- button to create the room -->
+  <!-- button to create the room -S -->
   <button
     class="button-1 w-80 h-32 justify-self-center mt-4"
     routerLink="/user"
     (click)="sendMessageToServer()"
   >
-    <span class="button-text font-sans"> Create </span>
+    <p class="button-text font-sans">Create</p>
   </button>
 
-  <!-- button to return to the frontpage incase of missclick -->
+  <!-- button to return to the frontpage incase of missclick -S -->
   <button
     class="button-1 w-80 h-32 justify-self-center mt-4"
     routerLink="/etusivu"
   >
-    <span class="button-text font-sans"> Back </span>
+    <p class="button-text font-sans">Back</p>
   </button>
 </div>

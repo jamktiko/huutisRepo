@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { UsernameComponent } from './username.component';
 
@@ -9,6 +10,7 @@ describe('UsernameComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [UsernameComponent],
+      imports: [MatMenuModule],
     }).compileComponents();
   });
 
@@ -22,8 +24,12 @@ describe('UsernameComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create a random username', () => {
+  it('component name variable should be empty', () => {
+    expect(component.name).toEqual('');
+  });
+
+  it('should create a random username to name variable', () => {
     component.rndm();
-    expect(component.name.length).toBeGreaterThan(1);
+    expect(component.name.length).toBeGreaterThanOrEqual(3);
   });
 });
