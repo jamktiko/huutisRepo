@@ -49,21 +49,33 @@ export class VoteComponent implements OnInit {
   }
 
   sendVote(index: any, id: any) {
-    this.votes += 1;
-    console.log(this.votes);
-    const msg: {
-      roomId: string;
-      action: string;
-      choice: string;
-      name: string;
-    } = {
-      action: 'incrementChoiceVotes',
-      roomId: id,
-      choice: JSON.stringify(index),
-      name: this.currentName,
-    };
-    this.status = this.AWS.sendMessage(JSON.stringify(msg));
-    console.log(JSON.stringify(msg));
+    if (sessionStorage.getItem('hasVoted') !== '1') {
+      this.votes += 1;
+      console.log(this.votes);
+      const msg: {
+        roomId: string;
+        action: string;
+        choice: string;
+        name: string;
+      } = {
+        action: 'incrementChoiceVotes',
+        roomId: id,
+        choice: JSON.stringify(index),
+        name: this.currentName,
+      };
+      this.status = this.AWS.sendMessage(JSON.stringify(msg));
+      console.log(JSON.stringify(msg));
+      if (this.AWS.messageFromServer.Item.votelimit == this.votes) {
+        if (this.AWS.hasReconnected) {
+          this.AWS.saveConnection(
+            JSON.parse(sessionStorage.getItem('roomData') || '{}').Item.roomId
+          );
+        }
+      }
+    }
+  }
+
+  checkReconnect() {
     if (this.AWS.hasReconnected) {
       this.AWS.saveConnection(
         JSON.parse(sessionStorage.getItem('roomData') || '{}').Item.roomId

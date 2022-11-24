@@ -11,7 +11,7 @@
 
   <!-- div that holds "more results" and the arrow icon, which when clicked changes the ngIf boolean to true and shows the detailed results-->
   <!-- clicking also activates the animation on the icon -S -->
-  <div *ngIf="!messageFromServer.Item.anonymous">
+  <div *ngIf="!messageFromServer.Item.anonymous" class="justify-self-center">
     <div
       (click)="toggleDisplay()"
       (click)="toggle()"

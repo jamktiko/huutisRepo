@@ -64,10 +64,12 @@ export class ResultComponent implements OnInit {
   chartVotes: string[] = [];
 
   ngOnInit(): void {
-   
+    sessionStorage.setItem('hasVoted', '1');
 
-    if(!this.AWS.messageFromServer) {
-      this.AWS.messageFromServer = JSON.parse(sessionStorage.getItem('roomData') || '{}');
+    if (!this.AWS.messageFromServer) {
+      this.AWS.messageFromServer = JSON.parse(
+        sessionStorage.getItem('roomData') || '{}'
+      );
     }
 
     this.AWS.bindFunction(this.updateChart.bind(this));
@@ -88,7 +90,7 @@ export class ResultComponent implements OnInit {
 
     // Chart.register(...registerables);
     this.chart = new Chart('myChart', {
-      type: 'bar',
+      type: 'doughnut',
       //labels for data, in real version these would be the voting options -S
       data: {
         labels: this.chartChoices,
@@ -111,20 +113,12 @@ export class ResultComponent implements OnInit {
         ],
       },
       options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
+        scales: {},
         responsive: true,
+        animation: false,
       },
     });
   }
-
-  // ngOnDestroy(): void {
-  //   this.AWS.closeSocket();
-  //   console.log('Socketti suljettu');
-  // }
 
   updateChart() {
     // lisätään uusi data chartData -taulukkoon

@@ -12,14 +12,14 @@ export class HeaderComponent implements OnInit {
   @Input()
   public showRoomcode: boolean = false;
 
-  public roomCode!: string;
+  public roomCode!: string | null;
 
   constructor(private matDialog: MatDialog) {}
 
   ngOnInit(): void {
     if (this.showRoomcode) {
       if (sessionStorage.getItem('roomId')) {
-        this.roomCode = sessionStorage.getItem('roomId') || 'ei ollu';
+        this.roomCode = sessionStorage.getItem('roomId');
         return;
       }
       if (

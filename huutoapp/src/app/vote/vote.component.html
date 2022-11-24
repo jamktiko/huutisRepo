@@ -33,6 +33,7 @@
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     routerLink="/result"
     [disabled]="votes >= 1 ? false : true"
+    (click)="checkReconnect()"
   >
     Results
   </button>
