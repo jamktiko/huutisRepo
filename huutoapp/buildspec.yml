@@ -7,7 +7,7 @@ phases:
     commands:
       - echo install process started
       - cd huutoapp
-      - npm install && npm install -g @angular/cli --force
+      - npm install --force && npm install -g @angular/cli --force
   build:
     commands:
       - echo build process started now
