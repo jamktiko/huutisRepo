@@ -4,7 +4,6 @@ env:
     APP_NAME: "votea"
 phases:
   install:
-      -npm i -g
     commands:
       - echo install process started
       - npm install && npm install -g @angular/cli
