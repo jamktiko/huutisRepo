@@ -17,4 +17,4 @@ phases:
       - echo build process finished, we should upload to S3 now
       - cd dist/$APP_NAME
       - ls -la
-      - aws s3 sync . s3://voteaapp.s3-website.eu-north-1.amazonaws.com --delete
+      - aws s3 sync . arn:aws:s3:::voteaapp --delete
