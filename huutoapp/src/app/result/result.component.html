@@ -2,7 +2,7 @@
 <div class="grid h-screen">
   <!-- header which holds the icon, roomcode and info button -S -->
   <app-header [showRoomcode]="true"></app-header>
-  <div class="h1 font-sans">The results</div>
+  <div class="h1 font-sans">{{ messageFromServer.Item.question }}</div>
 
   <!-- div which holds the chart.js chart in a canvas element -S -->
   <div id="divChart">
@@ -46,6 +46,12 @@
   </div>
 
   <!-- button which takes you back to the frontpage -S -->
+  <button
+    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
+    (click)="changeChartType()"
+  >
+    Vaihda charttia
+  </button>
 
   <button
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"

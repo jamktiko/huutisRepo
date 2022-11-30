@@ -3,7 +3,9 @@
   <!-- header that holds the app icon (yet to be replaced with own), the menu button and the roomcode -S -->
   <app-header [showRoomcode]="true"></app-header>
 
-  <span class="h1 font-sans"> Vote! </span>
+  <span class="h1 font-sans"> {{ messageFromServer.Item.question }} </span>
+
+  <p>You have {{ voteLimit - votes }} votes left</p>
 
   <!-- grid with two columns, which hold divs, which in turn posts all the voting options as buttons -S -->
   <div class="grid grid-cols-2 justify-self-center w-80">
@@ -40,6 +42,7 @@
   <button
     class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
     routerLink="/result"
+    (click)="random()"
   >
     Choose for me
   </button>

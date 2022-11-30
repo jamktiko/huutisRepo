@@ -33,7 +33,7 @@ export class CreationComponent implements OnInit {
   name!: string;
   status: any;
   anonymousVal: boolean = false;
-  sliderValue: number = 0;
+  sliderValue: number = 1;
 
   constructor(private AWS: WebsockethandlerService) {}
 
@@ -64,10 +64,6 @@ export class CreationComponent implements OnInit {
       this.anonymousVal,
       this.sliderValue
     );
-
-     setTimeout(() => {
-      this.AWS.fetchFromServer(this.id.toString());
-     }, 2000);
   }
 
   //when a user is changing format based on the 3 current options
@@ -114,7 +110,6 @@ export class CreationComponent implements OnInit {
       this.AWS.updateRoomId(this.id);
       this.AWS.bindFunction(() => null);
       sessionStorage.setItem('roomId', this.id.toString());
-      
     }
   }
 

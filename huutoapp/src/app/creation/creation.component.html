@@ -108,14 +108,9 @@
     </div>
 
     <!-- div that holds title and icon for the "extra settings", clicking it changes the boolean of ngIf and shows the settings -S -->
-    <div
-      (click)="toggleDisplay()"
-      
-      class="grid grid-cols-2 my-4"
-    >
+    <div (click)="toggleDisplay()" class="grid grid-cols-2 my-4">
       <p class="justify-self-start self-center h2">Room settings</p>
       <svg
-        
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -159,6 +154,7 @@
     class="button-1 w-80 h-32 justify-self-center mt-4"
     routerLink="/user"
     (click)="sendMessageToServer()"
+    [routerLink]="anonymousVal ? '/vote' : '/user'"
   >
     <p class="button-text font-sans">Create</p>
   </button>
