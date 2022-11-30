@@ -53,30 +53,45 @@ export class ResultComponent implements OnInit {
       vaihtoehto: 'Burgir',
       names: ['Vellamo', 'Veikko', 'Viljo', 'Vilho'],
     },
+    {
+      vaihtoehto: 'Chicken',
+      names: ['Tero'],
+    },
+    {
+      vaihtoehto: 'Soy',
+      names: ['Taneli', 'Ossi', 'Masa'],
+    },
   ];
 
+  chartChoices = ['Pizza', 'Pasta', 'Burgir', 'Chicken', 'Soy'];
+  bgColor: any = [];
+
+  // assignColor creates random RGB values that it pushes to an array for the graph to use as background color -S
+  assignColor() {
+    for (let i = 0; i < this.chartChoices.length; i++) {
+      const r = Math.floor(Math.random() * 255);
+      const g = Math.floor(Math.random() * 255);
+      const b = Math.floor(Math.random() * 255);
+      this.bgColor.push('rgb(' + r + ', ' + g + ', ' + b + ')');
+      console.log(this.bgColor);
+    }
+  }
+
   ngOnInit(): void {
+    this.assignColor();
     Chart.register(...registerables);
     // new bar chart -S
     let myChart = new Chart('myChart', {
       type: 'doughnut',
       //labels for data, in real version these would be the voting options -S
       data: {
-        labels: ['Pizza', 'Pasta', 'Burgir'],
+        labels: this.chartChoices,
         datasets: [
           {
             label: '# of Votes',
             //data and their representing colors, in real version these would be the results of the vote -S
-            data: [2, 3, 4],
-            backgroundColor: [
-              'rgba(143, 242, 218)',
-              'rgba(16, 115, 91)',
-              'rgba(106, 238, 206)',
-              'rgba(21, 153, 121)',
-              'rgba(68, 233, 194)',
-              'rgba(26, 191, 152)',
-              'rgba(31, 229, 182)',
-            ],
+            data: [2, 3, 4, 1, 3],
+            backgroundColor: this.bgColor,
           },
         ],
       },

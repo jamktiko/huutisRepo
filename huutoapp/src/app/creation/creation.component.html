@@ -7,7 +7,7 @@
   <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
     <p class="h1 font-sans justify-self-start mt-8">Question</p>
     <input
-      class="input-2 font-sans my-4 border-gray-500 border-2"
+      class="input-2 font-sans my-4 border-black border-2"
       type="text"
       required
       minlength="3"
@@ -19,9 +19,9 @@
 
     <!-- radio buttons wrapped in to divs, so they find the same gridslot with the title -S -->
     <div class="grid grid-cols-2">
-      <p class="breadtext font-sans">Multiple choice</p>
+      <p class="breadtext font-sans self-center">Multiple choice</p>
       <input
-        class="input-3"
+        class="input-3 self-center justify-self-center"
         type="radio"
         name="choice"
         value="multiple"
@@ -31,9 +31,9 @@
     </div>
 
     <div class="grid grid-cols-2 my-3">
-      <p class="breadtext font-sans">Opinion grid</p>
+      <p class="breadtext font-sans self-center">Opinion grid</p>
       <input
-        class="input-3"
+        class="input-3 self-center justify-self-center"
         type="radio"
         name="choice"
         value="grid"
@@ -42,9 +42,9 @@
     </div>
 
     <div class="grid grid-cols-2">
-      <p class="breadtext font-sans">Wheel of fortune</p>
+      <p class="breadtext font-sans self-center">Wheel of fortune</p>
       <input
-        class="input-3"
+        class="input-3 self-center justify-self-center"
         type="radio"
         name="choice"
         value="fortune"
@@ -55,7 +55,7 @@
     <p class="h2 font-sans my-4">Choices</p>
     <div *ngFor="let item of vaihtoehdot">
       <input
-        class="input-2 border-gray-500 border-2"
+        class="input-2 border-black border-2"
         type="text"
         [(ngModel)]="item.vaihtoehto"
         [ngModelOptions]="{ standalone: true }"
@@ -113,7 +113,7 @@
       (click)="toggle()"
       class="grid grid-cols-2 my-4"
     >
-      <p class="justify-self-start self-center h2">Room settings</p>
+      <p class="justify-self-start self-center h2">More settings</p>
       <svg
         [@openClose]="isOpen ? 'closed' : 'open'"
         xmlns="http://www.w3.org/2000/svg"
@@ -132,8 +132,8 @@
     </div>
     <div *ngIf="toDisplay">
       <div class="grid grid-cols-2 my-4">
-        <p class="breadtext">Anonymous voting</p>
-        <input type="checkbox" />
+        <p class="breadtext" class="self-center">Anonymous voting</p>
+        <input type="checkbox" class="w-8 h-8 justify-self-center" />
       </div>
       <!-- angular materials slider for the vote limit setting -S -->
       <div class="grid grid-cols-2 my-4 items-center">

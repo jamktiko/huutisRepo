@@ -2,12 +2,10 @@
 <div class="grid h-screen">
   <!-- header which holds the icon, roomcode and info button -S -->
   <app-header [showRoomcode]="true"></app-header>
-  <div class="h1 font-sans">The results</div>
+  <p class="h1 font-sans">The results</p>
 
   <!-- div which holds the chart.js chart in a canvas element -S -->
-  <div id="divChart">
-    <canvas id="myChart"></canvas>
-  </div>
+  <canvas class="justify-self-center" id="myChart"></canvas>
 
   <!-- div that holds "more results" and the arrow icon, which when clicked changes the ngIf boolean to true and shows the detailed results-->
   <!-- clicking also activates the animation on the icon -S -->
@@ -35,7 +33,7 @@
   </div>
   <!-- ngIf div which holds the voting choice as a header and then listed the usernames which voted for that option -S -->
   <div class="grid" *ngIf="toDisplay">
-    <div class="grid justify-self-center">
+    <div class="grid justify-self-center mb-4">
       <div *ngFor="let name of namearr">
         <p class="h2">{{ name.vaihtoehto }}:</p>
         <p class="breadtext">{{ name.names.join(", ") }}</p>
@@ -44,10 +42,19 @@
   </div>
 
   <!-- button which takes you back to the frontpage -S -->
-  <button
-    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
-    routerLink="/etusivu"
-  >
-    Done
-  </button>
+  <div class="grid grid-cols-2 justify-self-center self-center w-80">
+    <button
+      class="button-1 justify-self-center self-center w-36 h-24 button-text font-sans text-lg"
+      routerLink="/etusivu"
+    >
+      Back to menu
+    </button>
+
+    <!-- button to change the type/display of the graph -S -->
+    <button
+      class="button-1 justify-self-center self-center w-36 h-24 button-text font-sans text-lg"
+    >
+      Change chart
+    </button>
+  </div>
 </div>
