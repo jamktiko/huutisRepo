@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { DialogComponent } from '../dialog/dialog.component';
 import { WebsockethandlerService } from '../AWSapi.service';
 
@@ -41,13 +42,12 @@ export class HeaderComponent implements OnInit {
   }
 
   themeSwitch() {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      return;
-    } else {
+    if (localStorage.getItem('theme') == 'light') {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }
 }

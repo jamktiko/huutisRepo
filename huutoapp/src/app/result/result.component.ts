@@ -65,6 +65,19 @@ export class ResultComponent implements OnInit {
   chartChoices: string[] = [];
   chartVotes: string[] = [];
 
+  bgColor: any = [];
+
+  // assignColor creates random RGB values that it pushes to an array for the graph to use as background color -S
+  assignColor() {
+    for (let i = 0; i < this.chartChoices.length; i++) {
+      const r = Math.floor(Math.random() * 255);
+      const g = Math.floor(Math.random() * 255);
+      const b = Math.floor(Math.random() * 255);
+      this.bgColor.push('rgb(' + r + ', ' + g + ', ' + b + ')');
+      console.log(this.bgColor);
+    }
+  }
+
   ngOnInit(): void {
     sessionStorage.setItem('hasVoted', '1');
 
@@ -102,15 +115,7 @@ export class ResultComponent implements OnInit {
             //data and their representing colors, in real version
             //these would be the results of the vote + the colors given in voting phase
             data: this.chartVotes,
-            backgroundColor: [
-              'rgba(143, 242, 218)',
-              'rgba(16, 115, 91)',
-              'rgba(106, 238, 206)',
-              'rgba(21, 153, 121)',
-              'rgba(68, 233, 194)',
-              'rgba(26, 191, 152)',
-              'rgba(31, 229, 182)',
-            ],
+            backgroundColor: this.bgColor,
           },
         ],
       },
