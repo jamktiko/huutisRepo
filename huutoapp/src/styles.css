@@ -4,7 +4,7 @@
 
 /* set to 100% so that .wrap understands its height attribute -S */
 html {
-  height: 100%;
+  min-height: 100%;
 }
 
 /*Body is just for setting a background gradient. --Jyri*/

@@ -1,8 +1,8 @@
 <!-- component in grid (set to whole screen) which holds header, title, the voting options and choose for me button -S -->
-<div class="grid h-screen">
+<div class="grid h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- header which holds the icon, roomcode and the info button -S -->
   <app-header [showRoomcode]="true"></app-header>
-  <span class="h1 font-sans"> Vote! </span>
+  <span class="h1 font-sans dark:text-white"> Vote! </span>
 
   <!-- grid with two columns, which hold divs, which in turn posts all the voting options as buttons -S -->
   <div class="grid grid-cols-2 justify-self-center w-80">

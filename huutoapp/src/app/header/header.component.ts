@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
@@ -14,7 +15,11 @@ export class HeaderComponent implements OnInit {
 
   constructor(private matDialog: MatDialog) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (localStorage.getItem('theme') == 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  }
 
   //when how to use is clicked in menu, it invokes this function which in turn shows the DialogComponent as a dialog -S
   onOpenDialogClick() {
@@ -22,13 +27,12 @@ export class HeaderComponent implements OnInit {
   }
 
   themeSwitch() {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      return;
-    } else {
+    if (localStorage.getItem('theme') == 'light') {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }
 }
