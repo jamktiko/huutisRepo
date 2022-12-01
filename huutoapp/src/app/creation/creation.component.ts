@@ -33,7 +33,7 @@ export class CreationComponent implements OnInit {
   name!: string;
   status: any;
   anonymousVal: boolean = false;
-  sliderValue: number = 0;
+  sliderValue: number = 1;
 
   constructor(private AWS: WebsockethandlerService) {}
 
@@ -64,10 +64,6 @@ export class CreationComponent implements OnInit {
       this.anonymousVal,
       this.sliderValue
     );
-
-     setTimeout(() => {
-      this.AWS.fetchFromServer(this.id.toString());
-     }, 2000);
   }
 
   //when a user is changing format based on the 3 current options
@@ -77,6 +73,8 @@ export class CreationComponent implements OnInit {
     console.log(this.format);
   }
 
+  //changes the valeu of sliderValue so that the correct
+  //voteLimit can be sent along the sendMessageToServer method
   onInputChange(event: any) {
     this.sliderValue = event.value;
   }
@@ -106,6 +104,9 @@ export class CreationComponent implements OnInit {
     this.AWS.fetchFromServer(this.id);
   }
 
+  //after genId generates 4 digits this method looks for rooms with that
+  //code and depending on the return value either generates a new Id
+  //or sets the roomCode into sessionStorage and into the message payload
   validateRoomCode() {
     if ('Item' in this.AWS.messageFromServer) {
       console.log('Huone löytyi');
@@ -114,7 +115,6 @@ export class CreationComponent implements OnInit {
       this.AWS.updateRoomId(this.id);
       this.AWS.bindFunction(() => null);
       sessionStorage.setItem('roomId', this.id.toString());
-      
     }
   }
 

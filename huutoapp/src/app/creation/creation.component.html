@@ -1,13 +1,13 @@
 <!-- div set as grid to hold the header, form and buttons -S -->
-<div class="grid">
+<div class="grid min-h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- app header which holds the icon and the info button -S -->
   <app-header></app-header>
   <!-- form, which on submit posts information about the users poll -->
   <!-- form is also in a grid which wraps the question input, radiobuttons, and choices -S -->
   <form class="grid w-80 justify-self-center" #f="ngForm" novalidate>
-    <p class="h1 font-sans justify-self-start mt-8">Question</p>
+    <p class="h1 font-sans justify-self-start mt-8 dark:text-white">Question</p>
     <input
-      class="input-2 font-sans my-4 border-gray-500 border-2"
+      class="input-2 font-sans my-4 border-black border-2"
       type="text"
       required
       minlength="3"
@@ -15,13 +15,15 @@
       [ngModelOptions]="{ standalone: true }"
     />
 
-    <p class="h2 font-sans mb-4">Format</p>
+    <p class="h2 font-sans mb-4 dark:text-white">Format</p>
 
     <!-- radio buttons wrapped in to divs, so they find the same gridslot with the title -S -->
     <div class="grid grid-cols-2">
-      <p class="breadtext font-sans">Multiple choice</p>
+      <p class="breadtext font-sans self-center dark:text-white">
+        Multiple choice
+      </p>
       <input
-        class="input-3"
+        class="input-3 self-center justify-self-center"
         type="radio"
         name="choice"
         value="multiple"
@@ -31,9 +33,11 @@
     </div>
 
     <div class="grid grid-cols-2 my-3">
-      <p class="breadtext font-sans">Opinion grid</p>
+      <p class="breadtext font-sans self-center dark:text-white">
+        Opinion grid
+      </p>
       <input
-        class="input-3"
+        class="input-3 self-center justify-self-center"
         type="radio"
         name="choice"
         value="grid"
@@ -42,9 +46,11 @@
     </div>
 
     <div class="grid grid-cols-2">
-      <p class="breadtext font-sans">Wheel of fortune</p>
+      <p class="breadtext font-sans self-center dark:text-white">
+        Wheel of fortune
+      </p>
       <input
-        class="input-3"
+        class="input-3 self-center justify-self-center"
         type="radio"
         name="choice"
         value="fortune"
@@ -52,10 +58,10 @@
       />
     </div>
 
-    <p class="h2 font-sans my-4">Choices</p>
+    <p class="h2 font-sans my-4 dark:text-white">Choices</p>
     <div *ngFor="let item of vaihtoehdot">
       <input
-        class="input-2 border-gray-500 border-2"
+        class="input-2 border-black border-2"
         type="text"
         [(ngModel)]="item.vaihtoehto"
         [ngModelOptions]="{ standalone: true }"
@@ -110,12 +116,13 @@
     <!-- div that holds title and icon for the "extra settings", clicking it changes the boolean of ngIf and shows the settings -S -->
     <div
       (click)="toggleDisplay()"
-      
+      (click)="toggle()"
       class="grid grid-cols-2 my-4"
     >
-      <p class="justify-self-start self-center h2">Room settings</p>
+      <p class="justify-self-start self-center h2 dark:text-white">
+        More settings
+      </p>
       <svg
-        
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -132,7 +139,7 @@
     </div>
     <div *ngIf="toDisplay">
       <div class="grid grid-cols-2 my-4">
-        <p class="breadtext">Anonymous voting</p>
+        <p class="breadtext dark:text-white">Anonymous voting</p>
         <input
           type="checkbox"
           [checked]="anonymousVal"
@@ -141,7 +148,7 @@
       </div>
       <!-- angular materials slider for the vote limit setting -S -->
       <div class="grid grid-cols-2 my-4 items-center">
-        <p class="breadtext">Vote limit</p>
+        <p class="breadtext dark:text-white">Vote limit</p>
         <mat-slider
           (input)="onInputChange($event)"
           value="{{ sliderValue }}"
@@ -159,6 +166,7 @@
     class="button-1 w-80 h-32 justify-self-center mt-4"
     routerLink="/user"
     (click)="sendMessageToServer()"
+    [routerLink]="anonymousVal ? '/vote' : '/user'"
   >
     <p class="button-text font-sans">Create</p>
   </button>

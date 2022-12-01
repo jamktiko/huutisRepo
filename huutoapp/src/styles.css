@@ -1,16 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* set to 100% so that .wrap understands its height attribute -S */
+html {
+  min-height: 100%;
+}
+
 /*Body is just for setting a background gradient. --Jyri*/
 body {
-  background: linear-gradient(#f1fc79, #f1fc79, #8ff2da);
+  background: linear-gradient(#eefc5e, #f1fc79, #eefc5e);
 }
+
 /*.wrap and .svg are part of the SVG animation on the background. --Jyri*/
 .wrap {
-  max-height: 100vh;
+  height: 100%;
 }
 .svg {
-  stroke: #7ceaa4;
   position: fixed;
   transform-style: flat;
   opacity: 0.1;
@@ -138,6 +144,7 @@ body {
   }
 }
 /*end of animated background svg --Jyri*/
+
 @layer base {
   /* typography rules for h1, h2 and bread text -S */
   .h1 {
@@ -147,7 +154,6 @@ body {
     justify-self: center;
     align-self: center;
     z-index: 9;
-    -webkit-text-stroke: 1px #c7d24e64;
   }
 
   .h2 {
@@ -164,6 +170,7 @@ body {
   }
 
   .roomcode {
+    /* text style for the roomcode in the header -S */
     font-size: 1.25em;
     font-weight: 600;
   }
@@ -171,8 +178,6 @@ body {
 
 /* layer for custom buttons, input fields. Used to have ripple animation on button-1 but replaced it with a darker pressed state - Jyri*/
 @layer components {
-  /*Basic Button that has a flashing feedback - Jyri*/
-
   /* Removed the unnecessary css rules so only button 
   styles are specified, sizing is done with inline -S*/
   .button-1 {
@@ -219,7 +224,7 @@ body {
     background-color: initial;
     /*background-image here is the outer lining of the 
     button element here --Jyri*/
-    background-image: linear-gradient(92.83deg, #159978 0, #159978b4 60%);
+    background-image: linear-gradient(92.83deg, #159979 0, #159979 60%);
     content: "";
     display: block;
     height: 100%;
@@ -235,7 +240,7 @@ body {
     background-color: initial;
     /*background-image here is the inner coloring of the 
     button element. --Jyri*/
-    background-image: linear-gradient(92.83deg, #159979 0, #1fe5b6 75%);
+    background-image: linear-gradient(92.83deg, #159979 0, #1abf98 75%);
     bottom: 4px;
     content: "";
     display: block;
@@ -269,7 +274,7 @@ body {
       ),
       /*linear-gradient is the gradient inside the button element
       which shows when the button element is clicked --Jyri*/
-        linear-gradient(92.83deg, #159979 0, #1fe5b6 90%);
+        linear-gradient(92.83deg, #159979 0, #159979 90%);
     bottom: 4px;
     left: 4px;
     right: 4px;
@@ -325,7 +330,7 @@ body {
   .button-2:before {
     /*background-color is the color of the outer 
     lining of the button element --Jyri*/
-    background-color: #159978af;
+    background-color: #10735b;
     content: "";
     display: block;
     height: 100%;
@@ -341,7 +346,7 @@ body {
     background-color: initial;
     /*background-image is the color of the content 
     inside the button element --Jyri*/
-    background-image: linear-gradient(92.83deg, #159979 0, #1fe5b6 90%);
+    background-image: linear-gradient(92.83deg, #10735b 0, #159979 90%);
     bottom: 4px;
     content: "";
     display: block;
@@ -372,7 +377,7 @@ body {
         rgba(0, 0, 0, 0.2),
         rgba(0, 0, 0, 0.2)
       ),
-      linear-gradient(92.83deg, #159979 0, #1fe5b6 90%);
+      linear-gradient(92.83deg, #10735b 0, #10735b 90%);
     bottom: 4px;
     left: 4px;
     right: 4px;
@@ -417,7 +422,6 @@ body {
 
   .input-2 {
     /*input-2 is for larger input-fields, such as the ones on Creation component - Jyri*/
-    border: 1px solid rgba(135, 134, 134, 0.473);
     width: 18rem;
     height: 3rem;
     font-size: 1.5rem;
@@ -428,5 +432,7 @@ body {
     /*input-3 is for the Creation elements radio buttons etc. --Jyri*/
     accent-color: #159979;
     z-index: 9;
+    width: 2em;
+    height: 2em;
   }
 }

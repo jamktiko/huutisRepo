@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { DialogComponent } from '../dialog/dialog.component';
+import { WebsockethandlerService } from '../AWSapi.service';
 
 @Component({
   selector: 'app-header',
@@ -14,21 +16,22 @@ export class HeaderComponent implements OnInit {
 
   public roomCode!: string | null;
 
-  constructor(private matDialog: MatDialog) {}
+  constructor(
+    private matDialog: MatDialog,
+    private AWS: WebsockethandlerService
+  ) {}
 
   ngOnInit(): void {
     if (this.showRoomcode) {
-      if (sessionStorage.getItem('roomId')) {
+      if (this.AWS.messageFromServer.Item.roomId == undefined) {
         this.roomCode = sessionStorage.getItem('roomId');
         return;
-      }
-      if (
-        JSON.parse(sessionStorage.getItem('roomCode') || '{}').Item ===
-        undefined
-      ) {
-        this.roomCode = JSON.parse(
-          sessionStorage.getItem('roomData') || '{}'
-        ).Item.roomId;
+      } else {
+        this.roomCode = this.AWS.messageFromServer.Item.roomId;
+        sessionStorage.setItem(
+          'roomId',
+          this.AWS.messageFromServer.Item.roomId
+        );
       }
     }
   }
@@ -39,13 +42,12 @@ export class HeaderComponent implements OnInit {
   }
 
   themeSwitch() {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      return;
-    } else {
+    if (localStorage.getItem('theme') == 'light') {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }
 }

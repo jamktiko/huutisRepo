@@ -24,6 +24,8 @@ export class VoteComponent implements OnInit {
   constructor(private AWS: WebsockethandlerService) {}
 
   ngOnInit(): void {
+    this.AWS.bindFunction(this.getRoomData.bind(this));
+
     console.log(this.AWS.wsSubscription);
     if (!this.AWS.messageFromServer) {
       this.AWS.messageFromServer = JSON.parse(
@@ -83,9 +85,39 @@ export class VoteComponent implements OnInit {
     }
   }
 
-  // random() {
-  //   this.vastausvaihtoehdot[
-  //     Math.floor(Math.random() * this.vastausvaihtoehdot.length)
-  //   ];
-  // }
+  random() {
+    let arr: any = [];
+    for (
+      let i = this.votes;
+      i < this.AWS.messageFromServer.Item.votelimit;
+      i++
+    ) {
+      let idx = Math.floor(
+        Math.random() * this.AWS.messageFromServer.Item.choices.length
+      );
+
+      while (arr.includes(idx)) {
+        idx = Math.floor(
+          Math.random() * this.AWS.messageFromServer.Item.choices.length
+        );
+      }
+
+      if (!arr.includes(idx)) {
+        this.sendVote(idx, this.AWS.messageFromServer.Item.roomId);
+        arr.push(idx);
+        console.log(arr);
+      }
+    }
+  }
+
+  //this function is called when the socket receives a message and checks if
+  //the current data in the messageFromServer data is valid and replaces it if it is not valid.
+  getRoomData() {
+    if (
+      this.messageFromServer.Item === undefined ||
+      this.messageFromServer.Item.roomId != sessionStorage.getItem('roomId')
+    ) {
+      this.ngOnInit();
+    }
+  }
 }
