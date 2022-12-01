@@ -117,7 +117,6 @@ export class ResultComponent implements OnInit {
       options: {
         scales: {},
         responsive: true,
-        animation: false,
       },
     });
   }
@@ -162,15 +161,16 @@ export class ResultComponent implements OnInit {
     });
   }
 
+  //when the socket receives new votes this methods increments the
+  //right values in the chartVotes chart
   updateChart() {
-    // lisätään uusi data chartData -taulukkoon
-
-    this.chartVotes.splice(0, this.chartVotes.length);
-    this.chartChoices.splice(0, this.chartChoices.length);
-
-    for (let item of this.AWS.messageFromServer.Item.choices) {
-      this.chartChoices.push(item.vaihtoehto);
-      this.chartVotes.push(item.votes);
+    for (let i = 0; i < this.AWS.messageFromServer.Item.choices.length; i++) {
+      if (
+        this.AWS.messageFromServer.Item.choices[i].votes ==
+        this.chartVotes[i] + 1
+      ) {
+        this.chartVotes[i] += 1;
+      }
     }
 
     this.messageFromServer = this.AWS.messageFromServer;

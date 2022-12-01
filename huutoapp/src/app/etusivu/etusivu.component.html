@@ -16,6 +16,7 @@
       [(ngModel)]="input1"
       [ngModelOptions]="{ standalone: true }"
     />
+    <p *ngIf="prompt" color="red">Room not found</p>
   </form>
 
   <!-- JOIN button for joining the room -S -->

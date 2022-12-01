@@ -73,6 +73,8 @@ export class CreationComponent implements OnInit {
     console.log(this.format);
   }
 
+  //changes the valeu of sliderValue so that the correct
+  //voteLimit can be sent along the sendMessageToServer method
   onInputChange(event: any) {
     this.sliderValue = event.value;
   }
@@ -102,6 +104,9 @@ export class CreationComponent implements OnInit {
     this.AWS.fetchFromServer(this.id);
   }
 
+  //after genId generates 4 digits this method looks for rooms with that
+  //code and depending on the return value either generates a new Id
+  //or sets the roomCode into sessionStorage and into the message payload
   validateRoomCode() {
     if ('Item' in this.AWS.messageFromServer) {
       console.log('Huone löytyi');
