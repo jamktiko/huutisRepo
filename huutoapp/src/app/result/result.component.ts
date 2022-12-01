@@ -98,6 +98,8 @@ export class ResultComponent implements OnInit {
       this.chartVotes.push(item.votes);
     }
 
+    this.assignColor();
+
     //bind the updateChart method to a function parameter in the service
     //and when its called the function is called and the chart is updated
 
@@ -146,15 +148,7 @@ export class ResultComponent implements OnInit {
             //data and their representing colors, in real version
             //these would be the results of the vote + the colors given in voting phase
             data: this.chartVotes,
-            backgroundColor: [
-              'rgba(143, 242, 218)',
-              'rgba(16, 115, 91)',
-              'rgba(106, 238, 206)',
-              'rgba(21, 153, 121)',
-              'rgba(68, 233, 194)',
-              'rgba(26, 191, 152)',
-              'rgba(31, 229, 182)',
-            ],
+            backgroundColor: this.bgColor,
           },
         ],
       },
