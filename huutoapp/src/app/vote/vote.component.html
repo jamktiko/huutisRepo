@@ -7,7 +7,9 @@
     {{ messageFromServer.Item.question }}
   </span>
 
-  <p>You have {{ voteLimit - votes }} votes left</p>
+  <p class="justify-self-center breadtext dark:text-white">
+    You have {{ voteLimit - votes }} votes left
+  </p>
 
   <!-- grid with two columns, which hold divs, which in turn posts all the voting options as buttons -S -->
   <div class="grid grid-cols-2 justify-self-center w-80">
@@ -34,15 +36,14 @@
 
   <!-- button which gives your vote to a random option -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
+    class="button-1 justify-self-center self-center w-80 h-24 button-text font-sans"
     routerLink="/result"
-    [disabled]="votes >= 1 ? false : true"
     (click)="checkReconnect()"
   >
-    Results
+    Skip to results
   </button>
   <button
-    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
+    class="button-1 justify-self-center self-center w-80 h-24 button-text font-sans"
     routerLink="/result"
     (click)="random()"
   >

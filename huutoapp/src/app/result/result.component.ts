@@ -67,6 +67,8 @@ export class ResultComponent implements OnInit {
 
   bgColor: any = [];
 
+  fontTheme!: string;
+
   // assignColor creates random RGB values that it pushes to an array for the graph to use as background color -S
   assignColor() {
     for (let i = 0; i < this.chartChoices.length; i++) {
@@ -98,6 +100,9 @@ export class ResultComponent implements OnInit {
       this.chartVotes.push(item.votes);
     }
 
+    this.fontTheme =
+      (localStorage.getItem('theme') as string) == 'dark' ? 'white' : 'black';
+
     this.assignColor();
 
     //bind the updateChart method to a function parameter in the service
@@ -122,6 +127,13 @@ export class ResultComponent implements OnInit {
         ],
       },
       options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: this.fontTheme,
+            },
+          },
+        },
         scales: {},
         responsive: true,
       },
@@ -153,9 +165,27 @@ export class ResultComponent implements OnInit {
         ],
       },
       options: {
-        scales: {},
+        plugins: {
+          legend: {
+            labels: {
+              color: this.fontTheme,
+            },
+          },
+        },
+
+        scales: {
+          x: {
+            ticks: {
+              color: this.fontTheme,
+            },
+          },
+          y: {
+            ticks: {
+              color: this.fontTheme,
+            },
+          },
+        },
         responsive: true,
-        animation: false,
       },
     });
   }
