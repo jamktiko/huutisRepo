@@ -1,15 +1,17 @@
 <!-- "etusivu" component wrapped in a div that is given display grid and set to take up whole screen -S -->
-<div class="grid h-screen">
+<div class="grid h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- appheader which holds icon and info button -S -->
   <app-header></app-header>
-  <p class="h1 font-sans">Enter room code</p>
+  <p class="h1 font-sans dark:text-white">Enter room code</p>
 
   <!-- form that holds the four textfields (boxes) for the room code -S -->
   <form class="justify-self-center self-center">
-    <!-- input fields styled to look like boxes and text styles for them -S -->
+    <!-- input field for room code and inline script to set max length to four -->
+    <!-- maxlength value doesn't work on its own because the type is number -S -->
     <input
-      class="input-1 font-sans border-solid border-gray-500 border-2"
-      type="text"
+      class="input-1 font-sans border-solid border-black border-2"
+      type="number"
+      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
       maxlength="4"
     />
   </form>

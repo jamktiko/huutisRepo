@@ -1,12 +1,12 @@
 <!-- div that has display grid and set to take up whole screen -S -->
-<div class="grid h-screen">
+<div class="grid h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- header which holds the icon, roomcode and the info button -S -->
   <app-header [showRoomcode]="true"></app-header>
-  <p class="h1 font-sans">What is your username?</p>
+  <p class="h1 font-sans dark:text-white">What is your username?</p>
 
   <!-- inputfield for username and its styles -S -->
   <input
-    class="input-2 font-sans justify-self-center self-center border-gray-500 border-2"
+    class="input-2 font-sans justify-self-center self-center border-black border-2"
     type="text"
     value="{{ name }}"
   />
