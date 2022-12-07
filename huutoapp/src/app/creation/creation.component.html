@@ -68,7 +68,7 @@
       />
     </div>
 
-    <div class="grid grid-cols-2 w-24">
+    <div class="grid grid-cols-2 w-24 dark:text-white">
       <!-- button for adding choices -S -->
       <button
         class="button-3 justify-self-center self-center"
@@ -117,11 +117,9 @@
     <div
       (click)="toggleDisplay()"
       (click)="toggle()"
-      class="grid grid-cols-2 my-4"
+      class="grid grid-cols-2 my-4 dark:text-white"
     >
-      <p class="justify-self-start self-center h2 dark:text-white">
-        More settings
-      </p>
+      <p class="justify-self-start self-center h2">More settings</p>
       <svg
         [@openClose]="isOpen ? 'closed' : 'open'"
         xmlns="http://www.w3.org/2000/svg"
@@ -138,13 +136,14 @@
         />
       </svg>
     </div>
+
     <div *ngIf="toDisplay">
       <div class="grid grid-cols-2 my-4">
         <p class="breadtext self-center dark:text-white">Anonymous voting</p>
         <input type="checkbox" class="w-8 h-8 justify-self-center" />
       </div>
       <!-- angular materials slider for the vote limit setting -S -->
-      <div class="grid grid-cols-2 my-4 items-center">
+      <div class="grid grid-cols-2 my-4">
         <p class="breadtext self-center dark:text-white">Vote limit</p>
         <mat-slider min="1" max="10" step="1" thumbLabel></mat-slider>
       </div>
@@ -153,18 +152,18 @@
 
   <!-- button to create the room -S -->
   <button
-    class="button-1 w-80 h-32 justify-self-center mt-4"
+    class="button-1 w-64 h-24 justify-self-center button-text font-sans mt-8"
     routerLink="/user"
     (click)="submit()"
   >
-    <p class="button-text font-sans">Create</p>
+    Create
   </button>
 
   <!-- button to return to the frontpage incase of missclick -S -->
   <button
-    class="button-1 w-80 h-32 justify-self-center mt-4"
+    class="button-1 w-64 h-24 justify-self-center button-text font-sans mt-8"
     routerLink="/etusivu"
   >
-    <p class="button-text font-sans">Back</p>
+    Back
   </button>
 </div>

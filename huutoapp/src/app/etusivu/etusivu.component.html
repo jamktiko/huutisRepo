@@ -1,5 +1,5 @@
 <!-- "etusivu" component wrapped in a div that is given display grid and set to take up whole screen -S -->
-<div class="grid h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
+<div class="grid min-h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- appheader which holds icon and info button -S -->
   <app-header></app-header>
   <p class="h1 font-sans dark:text-white">Enter room code</p>
@@ -18,7 +18,7 @@
 
   <!-- JOIN button for joining the room -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
+    class="button-1 justify-self-center self-center w-64 h-24 button-text font-sans"
     routerLink="/user"
   >
     Join
@@ -26,15 +26,9 @@
 
   <!-- CREATE ROOM button that leads to the room creation page -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32"
+    class="button-1 justify-self-center self-center w-64 h-24 button-text font-sans"
     routerLink="/creation"
   >
-    <span class="button-text font-sans justify-self-start self-center"
-      >Create</span
-    >
-    <br />
-    <span class="button-text font-sans justify-self-start self-center"
-      >room</span
-    >
+    Create room
   </button>
 </div>
