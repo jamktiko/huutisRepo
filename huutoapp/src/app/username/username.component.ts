@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { WebsockethandlerService } from '../AWSapi.service';
 import { names } from './names';
 import { Subscription } from 'rxjs';
+import { InviteComponent } from '../invite/invite.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-username',
@@ -14,7 +17,11 @@ export class UsernameComponent implements OnInit {
   data!:any;
 
 
-  constructor(private AWS: WebsockethandlerService) {}
+  constructor(
+    private matDialog: MatDialog,
+    private AWS: WebsockethandlerService) {
+
+  }
 
   //in this component the websocket connection is initialized
   //and the connection stays the same even when changing page in this SPA-application
@@ -33,6 +40,11 @@ export class UsernameComponent implements OnInit {
     //console.log(this.currentRoomId);
 
     // this.AWS.fetchFromServer(this.currentRoomId);
+  }
+
+
+  onOpenDialogClick() {
+    this.matDialog.open(InviteComponent);
   }
 
   public name = '';

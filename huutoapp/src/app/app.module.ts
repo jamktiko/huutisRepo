@@ -22,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { InviteComponent } from './invite/invite.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ResultComponent,
     HeaderComponent,
     DialogComponent,
+    InviteComponent,
   ],
   imports: [
     BrowserModule,
