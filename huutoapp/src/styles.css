@@ -149,7 +149,6 @@ body {
   /* typography rules for h1, h2 and bread text -S */
   .h1 {
     font-size: 1.5em;
-    line-height: 1.5em;
     font-weight: 600;
     justify-self: center;
     align-self: center;
@@ -158,7 +157,6 @@ body {
 
   .h2 {
     font-size: 1.25em;
-    line-height: 1.25em;
     font-weight: 600;
     z-index: 9;
   }
@@ -198,8 +196,8 @@ body {
     text-align: center;
     text-decoration: none;
     text-transform: none;
-    user-select: none;
     -webkit-user-select: none;
+    user-select: none;
     -webkit-text-stroke: 1px #d2faf000;
     touch-action: manipulation;
     vertical-align: middle;
@@ -307,8 +305,8 @@ body {
     text-align: center;
     text-decoration: none;
     text-transform: none;
-    user-select: none;
     -webkit-user-select: none;
+    user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
     width: auto;

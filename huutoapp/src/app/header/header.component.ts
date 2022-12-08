@@ -33,8 +33,11 @@ export class HeaderComponent implements OnInit {
           this.AWS.messageFromServer.Item.roomId
         );
       }
+    if (localStorage.getItem('theme') == 'dark') {
+      document.documentElement.classList.add('dark');
     }
   }
+}
 
   //when how to use is clicked in menu, it invokes this function which in turn shows the DialogComponent as a dialog -S
   onOpenDialogClick() {
@@ -50,4 +53,3 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('theme', 'light');
     }
   }
-}

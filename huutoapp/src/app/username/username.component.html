@@ -1,19 +1,24 @@
 <!-- div that has display grid and set to take up whole screen -S -->
-<div class="grid h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
+<div class="grid min-h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- header which holds the icon, roomcode and the info button -S -->
   <app-header [showRoomcode]="true"></app-header>
+
+  <button (click)="onOpenDialogClick()" class="breadtext font-sans underline">
+    Invite friends
+  </button>
+
   <p class="h1 font-sans dark:text-white">What is your username?</p>
 
   <!-- inputfield for username and its styles -S -->
   <input
-    class="input-2 font-sans justify-self-center self-center border-black border-2"
+    class="input-2 font-sans justify-self-center self-center border-black border-2 text-center"
     type="text"
     [(ngModel)]="name"
   />
 
   <!-- GO VOTE button and heroicons arrow icon -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32 grid grid-cols-2"
+    class="button-1 justify-self-center self-center w-72 h-24 grid grid-cols-2"
     routerLink="/vote"
     (click)="forwardName()"
     id="testnappi"
@@ -37,7 +42,7 @@
 
   <!-- random username button -S -->
   <button
-    class="button-1 justify-self-center self-center w-80 h-32 button-text font-sans"
+    class="button-1 justify-self-center self-center w-72 h-24 button-text font-sans"
     (click)="rndm()"
     (click)="forwardName()"
   >

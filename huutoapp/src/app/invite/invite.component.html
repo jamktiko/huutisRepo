@@ -1,0 +1,12 @@
+<!-- mat-dialog that constructs the dialog window and holds the content -S -->
+<mat-dialog-content>
+  <p class="h2 font-sans mb-3">Here is link for joining your room:</p>
+  <p class="breadtext font-sans mb-3">{{ inviteLink }}</p>
+  <button (click)="copyToClipboard()" class="h2 font-sans underline mb-3">
+    Copy link
+  </button>
+</mat-dialog-content>
+<!-- button that closes the dialog -S -->
+<mat-dialog-actions>
+  <button class="button-1 button-text font-sans" mat-dialog-close>Close</button>
+</mat-dialog-actions>
