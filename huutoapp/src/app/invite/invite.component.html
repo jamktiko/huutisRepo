@@ -1,0 +1,11 @@
+<!-- mat-dialog that constructs the dialog window and holds the content -S -->
+<mat-dialog-content>
+  
+<p>{{inviteLink}}</p>
+<button (click)="copyToClipboard()">Copy link</button>
+
+</mat-dialog-content>
+<!-- button that closes the dialog -S -->
+<mat-dialog-actions>
+  <button class="button-1 button-text font-sans" mat-dialog-close>Close</button>
+</mat-dialog-actions>

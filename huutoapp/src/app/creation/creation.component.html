@@ -27,7 +27,7 @@
         type="radio"
         name="choice"
         value="multiple"
-        (change)="changeGender($event)"
+        (change)="changeChoice($event)"
         checked
       />
     </div>
@@ -41,7 +41,7 @@
         type="radio"
         name="choice"
         value="grid"
-        (change)="changeGender($event)"
+        (change)="changeChoice($event)"
       />
     </div>
 
@@ -54,7 +54,7 @@
         type="radio"
         name="choice"
         value="fortune"
-        (change)="changeGender($event)"
+        (change)="changeChoice($event)"
       />
     </div>
 
@@ -121,7 +121,6 @@
     >
       <p class="justify-self-start self-center h2">More settings</p>
       <svg
-        [@openClose]="isOpen ? 'closed' : 'open'"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -154,7 +153,8 @@
   <button
     class="button-1 w-64 h-24 justify-self-center button-text font-sans mt-8"
     routerLink="/user"
-    (click)="submit()"
+    (click)="sendMessageToServer()"
+    [routerLink]="anonymousVal ? '/vote' : '/user'"
   >
     Create
   </button>

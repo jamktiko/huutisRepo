@@ -2,10 +2,14 @@
 <header
   class="bg-app2ndblue w-full flex flex-row justify-between items-center h-14"
 >
-  <img src="../assets/icons/icon-72.png" alt="icon" class="ml-3 h-9 w-9" />
+  <img
+    src="../assets/icons/icon-72.png"
+    class="ml-3 h-9 w-9"
+    routerLink="/etusivu"
+  />
 
   <!-- roomcode is shown based on the component, basically from username view onwards -S -->
-  <p class="roomcode" *ngIf="showRoomcode">Roomcode:</p>
+  <p class="roomcode" *ngIf="showRoomcode">Room code: {{ roomCode }}</p>
 
   <button mat-button [matMenuTriggerFor]="menu" class="mr-2.5">
     <mat-icon class="mt-1">info</mat-icon>

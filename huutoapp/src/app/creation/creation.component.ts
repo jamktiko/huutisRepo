@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { WebsocketService } from '../websocket.service';
-import { Room } from '../models/Room';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { WebsockethandlerService } from '../AWSapi.service';
+import { Subscription } from 'rxjs';
+import { getMatIconNoHttpProviderError } from '@angular/material/icon';
 import {
   trigger,
   state,
@@ -25,30 +25,100 @@ import {
   ],
 })
 export class CreationComponent implements OnInit {
-  constructor(private webSocketService: WebsocketService) {}
+  idn!: number;
+  subscription!: Subscription;
+  messageFromServer!: any;
+  wsSubscription!: Subscription;
+  nameSubscription!: Subscription;
+  name!: string;
+  status: any;
+  anonymousVal: boolean = false;
+  sliderValue: number = 1;
 
+  constructor(private AWS: WebsockethandlerService) {}
+
+  //when page is loaded a connection to the websocket is started
+  //with setupSocketConnection() method. We also generate an id that goes along
+  //with other information to the database
   ngOnInit() {
-    this.webSocketService.setupSocketConnection();
+    this.genId();
+
+    this.AWS.bindFunction(this.validateRoomCode.bind(this));
+
+    this.subscription = this.AWS.currentIdentification.subscribe(
+      (id) => (this.idn = id)
+    );
   }
 
-  changeGender(e: any) {
+  //sendMessageToServer is called when the user clicks the create room button after which
+  //the data for the room is sent to DynamoDB using the 'sendRoomInfo' route.
+  //the sendMessageToServer can be used to invoke any routes by changing the action variable of
+  //the message payload.
+
+  sendMessageToServer() {
+    this.AWS.sendMessageToServer(
+      this.id.toString(),
+      this.kysymys,
+      this.format,
+      this.vaihtoehdot,
+      this.anonymousVal,
+      this.sliderValue
+    );
+  }
+
+  //when a user is changing format based on the 3 current options
+  //this method changes the value of the format variable
+  changeChoice(e: any) {
     this.format = e.target.value;
     console.log(this.format);
   }
 
+  onInputChange(event: any) {
+    this.sliderValue = event.value;
+  }
+
+  //variables where the information is stored for sending the data
+  //to the server, which has methods to save the information to a database
+
   public vaihtoehdot = [
     {
       vaihtoehto: '',
+      votes: 0,
+      names: [],
     },
   ];
+
+  id!: number;
 
   public kysymys = '';
 
   public format = '';
 
+  //method for generating an id. This method is called when the creation component
+  //is initialized
+  genId() {
+    this.id = Math.floor(1000 + Math.random() * 9000);
+    console.log(this.id);
+    this.AWS.fetchFromServer(this.id);
+  }
+
+  validateRoomCode() {
+    if ('Item' in this.AWS.messageFromServer) {
+      console.log('Huone löytyi');
+      this.genId();
+    } else {
+      this.AWS.updateRoomId(this.id);
+      this.AWS.bindFunction(() => null);
+      sessionStorage.setItem('roomId', this.id.toString());
+    }
+  }
+
+  //when a user adds an option the current ones get pushed into "vaihtoehdot" array in an object
   addForm() {
     this.vaihtoehdot.push({
       vaihtoehto: '',
+      votes: 0,
+      names: [],
     });
 
     console.log(this.vaihtoehdot);
@@ -69,21 +139,9 @@ export class CreationComponent implements OnInit {
   toggleDisplay() {
     this.toDisplay = !this.toDisplay;
   }
-
-  // same function as above just for the menu icon animation -S
   isOpen = true;
 
   toggle() {
     this.isOpen = !this.isOpen;
-  }
-
-  submit() {
-    let data = {
-      kysymys: this.kysymys,
-      format: this.format,
-      choices: this.vaihtoehdot,
-    };
-    console.log(data);
-    this.webSocketService.sendData(data);
   }
 }

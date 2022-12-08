@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart } from 'node_modules/chart.js';
-import { registerables } from 'chart.js';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import Chart from 'chart.js/auto';
+import { Subscription } from 'rxjs';
+import { WebsockethandlerService } from '../AWSapi.service';
 import {
   trigger,
   state,
@@ -8,6 +9,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
@@ -23,8 +25,25 @@ import {
   ],
 })
 export class ResultComponent implements OnInit {
-  // boolean which changes based on if the "more results" is clicked in the ui -S
+  //Ids that are used to get the correct rooms information
+  currentRoomId!: number;
+  subscription!: Subscription;
+
+  data!: any;
+  subscriptionData!: Subscription;
+  labels: any = [];
+
+  messageSubscription!: Subscription;
+  //messageFromServer contains the data that comes from websocket messages events
+  messageFromServer!: any;
+
+  chart!: any;
+
+  status!: any;
+
   toDisplay = false;
+
+  chartType: any = 'doughnut';
 
   // function that changes boolean above -S
   toggleDisplay() {
@@ -35,10 +54,11 @@ export class ResultComponent implements OnInit {
   isOpen = true;
 
   toggle() {
+    this.messageFromServer = this.AWS.messageFromServer;
     this.isOpen = !this.isOpen;
   }
 
-  constructor() {}
+  constructor(private AWS: WebsockethandlerService) {}
 
   namearr = [
     {
@@ -98,7 +118,24 @@ export class ResultComponent implements OnInit {
       options: {
         scales: {},
         responsive: true,
+        animation: false,
       },
     });
+  }
+
+  updateChart() {
+    // lisätään uusi data chartData -taulukkoon
+
+    this.chartVotes.splice(0, this.chartVotes.length);
+    this.chartChoices.splice(0, this.chartChoices.length);
+
+    for (let item of this.AWS.messageFromServer.Item.choices) {
+      this.chartChoices.push(item.vaihtoehto);
+      this.chartVotes.push(item.votes);
+    }
+
+    this.messageFromServer = this.AWS.messageFromServer;
+    // päivitetään chart
+    this.chart.update();
   }
 }

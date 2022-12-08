@@ -8,13 +8,15 @@
   <input
     class="input-2 font-sans justify-self-center self-center border-black border-2 text-center"
     type="text"
-    value="{{ name }}"
+    [(ngModel)]="name"
   />
 
   <!-- GO VOTE button and heroicons arrow icon -S -->
   <button
     class="button-1 justify-self-center self-center w-72 h-24 grid grid-cols-2"
     routerLink="/vote"
+    (click)="forwardName()"
+    id="testnappi"
   >
     <p class="button-text font-sans justify-self-end self-center">Go vote</p>
     <svg
@@ -37,6 +39,7 @@
   <button
     class="button-1 justify-self-center self-center w-72 h-24 button-text font-sans"
     (click)="rndm()"
+    (click)="forwardName()"
   >
     Random username
   </button>

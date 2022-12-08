@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { DialogComponent } from '../dialog/dialog.component';
+import { WebsockethandlerService } from '../AWSapi.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,12 @@ export class HeaderComponent implements OnInit {
   @Input()
   public showRoomcode: boolean = false;
 
-  constructor(private matDialog: MatDialog) {}
+  public roomCode!: string | null;
+
+  constructor(
+    private matDialog: MatDialog,
+    private AWS: WebsockethandlerService
+  ) {}
 
   ngOnInit(): void {
     if (localStorage.getItem('theme') == 'dark') {

@@ -41,7 +41,10 @@ yarn-error.log
 testem.log
 /typings
 /hint-report
+/cypress
 
 # System Files
 .DS_Store
 Thumbs.db
+.env
+/cypress.config.ts
