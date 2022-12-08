@@ -4,25 +4,19 @@ import { WebsockethandlerService } from '../AWSapi.service';
 @Component({
   selector: 'app-invite',
   templateUrl: './invite.component.html',
-  styleUrls: ['./invite.component.css']
+  styleUrls: ['./invite.component.css'],
 })
 export class InviteComponent implements OnInit {
+  inviteLink!: string;
 
-  inviteLink!:string;
-
-  constructor(
-    private AWS: WebsockethandlerService
-  ) { }
+  constructor(private AWS: WebsockethandlerService) {}
 
   ngOnInit(): void {
-    
-    const roomCode = this.AWS.messageFromServer.Item.roomId
-    this.inviteLink = 'localhost:4200/#/etusivu?code=' + roomCode
+    this.inviteLink = 'localhost:4200/#/etusivu?code=' + '0001';
   }
-
 
   copyToClipboard() {
     navigator.clipboard.writeText(this.inviteLink);
-    alert('Invite link copied to clipboard')
+    alert('Invite link copied to clipboard');
   }
 }

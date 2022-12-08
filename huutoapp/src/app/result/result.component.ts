@@ -99,7 +99,6 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.assignColor();
-    Chart.register(...registerables);
     // new bar chart -S
     let myChart = new Chart('myChart', {
       type: 'doughnut',
@@ -121,21 +120,5 @@ export class ResultComponent implements OnInit {
         animation: false,
       },
     });
-  }
-
-  updateChart() {
-    // lisätään uusi data chartData -taulukkoon
-
-    this.chartVotes.splice(0, this.chartVotes.length);
-    this.chartChoices.splice(0, this.chartChoices.length);
-
-    for (let item of this.AWS.messageFromServer.Item.choices) {
-      this.chartChoices.push(item.vaihtoehto);
-      this.chartVotes.push(item.votes);
-    }
-
-    this.messageFromServer = this.AWS.messageFromServer;
-    // päivitetään chart
-    this.chart.update();
   }
 }

@@ -13,10 +13,6 @@
       type="number"
       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
       maxlength="4"
-      id="input1"
-      (keyup)="validateRoomCode1()"
-      [(ngModel)]="input1"
-      [ngModelOptions]="{ standalone: true }"
     />
   </form>
 

@@ -6,23 +6,9 @@
 
   <!-- grid with two columns, which hold divs, which in turn posts all the voting options as buttons -S -->
   <div class="grid grid-cols-2 justify-self-center w-80">
-    <div
-      *ngFor="let item of messageFromServer.Item.choices"
-      class="justify-self-center"
-    >
-      <button
-        class="button-2 w-36 h-20"
-        (click)="
-          sendVote(
-            messageFromServer.Item.choices.indexOf(item),
-            messageFromServer.Item.roomId
-          )
-        "
-        [routerLink]="votes == voteLimit - 1 ? '/result' : null"
-        (click)="disableButton($event)"
-      >
-        <!--TODO: vastausvaihtoehdot tarkoitus käyttää button-2 classia (jossa atm ei muuta kuin fonttiasetus), vaihda kunhan classi tehty ja sidottu tulosruudun tuloksiin. Ks. styles.css button-2 --Jyri -->
-        {{ item.vaihtoehto }}
+    <div *ngFor="let item of vastausvaihtoehdot" class="justify-self-center">
+      <button class="button-2 w-36 h-20" routerLink="/result">
+        {{ item.vastausvaihtoehto }}
       </button>
     </div>
   </div>
