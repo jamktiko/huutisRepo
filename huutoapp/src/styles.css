@@ -196,8 +196,8 @@ body {
     text-align: center;
     text-decoration: none;
     text-transform: none;
-    user-select: none;
     -webkit-user-select: none;
+    user-select: none;
     -webkit-text-stroke: 1px #d2faf000;
     touch-action: manipulation;
     vertical-align: middle;
@@ -305,8 +305,8 @@ body {
     text-align: center;
     text-decoration: none;
     text-transform: none;
-    user-select: none;
     -webkit-user-select: none;
+    user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
     width: auto;
