@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WebsockethandlerService } from '../AWSapi.service';
 import { Subscription } from 'rxjs';
+import { InviteComponent } from '../invite/invite.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-vote',
@@ -21,7 +23,10 @@ export class VoteComponent implements OnInit {
   voteLimit!: number;
   votes: number = 0;
 
-  constructor(private AWS: WebsockethandlerService) {}
+  constructor(
+    private AWS: WebsockethandlerService,
+    private matDialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.AWS.bindFunction(this.getRoomData.bind(this));
@@ -108,6 +113,10 @@ export class VoteComponent implements OnInit {
         console.log(arr);
       }
     }
+  }
+
+  onOpenDialogClick() {
+    this.matDialog.open(InviteComponent);
   }
 
   //this function is called when the socket receives a message and checks if

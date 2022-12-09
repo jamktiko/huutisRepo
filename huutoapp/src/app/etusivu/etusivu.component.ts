@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { WebsockethandlerService } from '../AWSapi.service';
 import { Subscription } from 'rxjs';
 import { HeaderComponent } from '../header/header.component';
@@ -11,7 +10,7 @@ import { HeaderComponent } from '../header/header.component';
 export class EtusivuComponent implements OnInit {
   messageFromServer!: any;
   wsSubscription!: Subscription;
-  anonymous!: any;
+  anonymous!: boolean;
   prompt: boolean = false;
   constructor(private AWS: WebsockethandlerService) {}
 
@@ -24,7 +23,7 @@ export class EtusivuComponent implements OnInit {
   }
   isDisabled = true;
   public input1 = '';
-
+  private invited = false;
   public roomId = this.input1;
 
   //when a user inputs 4 digits this method looks for a room with
@@ -57,11 +56,27 @@ export class EtusivuComponent implements OnInit {
   }
 
   fetchRoom() {
-    console.log(this.roomId);
+    if (this.invited) {
+      this.AWS.fetchFromServer(this.input1.toString());
+    }
 
     this.AWS.updateRoomId(this.input1);
 
     this.AWS.saveConnection(this.input1);
+  }
+
+  checkForStringQuery() {
+    const url = window.location.href;
+
+    const [hash, query] = url.split('#')[1].split('?');
+    const urlparams = Object.fromEntries(new URLSearchParams(query));
+
+    if ('code' in urlparams) {
+      this.input1 = urlparams['code'];
+      this.isDisabled = false;
+      sessionStorage.setItem('roomId', this.input1.toString());
+      this.invited = true;
+    }
   }
 
   onDigitInput(event: any) {

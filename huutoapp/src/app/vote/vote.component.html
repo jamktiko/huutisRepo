@@ -3,6 +3,13 @@
   <!-- header that holds the app icon (yet to be replaced with own), the menu button and the roomcode -S -->
   <app-header [showRoomcode]="true"></app-header>
 
+  <button
+    (click)="onOpenDialogClick()"
+    class="breadtext font-sans underline w-24 h-5 justify-self-center self-center dark:text-white"
+  >
+    Invite friends
+  </button>
+
   <span class="h1 font-sans dark:text-white">
     {{ messageFromServer.Item.question }}
   </span>

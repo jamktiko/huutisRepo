@@ -25,8 +25,9 @@
   <button
     class="button-1 justify-self-center self-center w-64 h-24 button-text font-sans"
     type="button"
-    routerLink="/user"
+    [routerLink]="anonymous ? '/vote' : '/user'"
     [disabled]="isDisabled"
+    (click)="fetchRoom()"
   >
     Join
   </button>

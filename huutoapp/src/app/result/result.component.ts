@@ -66,22 +66,9 @@ export class ResultComponent implements OnInit {
   chartChoices: string[] = [];
   chartVotes: string[] = [];
 
-  bgColor: any = [];
-
   fontTheme!: string;
 
   chartScales = false;
-
-  // assignColor creates random RGB values that it pushes to an array for the graph to use as background color -S
-  assignColor() {
-    for (let i = 0; i < this.chartChoices.length; i++) {
-      const r = Math.floor(Math.random() * 255);
-      const g = Math.floor(Math.random() * 255);
-      const b = Math.floor(Math.random() * 255);
-      this.bgColor.push('rgb(' + r + ', ' + g + ', ' + b + ')');
-      console.log(this.bgColor);
-    }
-  }
 
   ngOnInit(): void {
     sessionStorage.setItem('hasVoted', '1');
@@ -106,8 +93,6 @@ export class ResultComponent implements OnInit {
     this.fontTheme =
       (localStorage.getItem('theme') as string) == 'dark' ? 'white' : 'black';
 
-    this.assignColor();
-
     //bind the updateChart method to a function parameter in the service
     //and when its called the function is called and the chart is updated
 
@@ -125,7 +110,19 @@ export class ResultComponent implements OnInit {
             //data and their representing colors, in real version
             //these would be the results of the vote + the colors given in voting phase
             data: this.chartVotes,
-            backgroundColor: this.bgColor,
+            backgroundColor: [
+              'rgba(54,162,235,255)',
+
+              'rgba(255,99,132,255)',
+
+              'rgba(75,192,192,255)',
+
+              'rgba(255,159,64,255)',
+
+              'rgba(153,102,255,255)',
+
+              'rgba(201,203,207,255)',
+            ],
           },
         ],
       },
@@ -165,7 +162,19 @@ export class ResultComponent implements OnInit {
             //data and their representing colors, in real version
             //these would be the results of the vote + the colors given in voting phase
             data: this.chartVotes,
-            backgroundColor: this.bgColor,
+            backgroundColor: [
+              'rgba(54,162,235,255)',
+
+              'rgba(255,99,132,255)',
+
+              'rgba(75,192,192,255)',
+
+              'rgba(255,159,64,255)',
+
+              'rgba(153,102,255,255)',
+
+              'rgba(201,203,207,255)',
+            ],
           },
         ],
       },
