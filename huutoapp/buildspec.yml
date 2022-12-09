@@ -1,0 +1,20 @@
+version: 0.2
+env:
+  variables:
+    APP_NAME: "huutoapp"
+phases:
+  install:
+    commands:
+      - echo install process started
+      - cd huutoapp
+      - npm install --force && npm install -g @angular/cli --force
+  build:
+    commands:
+      - echo build process started now
+      - ng build --configuration=production
+  post_build:
+    commands:
+      - echo build process finished, we should upload to S3 now
+      - cd dist/$APP_NAME
+      - ls -la
+      - aws s3 sync . s3://voteaapp --delete
