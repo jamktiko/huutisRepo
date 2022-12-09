@@ -18,6 +18,5 @@ export class InviteComponent implements OnInit {
 
   copyToClipboard() {
     navigator.clipboard.writeText(this.inviteLink);
-    alert('Invite link copied to clipboard');
   }
 }
