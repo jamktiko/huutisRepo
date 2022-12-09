@@ -12,7 +12,8 @@ export class InviteComponent implements OnInit {
   constructor(private AWS: WebsockethandlerService) {}
 
   ngOnInit(): void {
-    this.inviteLink = 'localhost:4200/#/etusivu?code=' + '0001';
+    const roomCode = this.AWS.messageFromServer.Item.roomId;
+    this.inviteLink = 'votea.net/app/#/etusivu?code=' + roomCode;
   }
 
   copyToClipboard() {

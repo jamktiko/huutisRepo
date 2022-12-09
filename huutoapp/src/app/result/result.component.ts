@@ -8,6 +8,7 @@ import {
   style,
   animate,
   transition,
+  AUTO_STYLE,
 } from '@angular/animations';
 
 @Component({
@@ -67,6 +68,10 @@ export class ResultComponent implements OnInit {
 
   bgColor: any = [];
 
+  fontTheme!: string;
+
+  chartScales = false;
+
   // assignColor creates random RGB values that it pushes to an array for the graph to use as background color -S
   assignColor() {
     for (let i = 0; i < this.chartChoices.length; i++) {
@@ -98,6 +103,9 @@ export class ResultComponent implements OnInit {
       this.chartVotes.push(item.votes);
     }
 
+    this.fontTheme =
+      (localStorage.getItem('theme') as string) == 'dark' ? 'white' : 'black';
+
     this.assignColor();
 
     //bind the updateChart method to a function parameter in the service
@@ -122,6 +130,13 @@ export class ResultComponent implements OnInit {
         ],
       },
       options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: this.fontTheme,
+            },
+          },
+        },
         scales: {},
         responsive: true,
       },
@@ -130,8 +145,10 @@ export class ResultComponent implements OnInit {
 
   changeChartType() {
     if (this.chartType == 'bar') {
+      this.chartScales = false;
       this.chartType = 'doughnut';
     } else if (this.chartType == 'doughnut') {
+      this.chartScales = true;
       this.chartType = 'bar';
     }
 
@@ -153,9 +170,28 @@ export class ResultComponent implements OnInit {
         ],
       },
       options: {
-        scales: {},
+        plugins: {
+          legend: {
+            labels: {
+              color: this.fontTheme,
+            },
+          },
+        },
+        scales: {
+          x: {
+            display: this.chartScales,
+            ticks: {
+              color: this.fontTheme,
+            },
+          },
+          y: {
+            display: this.chartScales,
+            ticks: {
+              color: this.fontTheme,
+            },
+          },
+        },
         responsive: true,
-        animation: false,
       },
     });
   }

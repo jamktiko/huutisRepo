@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
 
   public roomCode!: string | null;
 
+  public themeText: any;
+
   constructor(
     private matDialog: MatDialog,
     private AWS: WebsockethandlerService
@@ -33,11 +35,15 @@ export class HeaderComponent implements OnInit {
           this.AWS.messageFromServer.Item.roomId
         );
       }
+    }
+
     if (localStorage.getItem('theme') == 'dark') {
       document.documentElement.classList.add('dark');
+      this.themeText = 'Light mode';
+    } else {
+      this.themeText = 'Dark mode';
     }
   }
-}
 
   //when how to use is clicked in menu, it invokes this function which in turn shows the DialogComponent as a dialog -S
   onOpenDialogClick() {
@@ -48,8 +54,11 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('theme') == 'light') {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
+      this.themeText = 'Light mode';
     } else {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
+      this.themeText = 'Dark mode';
     }
   }
+}
