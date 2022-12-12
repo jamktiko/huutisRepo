@@ -10,31 +10,25 @@
 
 // custom colors for the vote limit slider in the creation component -S
 .mat-slider-track-fill {
-  background-color: #1fe5b6 !important;
+  background-color: #159979 !important;
 }
 
 .mat-slider-thumb-label {
-  background-color: #1abf98 !important;
+  background-color: #159979 !important;
 }
 
 .mat-slider-thumb {
-  background-color: #1fe5b6 !important;
+  background-color: #159979 !important;
 }
 
+// sizing of the info button -S
 .mat-icon {
   transform: scale(1.5);
 }
 
+// dialog background color -S
 .mat-dialog-container {
   background: linear-gradient(#eefc5e, #f1fc79, #eefc5e) !important;
-}
-
-.mat-slide-toggle-bar {
-  background-color: gray !important;
-}
-
-.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
-  background-color: #1fe5b6;
 }
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss

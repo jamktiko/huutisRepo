@@ -222,7 +222,7 @@ body {
     background-color: initial;
     /*background-image here is the outer lining of the 
     button element here --Jyri*/
-    background-image: linear-gradient(92.83deg, #159979 0, #159979 60%);
+    background-image: linear-gradient(92.83deg, #138a6d 0, #138a6d 60%);
     content: "";
     display: block;
     height: 100%;
@@ -238,7 +238,7 @@ body {
     background-color: initial;
     /*background-image here is the inner coloring of the 
     button element. --Jyri*/
-    background-image: linear-gradient(92.83deg, #159979 0, #1abf98 75%);
+    background-image: linear-gradient(92.83deg, #159979 0, #159979 75%);
     bottom: 4px;
     content: "";
     display: block;
@@ -267,12 +267,12 @@ body {
   .button-1:active:not(:disabled):after {
     background-image: linear-gradient(
         0deg,
-        rgba(83, 83, 83, 0.2),
-        rgba(209, 0, 0, 0.2)
+        rgba(19, 138, 109, 1),
+        rgba(19, 138, 109, 1)
       ),
       /*linear-gradient is the gradient inside the button element
       which shows when the button element is clicked --Jyri*/
-        linear-gradient(92.83deg, #159979 0, #159979 90%);
+        linear-gradient(92.83deg, #138a6d 0, #138a6d 90%);
     bottom: 4px;
     left: 4px;
     right: 4px;
@@ -280,109 +280,6 @@ body {
   }
 
   .button-1:disabled {
-    cursor: default;
-    opacity: 0.24;
-  }
-
-  /* button-2 is default for now, the function to assaign random colors is in icebox for now */
-  /* free to style them all to look like same -S */
-  .button-2 {
-    align-items: center;
-    appearance: none;
-    background-clip: padding-box;
-    background-color: initial;
-    background-image: none;
-    border-style: none;
-    box-sizing: border-box;
-    /*color of the text inside the button element --Jyri*/
-    color: #fff;
-    cursor: pointer;
-    outline: none;
-    overflow: visible;
-    padding: 19px 26px;
-    pointer-events: auto;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    text-transform: none;
-    -webkit-user-select: none;
-    user-select: none;
-    touch-action: manipulation;
-    vertical-align: middle;
-    width: auto;
-    word-break: keep-all;
-    z-index: 9;
-  }
-
-  @media (min-width: 768px) {
-    .button-2 {
-      padding: 19px 32px;
-    }
-  }
-
-  .button-2:before,
-  .button-2:after {
-    border-radius: 80px;
-  }
-
-  .button-2:before {
-    /*background-color is the color of the outer 
-    lining of the button element --Jyri*/
-    background-color: #10735b;
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -2;
-  }
-
-  .button-2:after {
-    background-color: initial;
-    /*background-image is the color of the content 
-    inside the button element --Jyri*/
-    background-image: linear-gradient(92.83deg, #10735b 0, #159979 90%);
-    bottom: 4px;
-    content: "";
-    display: block;
-    left: 4px;
-    overflow: hidden;
-    position: absolute;
-    right: 4px;
-    top: 4px;
-    transition: all 100ms ease-out;
-    z-index: -1;
-  }
-
-  .button-2:hover:not(:disabled):after {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    transition-timing-function: ease-in;
-  }
-
-  .button-2:active:not(:disabled) {
-    color: #ccc;
-  }
-
-  .button-2:active:not(:disabled):after {
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.2),
-        rgba(0, 0, 0, 0.2)
-      ),
-      linear-gradient(92.83deg, #10735b 0, #10735b 90%);
-    bottom: 4px;
-    left: 4px;
-    right: 4px;
-    top: 4px;
-  }
-
-  .button-2:disabled {
     cursor: default;
     opacity: 0.24;
   }

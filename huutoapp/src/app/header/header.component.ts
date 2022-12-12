@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { DialogComponent } from '../dialog/dialog.component';
 import { WebsockethandlerService } from '../AWSapi.service';
 
@@ -32,6 +31,8 @@ export class HeaderComponent implements OnInit {
     this.matDialog.open(DialogComponent);
   }
 
+  // function that switches the theme in local storage when the Dark/light mode button is clicked
+  // and adds the dark css class to the document -S
   themeSwitch() {
     if (localStorage.getItem('theme') == 'light') {
       document.documentElement.classList.add('dark');

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { InviteComponent } from '../invite/invite.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-vote',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vote.component.css'],
 })
 export class VoteComponent implements OnInit {
-  constructor() {}
+  constructor(private matDialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -14,24 +16,28 @@ export class VoteComponent implements OnInit {
 
   idx = '';
 
+  onOpenDialogClick() {
+    this.matDialog.open(InviteComponent);
+  }
+
   public vastausvaihtoehdot = [
     {
-      vastausvaihtoehto: '1',
+      vastausvaihtoehto: 'Pizza',
     },
     {
-      vastausvaihtoehto: '2',
+      vastausvaihtoehto: 'Pasta',
     },
     {
-      vastausvaihtoehto: '3',
+      vastausvaihtoehto: 'Burgir',
     },
     {
-      vastausvaihtoehto: '4',
+      vastausvaihtoehto: 'Chicken',
     },
     {
-      vastausvaihtoehto: '5',
+      vastausvaihtoehto: 'Soy',
     },
     {
-      vastausvaihtoehto: '6',
+      vastausvaihtoehto: 'Paper',
     },
   ];
 

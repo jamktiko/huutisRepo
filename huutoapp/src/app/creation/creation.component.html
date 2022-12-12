@@ -1,4 +1,5 @@
 <!-- div set as grid to hold the header, form and buttons -S -->
+<!-- darkmode changes the background to a dark gray gradient -->
 <div class="grid min-h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- app header which holds the icon and the info button -S -->
   <app-header></app-header>
@@ -121,6 +122,7 @@
     >
       <p class="justify-self-start self-center h2">More settings</p>
       <svg
+        [@openClose]="isOpen ? 'closed' : 'open'"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -161,7 +163,7 @@
 
   <!-- button to return to the frontpage incase of missclick -S -->
   <button
-    class="button-1 w-64 h-24 justify-self-center button-text font-sans mt-8"
+    class="button-1 w-64 h-24 justify-self-center button-text font-sans mt-8 mb-4"
     routerLink="/etusivu"
   >
     Back

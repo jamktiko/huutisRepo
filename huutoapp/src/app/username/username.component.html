@@ -1,9 +1,12 @@
-<!-- div that has display grid and set to take up whole screen -S -->
+<!-- div that has display grid and holds the content -S -->
 <div class="grid min-h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- header which holds the icon, roomcode and the info button -S -->
   <app-header [showRoomcode]="true"></app-header>
 
-  <button (click)="onOpenDialogClick()" class="breadtext font-sans underline">
+  <button
+    (click)="onOpenDialogClick()"
+    class="breadtext font-sans underline w-24 h-5 justify-self-center self-center dark:text-white"
+  >
     Invite friends
   </button>
 

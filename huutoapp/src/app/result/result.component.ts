@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { Subscription } from 'rxjs';
+import { Subscription, withLatestFrom } from 'rxjs';
 import { WebsockethandlerService } from '../AWSapi.service';
 import {
   trigger,
@@ -81,24 +81,40 @@ export class ResultComponent implements OnInit {
       vaihtoehto: 'Soy',
       names: ['Taneli', 'Ossi', 'Masa'],
     },
+    {
+      vaihtoehto: 'Paper',
+      names: ['Päiviö'],
+    },
   ];
 
-  chartChoices = ['Pizza', 'Pasta', 'Burgir', 'Chicken', 'Soy'];
-  bgColor: any = [];
+  chartChoices = ['Pizza', 'Pasta', 'Burgir', 'Chicken', 'Soy', 'Paper'];
+  // bgColor: any = [];
 
   // assignColor creates random RGB values that it pushes to an array for the graph to use as background color -S
-  assignColor() {
-    for (let i = 0; i < this.chartChoices.length; i++) {
-      const r = Math.floor(Math.random() * 255);
-      const g = Math.floor(Math.random() * 255);
-      const b = Math.floor(Math.random() * 255);
-      this.bgColor.push('rgb(' + r + ', ' + g + ', ' + b + ')');
-      console.log(this.bgColor);
+  // assignColor() {
+  //   for (let i = 0; i < this.chartChoices.length; i++) {
+  //     const r = Math.floor(Math.random() * 255);
+  //     const g = Math.floor(Math.random() * 255);
+  //     const b = Math.floor(Math.random() * 255);
+  //     this.bgColor.push('rgb(' + r + ', ' + g + ', ' + b + ')');
+  //     console.log(this.bgColor);
+  //   }
+  // }
+
+  fontColor: any;
+
+  // test function to change the chart.js fontcolor
+  changeColor() {
+    if (localStorage.getItem('theme') == 'dark') {
+      this.fontColor = '#fff';
+    } else {
+      this.fontColor = '#000';
     }
   }
 
   ngOnInit(): void {
-    this.assignColor();
+    this.changeColor();
+    // this.assignColor();
     // new bar chart -S
     let myChart = new Chart('myChart', {
       type: 'doughnut',
@@ -109,12 +125,28 @@ export class ResultComponent implements OnInit {
           {
             label: '# of Votes',
             //data and their representing colors, in real version these would be the results of the vote -S
-            data: [2, 3, 4, 1, 3],
-            backgroundColor: this.bgColor,
+            data: [2, 3, 4, 1, 3, 1],
+            //colors are chart.js default colors without the yellow (because of our background) -S
+            backgroundColor: [
+              'rgba(54,162,235,255)',
+              'rgba(255,99,132,255)',
+              'rgba(75,192,192,255)',
+              'rgba(255,159,64,255)',
+              'rgba(153,102,255,255)',
+              'rgba(201,203,207,255)',
+            ],
+            // backgroundColor: this.bgColor,
           },
         ],
       },
       options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: this.fontColor,
+            },
+          },
+        },
         scales: {},
         responsive: true,
         animation: false,
