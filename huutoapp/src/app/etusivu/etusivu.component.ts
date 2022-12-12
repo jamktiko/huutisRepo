@@ -20,6 +20,8 @@ export class EtusivuComponent implements OnInit {
     this.AWS.bindFunction(this.validateRoomCode2.bind(this));
 
     sessionStorage.setItem('hasVoted', '0');
+
+    sessionStorage.setItem('roomId', '');
   }
   isDisabled = true;
   public input1 = '';
