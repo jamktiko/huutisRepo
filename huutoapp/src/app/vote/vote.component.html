@@ -1,18 +1,20 @@
-<!-- component in grid (set to whole screen) which holds header, title, the voting options and choose for me button -S -->
+<!-- component in grid which holds header, title, the voting options and choose for me button -S -->
 <div class="grid h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- header that holds the app icon (yet to be replaced with own), the menu button and the roomcode -S -->
-  <app-header [showRoomcode]="true"></app-header>
+  <div class="h-2 grid">
+    <app-header [showRoomcode]="true"></app-header>
 
-  <button
-    (click)="onOpenDialogClick()"
-    class="breadtext font-sans underline w-24 h-5 justify-self-center self-center dark:text-white"
-  >
-    Invite friends
-  </button>
+    <button
+      (click)="onOpenDialogClick()"
+      class="breadtext font-sans underline w-24 h-5 justify-self-center self-center dark:text-white mt-5"
+    >
+      Invite friends
+    </button>
+  </div>
 
-  <span class="h1 font-sans dark:text-white">
+  <p class="h1 font-sans dark:text-white">
     {{ messageFromServer.Item.question }}
-  </span>
+  </p>
 
   <p class="justify-self-center breadtext dark:text-white">
     You have {{ voteLimit - votes }} votes left
@@ -25,7 +27,7 @@
       class="justify-self-center"
     >
       <button
-        class="button-2 w-36 h-20"
+        class="button-1 w-36 h-20"
         (click)="
           sendVote(
             messageFromServer.Item.choices.indexOf(item),
@@ -42,18 +44,22 @@
   </div>
 
   <!-- button which gives your vote to a random option -S -->
-  <button
-    class="button-1 justify-self-center self-center w-80 h-24 button-text font-sans"
-    routerLink="/result"
-    (click)="checkReconnect()"
-  >
-    Skip to results
-  </button>
-  <button
-    class="button-1 justify-self-center self-center w-80 h-24 button-text font-sans"
-    routerLink="/result"
-    (click)="random()"
-  >
-    Choose for me
-  </button>
+  <div class="grid grid-cols-2 justify-self-center self-center">
+    <button
+      class="button-1 justify-self-center self-center w-40 h-24 button-text font-sans text-lg mr-2"
+      (click)="checkReconnect()"
+      routerLink="/result"
+    >
+      Skip to results
+    </button>
+
+    <!-- button to choose random option -S -->
+    <button
+      class="button-1 justify-self-center self-center w-40 h-24 button-text font-sans text-lg"
+      (click)="random()"
+      routerLink="/result"
+    >
+      Choose for me
+    </button>
+  </div>
 </div>

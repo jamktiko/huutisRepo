@@ -17,7 +17,7 @@ import {
   animations: [
     // trigger binded to the svg element -S
     trigger('openClose', [
-      // if the state if open, rotate the element 90 degrees -S
+      // if the state is open, rotate the element 90 degrees -S
       state('open', style({ transform: 'rotate(90deg)' })),
       transition('closed => open', [animate('0.01s')]),
       transition('open => closed', [animate('0.01s')]),
@@ -130,7 +130,7 @@ export class CreationComponent implements OnInit {
     console.log(this.kysymys);
   }
 
-  // added method to remove choices in cretion phase, in case of an misclick -S
+  // added method to remove choices in cretion phase -S
   removeForm() {
     if (this.vaihtoehdot.length > 1) {
       this.vaihtoehdot.pop();

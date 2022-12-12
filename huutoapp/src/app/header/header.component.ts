@@ -49,6 +49,8 @@ export class HeaderComponent implements OnInit {
     this.matDialog.open(DialogComponent);
   }
 
+  // function that switches the theme in local storage when the Dark/light mode button is clicked
+  // and adds the dark css class to the document -S
   themeSwitch() {
     if (localStorage.getItem('theme') == 'light') {
       document.documentElement.classList.add('dark');

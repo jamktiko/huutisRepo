@@ -1,13 +1,12 @@
-<!-- "etusivu" component wrapped in a div that is given display grid and set to take up whole screen -S -->
+<!-- "etusivu" component wrapped in a div that is given display grid -S -->
+<!-- darkmode changes the background to a dark gray gradient -S -->
 <div class="grid min-h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- appheader which holds icon and info button -S -->
   <app-header [showRoomcode]="false"></app-header>
   <p class="h1 font-sans dark:text-white">Enter room code</p>
 
-  <!-- form that holds the four textfields (boxes) for the room code -S -->
   <form class="justify-self-center self-center">
-    <!-- input field for room code and inline script to set max length to four -->
-    <!-- maxlength value doesn't work on its own because the type is number -S -->
+    <!-- input field for room code and inline script to set max length to four -S -->
     <input
       class="input-1 font-sans border-solid border-black border-2"
       type="number"

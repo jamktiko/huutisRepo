@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { Subscription } from 'rxjs';
+import { Subscription, withLatestFrom } from 'rxjs';
 import { WebsockethandlerService } from '../AWSapi.service';
 import {
   trigger,
