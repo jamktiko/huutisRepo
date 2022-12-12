@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { DialogComponent } from '../dialog/dialog.component';
 import { WebsockethandlerService } from '../AWSapi.service';
 
@@ -25,7 +24,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.showRoomcode) {
-      if (this.AWS.messageFromServer.Item.roomId == undefined) {
+      if (sessionStorage.getItem('roomId')) {
         this.roomCode = sessionStorage.getItem('roomId');
         return;
       } else {
