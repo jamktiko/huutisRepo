@@ -1,9 +1,26 @@
 <!-- mat-dialog that constructs the dialog window and holds the content -S -->
 <mat-dialog-content>
-  <p class="h1 font-sans mb-4">How to use Votea</p>
+  <div class="flex flex-row items-center mb-4">
+    <p class="h1 font-sans mr-1">How to use Votea</p>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
+      />
+    </svg>
+  </div>
 
-  <p class="h2 font-sans mb-3">Do you want to join a vote?</p>
-  <ul>
+  <p class="h2 font-sans mb-4">Do you want to join a vote?</p>
+
+  <ul class="speech-bubble">
     <li class="breadtext mb-3">
       1. Ask the person who created the room in Votea for the room code.
     </li>
@@ -15,9 +32,9 @@
     </li>
   </ul>
 
-  <p class="h2 font-sans mb-3">Do you want to make a vote?</p>
+  <p class="h2 font-sans my-4">Do you want to make a vote?</p>
 
-  <ul>
+  <ul class="speech-bubble">
     <li class="breadtext mb-3">1. Select Create Room</li>
     <li class="breadtext mb-3">
       2. At the Room Creation View you can enter the question that's voted for,
@@ -25,8 +42,8 @@
       setting up the vote, select Create!
     </li>
     <li class="breadtext mb-3">
-      3. Your roomcode is displayed at the top of your screen, share this to the
-      people you want to invite to a vote.
+      3. Your roomcode is displayed at the top of your screen, share this or the
+      link below it to the people you want to invite to a vote.
     </li>
     <li class="breadtext mb-3">
       4. Type in your username or choose a random username and Go vote!

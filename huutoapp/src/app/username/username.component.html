@@ -1,14 +1,16 @@
 <!-- div that has display grid and holds the content -S -->
 <div class="grid min-h-screen dark:bg-gradient-to-bl from-gray-800 to-gray-500">
   <!-- header which holds the icon, roomcode and the info button -S -->
-  <app-header [showRoomcode]="true"></app-header>
+  <div class="h-2 grid">
+    <app-header [showRoomcode]="true"></app-header>
 
-  <button
-    (click)="onOpenDialogClick()"
-    class="breadtext font-sans underline w-24 h-5 justify-self-center self-center dark:text-white"
-  >
-    Invite friends
-  </button>
+    <button
+      (click)="onOpenDialogClick()"
+      class="breadtext font-sans underline w-24 h-5 justify-self-center self-center dark:text-white mt-5"
+    >
+      Invite friends
+    </button>
+  </div>
 
   <p class="h1 font-sans dark:text-white">What is your username?</p>
 
