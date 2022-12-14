@@ -41,7 +41,14 @@ export class CreationComponent implements OnInit {
   //with setupSocketConnection() method. We also generate an id that goes along
   //with other information to the database
   ngOnInit() {
-    this.genId();
+    if (this.AWS.wsSubscription === undefined) {
+      this.AWS.initSocket();
+      this.AWS.hasReconnected = true;
+    }
+
+    setTimeout(() => {
+      this.genId();
+    }, 1000);
 
     this.AWS.bindFunction(this.validateRoomCode.bind(this));
 

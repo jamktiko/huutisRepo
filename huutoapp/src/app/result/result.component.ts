@@ -30,17 +30,14 @@ export class ResultComponent implements OnInit {
   currentRoomId!: number;
   subscription!: Subscription;
 
-  data!: any;
   subscriptionData!: Subscription;
-  labels: any = [];
+  labels: string[] = [];
 
   messageSubscription!: Subscription;
   //messageFromServer contains the data that comes from websocket messages events
   messageFromServer!: any;
 
   chart!: any;
-
-  status!: any;
 
   toDisplay = false;
 
@@ -68,35 +65,41 @@ export class ResultComponent implements OnInit {
 
   fontTheme!: string;
 
+  font!: any;
+
+  //variable that is toggled on and off depending on which
+  //chart is displayed
   chartScales = false;
 
   ngOnInit(): void {
+    //variable that blocks the user from
+    //voting again if they go to the voting view
     sessionStorage.setItem('hasVoted', '1');
 
+    //If the messageFromServer is undefined, it will be fetched contents
+    //from sessionStorage
     if (!this.AWS.messageFromServer) {
       this.AWS.messageFromServer = JSON.parse(
         sessionStorage.getItem('roomData') || '{}'
       );
     }
 
+    //function that is binded to the WebSocketservice and everytime
+    //it receives a message or in this case a vote it will invoke the binded
+    //function and update the chart
     this.AWS.bindFunction(this.updateChart.bind(this));
-
-    //on initing the result component
 
     this.messageFromServer = this.AWS.messageFromServer;
 
+    //initial push of the labels and votes for the chart
     for (let item of this.AWS.messageFromServer.Item.choices) {
       this.chartChoices.push(item.vaihtoehto);
       this.chartVotes.push(item.votes);
     }
 
+    //fontTheme of the chart depending on which mode the user has chosen
     this.fontTheme =
       (localStorage.getItem('theme') as string) == 'dark' ? 'white' : 'black';
-
-    //bind the updateChart method to a function parameter in the service
-    //and when its called the function is called and the chart is updated
-
-    // chart that displays the results of the vote in the HTML canvas component
 
     // Chart.register(...registerables);
     this.chart = new Chart('myChart', {
@@ -140,6 +143,7 @@ export class ResultComponent implements OnInit {
     });
   }
 
+  //function to change the chart type between doughnut and bar chart
   changeChartType() {
     if (this.chartType == 'bar') {
       this.chartScales = false;
@@ -206,7 +210,7 @@ export class ResultComponent implements OnInit {
   }
 
   //when the socket receives new votes this methods increments the
-  //right values in the chartVotes chart
+  //right values in the chartVotes chart and updateds it
   updateChart() {
     for (let i = 0; i < this.AWS.messageFromServer.Item.choices.length; i++) {
       if (
