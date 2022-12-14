@@ -144,9 +144,10 @@
 
     <div *ngIf="toDisplay">
       <div class="grid grid-cols-2 my-4">
-        <p class="breadtext dark:text-white">Anonymous voting</p>
+        <p class="breadtext self-center dark:text-white">Anonymous voting</p>
         <input
           type="checkbox"
+          class="checkBox justify-self-center"
           [checked]="anonymousVal"
           (change)="anonymousVal = !anonymousVal"
         />
