@@ -5,7 +5,7 @@
   <app-header class="h-2" [showRoomcode]="false"></app-header>
   <p class="h1 font-sans dark:text-white">Enter room code</p>
 
-  <form class="justify-self-center self-center">
+  <form class="grid justify-self-center self-center">
     <!-- input field for room code and inline script to set max length to four -S -->
     <input
       class="input-1 font-sans border-solid border-black border-2"
@@ -17,7 +17,12 @@
       [(ngModel)]="input1"
       [ngModelOptions]="{ standalone: true }"
     />
-    <p *ngIf="prompt" class="breadtext dark:text-white">Room not found</p>
+    <p
+      *ngIf="prompt"
+      class="breadtext justify-self-center mt-1 dark:text-white"
+    >
+      Room not found!
+    </p>
   </form>
 
   <!-- JOIN button for joining the room -S -->

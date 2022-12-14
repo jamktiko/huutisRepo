@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.showRoomcode) {
-      if (sessionStorage.getItem('roomId')) {
+      if (this.AWS.messageFromServer.Item.roomId == undefined) {
         this.roomCode = sessionStorage.getItem('roomId');
         return;
       } else {

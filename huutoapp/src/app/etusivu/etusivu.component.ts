@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebsockethandlerService } from '../AWSapi.service';
 import { Subscription } from 'rxjs';
-import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-etusivu',
   templateUrl: './etusivu.component.html',

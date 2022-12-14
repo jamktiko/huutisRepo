@@ -11,7 +11,10 @@
 
   <!-- div that holds "more results" and the arrow icon, which when clicked changes the ngIf boolean to true and shows the detailed results-->
   <!-- clicking also activates the animation on the icon -S -->
-  <div *ngIf="!messageFromServer.Item.anonymous" class="justify-self-center">
+  <div
+    *ngIf="!messageFromServer.Item.anonymous"
+    class="justify-self-center grid"
+  >
     <div
       (click)="toggleDisplay()"
       (click)="toggle()"
@@ -39,9 +42,11 @@
     <!-- ngIf div which holds the voting choice as a header and then listed the usernames which voted for that option -S -->
     <div class="grid" *ngIf="toDisplay">
       <div class="grid justify-self-center">
-        <div *ngFor="let item of messageFromServer.Item.choices">
+        <div class="ml-2" *ngFor="let item of messageFromServer.Item.choices">
           <p class="h2 dark:text-white">{{ item.vaihtoehto }}:</p>
-          <p class="breadtext dark:text-white">{{ item.names.join(", ") }}</p>
+          <p class="breadtext dark:text-white mb-2">
+            {{ item.names.join(", ") }}
+          </p>
         </div>
       </div>
     </div>
