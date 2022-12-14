@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-    APP_NAME: "huutoapp"
+    APP_NAME: "votea"
 phases:
   install:
     commands:
