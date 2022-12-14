@@ -12,8 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class UsernameComponent implements OnInit {
   currentRoomSubscr!: Subscription;
-  currentRoomId!: any;
-  data!: any;
+  currentRoomId!: string | number;
 
   constructor(
     private matDialog: MatDialog,
@@ -27,15 +26,13 @@ export class UsernameComponent implements OnInit {
       (id) => (this.currentRoomId = id)
     );
 
+    //if the socket connection is fresh because of for example a refresh
+    //the room info will be taken from sessionStorage
     if (!this.AWS.messageFromServer) {
       this.AWS.messageFromServer = JSON.parse(
         sessionStorage.getItem('roomData') || '{}'
       );
     }
-
-    //console.log(this.currentRoomId);
-
-    // this.AWS.fetchFromServer(this.currentRoomId);
   }
 
   onOpenDialogClick() {
@@ -48,11 +45,8 @@ export class UsernameComponent implements OnInit {
   //along with the users vote and it is stored in an array
   forwardName() {
     this.AWS.updateName(this.name);
-    console.log('Nimi forwardoitu');
+    sessionStorage.setItem('name', this.name);
   }
-
-  //name muuttujaan two way bindattu käyttjän syöttämä nimi, sekä mahdollinen
-  //satunnainen nimi, jos käyttäjä sellaisen valitsee
 
   //function that chooses a random name for the user if they press the "Random username" button
   rndm() {

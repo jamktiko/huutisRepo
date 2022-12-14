@@ -17,8 +17,7 @@ export class WebsockethandlerService {
   status: any;
 
   hasVoted: boolean = false;
-  hasReconnected:boolean = false;
-
+  hasReconnected: boolean = false;
 
   chartVotes: string[] = [];
 
@@ -36,12 +35,9 @@ export class WebsockethandlerService {
   createObservableSocket(): Observable<any> {
     this.ws = new WebSocket(environment.API_ENDPOINT);
 
-    //console.log(this.ws.readyState);
-
     return new Observable((observer) => {
       this.ws.onmessage = function (event) {
         observer.next(event.data);
-        console.log(event.data);
       };
 
       this.ws.onerror = (event) => observer.error(event);
@@ -79,7 +75,6 @@ export class WebsockethandlerService {
     //console.log(this.ws.readyState);
     if (this.ws.readyState === this.socketIsOpen) {
       this.ws.send(message);
-      console.log(`Sent to server ${message}`);
     } else {
       console.log('Message was not sent - the socket is closed');
     }

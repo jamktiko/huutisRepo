@@ -31,24 +31,34 @@ export class VoteComponent implements OnInit {
   ngOnInit(): void {
     this.AWS.bindFunction(this.getRoomData.bind(this));
 
-    console.log(this.AWS.wsSubscription);
+    //If the messageFromServer is undefined, it will be fetched contents
+    //from sessionStorage
     if (!this.AWS.messageFromServer) {
       this.AWS.messageFromServer = JSON.parse(
         sessionStorage.getItem('roomData') || '{}'
       );
     }
 
+    //if the connection is not defined the socket connection is initialized
     if (this.AWS.wsSubscription === undefined) {
       this.AWS.initSocket();
       this.AWS.hasReconnected = true;
     }
 
+    //assigning the variable data from a service to the component locally
+    //that they can be used in the HTML
     this.messageFromServer = this.AWS.messageFromServer;
 
+    //Assigning the voteLimit from the server to the variable locally
     this.voteLimit = this.AWS.messageFromServer.Item.votelimit;
+
     this.currrentNameSubscr = this.AWS.currentName.subscribe(
       (name) => (this.currentName = name)
     );
+
+    if (this.currentName == 1234) {
+      this.currentName = sessionStorage.getItem('name');
+    }
   }
 
   disableButton(event: any) {
@@ -58,7 +68,6 @@ export class VoteComponent implements OnInit {
   sendVote(index: any, id: any) {
     if (sessionStorage.getItem('hasVoted') !== '1') {
       this.votes += 1;
-      console.log(this.votes);
       const msg: {
         roomId: string;
         action: string;
@@ -71,8 +80,9 @@ export class VoteComponent implements OnInit {
         name: this.currentName,
       };
       this.status = this.AWS.sendMessage(JSON.stringify(msg));
-      console.log(JSON.stringify(msg));
       if (this.AWS.messageFromServer.Item.votelimit == this.votes) {
+        //if the user has reconnected, it will save the new connection to
+        //Dynamo using this IF clause
         if (this.AWS.hasReconnected) {
           this.AWS.saveConnection(
             JSON.parse(sessionStorage.getItem('roomData') || '{}').Item.roomId
@@ -82,6 +92,8 @@ export class VoteComponent implements OnInit {
     }
   }
 
+  //if the user has refreshed the page this function will save the new connectionId
+  //of the user to DynamoDB
   checkReconnect() {
     if (this.AWS.hasReconnected) {
       this.AWS.saveConnection(
@@ -90,6 +102,9 @@ export class VoteComponent implements OnInit {
     }
   }
 
+  //function that is binded to the random voting button. Function checks
+  //the amount of votes that the user has left and what he has voted for
+  //then votes randomly from the options that the user hasn't voted yet
   random() {
     let arr: any = [];
     for (
@@ -110,7 +125,6 @@ export class VoteComponent implements OnInit {
       if (!arr.includes(idx)) {
         this.sendVote(idx, this.AWS.messageFromServer.Item.roomId);
         arr.push(idx);
-        console.log(arr);
       }
     }
   }
@@ -126,6 +140,11 @@ export class VoteComponent implements OnInit {
       this.messageFromServer.Item === undefined ||
       this.messageFromServer.Item.roomId != sessionStorage.getItem('roomId')
     ) {
+      this.messageFromServer = this.AWS.messageFromServer;
+      sessionStorage.setItem(
+        'roomData',
+        JSON.stringify(this.AWS.messageFromServer)
+      );
       this.ngOnInit();
     }
   }
