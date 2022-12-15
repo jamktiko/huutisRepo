@@ -4,13 +4,16 @@
   <p class="breadtext font-sans mb-3">{{ inviteLink }}</p>
 </mat-dialog-content>
 <!-- button that closes the dialog -S -->
-<mat-dialog-actions>
-  <button class="button-1 button-text font-sans mr-1" mat-dialog-close>
+<mat-dialog-actions class="flex flex-row justify-evenly">
+  <button
+    class="button-1 font-sans mr-1 uppercase text-lg font-semibold"
+    mat-dialog-close
+  >
     Close
   </button>
   <button
     (click)="copyToClipboard()"
-    class="button-1 button-text font-sans underline"
+    class="button-1 font-sans underline uppercase text-lg font-semibold"
   >
     Copy
   </button>
